@@ -1,0 +1,1790 @@
+{
+  "page1993average": {
+    "DOI": "10.1103/physrevlett.71.1291",
+    "title": [
+      "Average entropy of a subsystem"
+    ],
+    "container-title": [
+      "Physical Review Letters"
+    ],
+    "volume": "71",
+    "issue": "9",
+    "page": "1291-1294",
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          1993,
+          8,
+          30
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          1993,
+          8,
+          30
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Don N.",
+        "family": "Page",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1103/physrevlett.71.1291"
+  },
+  "popescu2006foundations": {
+    "DOI": "10.1038/nphys444",
+    "title": [
+      "Entanglement and the foundations of statistical mechanics"
+    ],
+    "container-title": [
+      "Nature Physics"
+    ],
+    "volume": "2",
+    "issue": "11",
+    "page": "754-758",
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          2006,
+          10,
+          29
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2006,
+          11
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2006,
+          10,
+          29
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Sandu",
+        "family": "Popescu",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Anthony J.",
+        "family": "Short",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andreas",
+        "family": "Winter",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1038/nphys444"
+  },
+  "bravyi2006locality": {
+    "DOI": "10.1103/physrevlett.97.050401",
+    "title": [
+      "Lieb-Robinson Bounds and the Generation of Correlations and Topological Quantum Order"
+    ],
+    "container-title": [
+      "Physical Review Letters"
+    ],
+    "volume": "97",
+    "issue": "5",
+    "page": null,
+    "article-number": "050401",
+    "published": {
+      "date-parts": [
+        [
+          2006,
+          7,
+          31
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          2006,
+          7,
+          31
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "S.",
+        "family": "Bravyi",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "M. B.",
+        "family": "Hastings",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "F.",
+        "family": "Verstraete",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1103/physrevlett.97.050401"
+  },
+  "vidal2004tebd": {
+    "DOI": "10.1103/physrevlett.93.040502",
+    "title": [
+      "Efficient Simulation of One-Dimensional Quantum Many-Body Systems"
+    ],
+    "container-title": [
+      "Physical Review Letters"
+    ],
+    "volume": "93",
+    "issue": "4",
+    "page": null,
+    "article-number": "040502",
+    "published": {
+      "date-parts": [
+        [
+          2004,
+          7,
+          19
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          2004,
+          7,
+          19
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Guifré",
+        "family": "Vidal",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1103/physrevlett.93.040502"
+  },
+  "schollwock2011mps": {
+    "DOI": "10.1016/j.aop.2010.09.012",
+    "title": [
+      "The density-matrix renormalization group in the age of matrix product states"
+    ],
+    "container-title": [
+      "Annals of Physics"
+    ],
+    "volume": "326",
+    "issue": "1",
+    "page": "96-192",
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          2011,
+          1
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2011,
+          1
+        ]
+      ]
+    },
+    "published-online": null,
+    "author": [
+      {
+        "given": "Ulrich",
+        "family": "Schollwöck",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1016/j.aop.2010.09.012"
+  },
+  "haegeman2016tdvp": {
+    "DOI": "10.1103/physrevb.94.165116",
+    "title": [
+      "Unifying time evolution and optimization with matrix product states"
+    ],
+    "container-title": [
+      "Physical Review B"
+    ],
+    "volume": "94",
+    "issue": "16",
+    "page": null,
+    "article-number": "165116",
+    "published": {
+      "date-parts": [
+        [
+          2016,
+          10,
+          10
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          2016,
+          10,
+          10
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Jutho",
+        "family": "Haegeman",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Christian",
+        "family": "Lubich",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ivan",
+        "family": "Oseledets",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Bart",
+        "family": "Vandereycken",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Frank",
+        "family": "Verstraete",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1103/physrevb.94.165116"
+  },
+  "dziarmaga2005ising": {
+    "DOI": "10.1103/physrevlett.95.245701",
+    "title": [
+      "Dynamics of a Quantum Phase Transition: Exact Solution of the Quantum Ising Model"
+    ],
+    "container-title": [
+      "Physical Review Letters"
+    ],
+    "volume": "95",
+    "issue": "24",
+    "page": null,
+    "article-number": "245701",
+    "published": {
+      "date-parts": [
+        [
+          2005,
+          12,
+          9
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          2005,
+          12,
+          9
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Jacek",
+        "family": "Dziarmaga",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1103/physrevlett.95.245701"
+  },
+  "heyl2013dqpt": {
+    "DOI": "10.1103/physrevlett.110.135704",
+    "title": [
+      "Dynamical Quantum Phase Transitions in the Transverse-Field Ising Model"
+    ],
+    "container-title": [
+      "Physical Review Letters"
+    ],
+    "volume": "110",
+    "issue": "13",
+    "page": null,
+    "article-number": "135704",
+    "published": {
+      "date-parts": [
+        [
+          2013,
+          3,
+          28
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          2013,
+          3,
+          28
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "M.",
+        "family": "Heyl",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "A.",
+        "family": "Polkovnikov",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "S.",
+        "family": "Kehrein",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1103/physrevlett.110.135704"
+  },
+  "heyl2018review": {
+    "DOI": "10.1088/1361-6633/aaaf9a",
+    "title": [
+      "Dynamical quantum phase transitions: a review"
+    ],
+    "container-title": [
+      "Reports on Progress in Physics"
+    ],
+    "volume": "81",
+    "issue": "5",
+    "page": "054001",
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          2018,
+          4,
+          5
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2018,
+          5,
+          1
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2018,
+          4,
+          5
+        ]
+      ]
+    },
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-7126-1836",
+        "authenticated-orcid": false,
+        "given": "Markus",
+        "family": "Heyl",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1088/1361-6633/aaaf9a"
+  },
+  "tran2020hierarchy": {
+    "DOI": "10.1103/physrevx.10.031009",
+    "title": [
+      "Hierarchy of Linear Light Cones with Long-Range Interactions"
+    ],
+    "container-title": [
+      "Physical Review X"
+    ],
+    "volume": "10",
+    "issue": "3",
+    "page": null,
+    "article-number": "031009",
+    "published": {
+      "date-parts": [
+        [
+          2020,
+          7,
+          13
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          2020,
+          7,
+          13
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Minh C.",
+        "family": "Tran",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5589-7896",
+        "authenticated-orcid": true,
+        "given": "Chi-Fang",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-3167-6519",
+        "authenticated-orcid": true,
+        "given": "Adam",
+        "family": "Ehrenberg",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andrew Y.",
+        "family": "Guo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-6114-1830",
+        "authenticated-orcid": true,
+        "given": "Abhinav",
+        "family": "Deshpande",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yifan",
+        "family": "Hong",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhe-Xuan",
+        "family": "Gong",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-0509-3421",
+        "authenticated-orcid": true,
+        "given": "Alexey V.",
+        "family": "Gorshkov",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andrew",
+        "family": "Lucas",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1103/physrevx.10.031009"
+  },
+  "kaufman2016thermalization": {
+    "DOI": "10.1126/science.aaf6725",
+    "title": [
+      "Quantum thermalization through entanglement in an isolated many-body system"
+    ],
+    "container-title": [
+      "Science"
+    ],
+    "volume": "353",
+    "issue": "6301",
+    "page": "794-800",
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          2016,
+          8,
+          19
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2016,
+          8,
+          19
+        ]
+      ]
+    },
+    "published-online": null,
+    "author": [
+      {
+        "given": "Adam M.",
+        "family": "Kaufman",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Harvard University, Cambridge, MA 02138, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "M. Eric",
+        "family": "Tai",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Harvard University, Cambridge, MA 02138, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Alexander",
+        "family": "Lukin",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Harvard University, Cambridge, MA 02138, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Matthew",
+        "family": "Rispoli",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Harvard University, Cambridge, MA 02138, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Robert",
+        "family": "Schittko",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Harvard University, Cambridge, MA 02138, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Philipp M.",
+        "family": "Preiss",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Harvard University, Cambridge, MA 02138, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Markus",
+        "family": "Greiner",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Harvard University, Cambridge, MA 02138, USA."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1126/science.aaf6725"
+  },
+  "cheneau2012lightcone": {
+    "DOI": "10.1038/nature10748",
+    "title": [
+      "Light-cone-like spreading of correlations in a quantum many-body system"
+    ],
+    "container-title": [
+      "Nature"
+    ],
+    "volume": "481",
+    "issue": "7382",
+    "page": "484-487",
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          2012,
+          1
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2012,
+          1
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2012,
+          1,
+          25
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Marc",
+        "family": "Cheneau",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Peter",
+        "family": "Barmettler",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Dario",
+        "family": "Poletti",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Manuel",
+        "family": "Endres",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Peter",
+        "family": "Schauß",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Takeshi",
+        "family": "Fukuhara",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Christian",
+        "family": "Gross",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Immanuel",
+        "family": "Bloch",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Corinna",
+        "family": "Kollath",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Stefan",
+        "family": "Kuhr",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1038/nature10748"
+  },
+  "bernien2017simulator": {
+    "DOI": "10.1038/nature24622",
+    "title": [
+      "Probing many-body dynamics on a 51-atom quantum simulator"
+    ],
+    "container-title": [
+      "Nature"
+    ],
+    "volume": "551",
+    "issue": "7682",
+    "page": "579-584",
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          2017,
+          11,
+          30
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2017,
+          11,
+          30
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2017,
+          11,
+          30
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Hannes",
+        "family": "Bernien",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sylvain",
+        "family": "Schwartz",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Alexander",
+        "family": "Keesling",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Harry",
+        "family": "Levine",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ahmed",
+        "family": "Omran",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Hannes",
+        "family": "Pichler",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Soonwon",
+        "family": "Choi",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Alexander S.",
+        "family": "Zibrov",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Manuel",
+        "family": "Endres",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Markus",
+        "family": "Greiner",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Vladan",
+        "family": "Vuletić",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mikhail D.",
+        "family": "Lukin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1038/nature24622"
+  },
+  "brydges2019renyi": {
+    "DOI": "10.1126/science.aau4963",
+    "title": [
+      "Probing Rényi entanglement entropy via randomized measurements"
+    ],
+    "container-title": [
+      "Science"
+    ],
+    "volume": "364",
+    "issue": "6437",
+    "page": "260-263",
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          2019,
+          4,
+          19
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2019,
+          4,
+          19
+        ]
+      ]
+    },
+    "published-online": null,
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-5239-9752",
+        "authenticated-orcid": true,
+        "given": "Tiff",
+        "family": "Brydges",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1444-6356",
+        "authenticated-orcid": true,
+        "given": "Andreas",
+        "family": "Elben",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1234-6386",
+        "authenticated-orcid": true,
+        "given": "Petar",
+        "family": "Jurcevic",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-6781-2079",
+        "authenticated-orcid": true,
+        "given": "Benoît",
+        "family": "Vermersch",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5633-8607",
+        "authenticated-orcid": true,
+        "given": "Christine",
+        "family": "Maier",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7379-4572",
+        "authenticated-orcid": true,
+        "given": "Ben P.",
+        "family": "Lanyon",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4014-1505",
+        "authenticated-orcid": true,
+        "given": "Peter",
+        "family": "Zoller",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-3122-2461",
+        "authenticated-orcid": true,
+        "given": "Rainer",
+        "family": "Blatt",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-7121-8259",
+        "authenticated-orcid": true,
+        "given": "Christian F.",
+        "family": "Roos",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Center for Quantum Physics and Institute for Experimental Physics, University of Innsbruck, Innsbruck, Austria."
+          },
+          {
+            "name": "Institute for Quantum Optics and Quantum Information, Austrian Academy of Sciences, Innsbruck, Austria."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1126/science.aau4963"
+  },
+  "chen2026gauge": {
+    "DOI": "10.1007/jhep10(2026)137",
+    "title": [
+      "Local thermalization of SU(2) lattice gauge fields on quantum computers"
+    ],
+    "container-title": [
+      "Journal of High Energy Physics"
+    ],
+    "volume": "2026",
+    "issue": "10",
+    "page": null,
+    "article-number": "137",
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          10,
+          12
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          2026,
+          10,
+          12
+        ]
+      ]
+    },
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-8650-9371",
+        "authenticated-orcid": false,
+        "given": "Jiunn-Wei",
+        "family": "Chen",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/05bqach95",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "National Taiwan University"
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh1d616",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Physics Division, National Center for Theoretical Sciences"
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/00cvxb145",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "University of Washington"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0001-0308-2545",
+        "authenticated-orcid": false,
+        "given": "Yu-Ting",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/05bqach95",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "National Taiwan University"
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh1d616",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Physics Division, National Center for Theoretical Sciences"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4549-7922",
+        "authenticated-orcid": false,
+        "given": "Ghanashyam",
+        "family": "Meher",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/05bqach95",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "National Taiwan University"
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh1d616",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Physics Division, National Center for Theoretical Sciences"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-2468-3996",
+        "authenticated-orcid": false,
+        "given": "Berndt",
+        "family": "Müller",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/00py81415",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Duke University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1171-0078",
+        "authenticated-orcid": false,
+        "given": "Andreas",
+        "family": "Schäfer",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/01eezs655",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Universität Regensburg"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8377-2203",
+        "authenticated-orcid": false,
+        "given": "Xiaojun",
+        "family": "Yao",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/00cvxb145",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "University of Washington"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1007/jhep10(2026)137"
+  },
+  "berges2017fixedpoints": {
+    "DOI": "10.1103/physrevd.95.036016",
+    "title": [
+      "Nonthermal fixed points in quantum field theory beyond the weak-coupling limit"
+    ],
+    "container-title": [
+      "Physical Review D"
+    ],
+    "volume": "95",
+    "issue": "3",
+    "page": null,
+    "article-number": "036016",
+    "published": {
+      "date-parts": [
+        [
+          2017,
+          2,
+          22
+        ]
+      ]
+    },
+    "published-print": null,
+    "published-online": {
+      "date-parts": [
+        [
+          2017,
+          2,
+          22
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Jürgen",
+        "family": "Berges",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Benjamin",
+        "family": "Wallisch",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1103/physrevd.95.036016"
+  },
+  "sels2017counterdiabatic": {
+    "DOI": "10.1073/pnas.1619826114",
+    "title": [
+      "Minimizing irreversible losses in quantum systems by local counterdiabatic driving"
+    ],
+    "container-title": [
+      "Proceedings of the National Academy of Sciences"
+    ],
+    "volume": "114",
+    "issue": "20",
+    "page": null,
+    "article-number": null,
+    "published": {
+      "date-parts": [
+        [
+          2017,
+          5
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2017,
+          5,
+          16
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2017,
+          5
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Dries",
+        "family": "Sels",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Boston University, Boston, MA 02215;"
+          },
+          {
+            "name": "Theory of Quantum and Complex Systems, Universiteit Antwerpen, B-2610 Antwerpen, Belgium"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Anatoli",
+        "family": "Polkovnikov",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Physics, Boston University, Boston, MA 02215;"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "URL": "https://doi.org/10.1073/pnas.1619826114"
+  }
+}

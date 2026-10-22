@@ -1,0 +1,388 @@
+# Linear response and the meaning of transport {#sec-linear-response}
+
+A density profile broadens after a quench. A current flows between two reservoirs.
+An equilibrium current autocorrelation decays. Under suitable limits these are
+three measurements of the same transport coefficient, but they are not
+interchangeable at arbitrary bias, time, or system size. This chapter derives
+their relation and explains what a ballistic contribution means.
+
+We assume undergraduate quantum mechanics and thermal density matrices. Units
+are $\hbar=k_B=1$, and spin operators mean $S^a=\sigma^a/2$. A *susceptibility*
+is a change in an observable per weak applied field. *Linear response* keeps
+only the first power of that field. All equilibrium averages below are connected
+when the observable has a nonzero mean.
+
+## Deriving the retarded response
+
+Start with $\rho_0=e^{-\beta H_0}/Z$ and perturb
+$H(t)=H_0-f(t)B$. In the interaction picture, $B_I(t)=e^{iH_0t}Be^{-iH_0t}$
+and the density matrix satisfies
+
+$$
+\dot\rho_I=-i[-f(t)B_I(t),\rho_I].
+$$
+
+To first order, replace $\rho_I$ inside the right side by $\rho_0$ and integrate
+from the remote past:
+$\delta\rho_I(t)=i\int_{-\infty}^tdt' f(t')[B_I(t'),\rho_0]$.
+Taking a trace with $A_I(t)$, and using cyclicity, gives
+
+$$
+\delta\langle A(t)\rangle
+=\int_{-\infty}^{\infty}dt'\,\chi_{AB}(t-t')f(t'),
+\qquad
+\chi_{AB}(t)=i\theta(t)\langle[A(t),B(0)]\rangle_0.
+$$ {#eq-response-kubo}
+
+The step function enforces causality: a later perturbation cannot affect an
+earlier measurement. Our sign follows the explicit coupling **$-fB$**.
+A convention using $+fB$ and $-i\theta[A,B]$ describes the same physics with
+the conjugate field reversed. Reporting the coupling prevents a common sign
+ambiguity.
+
+Causality makes $\chi(\omega)=\int dt\,e^{i\omega t}\chi(t)$ analytic for
+$\operatorname{Im}\omega>0$. Its real and imaginary parts are consequently
+related by dispersion relations. With this convention $\chi''_{AA}(\omega)$
+is nonnegative for $\omega>0$ in a passive thermal state: absorption requires
+positive energy. “Passive” means that a cyclic weak drive cannot extract net
+work from equilibrium.
+
+A forced harmonic oscillator supplies a direct sign check. For
+$H_0=p^2/(2m)+m\omega_0^2x^2/2$ and perturbation $-f(t)x$,
+$x(t)=x\cos\omega_0t+p\sin\omega_0t/(m\omega_0)$.
+Using $[x,p]=i$ gives
+$[x(t),x]=-i\sin(\omega_0t)/(m\omega_0)$, hence
+$\chi_{xx}(t)=\theta(t)\sin(\omega_0t)/(m\omega_0)$.
+Its retarded Fourier transform is
+$[m(\omega_0^2-(\omega+i0^+)^2)]^{-1}$.
+At zero frequency the displacement is $\delta x=f/(m\omega_0^2)$, in the
+same direction as the force. This check catches an inconsistent response sign
+without relying on a remembered convention. The poles lie just below the real
+axis and the positive-frequency absorption weight is positive, checking
+causality and passivity simultaneously.
+
+## Spectral representation and fluctuation–dissipation
+
+Let $H_0|n\rangle=E_n|n\rangle$ and $p_n=e^{-\beta E_n}/Z$. Insert complete
+energy eigenstates into the commutator. The two orderings differ by exchanging
+$n$ and $m$; their coefficient becomes $p_n-p_m$. The regulated time integral
+then gives
+
+$$
+\chi_{AB}(\omega)=\sum_{nm}
+\frac{(p_n-p_m)A_{nm}B_{mn}}
+{E_m-E_n-\omega-i0^+}.
+$$ {#eq-response-lehmann}
+
+The infinitesimal selects the retarded boundary condition. For $A=B=A^\dagger$,
+using $\operatorname{Im}(x-i0^+)^{-1}=\pi\delta(x)$ yields
+
+$$
+\chi''_{AA}(\omega)=\pi\sum_{nm}(p_n-p_m)|A_{nm}|^2
+\delta[\omega-(E_m-E_n)].
+$$
+
+Define the unsymmetrized fluctuation spectrum
+$S_{AA}(\omega)=\int dt\,e^{i\omega t}\langle A(t)A(0)\rangle_c$.
+Its spectral weight is $2\pi p_n|A_{nm}|^2$ at positive energy transfer
+$\omega=E_m-E_n$. On that delta function,
+$p_m=e^{-\beta\omega}p_n$, so
+
+$$
+\chi''_{AA}(\omega)=\frac{1-e^{-\beta\omega}}{2}S_{AA}(\omega).
+$$ {#eq-response-fdt}
+
+For the symmetrized spectrum
+$S^{\mathrm{sym}}=[S(\omega)+S(-\omega)]/2$, this is
+$S^{\mathrm{sym}}=\coth(\beta\omega/2)\chi''$.
+At small $\beta\omega$, fluctuations are approximately classical and
+$S^{\mathrm{sym}}\simeq2T\chi''/\omega$. At larger frequency the distinction
+between absorbing and emitting energy is essential. The equilibrium relation
+cannot be imposed on an arbitrary driven steady state merely because its
+correlations look smooth. The foundational response construction is due to
+@kubo1957response.
+
+For numerical work, a finite system has a discrete spectral measure. Replacing
+delta functions by Lorentzians of width $\eta$ produces a plot, not a new
+physical scattering mechanism. A meaningful dc extrapolation must vary $L$ and
+$\eta$ together, respecting the finite-size level and transport scales.
+
+## Diffusive response and the Einstein relation
+
+Let $n$ be a conserved density coupled to chemical potential $\mu$. Write
+$\chi_\mu=\partial n/\partial\mu$. A local equilibrium density shift is
+$\delta n_{\mathrm{eq}}=\chi_\mu\delta\mu$.
+The current must vanish if the actual profile equals that equilibrium profile,
+which fixes the linear constitutive relation
+
+$$
+j=-D\partial_x\delta n+D\chi_\mu\partial_x\delta\mu.
+$$
+
+Combining it with continuity and Fourier transforming in space and time gives
+
+$$
+\chi_{nn}(k,\omega)=\chi_\mu\frac{Dk^2}{Dk^2-i\omega}.
+$$ {#eq-response-diffusive-pole}
+
+The denominator is the *diffusion pole*: a mode with wave number $k$ relaxes at
+rate $Dk^2$. The numerator enforces conservation. At $k=0$, a time-dependent
+uniform potential cannot change the total charge in a closed system. Taking
+$\omega\to0$ first at nonzero $k$ gives the thermodynamic susceptibility;
+taking $k\to0$ first gives zero. These limits differ for a physical reason.
+
+Define the generalized force $F=-\partial_x\mu$ for transport between locally
+prepared reservoirs, and write $j=\sigma_{\mathrm{dc}}F$.
+The resulting Einstein relation is
+
+$$
+\sigma_{\mathrm{dc}}=D\chi_\mu.
+$$ {#eq-response-einstein}
+
+The earlier external field in the diffusion equation enters with the opposite
+sign to an internally prepared chemical-potential gradient; the static external
+potential cancels the gradient rather than creating a current. Distinguishing
+these setups removes another apparent sign paradox.
+
+If a dimensionless field $\lambda=\beta\mu$ is used instead, its susceptibility
+is $\chi_\lambda=T\chi_\mu$. At infinite temperature,
+$\chi_\mu\to0$ while $\chi_\lambda$ stays finite. Papers often report the
+reduced conductivity $T\sigma$, or normalize the current with $\lambda$.
+Always check these conventions before comparing diffusion constants.
+
+## Current correlations and ballistic weight
+
+For a lattice with total current $J=\sum_xj_x$, the dissipative conductivity at
+nonzero frequency can be written
+
+$$
+\operatorname{Re}\sigma(\omega)
+=\frac{1-e^{-\beta\omega}}{2\omega L}
+\int_{-\infty}^{\infty}dt\,e^{i\omega t}\langle J(t)J(0)\rangle.
+$$ {#eq-response-conductivity}
+
+For electromagnetic response, a lattice vector-potential derivation must also
+include the diamagnetic contact term; treating a density-gradient protocol is
+a convenient way to isolate dissipative transport without hiding that issue.
+Zero-frequency singularities require careful limiting definitions.
+
+Use the convention
+
+$$
+\operatorname{Re}\sigma(\omega)
+=2\pi\mathcal D\,\delta(\omega)+\sigma_{\mathrm{reg}}(\omega).
+$$ {#eq-response-drude}
+
+The *Drude weight* $\mathcal D$ measures a persistent current component. If the
+thermodynamic equilibrium current correlation tends to a constant $C_\infty$,
+then, under the corresponding bulk limits,
+$\mathcal D=\beta C_\infty/(2L)$. The factor two belongs to the chosen
+$2\pi\mathcal D$ convention. A nonzero Drude weight is ballistic transport.
+A vanishing Drude weight does not establish diffusion: superdiffusion,
+subdiffusion, or insulating behavior are also possible.
+
+When the current correlation is integrable and the Drude term vanishes,
+the dc Green–Kubo relation is
+
+$$
+\sigma_{\mathrm{dc}}=\frac{\beta}{L}
+\int_0^\infty dt\,\operatorname{Re}\langle J(t)J(0)\rangle.
+$$ {#eq-response-green-kubo}
+
+The thermodynamic limit must precede recurrence-sensitive long times. Combining
+with @eq-response-einstein relates the integrated equilibrium current correlation
+to density spreading. If the integral grows with its upper cutoff, a finite
+constant $D$ is not yet justified.
+
+## A projection derivation of the Mazur bound
+
+Why can an interacting system retain current? Part of the current may overlap
+with operators that cannot evolve. This becomes a geometric statement in
+operator space. Define the positive Kubo–Mori inner product
+
+$$
+(A,B)_\beta=\frac1\beta\int_0^\beta d\tau\,
+\langle A^\dagger(-i\tau)B\rangle_c.
+$$ {#eq-response-inner-product}
+
+At infinite temperature it reduces to the normalized Hilbert–Schmidt product
+$\operatorname{Tr}(A^\dagger B)/\dim\mathcal H$ after subtracting means.
+Let $Q_a$ be conserved, centered operators. Their Gram matrix is
+$C_{ab}=(Q_a,Q_b)_\beta$. If they are linearly independent, $C$ is invertible.
+The orthogonal projection of the current is
+
+$$
+J_\parallel=\sum_{ab}Q_a(C^{-1})_{ab}(Q_b,J)_\beta,
+\qquad J=J_\parallel+J_\perp.
+$$
+
+Because $J_\parallel$ is conserved and the two parts are orthogonal,
+the time-averaged current autocorrelation is at least
+$(J_\parallel,J_\parallel)_\beta$. The remaining time-averaged norm is
+nonnegative, as seen by resolving energy differences. Therefore
+
+$$
+\mathcal D\geq\frac{\beta}{2L}
+\sum_{ab}(J,Q_a)_\beta(C^{-1})_{ab}(Q_b,J)_\beta.
+$$ {#eq-response-mazur}
+
+This is a Mazur bound [@mazur1969bound]. It is a lower bound, not generally an
+equality for an incomplete charge set. A zero bound says that the chosen
+charges miss a persistent component or that none exists; it does not choose
+between those alternatives. Symmetry can force overlaps to vanish even in an
+integrable system. Quasilocal charges, whose density norms decay with spatial
+support, can supply overlaps missed by familiar short-range charges.
+
+## Worked example: the free XX chain
+
+Under Jordan–Wigner transformation, the XX chain becomes free fermions with
+hopping $J/2$ and dispersion $\epsilon(k)=J\cos k$. Its group velocity is
+$v(k)=\partial_k\epsilon=-J\sin k$. The conserved occupation numbers are
+$n_k=c_k^\dagger c_k$, and the total particle-number current is
+$J_{\mathrm{tot}}=\sum_kv(k)n_k$. In the convention $S^z=1/2-n$, the
+spin current is its negative. Their autocorrelations and Drude weights are
+identical. Both currents commute with the Hamiltonian.
+Thus the entire current is persistent.
+
+At infinite temperature and half filling,
+$\langle\delta n_k\delta n_q\rangle=\delta_{kq}/4$. In the large-$L$ limit,
+
+$$
+\frac{\langle J_{\mathrm{tot}}^2\rangle}{L}
+=\frac14\int_{-\pi}^{\pi}\frac{dk}{2\pi}J^2\sin^2k
+=\frac{J^2}{8},\qquad
+\lim_{T\to\infty}T\mathcal D=\frac{J^2}{16}.
+$$ {#eq-response-xx-drude}
+
+There is no finite diffusive coefficient in this ideal isolated model. Adding
+weak dephasing changes the problem: momentum occupations relax and a finite
+conductivity may emerge. The order of weak-scattering and long-time limits
+then matters.
+
+## How to compare three transport protocols
+
+For equilibrium dynamics, compute $C(x,t)$ or the current integral. For a weak
+step in $\lambda$, linear response relates the ensuing profile to equilibrium
+correlations. The bias must be small enough that changing it rescales the signal
+without changing its normalized shape. For a boundary-driven chain, solve a
+master equation and measure the steady current versus size. A diffusive bulk
+with fixed small density difference gives $j\propto L^{-1}$ after contact
+resistances are negligible; a ballistic bulk can give a size-independent current.
+
+A finite bias can prepare states far from the equilibrium sector of interest.
+The strongly driven exact XXZ NESS in @prosen2011ness illustrates why its
+size dependence must not be substituted automatically for the infinite-temperature
+linear-response exponent. The exactly solvable dephased XX model in
+@znidaric2011dephasing instead provides a valuable controlled laboratory for
+boundary gradients and bulk scattering. A master equation also has its own bath
+model assumptions; thermodynamic consistency should be checked when reservoirs
+are interpreted as thermal baths.
+
+A minimal Julia consistency check builds $H$ and $J$ in one magnetization
+sector, diagonalizes $H$, and compares the spectral sum in
+@eq-response-conductivity with direct $\operatorname{Tr}[J(t)J]/\dim\mathcal H$.
+First verify Hermiticity, $[H,Q]=0$, and the local continuity identity. Compare
+sectors carefully: fixed-charge ensembles suppress global charge fluctuations
+but can approach grand-canonical local results in a suitable thermodynamic limit.
+
+## Nearly conserved currents and the singular weak-scattering limit
+
+A transparent interpolation between ballistic and diffusive response is a
+current that is exactly conserved at $g=0$ but decays slowly for $g\neq0$.
+Suppose, over a controlled window, its equilibrium autocorrelation is
+$\langle J(t)J(0)\rangle/L=Ae^{-\gamma|t|}$.
+Substitution into the high-temperature current formula gives
+
+$$
+\operatorname{Re}\sigma(\omega)
+=\beta A\frac{\gamma}{\gamma^2+\omega^2},\qquad
+\sigma_{\mathrm{dc}}=\frac{\beta A}{\gamma}.
+$$ {#eq-response-broadened-drude}
+
+The integrated spectral weight is $\pi\beta A$, independent of $\gamma$.
+As $\gamma\to0^+$, the Lorentzian tends to $\pi\beta A\delta(\omega)$,
+recovering the convention $\mathcal D=\beta A/2$. At any fixed nonzero
+$\gamma$, the strict long-time current vanishes; at times short compared with
+$\gamma^{-1}$, it appears persistent. This example makes the noncommuting
+weak-scattering and long-time limits explicit.
+
+A *memory matrix* approach generalizes this idea by projecting onto several
+nearly conserved operators. Their equilibrium overlaps provide the static
+matrix, while correlations of their weak time derivatives determine relaxation
+kernels. Replacing those kernels by constants is a Markov approximation and
+produces a matrix of decay rates. One should include all comparably slow
+operators: eliminating an almost conserved mode can make the remaining memory
+strongly frequency dependent. The single exponential above is a useful benchmark,
+not an automatic form for weakly nonintegrable spin chains.
+
+A simple check uses the driven hydrodynamic equation for a uniform current,
+$\dot j+\gamma j=\mathcal W F(t)$, with response weight
+$\mathcal W=\beta A$. A sinusoidal force gives
+$\sigma(\omega)=\mathcal W/(\gamma-i\omega)$. Its real part reproduces
+@eq-response-broadened-drude, while its imaginary part is odd in frequency.
+The pole lies at $\omega=-i\gamma$, in the lower half-plane as required by
+causality. A numerically fitted response with the pole in the upper half-plane
+would describe an instability or a sign error, not passive relaxation.
+
+The same crossover appears in a density packet. For times much shorter than
+the scattering time, quasiparticles propagate approximately ballistically. At
+later times, repeated direction randomization can yield diffusion with
+$D\sim v^2/\gamma$, up to dimensional and angular factors. This kinetic estimate
+must not be mistaken for a rigorous coefficient in a strongly correlated system.
+It explains why both long observation times and long systems are needed near
+integrability: the mean free path grows as the scattering rate shrinks. A chain
+shorter than that mean free path can look ballistic even when its eventual bulk
+transport is diffusive.
+
+## Research bridges and open questions
+
+@prosen2011drude showed that boundary-driven matrix product constructions can
+reveal pseudolocal conservation laws and rigorous high-temperature lower bounds
+on ballistic XXZ transport. The methodological lesson is that a dissipative
+calculation can discover structure in a closed Hamiltonian. Reproduce the
+projection inequality first with numerically known conserved operators; only
+then attempt the infinite auxiliary-space construction.
+
+The broad review @bertini2021transport connects exact charges, numerical
+methods, and experimentally relevant chains. It is a map for deciding which
+observable and limit a paper actually establishes. Near integrability, the
+relaxation of nearly conserved charges introduces long crossovers; the 2026
+preprint @santra2026crossover studies that crossover within a relaxation-time
+collision model. Its transport coefficients are predictions of that collision
+approximation, not universal microscopic coefficients for every perturbation.
+Deriving controlled collision kernels and their slowest eigenmodes remains a
+concrete route from integrable transport to ordinary hydrodynamics.
+
+## Exercises and selected solutions
+
+1. Starting from $H'=-fB$, derive @eq-response-kubo and track its sign. Repeat
+   for a harmonic oscillator forced by $-f x$ and check the static response.
+2. Derive detailed balance $S(-\omega)=e^{-\beta\omega}S(\omega)$ and show that
+   @eq-response-fdt implies positive absorbed power at positive frequency.
+3. Derive the Mazur bound for two nonorthogonal conserved charges. Show that
+   changing their basis by an invertible matrix leaves the bound unchanged.
+4. Evaluate @eq-response-xx-drude at filling $\nu\neq1/2$ in an infinite-temperature
+   ensemble with a chemical-potential multiplier.
+5. A current correlator per unit length behaves as $A t^{-2/3}$ over an
+   increasing window. Determine the apparent time-dependent diffusion constant
+   and explain why fitting a constant dc conductivity is premature.
+6. Design a boundary-driven numerical study that distinguishes a contact
+   resistance from a size-dependent bulk resistance. Specify bias, size, and
+   convergence checks.
+
+::: {.callout-note title="Solution: filling-dependent free current"}
+For independent momentum modes with occupation $\nu$,
+$\operatorname{Var}n_k=\nu(1-\nu)$. Hence
+$\langle J^2\rangle/L=J^2\nu(1-\nu)/2$ and
+$T\mathcal D=J^2\nu(1-\nu)/4$. The result vanishes in the empty/full limits,
+where no charge can be transported, and reduces to $J^2/16$ at half filling.
+:::
+
+::: {.callout-note title="Solution sketch: a divergent current integral"}
+The cutoff Green–Kubo integral is proportional to
+$\int^t ds\,s^{-2/3}\sim3t^{1/3}$. If the static susceptibility is finite,
+$D(t)\propto t^{1/3}$ and the density variance grows as
+$2\int^t ds\,D(s)\propto t^{4/3}$. The spreading distance scales as $t^{2/3}$,
+corresponding to dynamical exponent $z=3/2$. This inference uses the stated
+window and does not establish the exact asymptotic scaling function.
+:::

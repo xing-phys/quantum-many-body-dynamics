@@ -1,0 +1,352 @@
+# Anomalous transport: exponents, mechanisms, and the limits of universality {#sec-anomalous-transport}
+
+A conserved spin packet can spread faster than a Gaussian without becoming
+ballistic. The isotropic Heisenberg chain provides a striking example: its
+high-temperature, zero-magnetization spin correlations broaden approximately as
+$t^{2/3}$. Understanding that statement requires more than fitting a power law.
+Which observable has that exponent? Over what times? Does its scaling function
+match a known theory? Do higher-order fluctuations match too?
+
+We use $\hbar=k_B=1$, lattice spacing one, $S^a=\sigma^a/2$, and natural
+logarithms. A *dynamical exponent* $z$ relates a characteristic length and time
+by $\ell(t)\propto t^{1/z}$. Diffusion has $z=2$ and ballistic spreading has
+$z=1$. The interval $1<z<2$ is called superdiffusive; $z>2$ is subdiffusive.
+These labels concern a specified conserved quantity in a specified state.
+
+## What a scaling exponent does and does not determine
+
+Let $C(x,t)=\langle\delta q_x(t)\delta q_0(0)\rangle$ be an equilibrium
+connected correlation function, and let
+$\chi_\lambda=\sum_xC(x,t)$ be its conserved total weight. A single-scale ansatz is
+
+$$
+C(x,t)\simeq\frac{\chi_\lambda}{\ell(t)}
+f\!\left(\frac{x-vt}{\ell(t)}\right),
+\qquad \int du\,f(u)=1.
+$$ {#eq-kpz-scaling}
+
+Here $v$ is the drift velocity. Width and local amplitude are linked by charge
+conservation. For a zero-drift packet with a finite second moment,
+$\sum_xx^2C/\chi_\lambda\propto t^{2/z}$. The local correlator scales as
+$t^{-1/z}$ if $f(0)$ is finite. A weak domain-wall profile has integrated transfer
+proportional to $t^{1/z}$ under the corresponding linear-response assumptions.
+These predictions provide several independent checks.
+
+A scaling exponent alone leaves the function $f$, amplitudes, higher
+correlation functions, and full counting statistics undetermined. Two theories
+can share $z$ without belonging to the same dynamical universality class.
+A ballistic tail carrying a small weight can dominate the second moment even
+when the central peak obeys a different scaling. In sufficiently long-range
+models a second moment may fail to exist in the infinite system. In those cases
+quantile widths, Fourier correlations, and spatially restricted moments must be
+reported explicitly.
+
+## Relating density spreading to current correlations
+
+The continuity equation supplies a useful exact identity. Take a translationally
+invariant equilibrium state and define the normalized second moment
+$X^2(t)=\sum_xx^2C(x,t)/\chi_\lambda$, with no drift.
+One time derivative replaces a density by a lattice current difference. A
+second derivative, stationarity, and summation by parts give
+
+$$
+\frac{d^2X^2}{dt^2}
+=\frac{2}{L\chi_\lambda}\operatorname{Re}
+\langle J(t)J(0)\rangle.
+$$ {#eq-kpz-moment-current}
+
+Boundary terms must be negligible, and the conserved static weight fixes the
+normalization. With an appropriate zero initial slope, define
+$D(t)=\tfrac12dX^2/dt$. Then
+
+$$
+D(t)=\frac1{L\chi_\lambda}\int_0^tds\,
+\operatorname{Re}\langle J(s)J(0)\rangle.
+$$ {#eq-kpz-running-diffusion}
+
+This is the time-domain Einstein/Green–Kubo relation. It makes the distinction
+between a diffusion coefficient and a running integral precise. For $z=3/2$,
+$X^2\propto t^{4/3}$, $D(t)\propto t^{1/3}$, and the current correlation per
+length behaves as $t^{-2/3}$. Consequently the regular low-frequency
+conductivity has a singular contribution proportional to $\omega^{-1/3}$,
+up to the temperature and susceptibility conventions.
+
+The statement differs from a Drude delta function. Superdiffusion can have a
+vanishing persistent current while the integral of its decaying correlation
+diverges. A fit that labels every divergent conductivity “ballistic” conflates
+these two mechanisms.
+
+## The KPZ equation: a derivation of its scaling relations
+
+The Kardar–Parisi–Zhang equation describes a fluctuating height $h(x,t)$:
+
+$$
+\partial_th=v_0+\nu\partial_x^2h+
+\frac{\lambda}{2}(\partial_xh)^2+\eta(x,t).
+$$ {#eq-kpz-height}
+
+The noise $\eta$ is short-range in space and time. The constant growth rate
+$v_0$ can be subtracted. The curvature term smooths the interface, while the
+slope-squared term expresses growth along a local normal rather than purely in
+the vertical direction. Differentiating with respect to $x$ and defining
+$u=\partial_xh$ gives a stochastic Burgers equation for a conserved slope:
+
+$$
+\partial_tu+\partial_x
+\left[-\frac{\lambda}{2}u^2-\nu\partial_xu-\eta\right]=0.
+$$ {#eq-kpz-burgers}
+
+The sign of the nonlinear coefficient can be reversed by a field convention;
+its nonzero value and symmetry properties matter for scaling.
+
+In one spatial dimension, the stationary slope distribution of this equation
+is spatial white noise for standard periodic or stationary boundary conditions.
+A coarse slope over length $\ell$ fluctuates as $\ell^{-1/2}$. Hence a height
+difference scales as $\ell^{1/2}$: the roughness exponent is $\alpha=1/2$.
+The nonlinear equation has a tilt/Galilean symmetry relating a constant slope
+shift to a moving frame. At a scale-invariant fixed point where the nonlinearity
+survives, this gives $z+\alpha=2$. Combining the two yields
+
+$$
+z=\frac32,\qquad
+\ell\propto t^{2/3},\qquad
+\delta h\propto t^{\alpha/z}=t^{1/3}.
+$$ {#eq-kpz-exponents}
+
+These are scaling relations of the stated stochastic field theory. They do not
+prove that every quantum system showing $t^{2/3}$ spreading is described by a
+single Burgers field. Such an identification must also satisfy the microscopic
+system's symmetries and higher-order statistics.
+
+## Why the isotropic Heisenberg chain is exceptional
+
+Consider $H=J\sum_x\mathbf S_x\cdot\mathbf S_{x+1}$ at finite temperature
+and zero magnetization. Its global SU(2) symmetry makes all spin directions
+equivalent. Bethe ansatz organizes stable bound states containing arbitrarily
+many overturned spins. These large bound states are often called *giant
+quasiparticles*. They move slowly but carry large spin, and their interactions
+with fluctuating backgrounds produce a divergent naive spin diffusion constant.
+
+One instructive scaling argument starts from an integrability-based result:
+the near-zero-polarization diffusion coefficient behaves as
+$D(m)\propto1/|m|$. This singular dependence is a property to be derived from
+the quasiparticle theory, not a generic consequence of symmetry.
+In a fluctuating region of length $\ell$, equilibrium magnetization per site
+has typical magnitude $|m_\ell|\sim\sqrt{\chi_\lambda/\ell}$.
+Use that fluctuation to cut off the singularity:
+
+$$
+D(\ell)\propto\sqrt{\ell},\qquad
+\ell^2\sim D(\ell)t
+\quad\Longrightarrow\quad
+\ell\propto t^{2/3},\quad D(t)\propto t^{1/3}.
+$$ {#eq-kpz-self-consistency}
+
+This explains the exponent through a self-consistent fluctuating medium.
+It does not determine the complete scaling function. More microscopic kinetic
+constructions, including @gopalakrishnan2019kinetic, explain how large
+quasiparticle families supply the divergence. @ilievski2021super extends the
+framework to broad integrable models with continuous non-Abelian symmetry.
+The integrability and symmetric-state assumptions remain essential.
+
+Easy-axis XXZ chains at zero magnetization instead exhibit finite spin diffusion
+in the relevant thermal regime; easy-plane chains can retain a ballistic spin
+channel. Changing magnetization also changes which ballistic components are
+allowed. The “transport exponent of the Hamiltonian” is therefore incomplete
+language unless the state and conserved observable are specified.
+
+## KPZ-compatible two-point functions are not the full KPZ class
+
+The numerical sequence is pedagogically important. @ljubotina2017spin found
+isotropic superdiffusion with an exponent close to $2/3$ using weak mixed-state
+domain walls. @ljubotina2019kpz supplied strong evidence for the KPZ two-point
+scaling function. Neither statement implies agreement of all dynamical
+probability distributions.
+
+Let $\mathcal M(t)$ be magnetization transferred through a cut. At zero bias,
+spin reversal sends $\mathcal M\mapsto-\mathcal M$ while preserving the
+ensemble and dynamics. Its probability distribution must therefore be symmetric,
+and all odd cumulants vanish. A single stationary KPZ height increment has a
+skewed Baik–Rains distribution. Identifying $\mathcal M$ with that one height
+variable is incompatible with the exact symmetry.
+
+The coupled-mode fluctuating theory proposed by @denardis2023nlfh introduces
+magnetization and an effective velocity field; it accommodates KPZ structure-factor
+scaling while allowing symmetric spin fluctuations. It is a hydrodynamic
+proposal supported by calculations, not a universal microscopic proof for all
+observables. The 46-qubit experiment @rosenberg2024magnetization probes higher
+moments and finds deviations from the full single-KPZ prediction.
+@takeuchi2025partial tests additional two-point quantities and confirms a
+partial yet robust KPZ correspondence. As of 22 October 2026, the correct
+careful statement is **KPZ-compatible two-point spin scaling with non-KPZ higher
+statistics**, rather than an unqualified identification of the entire dynamics
+with the ordinary KPZ class.
+
+At equilibrium, a useful check uses only two-point information. For suitable
+infinite-system, zero-drift conditions, the variance of the integrated transported
+charge is
+
+$$
+\operatorname{Var}\mathcal M(t)
+=\int dx\,|x|\,C(x,t),
+$$ {#eq-kpz-transfer-variance}
+
+with a symmetrized quantum covariance when necessary. It follows by writing
+$\mathcal M=Q_R(t)-Q_R(0)$ for the right-half charge and cancelling the
+extensive equal-time pieces before taking the infinite-volume limit. Substituting
+@eq-kpz-scaling gives $\operatorname{Var}\mathcal M\propto\ell(t)$, hence a
+standard deviation $t^{1/3}$ when $z=3/2$. The third and fourth cumulants
+still contain information absent from this relation.
+
+## Weak perturbations and long crossovers
+
+Break integrability with a weak coupling $g$. A naive golden-rule estimate
+suggests a quasiparticle lifetime proportional to $g^{-2}$, but matrix elements,
+selection rules, and quasiparticle size can produce a much richer hierarchy.
+Large bound states may be unusually long-lived under symmetry-preserving
+perturbations. Breaking SU(2) can remove this protection more directly.
+
+@denardis2021stability finds divergent low-frequency transport within
+perturbative treatments of certain symmetry-preserving perturbations, while
+emphasizing that an eventual diffusive crossover can lie beyond that treatment.
+One must not turn “not seen at low perturbative order” into “impossible at
+asymptotic time.” Conversely, observing apparent diffusion at one modest size
+can miss a long preasymptotic hierarchy.
+
+The 2026 preprint @anand2026robustness reports long-lived $z=3/2$ spin spreading
+and KPZ-compatible two-point functions in nonintegrable power-law chains over
+numerically accessible times up to approximately $10^3/J$. Proximity to
+integrable Inozemtsev models is offered as a mechanism. The evidence is
+finite-time tensor-network computation; that mechanism remains conjectural,
+and the asymptotic expectation in the studied regime is diffusion. Its revised
+title deliberately says “KPZ-like.” This makes it a useful case study in
+reporting what a high-quality numerical result actually establishes.
+
+## Other routes to anomalous spreading
+
+An anomalous exponent need not involve giant quasiparticles. Quenched disorder
+can create a broad distribution of local relaxation times. Long-range hopping
+can change the spatial jump kernel. Momentum-conserving one-dimensional fluids
+can couple sound modes nonlinearly. Constrained systems can retain additional
+moments of charge.
+
+For example, suppose both $Q=\int n\,dx$ and dipole moment
+$P=\int xn\,dx$ are conserved. A local continuity equation can then take
+$\partial_tn+\partial_x^2J=0$. If the leading dissipative constitutive relation
+is $J=D_4\partial_x^2n$, the linear equation is
+
+$$
+\partial_tn=-D_4\partial_x^4n,\qquad
+n_k(t)=e^{-D_4k^4t}n_k(0).
+$$ {#eq-kpz-dipole}
+
+It has $z=4$ and preserves both moments under appropriate boundary conditions.
+The coefficient must be positive for stability. The slow spreading follows from
+an extra conservation law, quite unlike a localization mechanism. Its continuum
+Green function need not be a positive probability density at every point;
+$n$ is a signed fluctuation field, not a classical tagged-particle distribution.
+
+No single table of exponents can replace a mechanism. Ask which slow variables
+exist, what current nonlinearities are permitted, and what processes relax them.
+
+## A computational strategy that resists misleading collapse
+
+For a numerical correlation array, first test $\sum_xC=\chi_\lambda$ and
+symmetry $C(x,t)=C(-x,t)$ in the intended ensemble. Estimate the second moment
+and an independent width. A centered effective exponent is
+
+$$
+\gamma_{\mathrm{eff}}(t)=
+\frac{\ln X^2(bt)-\ln X^2(t/b)}{2\ln b},
+\qquad z_{\mathrm{eff}}=2/\gamma_{\mathrm{eff}}.
+$$ {#eq-kpz-effective-exponent}
+
+A plateau is encouraging, but its drift with later times, larger bond dimension,
+or changed perturbation is often more informative. For every candidate collapse,
+plot the unscaled data too, exclude boundary-affected points, and vary the
+fitting window. Use a fixed normalization of $f$; allowing independent amplitude
+and width fits at every time can make incompatible data look universal.
+
+A revealing exercise generates crossover data
+$X^2(t)=A t^{4/3}/[1+(t/\tau)^{1/3}]$.
+It looks superdiffusive for $t\ll\tau$ and diffusive for $t\gg\tau$.
+Fitting only the early window cannot identify its eventual exponent. This is a
+methodological demonstration, not synthetic evidence for a physical crossover
+in any specified Hamiltonian.
+
+## Three superficially similar exponents, three different questions
+
+The same fractions occur in several parts of quantum dynamics, which makes
+precise observable definitions particularly valuable. In noisy one-dimensional
+circuits, the entanglement entropy across a cut has a mean growing linearly in
+time and sample-to-sample fluctuations of order $t^{1/3}$
+[@nahum2017growth]. The associated spatial correlation length is $t^{2/3}$.
+Here entropy plays the role of a growing height. The circuit need not conserve
+spin, energy, or any physical particle number.
+
+In an ordinary Haar-random one-dimensional circuit, an averaged operator front
+moves ballistically but broadens over $t^{1/2}$
+[@nahum2018operator; @vonkeyserlingk2018operator]. Its broadening exponent is
+not the entropy-fluctuation exponent. A conserved physical density can add an
+algebraic tail behind this front [@rakovszky2018charge] while retaining a
+ballistic front position. A fit that tracks the front's position and calls it a
+charge diffusion length would confuse different measurements.
+
+In the Heisenberg spin problem, $t^{2/3}$ describes the width of a conserved
+magnetization correlation packet with vanishing drift in the symmetric state.
+Its amplitude is $t^{-2/3}$, and the variance of transferred magnetization grows
+as $t^{2/3}$. The typical transfer fluctuation therefore scales as $t^{1/3}$.
+Despite the matching exponents, the physical spin-reversal symmetry constrains
+its probability distribution in a way that a single KPZ height does not share.
+The recurrence of exponents is a clue to investigate mappings, not a substitute
+for constructing them.
+
+A strong research proposal makes a hierarchy of claims that can fail separately:
+normalization and conservation; exponent; normalized two-point function; several
+independent two-point observables; higher cumulants; dependence on initial
+conditions; and robustness under controlled perturbations. At each stage,
+identify the alternative mechanisms still compatible with the observations.
+For the 2026 long-range-chain preprint, increasing observation time and
+perturbation strength while tracking energy transport as a second observable
+would test the conjectured proximity to an integrable family. It would not be
+sufficient merely to obtain another good collapse over the same time interval.
+
+The complementary analytic task is to derive which large quasiparticles decay
+under a specified perturbation and whether their decay rates remain uniformly
+bounded away from zero as their size increases. That uniformity question is what
+links a finite-order scattering calculation to an asymptotic diffusion claim.
+A hierarchy with ever slower large excitations can defeat an otherwise plausible
+single relaxation-time approximation.
+
+## Exercises and selected solutions
+
+1. Derive @eq-kpz-moment-current from lattice continuity and stationarity.
+   State the boundary and zero-drift assumptions.
+2. Show that a normalized $z=3/2$ density correlator has amplitude $t^{-2/3}$,
+   not $t^{-1/3}$. Which observable instead has fluctuations $t^{1/3}$?
+3. Derive the self-consistent exponent when $D(m)\propto|m|^{-a}$ and
+   equilibrium coarse magnetization scales as $\ell^{-1/2}$.
+4. Prove vanishing odd transferred-spin cumulants under spin reversal at zero
+   bias. Explain what changes at nonzero bias.
+5. Derive the $z=4$ equation from a positive quadratic free-energy functional
+   and rank-two continuity. Identify the matching noise derivative.
+6. Fit the crossover model above over moving windows. Propose a numerical
+   criterion that could falsify a claimed asymptotic KPZ law.
+
+::: {.callout-note title="Solution: generalized self-consistency"}
+The fluctuation cutoff gives $D(\ell)\propto\ell^{a/2}$.
+Combining with $\ell^2\sim D(\ell)t$ yields
+$\ell\sim t^{1/(2-a/2)}$, or $z=2-a/2$, within the validity of the assumed
+single-scale cutoff. For $a=1$, $z=3/2$. If the inferred exponent violates
+other constraints or the susceptibility ceases to be finite, the assumptions
+must be revisited rather than extrapolating this algebra blindly.
+:::
+
+::: {.callout-note title="Solution sketch: dipole-preserving dissipation"}
+Take $F[n]=\int dx\,n^2/(2\chi_\lambda)$. With
+$\partial_tn=-\partial_x^2J$ and $J=D_4\partial_x^2n$,
+$\dot F=-(D_4/\chi_\lambda)\int dx\,(\partial_x^2n)^2\leq0$.
+A noise term enters as $-\partial_x^2\xi$ to preserve charge and dipole moment
+realization by realization. For white rank-two-current noise, equilibrium
+matching fixes its strength in the same way as ordinary fluctuating diffusion.
+:::

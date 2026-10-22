@@ -1,0 +1,225 @@
+# Models, particles, and symmetries {#sec-models}
+
+## Why the Hamiltonian is not the whole specification
+
+A formula for a Hamiltonian leaves several physical questions unanswered. What
+is the local Hilbert space? Which boundary conditions are used? What is conserved?
+Does a symbol denote a spin operator or a Pauli matrix? A factor of four in an
+exchange term changes every quoted time scale. Before interpreting a spectrum
+or comparing a simulation with a paper, make these choices explicit.
+
+This chapter builds the spin, fermion, and boson models used throughout the
+book. It derives a fermionization map and explains symmetry resolution. The
+prerequisites are tensor products and angular momentum for a spin one-half.
+
+## Local degrees of freedom and extensivity
+
+For $L$ distinguishable qubits, the Hilbert space is
+$(\mathbb C^2)^{\otimes L}$ with dimension $2^L$. A basis vector is a bit
+string $|s_1\cdots s_L\rangle$. We set $Z|0\rangle=|0\rangle$ and
+$Z|1\rangle=-|1\rangle$. The Pauli matrices satisfy
+$[X,Y]=2iZ$ and cyclic permutations; $S^a=\sigma^a/2$ satisfies
+$[S^x,S^y]=iS^z$. A local operator acts on finitely many sites and as the
+identity elsewhere. An extensive operator is a sum of local terms whose norm
+typically grows with $L$.
+
+The nearest-neighbor XXZ chain, with open boundaries unless stated otherwise, is
+
+$$
+H_{\mathrm{XXZ}}=J\sum_{j=1}^{L-1}
+(S_j^xS_{j+1}^x+S_j^yS_{j+1}^y+\Delta S_j^zS_{j+1}^z)
+ +\sum_{j=1}^L h_j S_j^z.
+$$ {#eq-model-xxz}
+
+Here $J$ has units of energy, $\Delta$ is dimensionless, and $h_j$ are
+longitudinal fields. Uniform fields preserve the integrable structure of the
+standard XXZ chain; generic inhomogeneous fields do not. At zero field and
+$\Delta=1$ the model has global spin-rotation symmetry. At generic anisotropy
+it still conserves total $S^z$. Adding a transverse field generally destroys
+that conservation law.
+
+The transverse-field Ising chain uses a different convention:
+
+$$
+H_{\mathrm{I}}=-J\sum_j X_jX_{j+1}-Jg\sum_j Z_j.
+$$ {#eq-model-ising}
+
+These are Pauli operators. For $J>0$ the equilibrium critical point is $g=1$
+in the thermodynamic chain. The global parity $P=\prod_j Z_j$ commutes with
+$H_{\mathrm{I}}$, because each bond flips two spins. The order parameter $X_j$
+is odd under $P$. A parity eigenstate has zero $\langle X_j\rangle$ even
+when its correlations reveal ferromagnetic order. Symmetry breaking must be
+defined using long-range correlations or appropriately ordered limits.
+
+## Conserved quantities and symmetry sectors
+
+An operator $Q$ is conserved if $[H,Q]=0$. Its expectation is constant since
+$d\langle Q\rangle/dt=i\langle[H,Q]\rangle$. If several commuting
+charges are diagonalized together, the Hilbert space decomposes into invariant
+blocks. For $U(1)$ spin conservation, the sector with $N$ down spins has
+dimension $\binom LN$. At half filling this is approximately
+$2^L\sqrt{2/(\pi L)}$. The reduction helps computation, but more importantly
+it prevents comparing states that cannot dynamically mix.
+
+For a periodic translation-invariant chain, translation $T$ has eigenvalues
+$e^{ik}$ with $k=2\pi m/L$. Reflection maps $k$ to $-k$, so at generic
+momentum it relates sectors instead of providing another independent label
+inside one sector. At $k=0,\pi$ reflection can be resolved within the momentum
+block. At the isotropic point total spin $\mathbf S_{\mathrm{tot}}^2$ produces
+further structure. Antiunitary symmetries, which include complex conjugation,
+determine the appropriate random-matrix ensemble. The Hamiltonian being real
+in the full bit basis does not automatically make every complex momentum block
+an independent real-symmetric matrix.
+
+This is why spectral chaos must be studied after all relevant symmetries are
+resolved. Superposing independent spectra generates many small spacings and
+can mimic integrability. [Chapter 7](07-spectral-chaos.qmd) turns this principle
+into practical diagnostics.
+
+## Fermions: the occupation basis
+
+For identical fermions, creation and annihilation operators satisfy
+
+$$
+\{c_i,c_j^\dagger\}=\delta_{ij},\qquad
+\{c_i,c_j\}=0,\qquad n_j=c_j^\dagger c_j\in\{0,1\}.
+$$ {#eq-model-car}
+
+The ordered occupation basis is
+$|n_1\cdots n_L\rangle=(c_1^\dagger)^{n_1}\cdots
+(c_L^\dagger)^{n_L}|\mathrm{vac}\rangle$. Moving an operator through occupied
+sites generates a sign. The sign is not an additional interaction; it enforces
+particle statistics. Physical local fermionic observables normally have even
+fermion parity, so distant physical observables commute despite odd operators
+anticommuting.
+
+A number-conserving quadratic Hamiltonian has the form
+$H=\sum_{ij}c_i^\dagger h_{ij}c_j$, with Hermitian single-particle matrix
+$h$. It is a many-body problem whose dynamics is determined by an $L\times L$
+matrix. Adding density interactions makes the many-body dynamics non-Gaussian
+and generally removes this simplification.
+
+## Deriving the Jordan–Wigner transformation
+
+Spin lowering and raising matrices on different sites commute, so setting
+$c_j=\sigma_j^+$ would fail the fermion anticommutation relation. Insert a
+string of parity operators:
+
+$$
+c_j=\left(\prod_{\ell<j}Z_\ell\right)\sigma_j^+,
+\quad c_j^\dagger=\left(\prod_{\ell<j}Z_\ell\right)\sigma_j^-,
+\quad \sigma^\pm=(X\pm iY)/2,
+\quad n_j=(1-Z_j)/2.
+$$ {#eq-model-jw}
+
+For $i<j$, the string in $c_j$ contains $Z_i$, which anticommutes with
+$\sigma_i^+$. Exchanging $c_i$ and $c_j$ therefore gives exactly one minus
+sign. On one site $\{\sigma^+,\sigma^-\}=I$, establishing the remaining
+canonical relations. Notice that $c_j$ annihilates the down-spin occupation
+$|1\rangle$; spin raising is particle annihilation in this convention.
+
+For neighboring sites the strings cancel. Since $\sigma^- Z=\sigma^-$,
+$c_j^\dagger c_{j+1}=\sigma_j^-\sigma_{j+1}^+$. Hence
+
+$$
+H_{\mathrm{XXZ}}=\frac J2\sum_j(c_j^\dagger c_{j+1}+c_{j+1}^\dagger c_j)
+ +J\Delta\sum_j(n_j-\tfrac12)(n_{j+1}-\tfrac12)
+ +\sum_j h_j(\tfrac12-n_j).
+$$ {#eq-model-jw-xxz}
+
+At $\Delta=0$ this is a free hopping problem. At nonzero $\Delta$ the
+integrable clean chain remains solvable by Bethe ansatz but is not a free
+fermion model. Integrability is much broader than quadratic solvability.
+
+For a periodic spin chain the boundary hopping contains the total parity.
+One must choose a parity sector and use the associated fermionic boundary
+condition. Dropping this term changes finite-size spectra and momentum grids.
+Open boundaries avoid this subtlety in elementary computations, at the cost of
+losing translation symmetry.
+
+## An exact dispersion and a useful current
+
+For a periodic XX chain with no field,
+$c_j=L^{-1/2}\sum_k e^{ikj}c_k$ gives
+$H=\sum_k J\cos k\,n_k$. A single-particle wave packet has group velocity
+$v(k)=\partial_k\epsilon(k)=-J\sin k$, with maximum speed $|J|$ in lattice
+sites per unit time. A Pauli-normalized exchange Hamiltonian would yield a
+different speed. This is a useful factor-of-two check.
+
+From the Heisenberg equation for $n_j$ one obtains
+
+$$
+\dot n_j=j_{j-1}-j_j,\qquad
+j_j=\frac{iJ}{2}(c_j^\dagger c_{j+1}-c_{j+1}^\dagger c_j).
+$$ {#eq-model-current}
+
+This equation fixes the current sign: positive $j_j$ increases occupation to
+the right. A continuity equation is a microscopic identity; diffusion is an
+additional long-wavelength constitutive assumption. Conservation by itself
+does not select diffusion over ballistic or anomalous transport.
+
+## Bosons and physical truncations
+
+Bosonic modes satisfy $[b_i,b_j^\dagger]=\delta_{ij}$ and have unbounded
+on-site occupations. A standard model is
+
+$$
+H_{\mathrm{BH}}=-t_b\sum_{\langle ij\rangle}(b_i^\dagger b_j+\mathrm{h.c.})
+ +\frac U2\sum_j n_j(n_j-1)+\sum_j V_j n_j.
+$$ {#eq-model-bosehubbard}
+
+Here $t_b$ is hopping energy, not time. In a fixed total-particle sector the
+Hilbert space is finite, with dimension $\binom{N+L-1}{N}$. A local numerical
+cutoff $n_j\leq n_{\max}$ is a further approximation unless $n_{\max}\geq N$.
+Convergence requires increasing the cutoff and inspecting population near it.
+Unbounded local operators also change the hypotheses of simple locality and
+high-frequency theorems. It is unsafe to import a bounded-spin theorem without
+checking its extension.
+
+## Constraints are more than conserved global numbers
+
+A Rydberg blockade forbids simultaneous excitation of neighboring atoms in an
+idealized limit. In that restricted space a common effective Hamiltonian is
+$H=\Omega\sum_j P_{j-1}X_jP_{j+1}$, where
+$P_j=|0_j\rangle\langle0_j|$. The number of allowed bit strings grows as a
+Fibonacci sequence instead of $2^L$. Finite blockade energy permits leakage
+outside this space; the constrained model then has a domain of validity, not
+an exact microscopic status. Such chains reveal unusual revivals associated
+with many-body scars [@bernien2017simulator]. A different restriction, conserving
+both charge and its dipole moment, can split a fixed-charge space into many
+disconnected sectors. [Chapter 19](19-scars-constraints.qmd) explains why scars,
+fragmentation, and conventional symmetries are distinct mechanisms.
+
+## Research practice and exercises
+
+The clean XXZ chain provides a common test of whether a method respects
+conservation and integrability. Disorder changes its transport and resonance
+structure; driving changes energy conservation; measurement changes the state
+space of the question. Always specify which modification has been made before
+using the same model name.
+
+1. Derive $[H_{\mathrm{XXZ}},S^z_{\mathrm{tot}}]=0$ using raising/lowering operators.
+   Which single-site perturbations preserve this symmetry?
+2. Verify the Jordan–Wigner anticommutators for three sites by explicit matrices.
+   Derive the boundary term for a periodic chain in each fermion-parity sector.
+3. Derive the current above directly from $i[H,n_j]$ and verify that total
+   particle number is conserved for open boundaries.
+4. Count the allowed blockade configurations for lengths $L=1,2,3,4$. Derive
+   their recursion and asymptotic growth. Compare the largest sector's dimension
+   with that of an unconstrained chain.
+5. Diagonalize a small isotropic chain. Identify multiplets before adding a
+   field. Explain why keeping every state would corrupt a nearest-neighbor
+   level-spacing test.
+
+**Solution to 1.** A flip-flop term $S_j^+S_{j+1}^-$ increases one site's
+$S^z$ by one and decreases its neighbor by one, so its commutator with the sum
+vanishes. Longitudinal fields and $ZZ$ interactions are diagonal in $S^z$.
+Transverse $X$ or $Y$ fields are not. Pair creation $S_j^+S_{j+1}^+$
+preserves parity but changes total magnetization by two.
+
+**Solution to 4.** Let $a_L$ count allowed strings, with $a_0=1$ and $a_1=2$.
+Strings ending in zero contribute $a_{L-1}$; those ending in one must end in
+$01$, contributing $a_{L-2}$. Thus $a_L=F_{L+2}$, giving $2,3,5,8$ and
+growth proportional to $\varphi^L$, with $\varphi=(1+\sqrt5)/2$. This
+reduces the exponential base but does not make generic constrained dynamics a
+polynomial-size problem.

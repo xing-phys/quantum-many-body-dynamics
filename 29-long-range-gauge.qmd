@@ -1,0 +1,183 @@
+# Beyond local spin chains: range, gauge constraints, and topology {#sec-emerging}
+
+::: {.callout-note}
+## Prerequisites and goals
+You need tensor-product spins, commutators, and the idea of an energy gap. We introduce power-law interactions, Kac normalization, Gauss-law constraints, gauge-invariant subsystem algebras, Berry curvature, and topological strings. You will calculate when an interaction energy is extensive, verify a simple gauge theory exactly, derive an elementary pumping formula, and identify which assumptions of familiar thermalization and locality statements fail in these settings.
+:::
+
+## The frontier often changes an assumption
+
+Much of this book used a local spin chain with a tensor-product Hilbert space and a few commuting conserved quantities. That setting is powerful because locality constrains propagation and conservation organizes equilibrium. Modern quantum simulators increasingly access systems where one of these premises changes: a distant pair interacts directly; the relevant thermodynamic limit is collective; physical states satisfy local constraints; or quantum information resides in a nonlocal topological sector.
+
+These are connected questions rather than unrelated additions. Direct long-range couplings change the cost of moving information. Gauge constraints change which local operations and subsystem density matrices are physical. Topological codes store information in sectors that local operators cannot distinguish. Non-Abelian symmetry changes the representation structure behind conventional conserved-spin descriptions. To make progress, identify the precise assumption being modified before importing an earlier formula.
+
+## Interaction range and extensivity
+
+Take $N\sim L^d$ sites on a regular $d$-dimensional lattice, bounded local Hilbert spaces, and a two-body Hamiltonian
+$$
+H=\sum_{i<j}h_{ij},\qquad
+\|h_{ij}\|\le\frac{J}{(1+r_{ij})^\alpha}.
+$$
+The number of sites in a shell of radius $r$ scales as $r^{d-1}$. The interaction norm incident on one site is therefore bounded by a sum with the same scaling as
+$$
+\mathcal N_L\sim\sum_{r=1}^Lr^{d-1-\alpha}
+\sim\begin{cases}
+\text{constant},&\alpha>d,\\
+\log L,&\alpha=d,\\
+L^{d-\alpha},&\alpha<d.
+\end{cases}
+$$ {#eq-frontier-extensivity}
+
+This is a statement about a norm bound; cancellations can make particular states less energetic. For fixed bare $J$, a uniform bound on the energy per site follows from this estimate only for $\alpha>d$. Calling a model *long range* without specifying $\alpha$ and $d$ conceals this basic distinction.
+
+One common prescription is **Kac normalization**: divide the interaction by a size-dependent $\mathcal N_L$ so that the total energy remains order $N$. This defines a sequence of Hamiltonians with a different physical time scale from the unnormalized sequence. For $\alpha\le d$, keeping bare $J$ fixed and keeping the normalized interaction energy fixed are inequivalent limits. Neither should be silently substituted when comparing simulations or experiments.
+
+Extensivity is also weaker than additivity. For slowly decaying interactions, splitting the sample into two macroscopic pieces can leave an interaction between them comparable with their internal energies, even after normalization. Familiar ensemble-equivalence or local-reservoir arguments then require reconsideration.
+
+## Which light cone, for which task?
+
+For distant local operators $A_i,B_j$, an operator-norm commutator
+$$
+C_\infty(r,t)=\|[A_i(t),B_j]\|
+$$
+bounds influence uniformly over all initial states. A normalized Frobenius norm,
+$$
+C_2(r,t)^2=\frac1{D}\operatorname{Tr}\bigl([A_i(t),B_j]^\dagger[A_i(t),B_j]\bigr),
+$$ {#eq-frontier-norms}
+averages squared influence over Hilbert space. It can be much smaller than the worst-case norm, since $C_2\le C_\infty$. A state-dependent correlator or a protocol for transferring an unknown quantum state asks yet another operational question.
+
+Long-range interactions produce direct algebraic tails at short time. Expanding $A_i(t)=A_i+it[H,A_i]+\cdots$, the pair term $h_{ij}$ gives an immediate contribution of order $Jt/r^\alpha$ to the commutator bound. A **linear light cone** in this setting does not mean an exactly zero signal outside $r=vt$. It means an appropriately controlled small-error region with a ballistic boundary and specified tails or tolerances.
+
+Rigorous results distinguish the norm, model, and spatial dimension. For the one-dimensional power-law setting studied by Tran and collaborators, linear-cone thresholds differ for worst-case interacting propagation ($\alpha>3$), Frobenius-averaged propagation ($\alpha>5/2$), and noninteracting propagation ($\alpha>2$), under their theorem hypotheses [@tran2020hierarchy]. These are a hierarchy of tasks, not three estimates of one universal velocity. General-dimensional results and optimality statements require the corresponding hypotheses; the one-dimensional numbers must not be copied unchanged to a two-dimensional lattice.
+
+A useful numerical exercise compares $C_2$ and state-dependent signals in the same Hamiltonian. It is harder to estimate $C_\infty$ at large size because it requires a worst-case operator norm. An observed fast tail need not violate a ballistic bound, and a bound allowing fast propagation need not be saturated by the chosen quench. The [locality chapter](04-locality.qmd) explains the underlying nested-commutator construction for short-range systems.
+
+## Collective limits and the emergence of classical motion
+
+At $\alpha=0$, Kac-normalized interactions can become functions of collective spin. For example,
+$$
+H=\frac{J}{N}\sum_{i<j}\sigma_i^z\sigma_j^z
+=\frac{2J}{N}(S_{\mathrm{tot}}^z)^2-\frac J2,
+\qquad S_{\mathrm{tot}}^a=\frac12\sum_i\sigma_i^a.
+$$ {#eq-frontier-collective}
+
+Permutation-symmetric initial states remain in a spin-$N/2$ sector of dimension $N+1$, rather than exploring all $2^N$ states. This is a dynamical restriction, not generic many-body ETH across the full tensor-product space.
+
+For $s^a=S_{\mathrm{tot}}^a/N$, the commutator is $[s^a,s^b]=i\epsilon^{abc}s^c/N$. The effective noncommutativity vanishes as $N$ increases, providing a semiclassical limit. A spin-coherent state's relative fluctuations are order $N^{-1/2}$. If a corresponding classical trajectory has instability rate $\lambda$, those fluctuations can grow roughly as $N^{-1/2}e^{\lambda t}$, suggesting a breakdown time proportional to $\lambda^{-1}\log N$ for a simple mean-field description, with prefactors depending on the criterion.
+
+This estimate is conditional on an unstable classical trajectory and a suitable collective model. It is not a universal scrambling time for local lattices. Entanglement, finite-size recurrences, and departures from the symmetric sector require systematic quantum corrections. Long-range interactions can interpolate between collective behavior and spatially resolved dynamics, so their interpretation depends on both $\alpha$ and how system size is taken to infinity.
+
+## A gauge theory starts with its physical states
+
+A **gauge constraint** identifies which states and operations represent the physical system. It is stronger than merely requiring a Hamiltonian to commute with one global charge. Consider a one-dimensional $\mathbb Z_2$ lattice model. Put matter Pauli operators $\tau_j$ on vertices and gauge Pauli operators $\sigma_{j,j+1}$ on links. Define the local generators
+$$
+G_j=\tau_j^x\sigma_{j-1,j}^x\sigma_{j,j+1}^x,
+\qquad G_j^2=1.
+$$ {#eq-frontier-gauss}
+
+At an open endpoint, the absent boundary electric field is fixed, here to $+1$. The physical sector satisfies $G_j=+1$ at every vertex, and its projector is
+$$
+P_{\mathrm{phys}}=\prod_j\frac{1+G_j}{2}.
+$$
+Other specified eigenvalues can describe background static charges. The full matter/link tensor-product space is convenient for calculation but includes unphysical sectors for a fixed constraint choice.
+
+Take the Hamiltonian
+$$
+H_{\mathbb Z_2}=-J\sum_j\tau_j^z\sigma_{j,j+1}^z\tau_{j+1}^z
+-h\sum_j\sigma_{j,j+1}^x-m\sum_j\tau_j^x.
+$$ {#eq-frontier-gaugeham}
+
+Verify gauge invariance term by term. A generator at one endpoint of a hopping term anticommutes with its matter $\tau^z$ and with its link $\sigma^z$. The two minus signs cancel. Generators elsewhere commute trivially. The electric and mass terms contain only the corresponding $x$ operators. Therefore $[H,G_j]=0$ for every $j$, and an initially physical state remains physical exactly under the ideal Hamiltonian.
+
+A local $\tau_j^z$ by itself is not gauge invariant: it changes $G_j$. In contrast, the open string
+$$
+W_{a,b}=\tau_a^z\left(\prod_{\ell=a}^{b-1}\sigma_{\ell,\ell+1}^z\right)\tau_b^z
+$$ {#eq-frontier-string}
+commutes with all Gauss generators. At each endpoint its two anticommutations cancel; at an interior vertex two adjacent link flips cancel. Physical matter creation and flux rearrangement must occur together.
+
+## Strings, confinement, and a string-breaking estimate
+
+At $J=0$ with positive $h,m$, the all-positive $x$ state is a simple reference vacuum in the physical sector. Applying @eq-frontier-string flips $r=b-a$ electric links and two matter spins. Each flipped link costs $2h$, and each matter endpoint costs $2m$, so the excitation energy is
+$$
+E_{\mathrm{string}}(r)-E_{\mathrm{vac}}=2hr+4m.
+$$ {#eq-frontier-stringenergy}
+
+The linear flux cost is an elementary form of confinement: separating the endpoints requires energy proportional to their distance. It is a property of this limit and Hamiltonian, not a universal potential for every gauge theory.
+
+To discuss **string breaking**, introduce separated external background charges and a flux string between them. Dynamical matter can create an additional pair that screens the external charges, replacing a long flux string by shorter segments. In the same strong-electric-field estimate, a pair costs approximately $4m$, while eliminating a length $r$ of flux saves about $2hr$. Balancing the scales suggests $r_{\mathrm{break}}\sim2m/h$, before kinetic dressing and residual strings. This is an energetic threshold estimate; finite-$J$ dynamics also needs pair-creation matrix elements and available energy. An observed local flux decrease does not alone prove complete screening—measure charge correlations and total constraint violations as well.
+
+In a digital simulation, errors can leave the physical sector. An energy penalty $\lambda\sum_j(1-G_j)/2$ can suppress some violations when their frequencies and matrix elements permit a large-energy-scale description. Postselecting only Gauss-compliant measurements is a different procedure with a success probability and potential bias. Neither control should be confused with exact implementation of the target constrained dynamics. The Floquet-based hierarchy in [periodic driving](20-floquet.qmd) gives another approximate protection strategy [@fu2026hierarchical].
+
+![Exact three-matter-site, two-link $\mathbb Z_2$ demonstration with $J=0.7$, $h=0.8$, $m=0.5$, initially all-positive $x$ state, gauge-breaking perturbation $0.15\sum_j\tau_j^z$, and penalty $\lambda\sum_j(1-G_j)/2$. Left: probability outside the chosen physical sector. Right: overlap with the ideal target evolution after projecting and normalizing into that sector. Small leakage and accurate retained dynamics are distinct checks. This five-qubit calculation demonstrates a protection mechanism without claiming a thermodynamic or continuum limit.](figs/thermal-gauge-protection.png){#fig-frontier-gauge}
+
+The [Julia example](numerics/frontier_lab.jl) verifies the physical projector, its rank, every Gauss commutator, and the gauge-invariant string algebra before propagating states. Its [CSV output](data/thermal-gauge-protection.csv) retains both leakage and fidelity, allowing the reader to change the error model and test whether suppression survives.
+
+## Why gauge-theory entropy needs an operational definition
+
+The physical Hilbert space generally does not factor as a tensor product associated with two spatial regions. A flux crossing their boundary constrains both sides. One can embed the physical space in a larger tensor-product space and take an ordinary partial trace, or define entropy for a selected algebra of gauge-invariant regional observables. The choice of boundary observables must be stated [@casini2014gaugeentropy; @donnelly2014gaugeentropy].
+
+A minimal example has two matter spins and one link, with $G_1=\tau_1^x\sigma^x=1$ and $G_2=\tau_2^x\sigma^x=1$. The physical states are spanned by $|+,+,+\rangle_x$ and $|-,-,-\rangle_x$. A superposition with probabilities $p,1-p$ has ordinary single-matter-spin reduced entropy $-p\log p-(1-p)\log(1-p)$. But the gauge-invariant algebra supported only on that matter spin is generated by $1$ and $\tau_1^x$: it accesses the shared flux-sector probability, not an unrestricted local qubit algebra. The entropy does not automatically equal distillable Bell-pair entanglement under gauge-invariant local operations.
+
+More generally a regional state can decompose into boundary-flux sectors $q$ with probabilities $p_q$. For a specified algebra whose representation has block density matrices $\rho_q$, its entropy has the form
+$$
+S=H(\{p_q\})+\sum_qp_qS(\rho_q).
+$$ {#eq-frontier-algebraentropy}
+Non-Abelian extended-space prescriptions can add representation-dimension contributions. These terms answer questions about allowed operations and boundary degrees of freedom; they are not an arbitrary failure of quantum mechanics. When comparing tomography with a gauge-theory thermal state, use the same embedding or algebra on both sides.
+
+## Non-Abelian symmetry is not just several commuting charges
+
+For a global SU(2) symmetry, charges obey $[Q^x,Q^y]=iQ^z$ and cyclic permutations. They cannot generally be assigned simultaneous sharp values. States organize into spin multiplets, and a symmetry-resolved thermal or spectral analysis should use irreducible representations and an appropriate commuting set.
+
+This representation structure constrains localization. Conventional fully localized descriptions based on independent quasi-local conserved variables are incompatible with preserving protected local non-Abelian multiplets without proliferating degeneracies and resonances. Potter and Vasseur formulated this obstruction [@potter2016symmetry]. The conclusion concerns a symmetry-preserving conventional MBL phase; it does not prove rapid thermalization of every SU(2)-symmetric disordered chain. Symmetry breaking, unusual critical dynamics, or long crossovers are separate possibilities.
+
+A non-Abelian *gauge* theory imposes local singlet constraints generated by noncommuting local generators. This is not the same as a physical global SU(2) symmetry acting freely on independently measurable spins. Gauge-invariant truncations must preserve the appropriate representation and Gauss-law structure. Increasing the number of simulated plaquettes at fixed link truncation is distinct from removing the truncation and taking a continuum limit.
+
+## A topological transport calculation
+
+Topology provides a different kind of robust dynamics. Consider a one-dimensional noninteracting insulator with a filled isolated Bloch band $|u(k,\lambda)\rangle$, where a slowly varied parameter $\lambda$ completes a cycle. Define Berry connections $A_\mu=i\langle u|\partial_\mu u\rangle$ and curvature $F_{\lambda k}=\partial_\lambda A_k-\partial_k A_\lambda$. The adiabatic band-current formula is
+$$
+j(t)=\int_{\mathrm{BZ}}\frac{dk}{2\pi}\left[\partial_k\varepsilon(k,\lambda)+\dot\lambda F_{\lambda k}\right].
+$$
+The group-velocity term integrates to zero over a filled periodic band. The transported particle number in one cycle is therefore
+$$
+Q=\frac1{2\pi}\int_0^{2\pi}d\lambda\int_{\mathrm{BZ}}dk\,F_{\lambda k}=C.
+$$ {#eq-frontier-pump}
+
+$C$ is a Chern number: integrating curvature over the closed $(\lambda,k)$ torus gives an integer because phase choices on overlapping smooth patches must agree with integer winding. This is the Thouless pump [@thouless1983pump]. The sign depends on the orientation of the cycle and current convention, fixed above.
+
+Its assumptions matter: a filled band, a maintained gap, and adiabatic evolution with negligible interband excitation. Arbitrary partially filled nonequilibrium states need not pump an integer. Interacting generalizations use many-body gaps and boundary-twist parameters; exact quantization for finite fixed-twist systems needs care. Fast periodically driven topological systems require a different analysis, including micromotion and heating. Anomalous Floquet boundary motion can survive even when static-band Chern numbers vanish [@rudner2013anomalous].
+
+## Topological strings as stored information
+
+On a square lattice with link qubits, define a star $A_v=\prod_{\ell\ni v}\sigma_\ell^x$ and plaquette $B_p=\prod_{\ell\in\partial p}\sigma_\ell^z$. A star and plaquette share zero or two links, so their Pauli anticommutations cancel. The toric-code Hamiltonian
+$$
+H_{\mathrm{TC}}=-J_e\sum_vA_v-J_m\sum_pB_p
+$$ {#eq-frontier-toric}
+has commuting terms and a ground subspace with all $A_v=B_p=1$ [@kitaev2003anyons]. Open $z$ strings violate the endpoint stars; closed noncontractible strings on a torus can change a logical state without changing local stabilizers. A transverse dual $x$ string crossing once anticommutes with that logical $z$ string, providing encoded Pauli operators.
+
+This is a direct connection between gauge-like constraints and quantum information. It is not ordinary thermalization: the ideal commuting Hamiltonian does not scramble generic information like a chaotic chain. Nor does a ground-state code alone guarantee a passive finite-temperature memory. A growing string can cost only its endpoints, so local thermal noise can produce logical errors without an energy barrier proportional to its length. Active error correction, measurement protocols, and higher-dimensional energy barriers are distinct resources. See [information and error correction](26-information-error-correction.qmd).
+
+## A verified 2026 research bridge
+
+Chen and collaborators study local thermalization of a **minimally truncated** SU(2) pure-gauge model on linear plaquette chains, using quantum hardware up to 151 plaquettes [@chen2026gauge]. Small-subsystem tomography estimates entanglement spectra, Rényi-2 entropy, and spectral-shape diagnostics; error-mitigated results are compared with classical extrapolations. The work is listed as *JHEP* 10 (2026) 137 by the investigation date. Its scope is a specific truncated lattice model and accessible local observables. It is not a proof of continuum non-Abelian gauge-field thermalization or an exact simulation of untruncated Yang–Mills dynamics.
+
+A tractable first reproduction is much smaller: construct @eq-frontier-gaugeham for three matter sites and two links, verify $[H,G_j]=0$, project into one Gauss sector, and compare constrained and full-space predictions. Then add a deliberate gauge-breaking term and quantify leakage. A frontier extension can ask whether local thermal-looking observables coexist with hidden violations or inaccurate nonlocal strings. This question connects rigorous definitions, experimental inference, and information theory without assuming that a large hardware count resolves every continuum or thermodynamic limit.
+
+## Exercises
+
+1. **Kac scaling.** Derive @eq-frontier-extensivity by comparing the shell sum with an integral. For $d=1$ and $\alpha=0,1,2$, state the size dependence of the normalization and the consequence of holding bare $J$ fixed.
+2. **Gauss invariance.** Verify all commutators $[H_{\mathbb Z_2},G_j]$ and $[W_{a,b},G_j]$. Show that $\tau_a^z$ alone fails the test. For three matter sites with fixed open boundary fields, count the physical dimension.
+3. **Entropy and operations.** For the two-matter/one-link example, compute the matter-spin reduced state and its entropy. List all single-matter-spin operators commuting with both constraints and explain why this changes the accessible local algebra.
+4. **Pumping errors.** Which step of the derivation of @eq-frontier-pump fails for a partially filled band? Which fails when the cycle closes the gap? Propose a numerical control for each case.
+5. **Topological strings.** Show that two closed toric-code logical strings crossing once anticommute. Why does extending an open error string not require energy proportional to its length in the ideal Hamiltonian?
+6. **Research design.** Compare two power-law models at the same $\alpha$ but different spatial dimensions. Specify the normalization, norm, state ensemble, and operational signal before deciding whether an observed front is compatible with a locality theorem.
+
+::: {.callout-tip collapse="true"}
+## Worked solution: the small physical Hilbert space
+Three matter spins and two links give five qubits and dimension 32. With fixed boundary electric fields, the three independent commuting constraints each halve the dimension, leaving four states. In the $x$ basis, choose the two link values freely; the three matter $\tau_j^x$ values are then fixed by Gauss's law. This explicit construction verifies independence rather than assuming every listed constraint always reduces the dimension. On a closed lattice with different matter content, a product relation among constraints can change the count.
+:::
+
+::: {.callout-tip collapse="true"}
+## Worked solution: the local algebra in the minimal example
+Write $|\psi\rangle=\sqrt p|+,+,+\rangle_x+e^{i\phi}\sqrt{1-p}|-,-,-\rangle_x$. Tracing out the link and second matter spin gives $\rho_1=p|+\rangle\langle+|+(1-p)|-\rangle\langle-|$, with binary entropy. A general first-matter operator is $a_0I+a_x\tau_1^x+a_y\tau_1^y+a_z\tau_1^z$. Commuting with $G_1=\tau_1^x\sigma^x$ requires $a_y=a_z=0$. The remaining algebra is commutative. It measures sector probabilities but cannot implement arbitrary rotations of a locally accessible qubit while preserving the constraints.
+:::

@@ -1,0 +1,130 @@
+# Mathematical and notational reference {#sec-math-reference}
+
+## Notation and dimensions
+
+| Symbol | Meaning |
+|---|---|
+| $L$, $d$, $\mathcal H$ | Number of sites, local dimension, Hilbert space |
+| $X,Y,Z$ or $\sigma^a$ | Pauli matrices, eigenvalues $\pm1$ |
+| $S^a=\sigma^a/2$ | Spin one-half operators, eigenvalues $\pm1/2$ |
+| $\rho_A=\operatorname{Tr}_{\bar A}\rho$ | Reduced state of region $A$ |
+| $S$, $S_n$ | von Neumann and Rényi entropy, in nats |
+| $\|O\|$, $\|O\|_1$, $\|O\|_2$ | Operator, trace, and Hilbert–Schmidt norms |
+| $\langle O\rangle$, $\mathbb E X$, $\overline O$ | Quantum expectation, ensemble mean, stated time average |
+| $D$, $v_B$, $v_E$ | Diffusion coefficient, butterfly velocity, entanglement velocity |
+| $\mathcal L$, $\mathcal D[L]$ | Liouvillian generator, Lindblad dissipator |
+| $\chi$, $\lambda$, $\theta$ | Bond dimension or susceptibility; rapidity/parameter and filling notation are defined locally |
+
+Set $\hbar=k_B=1$. Energy has inverse-time units, momentum has inverse-length
+units, and a diffusion coefficient has length squared per time. A lattice
+constant is set to one when positions count sites. Check units before comparing
+formulas written with Pauli and spin normalization.
+
+## Singular values, Schmidt values, and norms
+
+Every complex matrix has $M=U\Sigma V^\dagger$, with nonnegative singular
+values $s_a$. The operator norm is $\max_as_a$, the trace norm is
+$\sum_as_a$, and the Hilbert–Schmidt norm is $(\sum_as_a^2)^{1/2}$.
+For a Hermitian matrix, the singular values are absolute eigenvalues.
+$\|AB\|\leq\|A\|\|B\|$ and
+$|\operatorname{Tr}A^\dagger B|\leq\|A\|_2\|B\|_2$ are useful
+forms of submultiplicativity and Cauchy–Schwarz.
+
+For a pure bipartite state, reshape coefficients into $M$. Then
+$\rho_A=MM^\dagger$ and its eigenvalues are $s_a^2$. This derivation
+explains why SVD is both an entanglement calculation and the optimal local
+compression operation. Do not assume a tensor's singular values are physical
+Schmidt values unless its environments represent orthonormal states.
+
+## Fourier conventions and distributions
+
+For a continuum function use
+$f(k)=\int dx\,e^{-ikx}f(x)$ and
+$f(x)=\int dk\,e^{ikx}f(k)/(2\pi)$. The derivative becomes $ik$.
+For time use $f(\omega)=\int dt\,e^{i\omega t}f(t)$, so
+$\partial_t\to-i\omega$. A retarded function vanishes for negative time
+and is analytic for $\operatorname{Im}\omega>0$ with this convention.
+
+The distribution identity
+$1/(x+i0^+)=\mathcal P(1/x)-i\pi\delta(x)$ follows by writing
+$1/(x+i\eta)=x/(x^2+\eta^2)-i\eta/(x^2+\eta^2)$ and taking
+$\eta\to0^+$ under a smooth test-function integral. The second term
+integrates to $-i\pi$ times the test function at zero. This identity controls
+spectral and response signs; an unannounced opposite Fourier convention changes
+them.
+
+## Gaussian integrals and diffusion
+
+The integral $\int dx\,e^{-a x^2}=\sqrt{\pi/a}$ for $a>0$ follows by
+squaring it and changing to polar coordinates. Completing the square gives
+$\int dk\,e^{-Dtk^2+ikx}/(2\pi)
+=(4\pi Dt)^{-1/2}e^{-x^2/(4Dt)}$. Its variance is $2Dt$.
+These formulas explain both a diffusion Green function and the low-momentum
+Kibble–Zurek excitation integral; the physical mechanisms are different despite
+the shared mathematics.
+
+## Probability, conditioning, and nonlinear averages
+
+A conditioned quantity $X(m)$ depends on an outcome or measurement record
+$m$ drawn with probability $p_m$. The law of total expectation gives
+$\mathbb E X=\sum_mp_m X(m)$. A density matrix averages linearly,
+$\overline\rho=\sum_mp_m\rho_m$, but entropy does not:
+$S(\overline\rho)\geq\sum_mp_m S(\rho_m)$ by concavity. For purity the
+inequality is reversed under linear mixing because the squared norm is convex.
+
+Jensen's inequality states $f(\mathbb E X)\leq\mathbb E f(X)$ for convex
+$f$. Applying $f=-\ln$ gives
+$-\ln\mathbb E p\leq\mathbb E[-\ln p]$ for positive $p$.
+This separates annealed purity entropies from typical trajectory entropies. It
+does not imply that an unnormalized trajectory ensemble can be averaged with
+uniform weights; physical Born probabilities are required.
+
+For independent samples, the mean's variance is $\operatorname{Var}(X)/N$.
+For correlated samples $X_t$, it also includes covariances:
+$\operatorname{Var}(\overline X)=N^{-2}\sum_{tt'}\operatorname{Cov}(X_t,X_{t'})$.
+The effective number of independent data points can be far smaller than the
+number of stored times. Bootstrap the actual independent sampling units.
+
+## Matrix exponentials and expansions
+
+The series $e^A=\sum_nA^n/n!$ converges for every finite matrix. If $A$ and
+$B$ commute, $e^{A+B}=e^Ae^B$; otherwise commutators appear. To leading
+orders,
+$\ln(e^Ae^B)=A+B+\tfrac12[A,B]+\cdots$. A symmetric product cancels
+the leading even-in-step asymmetry and produces a second-order integrator.
+An asymptotic many-body expansion may fail to converge uniformly with system
+size even when every finite matrix exponential exists. Floquet expansions
+require local estimates, not a naive smallness test on an extensive total norm.
+
+## Scaling and asymptotic claims
+
+A scaling form $C(x,t)=t^{-1/z}f(x/t^{1/z})$ specifies both an exponent and a
+function, with possible amplitudes and corrections. Its conserved integral is
+constant. A second moment scales as $t^{2/z}$ only if the scaling function's
+second moment exists and tails outside the scaling regime do not dominate.
+Finite-time effective exponents are logarithmic slopes, not automatically the
+asymptotic exponent. A robust fit varies time and size windows and considers
+plausible corrections.
+
+The order of limits is mathematical content. A finite chain has recurrences;
+a finite-dimensional Lindbladian can have a unique analytic steady state even
+when a sequence of larger systems develops a transition. A prethermal regime
+has a parametrically long lifetime but need not survive $t\to\infty$ at
+fixed frequency. Write those limits before giving a phase label.
+
+## Two useful worked checks
+
+**Diffusion pole.** Fourier transforming
+$\partial_tn=D\partial_x^2n$ gives
+$(-i\omega+Dk^2)n=\text{source}$. The retarded pole is
+$\omega=-iDk^2$ in the lower half plane, consistent with decay
+$e^{-Dk^2t}$. A pole in the upper half plane would signal either instability or
+a sign-convention error.
+
+**A Bell-state partial transpose.** The partial transpose of
+$|\Phi^+\rangle\langle\Phi^+|$ on the second qubit is
+$\mathsf{Swap}/2$, with eigenvalues $1/2,1/2,1/2,-1/2$. Its trace norm is
+2, giving logarithmic negativity $\ln2$. The classical correlated mixture has
+no negative eigenvalue and zero negativity despite identical one-site entropies.
+This is a compact demonstration of why mixed-state entropy alone cannot measure
+entanglement.

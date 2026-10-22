@@ -26,21 +26,21 @@ book:
   chapters:
     - index.qmd
     - learning-map.qmd
-    - part: "I · The language of quantum dynamics"
+    - part: "The language of quantum dynamics"
       chapters:
         - 01-state-information.qmd
         - 02-models-symmetries.qmd
         - 03-unitary-dynamics.qmd
         - 04-locality.qmd
         - 05-computational-toolkit.qmd
-    - part: "II · Thermalization, chaos, and information spreading"
+    - part: "Thermalization, chaos, and information spreading"
       chapters:
         - 06-equilibration-eth.qmd
         - 07-spectral-chaos.qmd
         - 08-entanglement-growth.qmd
         - 09-scrambling.qmd
         - 10-quantum-circuits.qmd
-    - part: "III · Conservation laws, integrability, and transport"
+    - part: "Conservation laws, integrability, and transport"
       chapters:
         - 11-hydrodynamics.qmd
         - 12-linear-response.qmd
@@ -48,21 +48,21 @@ book:
         - 14-ghd.qmd
         - 15-anomalous-transport.qmd
         - 16-exact-circuits.qmd
-    - part: "IV · Constraints, disorder, and periodic driving"
+    - part: "Constraints, disorder, and periodic driving"
       chapters:
         - 17-disorder-localization.qmd
         - 18-mbl-transition.qmd
         - 19-scars-constraints.qmd
         - 20-floquet.qmd
         - 21-time-crystals.qmd
-    - part: "V · Open, monitored, and encoded dynamics"
+    - part: "Open, monitored, and encoded dynamics"
       chapters:
         - 22-open-systems.qmd
         - 23-trajectories.qmd
         - 24-dissipative-phases.qmd
         - 25-measurement-transitions.qmd
         - 26-information-error-correction.qmd
-    - part: "VI · Methods and research frontiers"
+    - part: "Methods and research frontiers"
       chapters:
         - 27-critical-dynamics.qmd
         - 28-kinetics-field-theory.qmd
@@ -78,16 +78,14 @@ book:
   page-footer:
     left: "Quantum Many-Body Dynamics and Quantum Information"
     right: "Research edition · 22 October 2026"
-bibliography:
-  - references/core.bib
-  - references/thermal.bib
-  - references/transport.bib
-  - references/information.bib
+bibliography: references/all.bib
+filters:
+  - filters/pdf-figures.lua
 csl: assets/american-physics-society.csl
 link-citations: true
 lang: en
 execute:
-  enabled: false
+  eval: false
 format:
   html:
     theme:
@@ -113,7 +111,7 @@ format:
     toc: true
     toc-depth: 2
     number-sections: true
-    include-in-header: assets/macros.sty
+    include-in-header: [assets/macros.sty, assets/pdf-layout.tex]
     keep-tex: false
     fig-pos: H
 crossref:

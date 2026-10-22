@@ -1,0 +1,9 @@
+# References {.unnumbered}
+
+Research papers and reviews are cited where their results are used. arXiv links
+expose version history and subsequently added journal references. Publication
+years can differ from first submission years. The [paper map](research-map.qmd)
+explains how major references connect to the teaching sequence.
+
+::: {#refs}
+:::

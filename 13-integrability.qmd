@@ -1,0 +1,378 @@
+# Integrability and the ensembles that replace thermal equilibrium {#sec-integrability}
+
+An integrable quantum gas has interactions, collisions, entanglement growth, and
+local relaxation. Its special feature is that collisions preserve much more
+information than energy and particle number. Stable excitations retain their
+rapidities, a momentum-like label, even after many encounters. The late-time local
+state must remember their distribution.
+
+This chapter builds that statement from wave functions to thermodynamics. We
+use $\hbar=k_B=1$, $S^a=\sigma^a/2$, and natural logarithms. No Bethe ansatz
+background is assumed. A *quasiparticle* is an excitation that propagates with a
+well-defined label and energy over the scales of interest. In integrable models
+it can remain stable indefinitely; in generic systems that stability is usually
+approximate.
+
+## What quantum integrability means operationally
+
+There is no single definition that resolves every finite-dimensional quantum
+model. Merely constructing all spectral projectors gives many commuting
+operators for any Hamiltonian and does not explain local physics. The useful
+many-body notion involves an extensive family of independent conserved
+operators with sufficiently local densities, together with a scattering or
+transfer-matrix structure that organizes them.
+
+A local charge has the form $Q_r=\sum_xq_{r,x}$, with each density supported on
+finitely many nearby sites. A *quasilocal* charge allows an expansion into
+longer strings whose norms decay with support and whose total norm grows
+extensively. Such charges constrain local states and can protect transport.
+The familiar Hamiltonian is one member of the family. Integrability does not
+mean that every observable is easy to calculate: overlaps, real-time correlation
+functions, and finite-temperature dynamics can remain difficult.
+
+In one-dimensional scattering, a characteristic property is *factorization*:
+an $N$-particle collision can be resolved into two-particle collisions without
+producing new sets of rapidities. Consistency requires different collision
+orderings to agree, expressed by the Yang–Baxter equation when internal species
+are present. This structure is restrictive. Generic three-body processes can
+redistribute momenta while conserving total energy and momentum.
+
+## Two magnons: constructing a Bethe wave function
+
+Consider the XXZ chain with its fully polarized state as a reference, and
+subtract the reference energy:
+
+$$
+H=J\sum_x\left[S_x^xS_{x+1}^x+S_x^yS_{x+1}^y+
+\Delta(S_x^zS_{x+1}^z-1/4)\right].
+$$
+
+A down spin, called a magnon relative to this reference, hops with amplitude
+$J/2$. A one-magnon plane wave has energy $J(\cos k-\Delta)$.
+For two separated down spins at $x_1<x_2$, try
+
+$$
+\psi(x_1,x_2)=A_{12}e^{i(k_1x_1+k_2x_2)}+
+A_{21}e^{i(k_2x_1+k_1x_2)}.
+$$ {#eq-bethe-two-magnon}
+
+The two terms allow the momenta to exchange. Away from contact, the lattice
+Schrödinger equation gives
+$E=J(\cos k_1+\cos k_2-2\Delta)$.
+At adjacent sites, there are fewer allowed hops and a different interaction
+energy. Comparing the adjacent equation to the extrapolated free equation
+requires
+
+$$
+\psi(x,x)+\psi(x+1,x+1)=2\Delta\psi(x,x+1).
+$$
+
+The coincident amplitudes here are formal extensions of the plane-wave ansatz;
+the spin Hilbert space still forbids two down spins on one site. Substitution
+and cancellation of $e^{i(k_1+k_2)x}$ give
+
+$$
+\frac{A_{21}}{A_{12}}
+=-\frac{1+e^{i(k_1+k_2)}-2\Delta e^{ik_2}}
+{1+e^{i(k_1+k_2)}-2\Delta e^{ik_1}}.
+$$ {#eq-bethe-scattering}
+
+This ratio is the two-body scattering amplitude in the stated coefficient
+convention. For real momenta it is a phase. At $\Delta=0$ it becomes $-1$,
+as expected for the free-fermion representation. Complex momenta can describe
+bound states; discarding them would omit physically important excitations.
+Bethe's original construction [@bethe1931chain] is the ancestor of this method.
+
+For many magnons, sum over all permutations of momenta and relate neighboring
+permutation coefficients by this two-body amplitude. Periodic boundaries then
+quantize momenta through accumulated propagation and scattering phases. The
+result is an interacting quantization problem rather than independent free
+standing waves.
+
+## A continuum model with especially transparent thermodynamics
+
+The repulsive Lieb–Liniger gas is convenient for deriving the thermodynamic
+machinery. For $N$ bosons on a ring of length $L$, choose mass $m=1/2$:
+
+$$
+H=-\sum_{j=1}^N\partial_{x_j}^2+
+2c\sum_{i<j}\delta(x_i-x_j),\qquad c>0.
+$$ {#eq-bethe-ll}
+
+The contact interaction imposes a derivative jump on the wave function at
+$x_i=x_j$. In each ordered coordinate sector the wave function is a sum of
+plane waves; the jump fixes their relative scattering phase. One convenient
+logarithmic form of the periodic Bethe equations is
+
+$$
+Lk_j+\sum_{\ell\ne j}\theta(k_j-k_\ell)=2\pi I_j,
+\quad
+\theta(q)=2\arctan(q/c),
+\quad
+K(q)=\theta'(q)=\frac{2c}{c^2+q^2}.
+$$ {#eq-bethe-quantization}
+
+The quantum numbers $I_j$ are distinct integers or half-integers depending on
+$N$ and the phase convention. Energies and momenta are
+$E=\sum_jk_j^2$ and $P=\sum_jk_j$. The kernel $K$ is the derivative of a
+collision phase; it measures how adding particles changes the density of allowed
+rapidities. It is not a phenomenological relaxation rate.
+
+## From discrete roots to a thermodynamic macrostate
+
+In the thermodynamic limit, a microscopic list of roots is too detailed. Define
+$\rho_p(k)dk$ as the number of occupied roots per unit physical length in
+$[k,k+dk]$. Let $\rho_h$ count unoccupied available quantum numbers and
+$\rho_s=\rho_p+\rho_h$ count all available states. The filling is
+$\vartheta=\rho_p/\rho_s$.
+
+Differentiate the counting function in @eq-bethe-quantization and replace the
+root sum by an integral. The spacing of allowed quantum numbers gives
+
+$$
+2\pi\rho_s(k)=1+\int dq\,K(k-q)\rho_p(q).
+$$ {#eq-bethe-root-density}
+
+Thus interactions change the available density of states. A macrostate is
+specified by the function $\rho_p$, or equivalently $\vartheta$, subject to
+this equation. Its particle and energy densities are
+$n=\int dk\,\rho_p(k)$ and $e=\int dk\,k^2\rho_p(k)$.
+Infinitely many different functions can have the same $n$ and $e$.
+
+To count microscopic realizations, divide rapidity space into small bins. A bin
+contains $L\rho_sdk$ allowed quantum numbers and $L\rho_pdk$ occupied ones.
+Its multiplicity is a binomial coefficient. Stirling's formula, followed by
+summing bins, gives the Yang–Yang entropy density
+
+$$
+s_{\mathrm{YY}}=\int dk\,[\rho_s\ln\rho_s-\rho_p\ln\rho_p-
+\rho_h\ln\rho_h]
+=\int dk\,\rho_s\,h(\vartheta),
+$$ {#eq-bethe-entropy}
+
+where $h(v)=-v\ln v-(1-v)\ln(1-v)$. This Fermi-like combinatorics counts
+Bethe quantum numbers even though the physical particles are bosons. It must
+not be confused with assigning fermionic exchange statistics to the atoms.
+The thermodynamic Bethe ansatz originates in @yang1969thermodynamics.
+
+## Deriving the thermal Bethe ansatz
+
+Equilibrium minimizes $f=e-\mu n-Ts_{\mathrm{YY}}$ while respecting
+@eq-bethe-root-density. Set $\mathsf K f(k)=\int dq\,K(k-q)f(q)/(2\pi)$,
+so $\delta\rho_s=\mathsf K\delta\rho_p$.
+Since $\rho_h=\rho_s-\rho_p$, direct variation of the entropy gives
+
+$$
+\delta s_{\mathrm{YY}}
+=\int dk\,\left[\ln\frac{\rho_h}{\rho_p}
++\mathsf K\ln\frac{\rho_s}{\rho_h}\right]\delta\rho_p.
+$$
+
+The kernel is symmetric in this model, allowing it to move between factors in
+the integral. Define the dimensionless pseudoenergy
+$\eta=\ln(\rho_h/\rho_p)$. Stationarity of $f$ then yields
+
+$$
+\eta(k)=\beta(k^2-\mu)-\mathsf K\ln[1+e^{-\eta}](k),
+\qquad
+\vartheta(k)=\frac1{1+e^{\eta(k)}}.
+$$ {#eq-bethe-tba}
+
+A pseudoenergy is a thermodynamic auxiliary function determining the filling;
+it is generally not the bare energy of an isolated particle. The sequence of
+a calculation is now explicit: solve @eq-bethe-tba for $\eta$, compute
+$\vartheta$, solve @eq-bethe-root-density for $\rho_s$, and integrate observables.
+At $c\to\infty$, $K\to0$ and $\rho_s=1/(2\pi)$: impenetrable bosons have
+free-fermion thermodynamics. At very small $c$, naive numerical grids require
+care because the kernel becomes narrow rather than uniformly small.
+
+The XXZ chain has multiple quasiparticle species, including bound-state strings.
+The same logic produces coupled density and pseudoenergy equations indexed by
+species. Their precise kernels and string content depend on anisotropy. The
+single-species derivation here supplies the logic; it does not license using the
+Lieb–Liniger kernel for a spin chain.
+
+The impenetrable limit also supplies a zero-temperature analytic benchmark.
+The filling is one for $|k|<k_F$ and zero outside, with
+$n=\int_{-k_F}^{k_F}dk/(2\pi)=k_F/\pi$.
+Consequently $k_F=\pi n$ and
+$e=\int_{-k_F}^{k_F}dk\,k^2/(2\pi)=\pi^2n^3/3$.
+The edge velocity is $2k_F=2\pi n$ in the mass convention $m=1/2$.
+These quantities are not evidence that the bosonic wavefunction has become a
+fermionic state; local thermodynamics and density spectra share a mapping while
+certain off-diagonal bosonic correlations retain different structure. Comparing
+energy and sound velocity to these formulas is a more discriminating numerical
+check than merely observing that a TBA iteration stopped changing.
+
+## Dressing: how a medium changes a particle's charge
+
+Adding a quasiparticle shifts all other roots. Its effective charge therefore
+includes a response of the background. For a bare one-particle function $h(k)$,
+define its *dressing* by
+
+$$
+h^{\mathrm{dr}}=h+\mathsf K(\vartheta h^{\mathrm{dr}}),
+\qquad
+h^{\mathrm{dr}}=(1-\mathsf K\vartheta)^{-1}h.
+$$ {#eq-bethe-dressing}
+
+The inverse means solving a linear integral equation. It is not pointwise
+division. The density equation implies $2\pi\rho_s=(1)^{\mathrm{dr}}$.
+The effective velocity is
+$v^{\mathrm{eff}}=(2k)^{\mathrm{dr}}/(1)^{\mathrm{dr}}$ for the bare
+energy $k^2$ and momentum $k$. This formula will acquire a collision-shift
+interpretation in @sec-ghd.
+
+For a numerical implementation, choose quadrature nodes $k_i$, weights $w_i$,
+and matrix $M_{ij}=w_jK(k_i-k_j)\vartheta(k_j)/(2\pi)$.
+Then solve $(I-M)h^{\mathrm{dr}}=h$ with a linear solver. Verify the residual,
+refine the domain and grid, and recover the $c\to\infty$ result. Iterating TBA
+and solving dressing are different numerical problems; convergence of one does
+not certify the other.
+
+## Why a generalized Gibbs ensemble is necessary
+
+A maximum-entropy state constrained by conserved charges is
+
+$$
+\rho_{\mathrm{GGE}}=Z^{-1}\exp\!\left(-\sum_r\lambda_rQ_r\right).
+$$ {#eq-bethe-gge}
+
+Its multipliers reproduce the initial charge densities. Ordinary Gibbs
+statistics retains energy, particle number, and other familiar global charges.
+A generalized Gibbs ensemble retains enough local and quasilocal charges to
+specify the locally stationary macrostate. A formally incomplete charge family
+can predict the wrong steady state even when every included constraint is
+satisfied.
+
+A transparent example uses free fermions. If mode occupations are $n(k)$, then
+
+$$
+\rho_{\mathrm{GGE}}\propto e^{-\sum_k\lambda(k)c_k^\dagger c_k},
+\qquad
+\lambda(k)=\ln\frac{1-n(k)}{n(k)}.
+$$
+
+Take a hopping dispersion $\epsilon(k)=J\cos k$ and
+$n(k)=1/2+a\cos2k$ with $|a|<1/2$. All these states have the same density
+$1/2$ and energy density zero, but
+$\langle c_x^\dagger c_{x+2}\rangle=a/2$.
+A thermal state specified only by $n$ and $e$ cannot reproduce this continuous
+family. The extra mode information affects a short-range observable, so it is
+not merely inaccessible global bookkeeping.
+
+Local stationarity after a quench follows through dephasing of oscillatory
+contributions, under appropriate assumptions on the initial state and spectrum.
+The global pure state remains pure. The GGE describes local measurements; it
+is not the full wavefunction. Finite-size recurrences, exceptional degeneracies,
+and observables with support increasing with time require separate treatment.
+
+## Thermodynamic fluctuations contain dressed charges too
+
+Dressing determines more than velocities. It also determines how local
+conserved quantities fluctuate in a Bethe macrostate. This provides an
+independent consistency check on a TBA implementation and a bridge to transport.
+To see the first step, write the thermal driving term as
+$w(k)=\beta k^2-\lambda$, with $\lambda=\beta\mu$.
+Differentiate the pseudoenergy equation with respect to $\lambda$.
+Because $d\ln(1+e^{-\eta})/d\eta=-\vartheta$, one obtains
+
+$$
+\partial_\lambda\eta=-1+\mathsf K(\vartheta\partial_\lambda\eta),
+\qquad
+\partial_\lambda\eta=-(1)^{\mathrm{dr}}.
+$$ {#eq-bethe-pseudoenergy-response}
+
+Thus
+$\partial_\lambda\vartheta=\vartheta(1-\vartheta)(1)^{\mathrm{dr}}$.
+The physical particle density is not simply the integral of filling over a fixed
+density of states: $\rho_s$ changes too. Differentiating the density equation,
+or equivalently moving the symmetric dressing resolvent between the two factors
+in the integral, yields
+
+$$
+\chi_\lambda=\frac{\partial n}{\partial\lambda}
+=\int dk\,\rho_p(k)[1-\vartheta(k)]
+\left[(1)^{\mathrm{dr}}(k)\right]^2.
+$$ {#eq-bethe-compressibility}
+
+Each factor has a meaning. The occupation variance supplies
+$\vartheta(1-\vartheta)$, the available-state density counts the modes, and the
+dressed charge measures how a mode changes the total particle content after the
+background responds. The result is nonnegative, as a susceptibility must be.
+At $c\to\infty$ it reduces to
+$\int dk\,\vartheta(1-\vartheta)/(2\pi)$.
+For a general charge $h$, replace both unit dressed charges by $h^{\mathrm{dr}}$;
+cross-correlations use one dressed factor for each charge.
+
+A practical numerical test computes the left side by centered differences of
+$n(\lambda)$ and the right side by quadrature. Agreement tests the nonlinear TBA,
+the state-density equation, and the linear dressing solve simultaneously.
+Choose the finite-difference step small enough to resolve a derivative but large
+enough to avoid cancellation error. Grid convergence is still needed: two
+methods can agree on the same inadequate rapidity cutoff.
+
+This calculation clarifies why finite sets of charge moments can be dangerous.
+Matching energy and density constrains two integrals, while response to an
+additional driving function probes a whole different direction in macrostate
+space. Conversely, reproducing all short-range correlators to a specified
+accuracy need not require representing every mathematically possible charge
+explicitly. Charge completeness is a statement about the intended class of local
+states and observables, rather than a count of formal commuting matrices.
+
+## Research bridges
+
+The discovery of quasilocal current-overlapping charges in @prosen2011drude
+explains why “I included all familiar charges” is not a completeness argument.
+A first project is to examine symmetry parities of the current and candidate
+charges before constructing a Mazur bound. Missing overlap can reflect a
+missing symmetry sector in charge space.
+
+@alba2017entanglement connects Bethe thermodynamics to post-quench entanglement:
+the Yang–Yang entropy carried by quasiparticles enters a predictive space-time
+scaling formula. Its useful starting point is a quench whose stationary root
+densities are known and whose entangled quasiparticle structure fits the
+construction. Arbitrary initial states and all Rényi entropies need not follow
+the same simple pair formula.
+
+The GHD papers @castro2016ghd and @bertini2016ghd turn these stationary
+macrostates into locally varying fluids. This is the crucial conceptual bridge:
+Bethe ansatz is more than a way to list energy levels. It supplies the local
+state variables, equations of state, and velocities needed for dynamics.
+The modern scope and limitations are reviewed in @doyon2025perspective.
+
+## Exercises and selected solutions
+
+1. Derive the two-magnon contact condition and @eq-bethe-scattering. Check
+   the $\Delta=0$ limit and conservation of scattering probability for real
+   nonexceptional momenta.
+2. Starting from the binomial multiplicity, derive @eq-bethe-entropy including
+   cancellation of the $L\ln L$ terms.
+3. Vary the constrained free energy to obtain @eq-bethe-tba. Identify precisely
+   where symmetry of the Lieb–Liniger kernel is used.
+4. Calculate $\langle c_x^\dagger c_{x+r}\rangle$ for the free-mode example.
+   Which local conserved quadratic charge detects $a$?
+5. Implement a quadrature dressing solver. Compare the relative residual and
+   the physical observable error as the rapidity cutoff is enlarged.
+6. Design a test of a proposed finite-charge GGE against exact free-fermion
+   evolution. Choose an observable absent from its fitted constraints.
+
+::: {.callout-note title="Solution: the hidden short-range charge"}
+Fourier inversion gives
+$\langle c_x^\dagger c_{x+r}\rangle=
+\int dk\,e^{ikr}n(k)/(2\pi)$.
+The result is $1/2$ for $r=0$, $a/2$ for $r=\pm2$, and zero otherwise.
+The conserved quadratic charge
+$Q_2=\sum_x(c_x^\dagger c_{x+2}+c_{x+2}^\dagger c_x)$ has density $a$.
+It commutes with any translationally invariant quadratic hopping Hamiltonian
+because both are diagonal in $n_k$.
+:::
+
+::: {.callout-note title="Solution sketch: entropy counting"}
+For a bin with $M=L\rho_sdk$ available states and $N=L\rho_pdk$ particles,
+$\ln\binom MN\simeq M\ln M-N\ln N-(M-N)\ln(M-N)$.
+Because $M=N+(M-N)$, terms proportional to $\ln(Ldk)$ cancel.
+Divide by $L$, sum bins, and take the continuum limit. The remaining
+integrand is exactly @eq-bethe-entropy. This derivation also explains why holes
+must be counted together with particles.
+:::

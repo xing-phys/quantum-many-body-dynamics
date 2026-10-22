@@ -1,0 +1,156 @@
+# Periodic driving, effective Hamiltonians, and prethermalization {#sec-floquet}
+
+::: {.callout-note}
+## Prerequisites and goals
+You need time-dependent Schrödinger evolution and commutators. We derive Floquet modes, micromotion, the first Magnus correction, rotating-frame tunneling renormalization, and the optimal-truncation estimate behind slow heating. You should emerge able to distinguish an exact Floquet logarithm from a useful local effective Hamiltonian and design a finite-size heating experiment. We set $\hbar=1$.
+:::
+
+## Engineering a Hamiltonian is also engineering its errors
+
+A periodic drive can change tunneling, generate interactions absent in the undriven system, or create dynamics with no static counterpart. The same drive can absorb energy and destroy the desired state. A useful theory must therefore answer two questions together: what effective dynamics does the drive produce, and for how long does that description remain valid?
+
+The problem is sharply different from static equilibrium. A periodically driven isolated system generally has no conserved energy. Its quasienergies live on a circle, so increasing many-body size rapidly introduces near-resonances. Nevertheless, at high frequency, local bounded systems can retain an approximately conserved effective energy for an extremely long time. This **prethermal regime** is often the experimentally relevant window.
+
+## Exact Floquet theory in finite dimension
+
+Let $H(t+T)=H(t)$ and $\omega=2\pi/T$. Define the one-period propagator
+$$
+U_F=\mathcal T\exp\left[-i\int_0^T H(t)dt\right],
+$$
+where $\mathcal T$ orders later times to the left. Since $U_F$ is unitary, write
+$$
+U_F|\phi_\alpha\rangle=e^{-i\varepsilon_\alpha T}|\phi_\alpha\rangle.
+$$
+The **quasienergy** $\varepsilon_\alpha$ is defined modulo $\omega$: adding $m\omega$ leaves the eigenphase unchanged. Choose a branch of the logarithm and define $H_F$ by $U_F=e^{-iH_FT}$. The associated exact factorization is
+$$
+U(t,0)=P(t)e^{-iH_Ft},\qquad P(t+T)=P(t),\quad P(0)=1.
+$$ {#eq-floquet-theorem}
+
+To verify periodicity, use $U(t+T,0)=U(t,0)U_F$ and $U_F=e^{-iH_FT}$. $P(t)$ is the **micromotion** within a period. Equivalently, $|u_\alpha(t)\rangle=P(t)|\phi_\alpha\rangle$ is periodic and $e^{-i\varepsilon_\alpha t}|u_\alpha(t)\rangle$ solves Schrödinger's equation.
+
+This exact finite-dimensional construction guarantees neither locality nor a smooth thermodynamic limit for $H_F$. Moving individual eigenphases between logarithm branches can produce an extremely nonlocal operator. In many-body applications the useful object is instead a quasi-local approximate Hamiltonian that describes local observables over a controlled time window.
+
+The stroboscopic time origin also matters. With $U_F(t_0)=U(t_0+T,t_0)$,
+$$
+U_F(t_0)=U(t_0,0)U_F(0)U^\dagger(t_0,0).
+$$
+Quasienergies are unchanged, while effective operators are conjugated, given consistent logarithm branches. An observable measured midway through a period must include the micromotion dressing $P^\dagger(t)OP(t)$. Ignoring this dressing can make two equivalent Floquet descriptions appear to disagree.
+
+## Derivation 1: the first Magnus correction
+
+Write $U(T)=e^{\Omega(T)}$ and expand $\Omega$ in powers of the period. Matching the time-ordered exponential to the exponential series gives
+$$
+\Omega_1=-i\int_0^Tdt_1H(t_1),\qquad
+\Omega_2=-\frac12\int_0^Tdt_1\int_0^{t_1}dt_2[H(t_1),H(t_2)].
+$$
+Since $H_F=i\Omega/T$,
+$$
+H_F^{(0)}=\frac1T\int_0^T H(t)dt,\qquad
+H_F^{(1)}=-\frac{i}{2T}\int_0^Tdt_1\int_0^{t_1}dt_2[H(t_1),H(t_2)].
+$$ {#eq-floquet-magnus}
+
+The correction is Hermitian because a commutator of Hermitian operators is anti-Hermitian. It represents the effect of noncommuting pieces of the drive, which cannot be inferred from a time average alone.
+
+For a two-step protocol, first evolve with $H_A$ for $T/2$, then with $H_B$ for $T/2$:
+$$
+U_F=e^{-iH_BT/2}e^{-iH_AT/2}.
+$$
+The Baker–Campbell–Hausdorff formula $\log(e^Xe^Y)=X+Y+[X,Y]/2+\cdots$ gives
+$$
+H_F=\frac{H_A+H_B}{2}+\frac{iT}{8}[H_A,H_B]+O(T^2).
+$$ {#eq-floquet-twostep}
+
+For $H_A=a\sigma^x$ and $H_B=b\sigma^z$, $[\sigma^x,\sigma^z]=-2i\sigma^y$, so the induced term is $abT\sigma^y/4$. Reversing the order reverses its sign. This provides a concrete example of a drive generating an operator absent from its time average.
+
+The Magnus and **van Vleck** expansions organize the same physics in different gauges. Magnus coefficients generally depend on the stroboscopic origin. A van Vleck effective Hamiltonian is conventionally accompanied by a periodic kick operator so that time-origin dependence is carried by micromotion. Their truncated Hamiltonians should not be compared without transforming observables and states consistently [@bukov2015floquet].
+
+## Derivation 2: drive-renormalized tunneling
+
+Consider particles on a chain with a sinusoidal force,
+$$
+H(t)=-J\sum_j(c_{j+1}^\dagger c_j+\mathrm{h.c.})
++A\cos\omega t\,X+H_{\mathrm{int}},\qquad X=\sum_j jn_j,
+$$
+and assume $[H_{\mathrm{int}},X]=0$, as for density interactions. Define
+$$
+R(t)=e^{-iK\sin\omega t\,X},\qquad K=A/\omega,
+\qquad |\psi_{\mathrm{rot}}\rangle=R^\dagger(t)|\psi\rangle.
+$$
+The rotating Hamiltonian is $H_{\mathrm{rot}}=R^\dagger H R-iR^\dagger\dot R$. The derivative term cancels the force. Since the hopping increases $X$ by one,
+$$
+H_{\mathrm{rot}}(t)=-J\sum_j\left[e^{iK\sin\omega t}c_{j+1}^\dagger c_j+\mathrm{h.c.}\right]+H_{\mathrm{int}}.
+$$
+Now average the bounded oscillatory hopping phase:
+$$
+J_{\mathrm{eff}}=J\,\mathcal J_0(K),\qquad
+\mathcal J_0(K)=\frac1{2\pi}\int_0^{2\pi}e^{iK\sin\theta}d\theta.
+$$ {#eq-floquet-bessel}
+
+$\mathcal J_0$ is the Bessel function of the first kind. The effective tunneling can vanish or change sign as the drive amplitude changes. The result is nonperturbative in $K=A/\omega$ but leading order in the remaining rotating-frame scales divided by $\omega$. Naively averaging the original Hamiltonian would miss it completely. Near a zero of $\mathcal J_0$, higher-order terms or longer-range hopping can dominate, so vanishing leading tunneling is not a guarantee of exact freezing.
+
+## Why a divergent series can still predict long-lived physics
+
+For a finite system, a sufficient global convergence condition for a Magnus series involves an integrated operator norm. The total norm of an extensive Hamiltonian grows with $L$, making such a condition useless at fixed frequency in the thermodynamic limit. This does not mean every low-order local approximation fails immediately.
+
+Assume $H(t)$ is a sum of bounded finite-range terms with characteristic local energy scale $g$. Nested commutators remain supported on connected growing clusters. Their count can grow factorially, motivating a schematic bound for the $n$th effective local term,
+$$
+\|h^{(n)}\|_{\mathrm{local}}\lesssim g\,n!\left(\frac{Cg}{\omega}\right)^n.
+$$ {#eq-floquet-factorial}
+
+Successive terms decrease until $n$ is order $\omega/(Cg)$, then increase. Truncating near the smallest term gives
+$$
+n_*\sim\frac{\omega}{Cg},\qquad
+\epsilon_*\sim g e^{-c\omega/g}.
+$$ {#eq-floquet-optimal}
+
+The constants and precise rigorous bounds depend on the interaction class and theorem. The physical consequence is a quasi-conserved effective Hamiltonian $H_*$ and an exponentially, or in some formulations nearly exponentially, long heating scale. Local-observable error estimates also include propagation and time-accumulation factors; the omitted term is not simply a size-independent bound on the norm of the full many-body evolution operator.
+
+Rigorous work established exponentially suppressed linear-response absorption, controlled truncated Floquet–Magnus dynamics, and quasi-conserved effective Hamiltonians [@abanin2015heating; @kuwahara2016magnus; @abanin2017effective]. These are theorem-level statements under specified locality and boundedness assumptions. They do not require ETH to bound heating. ETH enters only if one further argues that $H_*$ internally thermalizes to a Gibbs ensemble before appreciable heating.
+
+Unbounded local boson occupation, continuum spectra, power-law interactions, and drive amplitudes scaling with frequency require separate analysis or a carefully chosen rotating frame. Replacing the local energy scale by a small fitted number does not evade an unbounded-spectrum resonance. The theorem's hypotheses are part of the result.
+
+## Two-stage relaxation and Floquet ETH
+
+If $H_*$ is nonintegrable and locally thermalizing, a generic low-complexity state can first equilibrate approximately to $e^{-\beta_*H_*}/Z_*$, with $\beta_*$ fixed by the initially conserved effective energy. This occurs after an internal relaxation time $t_{\mathrm{rel}}$ but before a heating time $t_*$. The required window is $t_{\mathrm{rel}}\ll t\ll t_*$.
+
+At much later times, a generic isolated drive without relevant additional constraints can approach an infinite-temperature state within its exact symmetry sector. The **Floquet ETH** expectation is that typical Floquet eigenstates are locally indistinguishable from that sector's maximum-entropy state. Integrable, localized, specially constrained, or fine-tuned drives can violate this expectation. A prethermal state is a long-lived dynamical regime; it is not generally the Gibbs state of the exact quasienergy logarithm.
+
+Slow heating near integrability is another route to a plateau. There the intermediate ensemble may retain many approximately conserved quantities and need a generalized Gibbs description. High-frequency prethermalization and near-integrable prethermalization can coexist, but their controlling small parameters and lifetimes are different.
+
+## Micromotion can carry information absent from static bands
+
+Imagine a two-dimensional drive that moves particles around closed loops in the bulk during one period. In the interior they return to their starting positions, while at an edge an incomplete loop translates them along the boundary. The bulk one-period unitary may therefore look trivial while the boundary motion is not. The path through unitary evolution during the period contains information that a static effective-band picture can miss.
+
+This is the physical reason for **anomalous Floquet topology**: topology can belong to the full time-dependent evolution, not only to quasienergy bands [@rudner2013anomalous]. Its precise classification requires specifying gaps, symmetries, and interacting stability. The [long-range and gauge chapter](29-long-range-gauge.qmd) connects this question to broader departures from static local-spin assumptions. Here the essential methodological lesson is to retain micromotion when it carries the observable of interest.
+
+## Computational demonstration and research bridges
+
+A transparent laboratory uses a two-step nonintegrable spin chain. Construct $U_F$ exactly for small $L$ and calculate
+$$
+E_*(n)=\langle\psi_0|(U_F^\dagger)^nH_*U_F^n|\psi_0\rangle/L.
+$$
+Compare the time average $H_F^{(0)}$ with the first corrected $H_*$ from @eq-floquet-twostep. At increasing frequencies, test how long the effective energy stays near its initial value. Also calculate local observables, since conserving a single expectation value does not imply accurate full dynamics. Use several sizes and avoid calling a finite-size lack of accessible resonances an exponential thermodynamic heating law.
+
+![A directly reproducible short-period check in an open $L=5$ chain with $H_A=\sum\sigma_j^z\sigma_{j+1}^z+0.5\sum\sigma_j^z$ and $H_B=1.05\sum\sigma_j^x$. The normalized Frobenius error of the one-period unitary scales as $T^2$ for time averaging and $T^3$ after the first commutator correction. This checks the expansion's sign and order; it is not a calculation of the asymptotic heating lifetime.](figs/thermal-floquet-convergence.png){#fig-floquet-convergence}
+
+Two verified 2026 preprints illustrate current extensions. Cruickshank and collaborators study driven cesium condensates with pulsed and two-tone drives, combining experiments and Bogoliubov–de Gennes calculations to suppress parametric instabilities while tuning effective tunneling and phases [@cruickshank2026multitone]. A **parametric instability** is exponential amplification of fluctuation modes by periodic modulation; it can destroy a condensate before generic slow many-body heating becomes the limiting effect. Their mode-control result is therefore distinct from applying a bounded-spin prethermal theorem to all bosonic occupations.
+
+Fu and collaborators engineer a hierarchy of approximate local symmetries to protect quantum-link-model gauge sectors [@fu2026hierarchical]. Their effective selection rules and numerical tests relate Floquet prethermalization to constrained quantum simulation. The protection is sector dependent and finite lived. A useful initial reproduction is to measure constraint violations with and without the drive, while separately monitoring heating and fidelity to the intended intra-sector dynamics. Suppressing leakage is valuable only if the retained evolution still implements the target physics.
+
+## Exercises
+
+1. **Time-ordering sign.** Derive @eq-floquet-twostep directly by multiplying the two exponentials to second order and matching an effective exponential. Verify the $\sigma^y$ sign for $H_A=a\sigma^x$, $H_B=b\sigma^z$.
+2. **Micromotion.** Starting from @eq-floquet-theorem, derive the expectation of a laboratory observable in the rotating Floquet frame. Explain why a stroboscopic comparison can agree while an intermediate-time comparison fails.
+3. **Optimal truncation.** Apply Stirling's formula to @eq-floquet-factorial. Estimate the minimizing $n$ and the smallest term, keeping the distinction between an asymptotic estimate and a rigorous constant.
+4. **Resonant oscillator.** Consider a harmonic oscillator with a weak periodic force. Why does resonance at its frequency invalidate a naive assertion that every local quantum system heats only exponentially slowly at high drive frequency?
+5. **A controlled plateau.** Design a frequency scan of a driven chain with at least two system sizes and two effective-Hamiltonian truncation orders. Specify what evidence would distinguish a better approximation from a longer actual heating lifetime.
+
+::: {.callout-tip collapse="true"}
+## Worked solution: two-step ordering
+Let $H_0=(H_A+H_B)/2$ and $H_F=H_0+TC$. The exact product contains a cross term $-T^2H_BH_A/4$. Expanding $e^{-iTH_F}$ gives $-iT^2C-T^2(H_A+H_B)^2/8$ at second order. Matching yields $-iC=[H_A,H_B]/8$, so $C=i[H_A,H_B]/8$. For the stated Pauli matrices this is $ab\sigma^y/4$. Swapping the two steps changes the commutator sign.
+:::
+
+::: {.callout-tip collapse="true"}
+## Worked solution: smallest asymptotic term
+Let $x=Cg/\omega\ll1$. Up to a prefactor, $\log(n!x^n)\simeq n\log n-n+n\log x$. Differentiating with respect to continuous $n$ gives $\log(nx)=0$, hence $n_*\simeq1/x$. Substitution gives a leading exponential $e^{-1/x}$. Integer rounding and polynomial factors do not change the exponential scale. This estimates an optimal truncation; it does not demonstrate convergence of the infinite series.
+:::

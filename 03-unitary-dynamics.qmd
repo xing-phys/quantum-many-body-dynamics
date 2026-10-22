@@ -1,0 +1,233 @@
+# Unitary dynamics, quenches, and exact limits {#sec-unitary}
+
+## What does a quench measure?
+
+A quantum quench changes a Hamiltonian on a timescale short compared with the
+subsequent dynamics. It prepares a state that is generally not an eigenstate of
+the new Hamiltonian. A global quench changes parameters throughout the system;
+a local quench changes them in a finite region. These protocols inject different
+amounts of energy and need not share an entanglement-growth law.
+
+We will derive the spectral description of a quench, distinguish dephasing from
+dissipation, and solve a broad class of free-particle problems. Only elementary
+unitary evolution and matrix diagonalization are assumed. Later descriptions
+such as ETH or hydrodynamics must agree with these exact limits where their
+domains overlap.
+
+## Spectral evolution and the diagonal ensemble
+
+Let $H|n\rangle=E_n|n\rangle$ and
+$|\psi(0)\rangle=\sum_n c_n|n\rangle$. Then
+
+$$
+\langle O(t)\rangle=\sum_{mn}c_m^*c_n
+e^{i(E_m-E_n)t}O_{mn}.
+$$ {#eq-unitary-spectral}
+
+At finite dimension this is a finite sum of oscillations. It is generally
+quasiperiodic and need not have a pointwise limit as $t\to\infty$. An
+infinite-time average is a different object. Since the time average of
+$e^{i\omega t}$ vanishes for nonzero $\omega$,
+
+$$
+\overline\rho=\lim_{T\to\infty}\frac1T\int_0^T\rho(t)dt
+=\sum_E P_E\rho(0)P_E.
+$$ {#eq-unitary-dephased}
+
+Here $P_E$ projects onto the full degenerate energy subspace. For a
+nondegenerate spectrum this becomes the diagonal ensemble
+$\rho_{\mathrm{D}}=\sum_n|c_n|^2|n\rangle\langle n|$. Degenerate coherences
+must not be discarded. No information has been destroyed by actual evolution;
+time averaging deliberately loses phase resolution.
+
+Dephasing can make a local observable almost constant for most times even
+though the complete state remains far from a Gibbs density matrix. Thermalization
+further asks whether the near-stationary local value agrees with a thermal
+ensemble fixed by conserved quantities. Integrable chains provide examples
+where dephasing occurs but the thermal ensemble is wrong.
+
+## Time scales and noncommuting limits
+
+There may be a local relaxation time, a transport time across the sample, a
+Heisenberg time $t_H\sim2\pi/\delta E$ associated with mean level spacing,
+and much longer recurrence times. These are distinct. For diffusion the sample
+time is $L^2/D$; for a ballistic front it is $L/v$. A small chain can reach its
+boundary before a proposed hydrodynamic regime develops.
+
+An irreversible thermodynamic statement usually takes $L\to\infty$ before
+$t\to\infty$ for a fixed local observable. A numerical calculation fixes
+$L$ first and can only test a finite window. A narrow time average may retain
+oscillations; a very broad average may wash out a physically interesting
+prethermal plateau. State the averaging procedure as part of the observable.
+
+For a nondegenerate energy-gap spectrum one can bound temporal fluctuations by
+an effective dimension
+$d_{\mathrm{eff}}=(\sum_n|c_n|^4)^{-1}$. The mechanism is cancellation among many
+frequencies, not decay of the coefficients $c_n$. Its assumptions and ETH's
+additional content are developed in [chapter 6](06-equilibration-eth.qmd).
+
+## Heisenberg and Schrödinger pictures
+
+Moving time dependence to operators gives
+$O(t)=e^{iHt}Oe^{-iHt}$ and $\dot O=i[H,O]$. Iterating the commutator yields
+
+$$
+O(t)=O+it[H,O]+\frac{(it)^2}{2!}[H,[H,O]]+\cdots.
+$$ {#eq-unitary-commutators}
+
+Each commutator with a local Hamiltonian can enlarge spatial support by a
+bounded amount. This expansion connects the spectrum to locality without
+diagonalization. In a time-dependent Hamiltonian the propagator is time ordered:
+$U(t)=\mathcal T\exp[-i\int_0^tH(s)ds]$. Replacing it by the exponential of
+the integral is valid only when the Hamiltonians commute at different times,
+or as an explicitly controlled approximation.
+
+Linear response uses a small perturbation to the initial evolution;
+scrambling uses noncommutativity of evolved and distant operators; Floquet
+theory groups the propagator into periods. They are different reorganizations
+of the same operator algebra.
+
+## Exact number-conserving Gaussian dynamics
+
+Consider $H=\sum_{ij}c_i^\dagger h_{ij}c_j$, with $h=h^\dagger$. From the
+anticommutation relations,
+$i\dot c_i=[c_i,H]=\sum_jh_{ij}c_j$. Therefore
+$c(t)=U(t)c(0)$, where $U(t)=e^{-iht}$. Define the one-body matrix with
+the explicit index convention $C_{ij}=\langle c_j^\dagger c_i\rangle$.
+Then
+
+$$
+C(t)=U(t)C(0)U^\dagger(t).
+$$ {#eq-unitary-correlation}
+
+The formula for $C$ holds even for a non-Gaussian initial state, because the
+operator evolution is linear. A Gaussian state has the further property that
+all higher correlation functions follow from $C$ by Wick factorization. A
+Slater determinant is a pure number-conserving Gaussian state with $C^2=C$.
+Interacting evolution generally generates connected higher correlations, so
+evolving $C$ alone ceases to determine the full state.
+
+For a region $A$, diagonalize its restricted matrix $C_A$:
+$C_A=W\operatorname{diag}(\nu_a)W^\dagger$. The associated independent
+fermionic modes have occupation probabilities $\nu_a$. Consequently
+
+$$
+S_A=\sum_a[-\nu_a\ln\nu_a-(1-\nu_a)\ln(1-\nu_a)],
+\qquad
+S_{2,A}=-\sum_a\ln[\nu_a^2+(1-\nu_a)^2].
+$$ {#eq-unitary-gaussian-entropy}
+
+This is exact for a number-conserving Gaussian state. Pairing requires a Nambu
+or Majorana covariance matrix; inserting a paired state's ordinary $C_A$ into
+this formula can give a wrong entropy.
+
+## Worked example: a density wave in the XX chain
+
+Take the infinite hopping chain with dispersion $\epsilon(k)=J\cos k$ and
+initial occupations $n_j(0)=[1+(-1)^j]/2$. The propagator follows by Fourier
+transformation:
+
+$$
+U_{j\ell}(t)=\int_{-\pi}^{\pi}\frac{dk}{2\pi}
+e^{ik(j-\ell)-iJt\cos k}=(-i)^{j-\ell}\mathcal J_{j-\ell}(Jt),
+$$ {#eq-unitary-bessel}
+
+where $\mathcal J_r$ is a Bessel function. Then
+$n_j(t)=\sum_\ell|U_{j\ell}(t)|^2n_\ell(0)$. Using the Bessel identity
+$\sum_r(-1)^r\mathcal J_r(x)^2=\mathcal J_0(2x)$ gives the staggered imbalance
+
+$$
+\mathcal I(t)=\frac1L\sum_j(-1)^j[2n_j(t)-1]
+=\mathcal J_0(2Jt).
+$$ {#eq-unitary-imbalance}
+
+It decays with an oscillatory $t^{-1/2}$ envelope. The occupations of momentum
+modes remain exactly conserved, so this relaxation is not evidence for generic
+thermalization. At finite $L$, use the discrete sum and expect boundary or
+recurrence effects. Comparing that sum with a full many-body calculation is
+an excellent convention check.
+
+## Pairing and the Ising mode problem
+
+The Pauli Ising Hamiltonian
+$H=-J\sum_jX_jX_{j+1}-Jg\sum_jZ_j$ becomes quadratic with pairing under
+Jordan–Wigner transformation. In each $(k,-k)$ even-parity subspace a choice of
+basis phase gives
+
+$$
+\mathsf h_k(g)=2J[(g-\cos k)\tau_z+\sin k\,\tau_x],
+\quad \epsilon_k(g)=2J\sqrt{1+g^2-2g\cos k}.
+$$ {#eq-unitary-ising-mode}
+
+The Pauli matrices $\tau$ act on empty and paired states of these two modes.
+Define a Bogoliubov angle by
+$\cos2\theta_k=(g-\cos k)/[\epsilon_k/(2J)]$ and
+$\sin2\theta_k=\sin k/[\epsilon_k/(2J)]$. The word Bogoliubov means a
+linear transformation mixing particle creation and annihilation operators to
+diagonalize a paired quadratic Hamiltonian.
+
+Quench from a ground state at $g_i$ to $g_f$. Relative to the final ground
+state, the probability of exciting the pair is
+$n_k=\sin^2(\theta_k^f-\theta_k^i)$. This follows from the overlap of two
+spin-one-half eigenvectors pointing along the respective mode fields. The
+Loschmidt amplitude, the overlap with the initial state after evolution,
+factorizes:
+
+$$
+\mathcal G(t)=\prod_{k>0}
+\left[\cos(\epsilon_k^f t)
++i\cos(2\theta_k^f-2\theta_k^i)\sin(\epsilon_k^f t)\right].
+$$ {#eq-unitary-loschmidt}
+
+An irrelevant overall phase depends on energy-zero convention. The modulus
+and return rate do not. This exact formula leads to dynamical quantum phase
+transitions, but a singular extensive overlap is not automatically a singular
+local observable [@heyl2013dqpt]. [Chapter 27](27-critical-dynamics.qmd) explains
+the conditions and derives the critical times.
+
+## Connecting exact dynamics to research
+
+Cold-atom experiments detect propagating correlations after a global quench
+[@cheneau2012lightcone]. The conceptual comparison is with correlated
+quasiparticle pairs and finite propagation speeds, not with literal relativistic
+causality. The measured correlation cone can have a pair-separation speed
+different from a single excitation's velocity. Entanglement experiments further
+show how a pure preparation can yield approximately thermal local behavior
+[@kaufman2016thermalization]. Neither observation alone proves every clause of
+ETH or excludes all alternative long-time ensembles.
+
+Exact Gaussian models remain valuable at the frontier: they benchmark
+algorithms, separate dephasing from collisions, and expose which conclusions
+require interactions. Their efficient simulation is a structural property, not
+an excuse to treat interacting systems as weakly corrected free particles
+without a small parameter.
+
+## Exercises and worked solutions
+
+1. A two-level system has energies $\pm\omega/2$ and initial state
+   $(|+\rangle+|-\rangle)/\sqrt2$. Compute a nonstationary observable, its
+   time average, and the full-state trace distance to its dephased state. Does
+   the state approach that average?
+2. Derive the dephased density matrix when two energies are exactly degenerate.
+   Compare with a splitting $\delta$ observed for $T\ll1/\delta$ and
+   $T\gg1/\delta$.
+3. Derive the Gaussian entropy formula by diagonalizing a two-mode reduced
+   density operator with occupations $\nu_1,\nu_2$.
+4. Use the Julia code in the laboratory to compare finite-chain density-wave
+   imbalance with the infinite-chain Bessel result. Explain the earliest
+   deviations as a function of $L$ and boundary conditions.
+5. Derive the excitation probability for an Ising quench from the dot product
+   of the two mode-field unit vectors. Identify momenta with probability one-half.
+
+**Solution to 1.** Choosing $O=|+\rangle\langle-|+|-\rangle\langle+|$
+gives $\cos\omega t$ and average zero. The dephased state is $I/2$, but
+$T(\rho(t),I/2)=1/2$ for every $t$. An expectation can time-average to a
+stationary value without the evolving state converging to the averaged density
+matrix.
+
+**Solution to 3.** In the independent-mode basis the four probabilities are
+$(1-\nu_1)(1-\nu_2)$, $\nu_1(1-\nu_2)$, $(1-\nu_1)\nu_2$,
+and $\nu_1\nu_2$. Taking minus their probability-weighted logarithm separates
+into two binary entropies. The same factorization proves the formula for any
+number of Gaussian modes. It relies on the factorized reduced Gaussian state,
+not merely knowledge of two expectation values.

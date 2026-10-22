@@ -1,0 +1,2979 @@
+[
+  {
+    "key": "abanin2015heating",
+    "kind": "article",
+    "raw": "@article{abanin2015heating,\n  author = {Abanin, Dmitry and De Roeck, Wojciech and Huveneers, François},\n  title = {Exponentially Slow Heating in Periodically Driven Many-Body Systems},\n  journal = {Physical Review Letters}, volume = {115}, pages = {256803}, year = {2015},\n  doi = {10.1103/PhysRevLett.115.256803}, eprint = {1507.01474}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1507.01474}\n}",
+    "fields": {
+      "author": "Abanin, Dmitry and De Roeck, Wojciech and Huveneers, François",
+      "title": "Exponentially Slow Heating in Periodically Driven Many-Body Systems",
+      "journal": "Physical Review Letters",
+      "volume": "115",
+      "pages": "256803",
+      "year": "2015",
+      "doi": "10.1103/PhysRevLett.115.256803",
+      "eprint": "1507.01474",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1507.01474"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "abanin2017effective",
+    "kind": "article",
+    "raw": "@article{abanin2017effective,\n  author = {Abanin, Dmitry A. and De Roeck, Wojciech and Ho, Wen Wei and Huveneers, François},\n  title = {Effective Hamiltonians, prethermalization, and slow energy absorption in periodically driven many-body systems},\n  journal = {Physical Review B}, volume = {95}, pages = {014112}, year = {2017},\n  doi = {10.1103/PhysRevB.95.014112}, eprint = {1510.03405}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1510.03405}\n}",
+    "fields": {
+      "author": "Abanin, Dmitry A. and De Roeck, Wojciech and Ho, Wen Wei and Huveneers, François",
+      "title": "Effective Hamiltonians, prethermalization, and slow energy absorption in periodically driven many-body systems",
+      "journal": "Physical Review B",
+      "volume": "95",
+      "pages": "014112",
+      "year": "2017",
+      "doi": "10.1103/PhysRevB.95.014112",
+      "eprint": "1510.03405",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1510.03405"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "alba2017entanglement",
+    "kind": "article",
+    "raw": "@article{alba2017entanglement,\n  author = {Vincenzo Alba and Pasquale Calabrese},\n  title = {{Entanglement and thermodynamics after a quantum quench in integrable systems}},\n  year = {2017},\n  journal = {Proceedings of the National Academy of Sciences},\n  volume = {114},\n  pages = {7947--7951},\n  doi = {10.1073/pnas.1703516114},\n  eprint = {1608.00614},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1608.00614},\n}",
+    "fields": {
+      "author": "Vincenzo Alba and Pasquale Calabrese",
+      "title": "{Entanglement and thermodynamics after a quantum quench in integrable systems}",
+      "year": "2017",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "volume": "114",
+      "pages": "7947--7951",
+      "doi": "10.1073/pnas.1703516114",
+      "eprint": "1608.00614",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1608.00614"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "anand2026robustness",
+    "kind": "misc",
+    "raw": "@misc{anand2026robustness,\n  author = {Sajant Anand and Jack Kemp and Julia Wei and Christopher David White and Michael P. Zaletel and Norman Y. Yao},\n  title = {{Robustness of Kardar-Parisi-Zhang-like transport in long-range interacting quantum spin chains}},\n  year = {2026},\n  eprint = {2602.15933},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2602.15933},\n  note = {Preprint; status checked 22 October 2026},\n}",
+    "fields": {
+      "author": "Sajant Anand and Jack Kemp and Julia Wei and Christopher David White and Michael P. Zaletel and Norman Y. Yao",
+      "title": "{Robustness of Kardar-Parisi-Zhang-like transport in long-range interacting quantum spin chains}",
+      "year": "2026",
+      "eprint": "2602.15933",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2602.15933",
+      "note": "Preprint; status checked 22 October 2026"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "anderson1958diffusion",
+    "kind": "article",
+    "raw": "@article{anderson1958diffusion,\n  author = {Anderson, P. W.}, title = {Absence of Diffusion in Certain Random Lattices},\n  journal = {Physical Review}, volume = {109}, pages = {1492--1505}, year = {1958},\n  doi = {10.1103/PhysRev.109.1492}, url = {https://doi.org/10.1103/PhysRev.109.1492}\n}",
+    "fields": {
+      "author": "Anderson, P. W.",
+      "title": "Absence of Diffusion in Certain Random Lattices",
+      "journal": "Physical Review",
+      "volume": "109",
+      "pages": "1492--1505",
+      "year": "1958",
+      "doi": "10.1103/PhysRev.109.1492",
+      "url": "https://doi.org/10.1103/PhysRev.109.1492"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "atas2013ratios",
+    "kind": "article",
+    "raw": "@article{atas2013ratios,\n  author = {Atas, Y. Y. and Bogomolny, E. and Giraud, O. and Roux, G.},\n  title = {Distribution of the Ratio of Consecutive Level Spacings in Random Matrix Ensembles},\n  journal = {Physical Review Letters}, volume = {110}, pages = {084101}, year = {2013},\n  doi = {10.1103/PhysRevLett.110.084101}, eprint = {1212.5611}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1212.5611}\n}",
+    "fields": {
+      "author": "Atas, Y. Y. and Bogomolny, E. and Giraud, O. and Roux, G.",
+      "title": "Distribution of the Ratio of Consecutive Level Spacings in Random Matrix Ensembles",
+      "journal": "Physical Review Letters",
+      "volume": "110",
+      "pages": "084101",
+      "year": "2013",
+      "doi": "10.1103/PhysRevLett.110.084101",
+      "eprint": "1212.5611",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1212.5611"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "berges2005nonequilibrium",
+    "kind": "article",
+    "raw": "@article{berges2005nonequilibrium,\n  author = {Jürgen Berges},\n  title = {{Introduction to Nonequilibrium Quantum Field Theory}},\n  year = {2005},\n  journal = {AIP Conference Proceedings},\n  volume = {739},\n  pages = {3--62},\n  doi = {10.1063/1.1843591},\n  eprint = {hep-ph/0409233},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/hep-ph/0409233},\n}",
+    "fields": {
+      "author": "Jürgen Berges",
+      "title": "{Introduction to Nonequilibrium Quantum Field Theory}",
+      "year": "2005",
+      "journal": "AIP Conference Proceedings",
+      "volume": "739",
+      "pages": "3--62",
+      "doi": "10.1063/1.1843591",
+      "eprint": "hep-ph/0409233",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/hep-ph/0409233"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "berges2017fixedpoints",
+    "kind": "article",
+    "raw": "@article{berges2017fixedpoints,\n  title = {Nonthermal fixed points in quantum field theory beyond the weak-coupling limit},\n  author = {Jürgen Berges and Benjamin Wallisch},\n  journal = {Physical Review D},\n  volume = {95},\n  number = {3},\n  pages = {036016},\n  year = {2017},\n  doi = {10.1103/PhysRevD.95.036016},\n  eprint = {1607.02160},\n  archivePrefix = {arXiv},\n  primaryClass = {hep-ph},\n  url = {https://arxiv.org/abs/1607.02160},\n}",
+    "fields": {
+      "title": "Nonthermal fixed points in quantum field theory beyond the weak-coupling limit",
+      "author": "Jürgen Berges and Benjamin Wallisch",
+      "journal": "Physical Review D",
+      "volume": "95",
+      "number": "3",
+      "pages": "036016",
+      "year": "2017",
+      "doi": "10.1103/PhysRevD.95.036016",
+      "eprint": "1607.02160",
+      "archiveprefix": "arXiv",
+      "primaryclass": "hep-ph",
+      "url": "https://arxiv.org/abs/1607.02160"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "bernien2017simulator",
+    "kind": "article",
+    "raw": "@article{bernien2017simulator,\n  title = {Probing many-body dynamics on a 51-atom quantum simulator},\n  author = {Hannes Bernien and Sylvain Schwartz and Alexander Keesling and Harry Levine and Ahmed Omran and Hannes Pichler and Soonwon Choi and Alexander S. Zibrov and Manuel Endres and Markus Greiner and Vladan Vuletić and Mikhail D. Lukin},\n  journal = {Nature},\n  volume = {551},\n  number = {7682},\n  pages = {579--584},\n  year = {2017},\n  doi = {10.1038/nature24622},\n  eprint = {1707.04344},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/1707.04344},\n}",
+    "fields": {
+      "title": "Probing many-body dynamics on a 51-atom quantum simulator",
+      "author": "Hannes Bernien and Sylvain Schwartz and Alexander Keesling and Harry Levine and Ahmed Omran and Hannes Pichler and Soonwon Choi and Alexander S. Zibrov and Manuel Endres and Markus Greiner and Vladan Vuletić and Mikhail D. Lukin",
+      "journal": "Nature",
+      "volume": "551",
+      "number": "7682",
+      "pages": "579--584",
+      "year": "2017",
+      "doi": "10.1038/nature24622",
+      "eprint": "1707.04344",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/1707.04344"
+    },
+    "source": "core",
+    "origins": [
+      "core",
+      "thermal"
+    ]
+  },
+  {
+    "key": "bertini2016ghd",
+    "kind": "article",
+    "raw": "@article{bertini2016ghd,\n  author = {Bruno Bertini and Mario Collura and Jacopo {De Nardis} and Maurizio Fagotti},\n  title = {{Transport in Out-of-Equilibrium XXZ Chains: Exact Profiles of Charges and Currents}},\n  year = {2016},\n  journal = {Physical Review Letters},\n  volume = {117},\n  pages = {207201},\n  doi = {10.1103/PhysRevLett.117.207201},\n  eprint = {1605.09790},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1605.09790},\n}",
+    "fields": {
+      "author": "Bruno Bertini and Mario Collura and Jacopo {De Nardis} and Maurizio Fagotti",
+      "title": "{Transport in Out-of-Equilibrium XXZ Chains: Exact Profiles of Charges and Currents}",
+      "year": "2016",
+      "journal": "Physical Review Letters",
+      "volume": "117",
+      "pages": "207201",
+      "doi": "10.1103/PhysRevLett.117.207201",
+      "eprint": "1605.09790",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1605.09790"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "bertini2018spectral",
+    "kind": "article",
+    "raw": "@article{bertini2018spectral,\n  author = {Bruno Bertini and Pavel Kos and Tomaž Prosen},\n  title = {{Exact Spectral Form Factor in a Minimal Model of Many-Body Quantum Chaos}},\n  year = {2018},\n  journal = {Physical Review Letters},\n  volume = {121},\n  pages = {264101},\n  doi = {10.1103/PhysRevLett.121.264101},\n  eprint = {1805.00931},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1805.00931},\n}",
+    "fields": {
+      "author": "Bruno Bertini and Pavel Kos and Tomaž Prosen",
+      "title": "{Exact Spectral Form Factor in a Minimal Model of Many-Body Quantum Chaos}",
+      "year": "2018",
+      "journal": "Physical Review Letters",
+      "volume": "121",
+      "pages": "264101",
+      "doi": "10.1103/PhysRevLett.121.264101",
+      "eprint": "1805.00931",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1805.00931"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "bertini2019dual",
+    "kind": "article",
+    "raw": "@article{bertini2019dual,\n  author = {Bruno Bertini and Pavel Kos and Tomaž Prosen},\n  title = {{Exact Correlation Functions for Dual-Unitary Lattice Models in 1+1 Dimensions}},\n  year = {2019},\n  journal = {Physical Review Letters},\n  volume = {123},\n  pages = {210601},\n  doi = {10.1103/PhysRevLett.123.210601},\n  eprint = {1904.02140},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1904.02140},\n}",
+    "fields": {
+      "author": "Bruno Bertini and Pavel Kos and Tomaž Prosen",
+      "title": "{Exact Correlation Functions for Dual-Unitary Lattice Models in 1+1 Dimensions}",
+      "year": "2019",
+      "journal": "Physical Review Letters",
+      "volume": "123",
+      "pages": "210601",
+      "doi": "10.1103/PhysRevLett.123.210601",
+      "eprint": "1904.02140",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1904.02140"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "bertini2019entanglement",
+    "kind": "article",
+    "raw": "@article{bertini2019entanglement,\n  author = {Bruno Bertini and Pavel Kos and Tomaž Prosen},\n  title = {{Entanglement Spreading in a Minimal Model of Maximal Many-Body Quantum Chaos}},\n  year = {2019},\n  journal = {Physical Review X},\n  volume = {9},\n  pages = {021033},\n  doi = {10.1103/PhysRevX.9.021033},\n  eprint = {1812.05090},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1812.05090},\n}",
+    "fields": {
+      "author": "Bruno Bertini and Pavel Kos and Tomaž Prosen",
+      "title": "{Entanglement Spreading in a Minimal Model of Maximal Many-Body Quantum Chaos}",
+      "year": "2019",
+      "journal": "Physical Review X",
+      "volume": "9",
+      "pages": "021033",
+      "doi": "10.1103/PhysRevX.9.021033",
+      "eprint": "1812.05090",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1812.05090"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "bertini2021transport",
+    "kind": "article",
+    "raw": "@article{bertini2021transport,\n  author = {Bruno Bertini and Fabian Heidrich-Meisner and Christoph Karrasch and Tomaž Prosen and Robin Steinigeweg and Marko Žnidarič},\n  title = {{Finite-temperature transport in one-dimensional quantum lattice models}},\n  year = {2021},\n  journal = {Reviews of Modern Physics},\n  volume = {93},\n  pages = {025003},\n  doi = {10.1103/RevModPhys.93.025003},\n  eprint = {2003.03334},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2003.03334},\n}",
+    "fields": {
+      "author": "Bruno Bertini and Fabian Heidrich-Meisner and Christoph Karrasch and Tomaž Prosen and Robin Steinigeweg and Marko Žnidarič",
+      "title": "{Finite-temperature transport in one-dimensional quantum lattice models}",
+      "year": "2021",
+      "journal": "Reviews of Modern Physics",
+      "volume": "93",
+      "pages": "025003",
+      "doi": "10.1103/RevModPhys.93.025003",
+      "eprint": "2003.03334",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2003.03334"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "bertini2026duality",
+    "kind": "article",
+    "raw": "@article{bertini2026duality,\n  author = {Bruno Bertini and Pieter W. Claeys and Tomaž Prosen},\n  title = {{Exactly solvable many-body dynamics from space-time duality}},\n  year = {2026},\n  journal = {Reviews of Modern Physics},\n  volume = {98},\n  pages = {025001},\n  doi = {10.1103/yx73-dk86},\n  eprint = {2505.11489},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2505.11489},\n}",
+    "fields": {
+      "author": "Bruno Bertini and Pieter W. Claeys and Tomaž Prosen",
+      "title": "{Exactly solvable many-body dynamics from space-time duality}",
+      "year": "2026",
+      "journal": "Reviews of Modern Physics",
+      "volume": "98",
+      "pages": "025001",
+      "doi": "10.1103/yx73-dk86",
+      "eprint": "2505.11489",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2505.11489"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "bethe1931chain",
+    "kind": "article",
+    "raw": "@article{bethe1931chain,\n  author = {Hans Bethe},\n  title = {{Zur Theorie der Metalle. I. Eigenwerte und Eigenfunktionen der linearen Atomkette}},\n  year = {1931},\n  journal = {Zeitschrift für Physik},\n  volume = {71},\n  pages = {205--226},\n  doi = {10.1007/BF01341708},\n  url = {https://doi.org/10.1007/BF01341708},\n}",
+    "fields": {
+      "author": "Hans Bethe",
+      "title": "{Zur Theorie der Metalle. I. Eigenwerte und Eigenfunktionen der linearen Atomkette}",
+      "year": "1931",
+      "journal": "Zeitschrift für Physik",
+      "volume": "71",
+      "pages": "205--226",
+      "doi": "10.1007/BF01341708",
+      "url": "https://doi.org/10.1007/BF01341708"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "bravyi2006locality",
+    "kind": "article",
+    "raw": "@article{bravyi2006locality,\n  title = {Lieb-Robinson Bounds and the Generation of Correlations and Topological Quantum Order},\n  author = {S. Bravyi and M. B. Hastings and F. Verstraete},\n  journal = {Physical Review Letters},\n  volume = {97},\n  number = {5},\n  pages = {050401},\n  year = {2006},\n  doi = {10.1103/PhysRevLett.97.050401},\n  eprint = {quant-ph/0603121},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/quant-ph/0603121},\n}",
+    "fields": {
+      "title": "Lieb-Robinson Bounds and the Generation of Correlations and Topological Quantum Order",
+      "author": "S. Bravyi and M. B. Hastings and F. Verstraete",
+      "journal": "Physical Review Letters",
+      "volume": "97",
+      "number": "5",
+      "pages": "050401",
+      "year": "2006",
+      "doi": "10.1103/PhysRevLett.97.050401",
+      "eprint": "quant-ph/0603121",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/quant-ph/0603121"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "brydges2019renyi",
+    "kind": "article",
+    "raw": "@article{brydges2019renyi,\n  title = {Probing Rényi entanglement entropy via randomized measurements},\n  author = {Tiff Brydges and Andreas Elben and Petar Jurcevic and Benoît Vermersch and Christine Maier and Ben P. Lanyon and Peter Zoller and Rainer Blatt and Christian F. Roos},\n  journal = {Science},\n  volume = {364},\n  number = {6437},\n  pages = {260--263},\n  year = {2019},\n  doi = {10.1126/science.aau4963},\n  eprint = {1806.05747},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/1806.05747},\n}",
+    "fields": {
+      "title": "Probing Rényi entanglement entropy via randomized measurements",
+      "author": "Tiff Brydges and Andreas Elben and Petar Jurcevic and Benoît Vermersch and Christine Maier and Ben P. Lanyon and Peter Zoller and Rainer Blatt and Christian F. Roos",
+      "journal": "Science",
+      "volume": "364",
+      "number": "6437",
+      "pages": "260--263",
+      "year": "2019",
+      "doi": "10.1126/science.aau4963",
+      "eprint": "1806.05747",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/1806.05747"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "bukov2015floquet",
+    "kind": "article",
+    "raw": "@article{bukov2015floquet,\n  author = {Bukov, Marin and D'Alessio, Luca and Polkovnikov, Anatoli},\n  title = {Universal High-Frequency Behavior of Periodically Driven Systems: From Dynamical Stabilization to {Floquet} Engineering},\n  journal = {Advances in Physics}, volume = {64}, pages = {139--226}, year = {2015},\n  doi = {10.1080/00018732.2015.1055918}, eprint = {1407.4803}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1407.4803}\n}",
+    "fields": {
+      "author": "Bukov, Marin and D'Alessio, Luca and Polkovnikov, Anatoli",
+      "title": "Universal High-Frequency Behavior of Periodically Driven Systems: From Dynamical Stabilization to {Floquet} Engineering",
+      "journal": "Advances in Physics",
+      "volume": "64",
+      "pages": "139--226",
+      "year": "2015",
+      "doi": "10.1080/00018732.2015.1055918",
+      "eprint": "1407.4803",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1407.4803"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "casini2014gaugeentropy",
+    "kind": "article",
+    "raw": "@article{casini2014gaugeentropy,\n  author = {Casini, Horacio and Huerta, Marina and Rosabal, Jose Alejandro},\n  title = {Remarks on entanglement entropy for gauge fields},\n  journal = {Physical Review D}, volume = {89}, pages = {085012}, year = {2014},\n  doi = {10.1103/PhysRevD.89.085012}, eprint = {1312.1183}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1312.1183}\n}",
+    "fields": {
+      "author": "Casini, Horacio and Huerta, Marina and Rosabal, Jose Alejandro",
+      "title": "Remarks on entanglement entropy for gauge fields",
+      "journal": "Physical Review D",
+      "volume": "89",
+      "pages": "085012",
+      "year": "2014",
+      "doi": "10.1103/PhysRevD.89.085012",
+      "eprint": "1312.1183",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1312.1183"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "castro2016ghd",
+    "kind": "article",
+    "raw": "@article{castro2016ghd,\n  author = {Olalla A. Castro-Alvaredo and Benjamin Doyon and Takato Yoshimura},\n  title = {{Emergent Hydrodynamics in Integrable Quantum Systems Out of Equilibrium}},\n  year = {2016},\n  journal = {Physical Review X},\n  volume = {6},\n  pages = {041065},\n  doi = {10.1103/PhysRevX.6.041065},\n  eprint = {1605.07331},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1605.07331},\n}",
+    "fields": {
+      "author": "Olalla A. Castro-Alvaredo and Benjamin Doyon and Takato Yoshimura",
+      "title": "{Emergent Hydrodynamics in Integrable Quantum Systems Out of Equilibrium}",
+      "year": "2016",
+      "journal": "Physical Review X",
+      "volume": "6",
+      "pages": "041065",
+      "doi": "10.1103/PhysRevX.6.041065",
+      "eprint": "1605.07331",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1605.07331"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "cemin2026graphs",
+    "kind": "misc",
+    "raw": "@misc{cemin2026graphs,\n  author = {Cemin, Giovanni and Bukov, Marin and Solfanelli, Andrea},\n  title = {Error correction and quantum information spreading on sparse random graphs},\n  year = {2026}, eprint = {2610.12597}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2610.12597}, note = {Preprint, submitted 2026-10-08; publication status checked 2026-10-22}\n}",
+    "fields": {
+      "author": "Cemin, Giovanni and Bukov, Marin and Solfanelli, Andrea",
+      "title": "Error correction and quantum information spreading on sparse random graphs",
+      "year": "2026",
+      "eprint": "2610.12597",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2610.12597",
+      "note": "Preprint, submitted 2026-10-08; publication status checked 2026-10-22"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "chan2018spectral",
+    "kind": "article",
+    "raw": "@article{chan2018spectral,\n  author = {Chan, Amos and De Luca, Andrea and Chalker, J. T.},\n  title = {Spectral Statistics in Spatially Extended Chaotic Quantum Many-Body Systems},\n  journal = {Physical Review Letters}, volume = {121}, pages = {060601}, year = {2018},\n  doi = {10.1103/PhysRevLett.121.060601}, eprint = {1803.03841}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1803.03841}\n}",
+    "fields": {
+      "author": "Chan, Amos and De Luca, Andrea and Chalker, J. T.",
+      "title": "Spectral Statistics in Spatially Extended Chaotic Quantum Many-Body Systems",
+      "journal": "Physical Review Letters",
+      "volume": "121",
+      "pages": "060601",
+      "year": "2018",
+      "doi": "10.1103/PhysRevLett.121.060601",
+      "eprint": "1803.03841",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1803.03841"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "chen2026gauge",
+    "kind": "article",
+    "raw": "@article{chen2026gauge,\n  title = {Local thermalization of {SU(2)} lattice gauge fields on quantum computers},\n  author = {Jiunn-Wei Chen and Yu-Ting Chen and Ghanashyam Meher and Berndt Müller and Andreas Schäfer and Xiaojun Yao},\n  journal = {Journal of High Energy Physics},\n  volume = {2026},\n  number = {10},\n  pages = {137},\n  year = {2026},\n  doi = {10.1007/JHEP10(2026)137},\n  eprint = {2603.23948},\n  archivePrefix = {arXiv},\n  primaryClass = {hep-lat},\n  url = {https://arxiv.org/abs/2603.23948},\n}",
+    "fields": {
+      "title": "Local thermalization of {SU(2)} lattice gauge fields on quantum computers",
+      "author": "Jiunn-Wei Chen and Yu-Ting Chen and Ghanashyam Meher and Berndt Müller and Andreas Schäfer and Xiaojun Yao",
+      "journal": "Journal of High Energy Physics",
+      "volume": "2026",
+      "number": "10",
+      "pages": "137",
+      "year": "2026",
+      "doi": "10.1007/JHEP10(2026)137",
+      "eprint": "2603.23948",
+      "archiveprefix": "arXiv",
+      "primaryclass": "hep-lat",
+      "url": "https://arxiv.org/abs/2603.23948"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "cheneau2012lightcone",
+    "kind": "article",
+    "raw": "@article{cheneau2012lightcone,\n  title = {Light-cone-like spreading of correlations in a quantum many-body system},\n  author = {Marc Cheneau and Peter Barmettler and Dario Poletti and Manuel Endres and Peter Schauß and Takeshi Fukuhara and Christian Gross and Immanuel Bloch and Corinna Kollath and Stefan Kuhr},\n  journal = {Nature},\n  volume = {481},\n  number = {7382},\n  pages = {484--487},\n  year = {2012},\n  doi = {10.1038/nature10748},\n  eprint = {1111.0776},\n  archivePrefix = {arXiv},\n  primaryClass = {cond-mat.quant-gas},\n  url = {https://arxiv.org/abs/1111.0776},\n}",
+    "fields": {
+      "title": "Light-cone-like spreading of correlations in a quantum many-body system",
+      "author": "Marc Cheneau and Peter Barmettler and Dario Poletti and Manuel Endres and Peter Schauß and Takeshi Fukuhara and Christian Gross and Immanuel Bloch and Corinna Kollath and Stefan Kuhr",
+      "journal": "Nature",
+      "volume": "481",
+      "number": "7382",
+      "pages": "484--487",
+      "year": "2012",
+      "doi": "10.1038/nature10748",
+      "eprint": "1111.0776",
+      "archiveprefix": "arXiv",
+      "primaryclass": "cond-mat.quant-gas",
+      "url": "https://arxiv.org/abs/1111.0776"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "choi2017crystal",
+    "kind": "article",
+    "raw": "@article{choi2017crystal,\n  author = {Choi, Soonwon and Choi, Joonhee and Landig, Renate and Kucsko, Georg and Zhou, Hengyun and Isoya, Junichi and Jelezko, Fedor and Onoda, Shinobu and Sumiya, Hitoshi and Khemani, Vedika and von Keyserlingk, Curt and Yao, Norman Y. and Demler, Eugene and Lukin, Mikhail D.},\n  title = {Observation of discrete time-crystalline order in a disordered dipolar many-body system},\n  journal = {Nature}, volume = {543}, pages = {221--225}, year = {2017},\n  doi = {10.1038/nature21426}, eprint = {1610.08057}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1610.08057}\n}",
+    "fields": {
+      "author": "Choi, Soonwon and Choi, Joonhee and Landig, Renate and Kucsko, Georg and Zhou, Hengyun and Isoya, Junichi and Jelezko, Fedor and Onoda, Shinobu and Sumiya, Hitoshi and Khemani, Vedika and von Keyserlingk, Curt and Yao, Norman Y. and Demler, Eugene and Lukin, Mikhail D.",
+      "title": "Observation of discrete time-crystalline order in a disordered dipolar many-body system",
+      "journal": "Nature",
+      "volume": "543",
+      "pages": "221--225",
+      "year": "2017",
+      "doi": "10.1038/nature21426",
+      "eprint": "1610.08057",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1610.08057"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "choi2019scars",
+    "kind": "article",
+    "raw": "@article{choi2019scars,\n  author = {Choi, Soonwon and Turner, Christopher J. and Pichler, Hannes and Ho, Wen Wei and Michailidis, Alexios A. and Papić, Zlatko and Serbyn, Maksym and Lukin, Mikhail D. and Abanin, Dmitry A.},\n  title = {Emergent {SU(2)} Dynamics and Perfect Quantum Many-Body Scars},\n  journal = {Physical Review Letters}, volume = {122}, pages = {220603}, year = {2019},\n  doi = {10.1103/PhysRevLett.122.220603}, eprint = {1812.05561}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1812.05561}\n}",
+    "fields": {
+      "author": "Choi, Soonwon and Turner, Christopher J. and Pichler, Hannes and Ho, Wen Wei and Michailidis, Alexios A. and Papić, Zlatko and Serbyn, Maksym and Lukin, Mikhail D. and Abanin, Dmitry A.",
+      "title": "Emergent {SU(2)} Dynamics and Perfect Quantum Many-Body Scars",
+      "journal": "Physical Review Letters",
+      "volume": "122",
+      "pages": "220603",
+      "year": "2019",
+      "doi": "10.1103/PhysRevLett.122.220603",
+      "eprint": "1812.05561",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1812.05561"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "cruickshank2026multitone",
+    "kind": "misc",
+    "raw": "@misc{cruickshank2026multitone,\n  author = {Cruickshank, Robbie and Lellouch, Samuel and Bukov, Marin and Demler, Eugene and Goldman, Nathan and Haller, Elmar},\n  title = {Suppressing Parametric Instabilities in Driven Bosonic Lattices through Multi-tone Control},\n  year = {2026}, eprint = {2606.31667}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2606.31667}, note = {Preprint; publication status checked 2026-10-22}\n}",
+    "fields": {
+      "author": "Cruickshank, Robbie and Lellouch, Samuel and Bukov, Marin and Demler, Eugene and Goldman, Nathan and Haller, Elmar",
+      "title": "Suppressing Parametric Instabilities in Driven Bosonic Lattices through Multi-tone Control",
+      "year": "2026",
+      "eprint": "2606.31667",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2606.31667",
+      "note": "Preprint; publication status checked 2026-10-22"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "denardis2019diffusion",
+    "kind": "article",
+    "raw": "@article{denardis2019diffusion,\n  author = {Jacopo {De Nardis} and Denis Bernard and Benjamin Doyon},\n  title = {{Diffusion in generalized hydrodynamics and quasiparticle scattering}},\n  year = {2019},\n  journal = {SciPost Physics},\n  volume = {6},\n  pages = {049},\n  doi = {10.21468/SciPostPhys.6.4.049},\n  eprint = {1812.00767},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1812.00767},\n}",
+    "fields": {
+      "author": "Jacopo {De Nardis} and Denis Bernard and Benjamin Doyon",
+      "title": "{Diffusion in generalized hydrodynamics and quasiparticle scattering}",
+      "year": "2019",
+      "journal": "SciPost Physics",
+      "volume": "6",
+      "pages": "049",
+      "doi": "10.21468/SciPostPhys.6.4.049",
+      "eprint": "1812.00767",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1812.00767"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "denardis2021stability",
+    "kind": "article",
+    "raw": "@article{denardis2021stability,\n  author = {Jacopo {De Nardis} and Sarang Gopalakrishnan and Romain Vasseur and Brayden Ware},\n  title = {{Stability of Superdiffusion in Nearly Integrable Spin Chains}},\n  year = {2021},\n  journal = {Physical Review Letters},\n  volume = {127},\n  pages = {057201},\n  doi = {10.1103/PhysRevLett.127.057201},\n  eprint = {2102.02219},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2102.02219},\n}",
+    "fields": {
+      "author": "Jacopo {De Nardis} and Sarang Gopalakrishnan and Romain Vasseur and Brayden Ware",
+      "title": "{Stability of Superdiffusion in Nearly Integrable Spin Chains}",
+      "year": "2021",
+      "journal": "Physical Review Letters",
+      "volume": "127",
+      "pages": "057201",
+      "doi": "10.1103/PhysRevLett.127.057201",
+      "eprint": "2102.02219",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2102.02219"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "denardis2023nlfh",
+    "kind": "article",
+    "raw": "@article{denardis2023nlfh,\n  author = {Jacopo {De Nardis} and Sarang Gopalakrishnan and Romain Vasseur},\n  title = {{Non-linear fluctuating hydrodynamics for KPZ scaling in isotropic spin chains}},\n  year = {2023},\n  journal = {Physical Review Letters},\n  volume = {131},\n  pages = {197102},\n  doi = {10.1103/PhysRevLett.131.197102},\n  eprint = {2212.03696},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2212.03696},\n}",
+    "fields": {
+      "author": "Jacopo {De Nardis} and Sarang Gopalakrishnan and Romain Vasseur",
+      "title": "{Non-linear fluctuating hydrodynamics for KPZ scaling in isotropic spin chains}",
+      "year": "2023",
+      "journal": "Physical Review Letters",
+      "volume": "131",
+      "pages": "197102",
+      "doi": "10.1103/PhysRevLett.131.197102",
+      "eprint": "2212.03696",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2212.03696"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "deroeck2017stability",
+    "kind": "article",
+    "raw": "@article{deroeck2017stability,\n  author = {De Roeck, Wojciech and Huveneers, François},\n  title = {Stability and instability towards delocalization in {MBL} systems},\n  journal = {Physical Review B}, volume = {95}, pages = {155129}, year = {2017},\n  doi = {10.1103/PhysRevB.95.155129}, eprint = {1608.01815}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1608.01815}\n}",
+    "fields": {
+      "author": "De Roeck, Wojciech and Huveneers, François",
+      "title": "Stability and instability towards delocalization in {MBL} systems",
+      "journal": "Physical Review B",
+      "volume": "95",
+      "pages": "155129",
+      "year": "2017",
+      "doi": "10.1103/PhysRevB.95.155129",
+      "eprint": "1608.01815",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1608.01815"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "desaules2026frustrated",
+    "kind": "misc",
+    "raw": "@misc{desaules2026frustrated,\n  author = {Desaules, Jean-Yves and Kerschbaumer, Aron and Ljubotina, Marko and Serbyn, Maksym},\n  title = {Systematic construction of quantum many-body scars in frustrated {Rydberg} arrays},\n  year = {2026}, eprint = {2605.05297}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2605.05297}, note = {Preprint; publication status checked 2026-10-22}\n}",
+    "fields": {
+      "author": "Desaules, Jean-Yves and Kerschbaumer, Aron and Ljubotina, Marko and Serbyn, Maksym",
+      "title": "Systematic construction of quantum many-body scars in frustrated {Rydberg} arrays",
+      "year": "2026",
+      "eprint": "2605.05297",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2605.05297",
+      "note": "Preprint; publication status checked 2026-10-22"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "deutsch1991statistical",
+    "kind": "article",
+    "raw": "@article{deutsch1991statistical,\n  author = {Deutsch, J. M.},\n  title = {Quantum statistical mechanics in a closed system},\n  journal = {Physical Review A}, volume = {43}, pages = {2046--2049}, year = {1991},\n  doi = {10.1103/PhysRevA.43.2046}, url = {https://doi.org/10.1103/PhysRevA.43.2046}\n}",
+    "fields": {
+      "author": "Deutsch, J. M.",
+      "title": "Quantum statistical mechanics in a closed system",
+      "journal": "Physical Review A",
+      "volume": "43",
+      "pages": "2046--2049",
+      "year": "1991",
+      "doi": "10.1103/PhysRevA.43.2046",
+      "url": "https://doi.org/10.1103/PhysRevA.43.2046"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "donnelly2014gaugeentropy",
+    "kind": "article",
+    "raw": "@article{donnelly2014gaugeentropy,\n  author = {Donnelly, William}, title = {Entanglement entropy and nonabelian gauge symmetry},\n  journal = {Classical and Quantum Gravity}, volume = {31}, pages = {214003}, year = {2014},\n  doi = {10.1088/0264-9381/31/21/214003}, eprint = {1406.7304}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1406.7304}\n}",
+    "fields": {
+      "author": "Donnelly, William",
+      "title": "Entanglement entropy and nonabelian gauge symmetry",
+      "journal": "Classical and Quantum Gravity",
+      "volume": "31",
+      "pages": "214003",
+      "year": "2014",
+      "doi": "10.1088/0264-9381/31/21/214003",
+      "eprint": "1406.7304",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1406.7304"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "doyon2025perspective",
+    "kind": "article",
+    "raw": "@article{doyon2025perspective,\n  author = {Benjamin Doyon and Sarang Gopalakrishnan and Frederik Møller and Jörg Schmiedmayer and Romain Vasseur},\n  title = {{Generalized Hydrodynamics: A Perspective}},\n  year = {2025},\n  journal = {Physical Review X},\n  volume = {15},\n  pages = {010501},\n  doi = {10.1103/PhysRevX.15.010501},\n  eprint = {2311.03438},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2311.03438},\n}",
+    "fields": {
+      "author": "Benjamin Doyon and Sarang Gopalakrishnan and Frederik Møller and Jörg Schmiedmayer and Romain Vasseur",
+      "title": "{Generalized Hydrodynamics: A Perspective}",
+      "year": "2025",
+      "journal": "Physical Review X",
+      "volume": "15",
+      "pages": "010501",
+      "doi": "10.1103/PhysRevX.15.010501",
+      "eprint": "2311.03438",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2311.03438"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "dziarmaga2005ising",
+    "kind": "article",
+    "raw": "@article{dziarmaga2005ising,\n  title = {Dynamics of a Quantum Phase Transition: Exact Solution of the Quantum Ising Model},\n  author = {Jacek Dziarmaga},\n  journal = {Physical Review Letters},\n  volume = {95},\n  number = {24},\n  pages = {245701},\n  year = {2005},\n  doi = {10.1103/PhysRevLett.95.245701},\n  eprint = {cond-mat/0509490},\n  archivePrefix = {arXiv},\n  primaryClass = {cond-mat.other},\n  url = {https://arxiv.org/abs/cond-mat/0509490},\n}",
+    "fields": {
+      "title": "Dynamics of a Quantum Phase Transition: Exact Solution of the Quantum Ising Model",
+      "author": "Jacek Dziarmaga",
+      "journal": "Physical Review Letters",
+      "volume": "95",
+      "number": "24",
+      "pages": "245701",
+      "year": "2005",
+      "doi": "10.1103/PhysRevLett.95.245701",
+      "eprint": "cond-mat/0509490",
+      "archiveprefix": "arXiv",
+      "primaryclass": "cond-mat.other",
+      "url": "https://arxiv.org/abs/cond-mat/0509490"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "else2016crystals",
+    "kind": "article",
+    "raw": "@article{else2016crystals,\n  author = {Else, Dominic V. and Bauer, Bela and Nayak, Chetan}, title = {{Floquet} Time Crystals},\n  journal = {Physical Review Letters}, volume = {117}, pages = {090402}, year = {2016},\n  doi = {10.1103/PhysRevLett.117.090402}, eprint = {1603.08001}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1603.08001}\n}",
+    "fields": {
+      "author": "Else, Dominic V. and Bauer, Bela and Nayak, Chetan",
+      "title": "{Floquet} Time Crystals",
+      "journal": "Physical Review Letters",
+      "volume": "117",
+      "pages": "090402",
+      "year": "2016",
+      "doi": "10.1103/PhysRevLett.117.090402",
+      "eprint": "1603.08001",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1603.08001"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "else2017prethermal",
+    "kind": "article",
+    "raw": "@article{else2017prethermal,\n  author = {Else, Dominic V. and Bauer, Bela and Nayak, Chetan},\n  title = {Prethermal Phases of Matter Protected by Time-Translation Symmetry},\n  journal = {Physical Review X}, volume = {7}, pages = {011026}, year = {2017},\n  doi = {10.1103/PhysRevX.7.011026}, eprint = {1607.05277}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1607.05277}\n}",
+    "fields": {
+      "author": "Else, Dominic V. and Bauer, Bela and Nayak, Chetan",
+      "title": "Prethermal Phases of Matter Protected by Time-Translation Symmetry",
+      "journal": "Physical Review X",
+      "volume": "7",
+      "pages": "011026",
+      "year": "2017",
+      "doi": "10.1103/PhysRevX.7.011026",
+      "eprint": "1607.05277",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1607.05277"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "erne2018universal",
+    "kind": "article",
+    "raw": "@article{erne2018universal,\n  author = {Sebastian Erne and Robert Bücker and Thomas Gasenzer and Jürgen Berges and Jörg Schmiedmayer},\n  title = {{Universal dynamics in an isolated one-dimensional Bose gas far from equilibrium}},\n  year = {2018},\n  journal = {Nature},\n  volume = {563},\n  pages = {225--229},\n  doi = {10.1038/s41586-018-0667-0},\n  eprint = {1805.12310},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1805.12310},\n}",
+    "fields": {
+      "author": "Sebastian Erne and Robert Bücker and Thomas Gasenzer and Jürgen Berges and Jörg Schmiedmayer",
+      "title": "{Universal dynamics in an isolated one-dimensional Bose gas far from equilibrium}",
+      "year": "2018",
+      "journal": "Nature",
+      "volume": "563",
+      "pages": "225--229",
+      "doi": "10.1038/s41586-018-0667-0",
+      "eprint": "1805.12310",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1805.12310"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "fu2026hierarchical",
+    "kind": "misc",
+    "raw": "@misc{fu2026hierarchical,\n  author = {Fu, Zhanpeng and Zheng, Wei and Moessner, Roderich and Bukov, Marin and Zhao, Hongzheng},\n  title = {Protecting Quantum Simulations of Lattice Gauge Theories through Engineered Emergent Hierarchical Symmetries},\n  year = {2026}, eprint = {2604.11085}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2604.11085}, note = {Preprint; publication status checked 2026-10-22}\n}",
+    "fields": {
+      "author": "Fu, Zhanpeng and Zheng, Wei and Moessner, Roderich and Bukov, Marin and Zhao, Hongzheng",
+      "title": "Protecting Quantum Simulations of Lattice Gauge Theories through Engineered Emergent Hierarchical Symmetries",
+      "year": "2026",
+      "eprint": "2604.11085",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2604.11085",
+      "note": "Preprint; publication status checked 2026-10-22"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "gopalakrishnan2015conductivity",
+    "kind": "article",
+    "raw": "@article{gopalakrishnan2015conductivity,\n  author = {Gopalakrishnan, Sarang and Müller, Markus and Khemani, Vedika and Knap, Michael and Demler, Eugene and Huse, David A.},\n  title = {Low-frequency conductivity in many-body localized systems},\n  journal = {Physical Review B}, volume = {92}, pages = {104202}, year = {2015},\n  doi = {10.1103/PhysRevB.92.104202}, eprint = {1502.07712}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1502.07712}\n}",
+    "fields": {
+      "author": "Gopalakrishnan, Sarang and Müller, Markus and Khemani, Vedika and Knap, Michael and Demler, Eugene and Huse, David A.",
+      "title": "Low-frequency conductivity in many-body localized systems",
+      "journal": "Physical Review B",
+      "volume": "92",
+      "pages": "104202",
+      "year": "2015",
+      "doi": "10.1103/PhysRevB.92.104202",
+      "eprint": "1502.07712",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1502.07712"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "gopalakrishnan2019kinetic",
+    "kind": "article",
+    "raw": "@article{gopalakrishnan2019kinetic,\n  author = {Sarang Gopalakrishnan and Romain Vasseur},\n  title = {{Kinetic Theory of Spin Diffusion and Superdiffusion in XXZ Spin Chains}},\n  year = {2019},\n  journal = {Physical Review Letters},\n  volume = {122},\n  pages = {127202},\n  doi = {10.1103/PhysRevLett.122.127202},\n  eprint = {1812.02701},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1812.02701},\n}",
+    "fields": {
+      "author": "Sarang Gopalakrishnan and Romain Vasseur",
+      "title": "{Kinetic Theory of Spin Diffusion and Superdiffusion in XXZ Spin Chains}",
+      "year": "2019",
+      "journal": "Physical Review Letters",
+      "volume": "122",
+      "pages": "127202",
+      "doi": "10.1103/PhysRevLett.122.127202",
+      "eprint": "1812.02701",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1812.02701"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "goss2026qutrit",
+    "kind": "misc",
+    "raw": "@misc{goss2026qutrit,\n  author = {Goss, Noah and Suri, Nishchay and Marinelli, Brian and Chen, Larry and Hashim, Akel and Anand, Sajant and Morvan, Alexis and Naik, Ravi K. and Rrapaj, Ermal and Santiago, David I. and de Jong, Wibe and Yao, Norman Y. and Moore, Joel E. and Siddiqi, Irfan},\n  title = {A Qutrit Time Crystal Stabilized with Native Chiral Interactions},\n  year = {2026}, eprint = {2605.14293}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2605.14293}, note = {Preprint; publication status checked 2026-10-22}\n}",
+    "fields": {
+      "author": "Goss, Noah and Suri, Nishchay and Marinelli, Brian and Chen, Larry and Hashim, Akel and Anand, Sajant and Morvan, Alexis and Naik, Ravi K. and Rrapaj, Ermal and Santiago, David I. and de Jong, Wibe and Yao, Norman Y. and Moore, Joel E. and Siddiqi, Irfan",
+      "title": "A Qutrit Time Crystal Stabilized with Native Chiral Interactions",
+      "year": "2026",
+      "eprint": "2605.14293",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2605.14293",
+      "note": "Preprint; publication status checked 2026-10-22"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "haegeman2016tdvp",
+    "kind": "article",
+    "raw": "@article{haegeman2016tdvp,\n  title = {Unifying time evolution and optimization with matrix product states},\n  author = {Jutho Haegeman and Christian Lubich and Ivan Oseledets and Bart Vandereycken and Frank Verstraete},\n  journal = {Physical Review B},\n  volume = {94},\n  number = {16},\n  pages = {165116},\n  year = {2016},\n  doi = {10.1103/PhysRevB.94.165116},\n  eprint = {1408.5056},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/1408.5056},\n}",
+    "fields": {
+      "title": "Unifying time evolution and optimization with matrix product states",
+      "author": "Jutho Haegeman and Christian Lubich and Ivan Oseledets and Bart Vandereycken and Frank Verstraete",
+      "journal": "Physical Review B",
+      "volume": "94",
+      "number": "16",
+      "pages": "165116",
+      "year": "2016",
+      "doi": "10.1103/PhysRevB.94.165116",
+      "eprint": "1408.5056",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/1408.5056"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "heyl2013dqpt",
+    "kind": "article",
+    "raw": "@article{heyl2013dqpt,\n  title = {Dynamical Quantum Phase Transitions in the Transverse-Field Ising Model},\n  author = {Markus Heyl and Anatoli Polkovnikov and Stefan Kehrein},\n  journal = {Physical Review Letters},\n  volume = {110},\n  number = {13},\n  pages = {135704},\n  year = {2013},\n  doi = {10.1103/PhysRevLett.110.135704},\n  eprint = {1206.2505},\n  archivePrefix = {arXiv},\n  primaryClass = {cond-mat.stat-mech},\n  url = {https://arxiv.org/abs/1206.2505},\n}",
+    "fields": {
+      "title": "Dynamical Quantum Phase Transitions in the Transverse-Field Ising Model",
+      "author": "Markus Heyl and Anatoli Polkovnikov and Stefan Kehrein",
+      "journal": "Physical Review Letters",
+      "volume": "110",
+      "number": "13",
+      "pages": "135704",
+      "year": "2013",
+      "doi": "10.1103/PhysRevLett.110.135704",
+      "eprint": "1206.2505",
+      "archiveprefix": "arXiv",
+      "primaryclass": "cond-mat.stat-mech",
+      "url": "https://arxiv.org/abs/1206.2505"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "heyl2018review",
+    "kind": "article",
+    "raw": "@article{heyl2018review,\n  title = {Dynamical quantum phase transitions: a review},\n  author = {Markus Heyl},\n  journal = {Reports on Progress in Physics},\n  volume = {81},\n  number = {5},\n  pages = {054001},\n  year = {2018},\n  doi = {10.1088/1361-6633/aaaf9a},\n  eprint = {1709.07461},\n  archivePrefix = {arXiv},\n  primaryClass = {cond-mat.stat-mech},\n  url = {https://arxiv.org/abs/1709.07461},\n}",
+    "fields": {
+      "title": "Dynamical quantum phase transitions: a review",
+      "author": "Markus Heyl",
+      "journal": "Reports on Progress in Physics",
+      "volume": "81",
+      "number": "5",
+      "pages": "054001",
+      "year": "2018",
+      "doi": "10.1088/1361-6633/aaaf9a",
+      "eprint": "1709.07461",
+      "archiveprefix": "arXiv",
+      "primaryclass": "cond-mat.stat-mech",
+      "url": "https://arxiv.org/abs/1709.07461"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "huse2014phenomenology",
+    "kind": "article",
+    "raw": "@article{huse2014phenomenology,\n  author = {Huse, David A. and Nandkishore, Rahul and Oganesyan, Vadim},\n  title = {Phenomenology of fully many-body-localized systems},\n  journal = {Physical Review B}, volume = {90}, pages = {174202}, year = {2014},\n  doi = {10.1103/PhysRevB.90.174202}, eprint = {1408.4297}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1408.4297}\n}",
+    "fields": {
+      "author": "Huse, David A. and Nandkishore, Rahul and Oganesyan, Vadim",
+      "title": "Phenomenology of fully many-body-localized systems",
+      "journal": "Physical Review B",
+      "volume": "90",
+      "pages": "174202",
+      "year": "2014",
+      "doi": "10.1103/PhysRevB.90.174202",
+      "eprint": "1408.4297",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1408.4297"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "ilievski2021super",
+    "kind": "article",
+    "raw": "@article{ilievski2021super,\n  author = {Enej Ilievski and Jacopo {De Nardis} and Sarang Gopalakrishnan and Romain Vasseur and Brayden Ware},\n  title = {{Superuniversality of Superdiffusion}},\n  year = {2021},\n  journal = {Physical Review X},\n  volume = {11},\n  pages = {031023},\n  doi = {10.1103/PhysRevX.11.031023},\n  eprint = {2009.08425},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2009.08425},\n}",
+    "fields": {
+      "author": "Enej Ilievski and Jacopo {De Nardis} and Sarang Gopalakrishnan and Romain Vasseur and Brayden Ware",
+      "title": "{Superuniversality of Superdiffusion}",
+      "year": "2021",
+      "journal": "Physical Review X",
+      "volume": "11",
+      "pages": "031023",
+      "doi": "10.1103/PhysRevX.11.031023",
+      "eprint": "2009.08425",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2009.08425"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "imbrie2016localization",
+    "kind": "article",
+    "raw": "@article{imbrie2016localization,\n  author = {Imbrie, John Z.}, title = {On Many-Body Localization for Quantum Spin Chains},\n  journal = {Journal of Statistical Physics}, volume = {163}, pages = {998--1048}, year = {2016},\n  doi = {10.1007/s10955-016-1508-x}, eprint = {1403.7837}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1403.7837}\n}",
+    "fields": {
+      "author": "Imbrie, John Z.",
+      "title": "On Many-Body Localization for Quantum Spin Chains",
+      "journal": "Journal of Statistical Physics",
+      "volume": "163",
+      "pages": "998--1048",
+      "year": "2016",
+      "doi": "10.1007/s10955-016-1508-x",
+      "eprint": "1403.7837",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1403.7837"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "info-bao2020",
+    "kind": "article",
+    "raw": "@article{info-bao2020, author={Bao, Yimu and Choi, Soonwon and Altman, Ehud}, title={Theory of the phase transition in random unitary circuits with measurements}, journal={Physical Review B}, volume={101}, pages={104301}, year={2020}, doi={10.1103/PhysRevB.101.104301}, url={https://arxiv.org/abs/1908.04305}}",
+    "fields": {
+      "author": "Bao, Yimu and Choi, Soonwon and Altman, Ehud",
+      "title": "Theory of the phase transition in random unitary circuits with measurements",
+      "journal": "Physical Review B",
+      "volume": "101",
+      "pages": "104301",
+      "year": "2020",
+      "doi": "10.1103/PhysRevB.101.104301",
+      "url": "https://arxiv.org/abs/1908.04305"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-bennett1997",
+    "kind": "article",
+    "raw": "@article{info-bennett1997, author={Bennett, Charles H. and DiVincenzo, David P. and Smolin, John A.}, title={Capacities of Quantum Erasure Channels}, journal={Physical Review Letters}, volume={78}, pages={3217--3220}, year={1997}, doi={10.1103/PhysRevLett.78.3217}, url={https://arxiv.org/abs/quant-ph/9701015}}",
+    "fields": {
+      "author": "Bennett, Charles H. and DiVincenzo, David P. and Smolin, John A.",
+      "title": "Capacities of Quantum Erasure Channels",
+      "journal": "Physical Review Letters",
+      "volume": "78",
+      "pages": "3217--3220",
+      "year": "1997",
+      "doi": "10.1103/PhysRevLett.78.3217",
+      "url": "https://arxiv.org/abs/quant-ph/9701015"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-brandao2016",
+    "kind": "article",
+    "raw": "@article{info-brandao2016, author={Brandao, Fernando G. S. L. and Harrow, Aram W. and Horodecki, Michal}, title={Local random quantum circuits are approximate polynomial-designs}, journal={Communications in Mathematical Physics}, volume={346}, pages={397--434}, year={2016}, doi={10.1007/s00220-016-2706-8}, url={https://arxiv.org/abs/1208.0692}}",
+    "fields": {
+      "author": "Brandao, Fernando G. S. L. and Harrow, Aram W. and Horodecki, Michal",
+      "title": "Local random quantum circuits are approximate polynomial-designs",
+      "journal": "Communications in Mathematical Physics",
+      "volume": "346",
+      "pages": "397--434",
+      "year": "2016",
+      "doi": "10.1007/s00220-016-2706-8",
+      "url": "https://arxiv.org/abs/1208.0692"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-breuer2009",
+    "kind": "article",
+    "raw": "@article{info-breuer2009, author={Breuer, Heinz-Peter and Laine, Elsi-Mari and Piilo, Jyrki}, title={Measure for the Degree of Non-Markovian Behavior of Quantum Processes in Open Systems}, journal={Physical Review Letters}, volume={103}, pages={210401}, year={2009}, doi={10.1103/PhysRevLett.103.210401}, url={https://arxiv.org/abs/0908.0238}}",
+    "fields": {
+      "author": "Breuer, Heinz-Peter and Laine, Elsi-Mari and Piilo, Jyrki",
+      "title": "Measure for the Degree of Non-Markovian Behavior of Quantum Processes in Open Systems",
+      "journal": "Physical Review Letters",
+      "volume": "103",
+      "pages": "210401",
+      "year": "2009",
+      "doi": "10.1103/PhysRevLett.103.210401",
+      "url": "https://arxiv.org/abs/0908.0238"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-calabrese2005",
+    "kind": "article",
+    "raw": "@article{info-calabrese2005, author={Calabrese, Pasquale and Cardy, John}, title={Evolution of Entanglement Entropy in One-Dimensional Systems}, journal={Journal of Statistical Mechanics}, pages={P04010}, year={2005}, doi={10.1088/1742-5468/2005/04/P04010}, url={https://arxiv.org/abs/cond-mat/0503393}}",
+    "fields": {
+      "author": "Calabrese, Pasquale and Cardy, John",
+      "title": "Evolution of Entanglement Entropy in One-Dimensional Systems",
+      "journal": "Journal of Statistical Mechanics",
+      "pages": "P04010",
+      "year": "2005",
+      "doi": "10.1088/1742-5468/2005/04/P04010",
+      "url": "https://arxiv.org/abs/cond-mat/0503393"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-chang2025",
+    "kind": "article",
+    "raw": "@article{info-chang2025, author={Chang, Rui-An and Shrotriya, Harshank and Ho, Wen Wei and Ippoliti, Matteo}, title={Deep Thermalization under Charge-Conserving Quantum Dynamics}, journal={PRX Quantum}, volume={6}, pages={020343}, year={2025}, doi={10.1103/PRXQuantum.6.020343}, url={https://arxiv.org/abs/2408.15325}}",
+    "fields": {
+      "author": "Chang, Rui-An and Shrotriya, Harshank and Ho, Wen Wei and Ippoliti, Matteo",
+      "title": "Deep Thermalization under Charge-Conserving Quantum Dynamics",
+      "journal": "PRX Quantum",
+      "volume": "6",
+      "pages": "020343",
+      "year": "2025",
+      "doi": "10.1103/PRXQuantum.6.020343",
+      "url": "https://arxiv.org/abs/2408.15325"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-choi2020",
+    "kind": "article",
+    "raw": "@article{info-choi2020, author={Choi, Soonwon and Bao, Yimu and Qi, Xiao-Liang and Altman, Ehud}, title={Quantum Error Correction in Scrambling Dynamics and Measurement-Induced Phase Transition}, journal={Physical Review Letters}, volume={125}, pages={030505}, year={2020}, doi={10.1103/PhysRevLett.125.030505}, url={https://arxiv.org/abs/1903.05124}}",
+    "fields": {
+      "author": "Choi, Soonwon and Bao, Yimu and Qi, Xiao-Liang and Altman, Ehud",
+      "title": "Quantum Error Correction in Scrambling Dynamics and Measurement-Induced Phase Transition",
+      "journal": "Physical Review Letters",
+      "volume": "125",
+      "pages": "030505",
+      "year": "2020",
+      "doi": "10.1103/PhysRevLett.125.030505",
+      "url": "https://arxiv.org/abs/1903.05124"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-choi2023random",
+    "kind": "article",
+    "raw": "@article{info-choi2023random, author={Choi, Joonhee and Shaw, Adam L. and Madjarov, Ivaylo S. and Xie, Xin and Finkelstein, Ran and Covey, Jacob P. and Cotler, Jordan S. and Mark, Daniel K. and Huang, Hsin-Yuan and Kale, Anant and Pichler, Hannes and Brandao, Fernando G. S. L. and Choi, Soonwon and Endres, Manuel}, title={Preparing random states and benchmarking with many-body quantum chaos}, journal={Nature}, volume={613}, pages={468--473}, year={2023}, doi={10.1038/s41586-022-05442-1}, url={https://arxiv.org/abs/2103.03535}}",
+    "fields": {
+      "author": "Choi, Joonhee and Shaw, Adam L. and Madjarov, Ivaylo S. and Xie, Xin and Finkelstein, Ran and Covey, Jacob P. and Cotler, Jordan S. and Mark, Daniel K. and Huang, Hsin-Yuan and Kale, Anant and Pichler, Hannes and Brandao, Fernando G. S. L. and Choi, Soonwon and Endres, Manuel",
+      "title": "Preparing random states and benchmarking with many-body quantum chaos",
+      "journal": "Nature",
+      "volume": "613",
+      "pages": "468--473",
+      "year": "2023",
+      "doi": "10.1038/s41586-022-05442-1",
+      "url": "https://arxiv.org/abs/2103.03535"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-cotler2023",
+    "kind": "article",
+    "raw": "@article{info-cotler2023, author={Cotler, Jordan S. and Mark, Daniel K. and Huang, Hsin-Yuan and Hernandez, Felipe and Choi, Joonhee and Shaw, Adam L. and Endres, Manuel and Choi, Soonwon}, title={Emergent Quantum State Designs from Individual Many-Body Wave Functions}, journal={PRX Quantum}, volume={4}, pages={010311}, year={2023}, doi={10.1103/PRXQuantum.4.010311}, url={https://arxiv.org/abs/2103.03536}}",
+    "fields": {
+      "author": "Cotler, Jordan S. and Mark, Daniel K. and Huang, Hsin-Yuan and Hernandez, Felipe and Choi, Joonhee and Shaw, Adam L. and Endres, Manuel and Choi, Soonwon",
+      "title": "Emergent Quantum State Designs from Individual Many-Body Wave Functions",
+      "journal": "PRX Quantum",
+      "volume": "4",
+      "pages": "010311",
+      "year": "2023",
+      "doi": "10.1103/PRXQuantum.4.010311",
+      "url": "https://arxiv.org/abs/2103.03536"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-daley2014",
+    "kind": "article",
+    "raw": "@article{info-daley2014, author={Daley, Andrew J.}, title={Quantum trajectories and open many-body quantum systems}, journal={Advances in Physics}, volume={63}, pages={77--149}, year={2014}, doi={10.1080/00018732.2014.933502}, url={https://arxiv.org/abs/1405.6694}}",
+    "fields": {
+      "author": "Daley, Andrew J.",
+      "title": "Quantum trajectories and open many-body quantum systems",
+      "journal": "Advances in Physics",
+      "volume": "63",
+      "pages": "77--149",
+      "year": "2014",
+      "doi": "10.1080/00018732.2014.933502",
+      "url": "https://arxiv.org/abs/1405.6694"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-diehl2008",
+    "kind": "article",
+    "raw": "@article{info-diehl2008, author={Diehl, Sebastian and Micheli, Andrea and Kantian, Adrian and Kraus, Barbara and Buchler, Hans Peter and Zoller, Peter}, title={Quantum States and Phases in Driven Open Quantum Systems with Cold Atoms}, journal={Nature Physics}, volume={4}, pages={878--883}, year={2008}, doi={10.1038/nphys1073}, url={https://arxiv.org/abs/0803.1482}}",
+    "fields": {
+      "author": "Diehl, Sebastian and Micheli, Andrea and Kantian, Adrian and Kraus, Barbara and Buchler, Hans Peter and Zoller, Peter",
+      "title": "Quantum States and Phases in Driven Open Quantum Systems with Cold Atoms",
+      "journal": "Nature Physics",
+      "volume": "4",
+      "pages": "878--883",
+      "year": "2008",
+      "doi": "10.1038/nphys1073",
+      "url": "https://arxiv.org/abs/0803.1482"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-du2026",
+    "kind": "article",
+    "raw": "@article{info-du2026, author={Du, Zhenyu and Cheng, Siyuan and Zhao, Qi and Ma, Xiongfeng and Yuan, Xiao}, title={No cloning of quantum ensembles}, journal={Nature Communications}, volume={17}, pages={8052}, year={2026}, doi={10.1038/s41467-026-74924-x}, url={https://doi.org/10.1038/s41467-026-74924-x}}",
+    "fields": {
+      "author": "Du, Zhenyu and Cheng, Siyuan and Zhao, Qi and Ma, Xiongfeng and Yuan, Xiao",
+      "title": "No cloning of quantum ensembles",
+      "journal": "Nature Communications",
+      "volume": "17",
+      "pages": "8052",
+      "year": "2026",
+      "doi": "10.1038/s41467-026-74924-x",
+      "url": "https://doi.org/10.1038/s41467-026-74924-x"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-feng2026",
+    "kind": "misc",
+    "raw": "@misc{info-feng2026, author={Feng, Xiaozhou and Liu, Chang and Cheng, Zihan and Ho, Wen Wei and Ippoliti, Matteo}, title={Quantum resource localizability transitions in deep thermalization}, year={2026}, eprint={2606.08756}, archivePrefix={arXiv}, url={https://arxiv.org/abs/2606.08756}}",
+    "fields": {
+      "author": "Feng, Xiaozhou and Liu, Chang and Cheng, Zihan and Ho, Wen Wei and Ippoliti, Matteo",
+      "title": "Quantum resource localizability transitions in deep thermalization",
+      "year": "2026",
+      "eprint": "2606.08756",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2606.08756"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-fisher2023",
+    "kind": "article",
+    "raw": "@article{info-fisher2023, author={Fisher, Matthew P. A. and Khemani, Vedika and Nahum, Adam and Vijay, Sagar}, title={Random Quantum Circuits}, journal={Annual Review of Condensed Matter Physics}, volume={14}, pages={335--379}, year={2023}, doi={10.1146/annurev-conmatphys-031720-030658}, url={https://arxiv.org/abs/2207.14280}}",
+    "fields": {
+      "author": "Fisher, Matthew P. A. and Khemani, Vedika and Nahum, Adam and Vijay, Sagar",
+      "title": "Random Quantum Circuits",
+      "journal": "Annual Review of Condensed Matter Physics",
+      "volume": "14",
+      "pages": "335--379",
+      "year": "2023",
+      "doi": "10.1146/annurev-conmatphys-031720-030658",
+      "url": "https://arxiv.org/abs/2207.14280"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-gks1976",
+    "kind": "article",
+    "raw": "@article{info-gks1976, author={Gorini, Vittorio and Kossakowski, Andrzej and Sudarshan, E. C. G.}, title={Completely positive dynamical semigroups of {N}-level systems}, journal={Journal of Mathematical Physics}, volume={17}, pages={821--825}, year={1976}, doi={10.1063/1.522979}, url={https://doi.org/10.1063/1.522979}}",
+    "fields": {
+      "author": "Gorini, Vittorio and Kossakowski, Andrzej and Sudarshan, E. C. G.",
+      "title": "Completely positive dynamical semigroups of {N}-level systems",
+      "journal": "Journal of Mathematical Physics",
+      "volume": "17",
+      "pages": "821--825",
+      "year": "1976",
+      "doi": "10.1063/1.522979",
+      "url": "https://doi.org/10.1063/1.522979"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-gullans2020probe",
+    "kind": "article",
+    "raw": "@article{info-gullans2020probe, author={Gullans, Michael J. and Huse, David A.}, title={Scalable probes of measurement-induced criticality}, journal={Physical Review Letters}, volume={125}, pages={070606}, year={2020}, doi={10.1103/PhysRevLett.125.070606}, url={https://arxiv.org/abs/1910.00020}}",
+    "fields": {
+      "author": "Gullans, Michael J. and Huse, David A.",
+      "title": "Scalable probes of measurement-induced criticality",
+      "journal": "Physical Review Letters",
+      "volume": "125",
+      "pages": "070606",
+      "year": "2020",
+      "doi": "10.1103/PhysRevLett.125.070606",
+      "url": "https://arxiv.org/abs/1910.00020"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-gullans2020pur",
+    "kind": "article",
+    "raw": "@article{info-gullans2020pur, author={Gullans, Michael J. and Huse, David A.}, title={Dynamical Purification Phase Transition Induced by Quantum Measurements}, journal={Physical Review X}, volume={10}, pages={041020}, year={2020}, doi={10.1103/PhysRevX.10.041020}, url={https://arxiv.org/abs/1905.05195}}",
+    "fields": {
+      "author": "Gullans, Michael J. and Huse, David A.",
+      "title": "Dynamical Purification Phase Transition Induced by Quantum Measurements",
+      "journal": "Physical Review X",
+      "volume": "10",
+      "pages": "041020",
+      "year": "2020",
+      "doi": "10.1103/PhysRevX.10.041020",
+      "url": "https://arxiv.org/abs/1905.05195"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-hayden2007",
+    "kind": "article",
+    "raw": "@article{info-hayden2007, author={Hayden, Patrick and Preskill, John}, title={Black holes as mirrors: quantum information in random subsystems}, journal={Journal of High Energy Physics}, volume={2007}, pages={120}, year={2007}, doi={10.1088/1126-6708/2007/09/120}, url={https://arxiv.org/abs/0708.4025}}",
+    "fields": {
+      "author": "Hayden, Patrick and Preskill, John",
+      "title": "Black holes as mirrors: quantum information in random subsystems",
+      "journal": "Journal of High Energy Physics",
+      "volume": "2007",
+      "pages": "120",
+      "year": "2007",
+      "doi": "10.1088/1126-6708/2007/09/120",
+      "url": "https://arxiv.org/abs/0708.4025"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-hoke2023",
+    "kind": "article",
+    "raw": "@article{info-hoke2023, author={Hoke, Jesse C. and Ippoliti, Matteo and Rosenberg, Eliott and others}, title={Measurement-induced entanglement and teleportation on a noisy quantum processor}, journal={Nature}, volume={622}, pages={481--486}, year={2023}, doi={10.1038/s41586-023-06505-7}, url={https://arxiv.org/abs/2303.04792}}",
+    "fields": {
+      "author": "Hoke, Jesse C. and Ippoliti, Matteo and Rosenberg, Eliott and others",
+      "title": "Measurement-induced entanglement and teleportation on a noisy quantum processor",
+      "journal": "Nature",
+      "volume": "622",
+      "pages": "481--486",
+      "year": "2023",
+      "doi": "10.1038/s41586-023-06505-7",
+      "url": "https://arxiv.org/abs/2303.04792"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-jonay2018",
+    "kind": "misc",
+    "raw": "@misc{info-jonay2018, author={Jonay, Cheryne and Huse, David A. and Nahum, Adam}, title={Coarse-grained dynamics of operator and state entanglement}, year={2018}, eprint={1803.00089}, archivePrefix={arXiv}, url={https://arxiv.org/abs/1803.00089}}",
+    "fields": {
+      "author": "Jonay, Cheryne and Huse, David A. and Nahum, Adam",
+      "title": "Coarse-grained dynamics of operator and state entanglement",
+      "year": "2018",
+      "eprint": "1803.00089",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1803.00089"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-knill1997",
+    "kind": "article",
+    "raw": "@article{info-knill1997, author={Knill, Emanuel and Laflamme, Raymond}, title={Theory of quantum error-correcting codes}, journal={Physical Review A}, volume={55}, pages={900--911}, year={1997}, doi={10.1103/PhysRevA.55.900}, url={https://arxiv.org/abs/quant-ph/9604034}}",
+    "fields": {
+      "author": "Knill, Emanuel and Laflamme, Raymond",
+      "title": "Theory of quantum error-correcting codes",
+      "journal": "Physical Review A",
+      "volume": "55",
+      "pages": "900--911",
+      "year": "1997",
+      "doi": "10.1103/PhysRevA.55.900",
+      "url": "https://arxiv.org/abs/quant-ph/9604034"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-li2018",
+    "kind": "article",
+    "raw": "@article{info-li2018, author={Li, Yaodong and Chen, Xiao and Fisher, Matthew P. A.}, title={Quantum {Zeno} Effect and the Many-body Entanglement Transition}, journal={Physical Review B}, volume={98}, pages={205136}, year={2018}, doi={10.1103/PhysRevB.98.205136}, url={https://arxiv.org/abs/1808.06134}}",
+    "fields": {
+      "author": "Li, Yaodong and Chen, Xiao and Fisher, Matthew P. A.",
+      "title": "Quantum {Zeno} Effect and the Many-body Entanglement Transition",
+      "journal": "Physical Review B",
+      "volume": "98",
+      "pages": "205136",
+      "year": "2018",
+      "doi": "10.1103/PhysRevB.98.205136",
+      "url": "https://arxiv.org/abs/1808.06134"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-lindblad1976",
+    "kind": "article",
+    "raw": "@article{info-lindblad1976, author={Lindblad, G.}, title={On the generators of quantum dynamical semigroups}, journal={Communications in Mathematical Physics}, volume={48}, pages={119--130}, year={1976}, doi={10.1007/BF01608499}, url={https://doi.org/10.1007/BF01608499}}",
+    "fields": {
+      "author": "Lindblad, G.",
+      "title": "On the generators of quantum dynamical semigroups",
+      "journal": "Communications in Mathematical Physics",
+      "volume": "48",
+      "pages": "119--130",
+      "year": "1976",
+      "doi": "10.1007/BF01608499",
+      "url": "https://doi.org/10.1007/BF01608499"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-liu2026",
+    "kind": "article",
+    "raw": "@article{info-liu2026, author={Liu, Chang and Ippoliti, Matteo and Ho, Wen Wei}, title={Coherence-Induced Deep Thermalization Transition in Random Permutation Quantum Dynamics}, journal={Physical Review Letters}, volume={136}, pages={100404}, year={2026}, doi={10.1103/mjgs-y2z9}, url={https://doi.org/10.1103/mjgs-y2z9}}",
+    "fields": {
+      "author": "Liu, Chang and Ippoliti, Matteo and Ho, Wen Wei",
+      "title": "Coherence-Induced Deep Thermalization Transition in Random Permutation Quantum Dynamics",
+      "journal": "Physical Review Letters",
+      "volume": "136",
+      "pages": "100404",
+      "year": "2026",
+      "doi": "10.1103/mjgs-y2z9",
+      "url": "https://doi.org/10.1103/mjgs-y2z9"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-maldacena2016syk",
+    "kind": "article",
+    "raw": "@article{info-maldacena2016syk, author={Maldacena, Juan and Stanford, Douglas}, title={Remarks on the {Sachdev-Ye-Kitaev} model}, journal={Physical Review D}, volume={94}, pages={106002}, year={2016}, doi={10.1103/PhysRevD.94.106002}, url={https://arxiv.org/abs/1604.07818}}",
+    "fields": {
+      "author": "Maldacena, Juan and Stanford, Douglas",
+      "title": "Remarks on the {Sachdev-Ye-Kitaev} model",
+      "journal": "Physical Review D",
+      "volume": "94",
+      "pages": "106002",
+      "year": "2016",
+      "doi": "10.1103/PhysRevD.94.106002",
+      "url": "https://arxiv.org/abs/1604.07818"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-mark2026",
+    "kind": "misc",
+    "raw": "@misc{info-mark2026, author={Mark, Daniel K. and Endres, Manuel and Ippoliti, Matteo and Ho, Wen Wei and Choi, Soonwon}, title={Deep thermalization and {Hilbert} space ergodicity}, year={2026}, eprint={2609.30248}, archivePrefix={arXiv}, url={https://arxiv.org/abs/2609.30248}, note={Review preprint, submitted 24 September 2026}}",
+    "fields": {
+      "author": "Mark, Daniel K. and Endres, Manuel and Ippoliti, Matteo and Ho, Wen Wei and Choi, Soonwon",
+      "title": "Deep thermalization and {Hilbert} space ergodicity",
+      "year": "2026",
+      "eprint": "2609.30248",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2609.30248",
+      "note": "Review preprint, submitted 24 September 2026"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-minganti2018",
+    "kind": "article",
+    "raw": "@article{info-minganti2018, author={Minganti, Fabrizio and Biella, Alberto and Bartolo, Nicola and Ciuti, Cristiano}, title={Spectral theory of {Liouvillians} for dissipative phase transitions}, journal={Physical Review A}, volume={98}, pages={042118}, year={2018}, doi={10.1103/PhysRevA.98.042118}, url={https://arxiv.org/abs/1804.11293}}",
+    "fields": {
+      "author": "Minganti, Fabrizio and Biella, Alberto and Bartolo, Nicola and Ciuti, Cristiano",
+      "title": "Spectral theory of {Liouvillians} for dissipative phase transitions",
+      "journal": "Physical Review A",
+      "volume": "98",
+      "pages": "042118",
+      "year": "2018",
+      "doi": "10.1103/PhysRevA.98.042118",
+      "url": "https://arxiv.org/abs/1804.11293"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-mss2016",
+    "kind": "article",
+    "raw": "@article{info-mss2016, author={Maldacena, Juan and Shenker, Stephen H. and Stanford, Douglas}, title={A bound on chaos}, journal={Journal of High Energy Physics}, volume={2016}, pages={106}, year={2016}, doi={10.1007/JHEP08(2016)106}, url={https://arxiv.org/abs/1503.01409}}",
+    "fields": {
+      "author": "Maldacena, Juan and Shenker, Stephen H. and Stanford, Douglas",
+      "title": "A bound on chaos",
+      "journal": "Journal of High Energy Physics",
+      "volume": "2016",
+      "pages": "106",
+      "year": "2016",
+      "doi": "10.1007/JHEP08(2016)106",
+      "url": "https://arxiv.org/abs/1503.01409"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-noel2022",
+    "kind": "article",
+    "raw": "@article{info-noel2022, author={Noel, Crystal and Niroula, Pradeep and Zhu, Daiwei and Risinger, Andrew and Egan, Laird and Biswas, Debopriyo and Cetina, Marko and Gorshkov, Alexey V. and Gullans, Michael J. and Huse, David A. and Monroe, Christopher}, title={Measurement-induced quantum phases realized in a trapped-ion quantum computer}, journal={Nature Physics}, volume={18}, pages={760--764}, year={2022}, doi={10.1038/s41567-022-01619-7}, url={https://arxiv.org/abs/2106.05881}}",
+    "fields": {
+      "author": "Noel, Crystal and Niroula, Pradeep and Zhu, Daiwei and Risinger, Andrew and Egan, Laird and Biswas, Debopriyo and Cetina, Marko and Gorshkov, Alexey V. and Gullans, Michael J. and Huse, David A. and Monroe, Christopher",
+      "title": "Measurement-induced quantum phases realized in a trapped-ion quantum computer",
+      "journal": "Nature Physics",
+      "volume": "18",
+      "pages": "760--764",
+      "year": "2022",
+      "doi": "10.1038/s41567-022-01619-7",
+      "url": "https://arxiv.org/abs/2106.05881"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-prosen2008",
+    "kind": "article",
+    "raw": "@article{info-prosen2008, author={Prosen, Tomaz}, title={Third quantization: a general method to solve master equations for quadratic open {Fermi} systems}, journal={New Journal of Physics}, volume={10}, pages={043026}, year={2008}, doi={10.1088/1367-2630/10/4/043026}, url={https://arxiv.org/abs/0801.1257}}",
+    "fields": {
+      "author": "Prosen, Tomaz",
+      "title": "Third quantization: a general method to solve master equations for quadratic open {Fermi} systems",
+      "journal": "New Journal of Physics",
+      "volume": "10",
+      "pages": "043026",
+      "year": "2008",
+      "doi": "10.1088/1367-2630/10/4/043026",
+      "url": "https://arxiv.org/abs/0801.1257"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-sherry2026",
+    "kind": "article",
+    "raw": "@article{info-sherry2026, author={Sherry, Alan and Roy, Sthitadhi}, title={Deep thermalization for mixed states}, journal={Physical Review B}, volume={113}, pages={174309}, year={2026}, doi={10.1103/x397-3nk5}, url={https://doi.org/10.1103/x397-3nk5}}",
+    "fields": {
+      "author": "Sherry, Alan and Roy, Sthitadhi",
+      "title": "Deep thermalization for mixed states",
+      "journal": "Physical Review B",
+      "volume": "113",
+      "pages": "174309",
+      "year": "2026",
+      "doi": "10.1103/x397-3nk5",
+      "url": "https://doi.org/10.1103/x397-3nk5"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-skinner2019",
+    "kind": "article",
+    "raw": "@article{info-skinner2019, author={Skinner, Brian and Ruhman, Jonathan and Nahum, Adam}, title={Measurement-Induced Phase Transitions in the Dynamics of Entanglement}, journal={Physical Review X}, volume={9}, pages={031009}, year={2019}, doi={10.1103/PhysRevX.9.031009}, url={https://arxiv.org/abs/1808.05953}}",
+    "fields": {
+      "author": "Skinner, Brian and Ruhman, Jonathan and Nahum, Adam",
+      "title": "Measurement-Induced Phase Transitions in the Dynamics of Entanglement",
+      "journal": "Physical Review X",
+      "volume": "9",
+      "pages": "031009",
+      "year": "2019",
+      "doi": "10.1103/PhysRevX.9.031009",
+      "url": "https://arxiv.org/abs/1808.05953"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-tan2026",
+    "kind": "article",
+    "raw": "@article{info-tan2026, author={Tan, Zhiyang and Brouwer, Piet W.}, title={Operator spreading in random unitary circuits with orthogonal/symplectic-invariant gate distributions}, journal={Physical Review B}, volume={114}, pages={074308}, year={2026}, doi={10.1103/p5d4-dmj6}, url={https://arxiv.org/abs/2606.03956}}",
+    "fields": {
+      "author": "Tan, Zhiyang and Brouwer, Piet W.",
+      "title": "Operator spreading in random unitary circuits with orthogonal/symplectic-invariant gate distributions",
+      "journal": "Physical Review B",
+      "volume": "114",
+      "pages": "074308",
+      "year": "2026",
+      "doi": "10.1103/p5d4-dmj6",
+      "url": "https://arxiv.org/abs/2606.03956"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-verstraete2009",
+    "kind": "article",
+    "raw": "@article{info-verstraete2009, author={Verstraete, Frank and Wolf, Michael M. and Cirac, J. Ignacio}, title={Quantum computation and quantum-state engineering driven by dissipation}, journal={Nature Physics}, volume={5}, pages={633--636}, year={2009}, doi={10.1038/nphys1342}, url={https://arxiv.org/abs/0803.1447}}",
+    "fields": {
+      "author": "Verstraete, Frank and Wolf, Michael M. and Cirac, J. Ignacio",
+      "title": "Quantum computation and quantum-state engineering driven by dissipation",
+      "journal": "Nature Physics",
+      "volume": "5",
+      "pages": "633--636",
+      "year": "2009",
+      "doi": "10.1038/nphys1342",
+      "url": "https://arxiv.org/abs/0803.1447"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-vidal2002",
+    "kind": "article",
+    "raw": "@article{info-vidal2002, author={Vidal, Guifre and Werner, R. F.}, title={A computable measure of entanglement}, journal={Physical Review A}, volume={65}, pages={032314}, year={2002}, doi={10.1103/PhysRevA.65.032314}, url={https://arxiv.org/abs/quant-ph/0102117}}",
+    "fields": {
+      "author": "Vidal, Guifre and Werner, R. F.",
+      "title": "A computable measure of entanglement",
+      "journal": "Physical Review A",
+      "volume": "65",
+      "pages": "032314",
+      "year": "2002",
+      "doi": "10.1103/PhysRevA.65.032314",
+      "url": "https://arxiv.org/abs/quant-ph/0102117"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-yao2016",
+    "kind": "misc",
+    "raw": "@misc{info-yao2016, author={Yao, Norman Y. and Grusdt, Fabian and Swingle, Brian and Lukin, Mikhail D. and Stamper-Kurn, Dan M. and Moore, Joel E. and Demler, Eugene A.}, title={Interferometric Approach to Probing Fast Scrambling}, year={2016}, eprint={1607.01801}, archivePrefix={arXiv}, url={https://arxiv.org/abs/1607.01801}}",
+    "fields": {
+      "author": "Yao, Norman Y. and Grusdt, Fabian and Swingle, Brian and Lukin, Mikhail D. and Stamper-Kurn, Dan M. and Moore, Joel E. and Demler, Eugene A.",
+      "title": "Interferometric Approach to Probing Fast Scrambling",
+      "year": "2016",
+      "eprint": "1607.01801",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1607.01801"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-yoshida2019",
+    "kind": "article",
+    "raw": "@article{info-yoshida2019, author={Yoshida, Beni and Yao, Norman Y.}, title={Disentangling Scrambling and Decoherence via Quantum Teleportation}, journal={Physical Review X}, volume={9}, pages={011006}, year={2019}, doi={10.1103/PhysRevX.9.011006}, url={https://arxiv.org/abs/1803.10772}}",
+    "fields": {
+      "author": "Yoshida, Beni and Yao, Norman Y.",
+      "title": "Disentangling Scrambling and Decoherence via Quantum Teleportation",
+      "journal": "Physical Review X",
+      "volume": "9",
+      "pages": "011006",
+      "year": "2019",
+      "doi": "10.1103/PhysRevX.9.011006",
+      "url": "https://arxiv.org/abs/1803.10772"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "info-zhou2019",
+    "kind": "article",
+    "raw": "@article{info-zhou2019, author={Zhou, Tianci and Nahum, Adam}, title={Emergent statistical mechanics of entanglement in random unitary circuits}, journal={Physical Review B}, volume={99}, pages={174205}, year={2019}, doi={10.1103/PhysRevB.99.174205}, url={https://arxiv.org/abs/1804.09737}}",
+    "fields": {
+      "author": "Zhou, Tianci and Nahum, Adam",
+      "title": "Emergent statistical mechanics of entanglement in random unitary circuits",
+      "journal": "Physical Review B",
+      "volume": "99",
+      "pages": "174205",
+      "year": "2019",
+      "doi": "10.1103/PhysRevB.99.174205",
+      "url": "https://arxiv.org/abs/1804.09737"
+    },
+    "source": "information",
+    "origins": [
+      "information"
+    ]
+  },
+  {
+    "key": "kaufman2016thermalization",
+    "kind": "article",
+    "raw": "@article{kaufman2016thermalization,\n  title = {Quantum thermalization through entanglement in an isolated many-body system},\n  author = {Adam M. Kaufman and M. Eric Tai and Alexander Lukin and Matthew Rispoli and Robert Schittko and Philipp M. Preiss and Markus Greiner},\n  journal = {Science},\n  volume = {353},\n  number = {6301},\n  pages = {794--800},\n  year = {2016},\n  doi = {10.1126/science.aaf6725},\n  eprint = {1603.04409},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/1603.04409},\n}",
+    "fields": {
+      "title": "Quantum thermalization through entanglement in an isolated many-body system",
+      "author": "Adam M. Kaufman and M. Eric Tai and Alexander Lukin and Matthew Rispoli and Robert Schittko and Philipp M. Preiss and Markus Greiner",
+      "journal": "Science",
+      "volume": "353",
+      "number": "6301",
+      "pages": "794--800",
+      "year": "2016",
+      "doi": "10.1126/science.aaf6725",
+      "eprint": "1603.04409",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/1603.04409"
+    },
+    "source": "core",
+    "origins": [
+      "core",
+      "thermal"
+    ]
+  },
+  {
+    "key": "khemani2016phases",
+    "kind": "article",
+    "raw": "@article{khemani2016phases,\n  author = {Khemani, Vedika and Lazarides, Achilleas and Moessner, Roderich and Sondhi, S. L.},\n  title = {Phase Structure of Driven Quantum Systems},\n  journal = {Physical Review Letters}, volume = {116}, pages = {250401}, year = {2016},\n  doi = {10.1103/PhysRevLett.116.250401}, eprint = {1508.03344}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1508.03344}\n}",
+    "fields": {
+      "author": "Khemani, Vedika and Lazarides, Achilleas and Moessner, Roderich and Sondhi, S. L.",
+      "title": "Phase Structure of Driven Quantum Systems",
+      "journal": "Physical Review Letters",
+      "volume": "116",
+      "pages": "250401",
+      "year": "2016",
+      "doi": "10.1103/PhysRevLett.116.250401",
+      "eprint": "1508.03344",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1508.03344"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "khemani2020shattering",
+    "kind": "article",
+    "raw": "@article{khemani2020shattering,\n  author = {Khemani, Vedika and Hermele, Michael and Nandkishore, Rahul M.},\n  title = {Localization from Hilbert Space Shattering: From Theory to Physical Realizations},\n  journal = {Physical Review B}, volume = {101}, pages = {174204}, year = {2020},\n  doi = {10.1103/PhysRevB.101.174204}, eprint = {1910.01137}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1910.01137}\n}",
+    "fields": {
+      "author": "Khemani, Vedika and Hermele, Michael and Nandkishore, Rahul M.",
+      "title": "Localization from Hilbert Space Shattering: From Theory to Physical Realizations",
+      "journal": "Physical Review B",
+      "volume": "101",
+      "pages": "174204",
+      "year": "2020",
+      "doi": "10.1103/PhysRevB.101.174204",
+      "eprint": "1910.01137",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1910.01137"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "kitaev2003anyons",
+    "kind": "article",
+    "raw": "@article{kitaev2003anyons,\n  author = {Kitaev, A. Yu.}, title = {Fault-tolerant quantum computation by anyons},\n  journal = {Annals of Physics}, volume = {303}, pages = {2--30}, year = {2003},\n  doi = {10.1016/S0003-4916(02)00018-0}, eprint = {quant-ph/9707021}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/quant-ph/9707021}\n}",
+    "fields": {
+      "author": "Kitaev, A. Yu.",
+      "title": "Fault-tolerant quantum computation by anyons",
+      "journal": "Annals of Physics",
+      "volume": "303",
+      "pages": "2--30",
+      "year": "2003",
+      "doi": "10.1016/S0003-4916(02)00018-0",
+      "eprint": "quant-ph/9707021",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/quant-ph/9707021"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "kos2018chaos",
+    "kind": "article",
+    "raw": "@article{kos2018chaos,\n  author = {Kos, Pavel and Ljubotina, Marko and Prosen, Tomaž},\n  title = {Many-Body Quantum Chaos: Analytic Connection to Random Matrix Theory},\n  journal = {Physical Review X}, volume = {8}, pages = {021062}, year = {2018},\n  doi = {10.1103/PhysRevX.8.021062}, eprint = {1712.02665}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1712.02665}\n}",
+    "fields": {
+      "author": "Kos, Pavel and Ljubotina, Marko and Prosen, Tomaž",
+      "title": "Many-Body Quantum Chaos: Analytic Connection to Random Matrix Theory",
+      "journal": "Physical Review X",
+      "volume": "8",
+      "pages": "021062",
+      "year": "2018",
+      "doi": "10.1103/PhysRevX.8.021062",
+      "eprint": "1712.02665",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1712.02665"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "kubo1957response",
+    "kind": "article",
+    "raw": "@article{kubo1957response,\n  author = {Ryogo Kubo},\n  title = {{Statistical-Mechanical Theory of Irreversible Processes. I. General Theory and Simple Applications to Magnetic and Conduction Problems}},\n  year = {1957},\n  journal = {Journal of the Physical Society of Japan},\n  volume = {12},\n  pages = {570--586},\n  doi = {10.1143/JPSJ.12.570},\n  url = {https://doi.org/10.1143/JPSJ.12.570},\n}",
+    "fields": {
+      "author": "Ryogo Kubo",
+      "title": "{Statistical-Mechanical Theory of Irreversible Processes. I. General Theory and Simple Applications to Magnetic and Conduction Problems}",
+      "year": "1957",
+      "journal": "Journal of the Physical Society of Japan",
+      "volume": "12",
+      "pages": "570--586",
+      "doi": "10.1143/JPSJ.12.570",
+      "url": "https://doi.org/10.1143/JPSJ.12.570"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "kuwahara2016magnus",
+    "kind": "article",
+    "raw": "@article{kuwahara2016magnus,\n  author = {Kuwahara, Tomotaka and Mori, Takashi and Saito, Keiji},\n  title = {{Floquet}–{Magnus} theory and generic transient dynamics in periodically driven many-body quantum systems},\n  journal = {Annals of Physics}, volume = {367}, pages = {96--124}, year = {2016},\n  doi = {10.1016/j.aop.2016.01.012}, eprint = {1508.05797}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1508.05797}\n}",
+    "fields": {
+      "author": "Kuwahara, Tomotaka and Mori, Takashi and Saito, Keiji",
+      "title": "{Floquet}–{Magnus} theory and generic transient dynamics in periodically driven many-body quantum systems",
+      "journal": "Annals of Physics",
+      "volume": "367",
+      "pages": "96--124",
+      "year": "2016",
+      "doi": "10.1016/j.aop.2016.01.012",
+      "eprint": "1508.05797",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1508.05797"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "kyprianidis2021prethermal",
+    "kind": "article",
+    "raw": "@article{kyprianidis2021prethermal,\n  author = {Kyprianidis, Antonis and Machado, Francisco and Morong, William and Becker, Patrick and Collins, Kate S. and Else, Dominic V. and Feng, Lei and Hess, Paul W. and Nayak, Chetan and Pagano, Guido and Yao, Norman Y. and Monroe, Christopher},\n  title = {Observation of a prethermal discrete time crystal},\n  journal = {Science}, volume = {372}, pages = {1192--1196}, year = {2021},\n  doi = {10.1126/science.abg8102}, eprint = {2102.01695}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2102.01695}\n}",
+    "fields": {
+      "author": "Kyprianidis, Antonis and Machado, Francisco and Morong, William and Becker, Patrick and Collins, Kate S. and Else, Dominic V. and Feng, Lei and Hess, Paul W. and Nayak, Chetan and Pagano, Guido and Yao, Norman Y. and Monroe, Christopher",
+      "title": "Observation of a prethermal discrete time crystal",
+      "journal": "Science",
+      "volume": "372",
+      "pages": "1192--1196",
+      "year": "2021",
+      "doi": "10.1126/science.abg8102",
+      "eprint": "2102.01695",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2102.01695"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "li2025delocalization",
+    "kind": "misc",
+    "raw": "@misc{li2025delocalization,\n  author = {Li, Tian-Ming and Sun, Zheng-Hang and Shi, Yun-Hao and Bao, Zhen-Ting and Wang, Yong-Yi and Zhang, Jia-Chi and others},\n  title = {Many-body delocalization with a two-dimensional 70-qubit superconducting quantum simulator},\n  year = {2025}, eprint = {2507.16882}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2507.16882}, note = {Preprint; publication status checked 2026-10-22}\n}",
+    "fields": {
+      "author": "Li, Tian-Ming and Sun, Zheng-Hang and Shi, Yun-Hao and Bao, Zhen-Ting and Wang, Yong-Yi and Zhang, Jia-Chi and others",
+      "title": "Many-body delocalization with a two-dimensional 70-qubit superconducting quantum simulator",
+      "year": "2025",
+      "eprint": "2507.16882",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2507.16882",
+      "note": "Preprint; publication status checked 2026-10-22"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "ljubotina2017spin",
+    "kind": "article",
+    "raw": "@article{ljubotina2017spin,\n  author = {Marko Ljubotina and Marko Žnidarič and Tomaž Prosen},\n  title = {{Spin diffusion from an inhomogeneous quench in an integrable system}},\n  year = {2017},\n  journal = {Nature Communications},\n  volume = {8},\n  pages = {16117},\n  doi = {10.1038/ncomms16117},\n  eprint = {1702.04210},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1702.04210},\n}",
+    "fields": {
+      "author": "Marko Ljubotina and Marko Žnidarič and Tomaž Prosen",
+      "title": "{Spin diffusion from an inhomogeneous quench in an integrable system}",
+      "year": "2017",
+      "journal": "Nature Communications",
+      "volume": "8",
+      "pages": "16117",
+      "doi": "10.1038/ncomms16117",
+      "eprint": "1702.04210",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1702.04210"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "ljubotina2019kpz",
+    "kind": "article",
+    "raw": "@article{ljubotina2019kpz,\n  author = {Marko Ljubotina and Marko Žnidarič and Tomaž Prosen},\n  title = {{Kardar-Parisi-Zhang Physics in the Quantum Heisenberg Magnet}},\n  year = {2019},\n  journal = {Physical Review Letters},\n  volume = {122},\n  pages = {210602},\n  doi = {10.1103/PhysRevLett.122.210602},\n  eprint = {1903.01329},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1903.01329},\n}",
+    "fields": {
+      "author": "Marko Ljubotina and Marko Žnidarič and Tomaž Prosen",
+      "title": "{Kardar-Parisi-Zhang Physics in the Quantum Heisenberg Magnet}",
+      "year": "2019",
+      "journal": "Physical Review Letters",
+      "volume": "122",
+      "pages": "210602",
+      "doi": "10.1103/PhysRevLett.122.210602",
+      "eprint": "1903.01329",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1903.01329"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "mazur1969bound",
+    "kind": "article",
+    "raw": "@article{mazur1969bound,\n  author = {Peter Mazur},\n  title = {{Non-ergodicity of phase functions in certain systems}},\n  year = {1969},\n  journal = {Physica},\n  volume = {43},\n  pages = {533--545},\n  doi = {10.1016/0031-8914(69)90185-2},\n  url = {https://doi.org/10.1016/0031-8914(69)90185-2},\n}",
+    "fields": {
+      "author": "Peter Mazur",
+      "title": "{Non-ergodicity of phase functions in certain systems}",
+      "year": "1969",
+      "journal": "Physica",
+      "volume": "43",
+      "pages": "533--545",
+      "doi": "10.1016/0031-8914(69)90185-2",
+      "url": "https://doi.org/10.1016/0031-8914(69)90185-2"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "mcculloch2026coherence",
+    "kind": "misc",
+    "raw": "@misc{mcculloch2026coherence,\n  author = {Ewan McCulloch and J. Alexander Jacoby and Sarang Gopalakrishnan},\n  title = {{Long-lived local quantum coherences from hydrodynamic large deviations}},\n  year = {2026},\n  eprint = {2604.27074},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2604.27074},\n  note = {Preprint; status checked 22 October 2026},\n}",
+    "fields": {
+      "author": "Ewan McCulloch and J. Alexander Jacoby and Sarang Gopalakrishnan",
+      "title": "{Long-lived local quantum coherences from hydrodynamic large deviations}",
+      "year": "2026",
+      "eprint": "2604.27074",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2604.27074",
+      "note": "Preprint; status checked 22 October 2026"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "mi2022crystal",
+    "kind": "article",
+    "raw": "@article{mi2022crystal,\n  author = {Mi, Xiao and Ippoliti, Matteo and Quintana, Chris and Greene, Ami and Chen, Zijun and Gross, Jonathan and others},\n  title = {Time-crystalline eigenstate order on a quantum processor},\n  journal = {Nature}, volume = {601}, pages = {531--536}, year = {2022},\n  doi = {10.1038/s41586-021-04257-w}, eprint = {2107.13571}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2107.13571}\n}",
+    "fields": {
+      "author": "Mi, Xiao and Ippoliti, Matteo and Quintana, Chris and Greene, Ami and Chen, Zijun and Gross, Jonathan and others",
+      "title": "Time-crystalline eigenstate order on a quantum processor",
+      "journal": "Nature",
+      "volume": "601",
+      "pages": "531--536",
+      "year": "2022",
+      "doi": "10.1038/s41586-021-04257-w",
+      "eprint": "2107.13571",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2107.13571"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "michailidis2020mixedphase",
+    "kind": "article",
+    "raw": "@article{michailidis2020mixedphase,\n  author = {Michailidis, Alexios A. and Turner, Christopher J. and Papić, Zlatko and Abanin, Dmitry A. and Serbyn, Maksym},\n  title = {Slow Quantum Thermalization and Many-Body Revivals from Mixed Phase Space},\n  journal = {Physical Review X}, volume = {10}, pages = {011055}, year = {2020},\n  doi = {10.1103/PhysRevX.10.011055}, eprint = {1905.08564}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1905.08564}\n}",
+    "fields": {
+      "author": "Michailidis, Alexios A. and Turner, Christopher J. and Papić, Zlatko and Abanin, Dmitry A. and Serbyn, Maksym",
+      "title": "Slow Quantum Thermalization and Many-Body Revivals from Mixed Phase Space",
+      "journal": "Physical Review X",
+      "volume": "10",
+      "pages": "011055",
+      "year": "2020",
+      "doi": "10.1103/PhysRevX.10.011055",
+      "eprint": "1905.08564",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1905.08564"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "morningstar2022avalanches",
+    "kind": "article",
+    "raw": "@article{morningstar2022avalanches,\n  author = {Morningstar, Alan and Colmenarez, Luis and Khemani, Vedika and Luitz, David J. and Huse, David A.},\n  title = {Avalanches and many-body resonances in many-body localized systems},\n  journal = {Physical Review B}, volume = {105}, pages = {174205}, year = {2022},\n  doi = {10.1103/PhysRevB.105.174205}, eprint = {2107.05642}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2107.05642}\n}",
+    "fields": {
+      "author": "Morningstar, Alan and Colmenarez, Luis and Khemani, Vedika and Luitz, David J. and Huse, David A.",
+      "title": "Avalanches and many-body resonances in many-body localized systems",
+      "journal": "Physical Review B",
+      "volume": "105",
+      "pages": "174205",
+      "year": "2022",
+      "doi": "10.1103/PhysRevB.105.174205",
+      "eprint": "2107.05642",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2107.05642"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "nahum2017growth",
+    "kind": "article",
+    "raw": "@article{nahum2017growth,\n  author = {Adam Nahum and Jonathan Ruhman and Sagar Vijay and Jeongwan Haah},\n  title = {{Quantum Entanglement Growth under Random Unitary Dynamics}},\n  year = {2017},\n  journal = {Physical Review X},\n  volume = {7},\n  pages = {031016},\n  doi = {10.1103/PhysRevX.7.031016},\n  eprint = {1608.06950},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1608.06950},\n}",
+    "fields": {
+      "author": "Adam Nahum and Jonathan Ruhman and Sagar Vijay and Jeongwan Haah",
+      "title": "{Quantum Entanglement Growth under Random Unitary Dynamics}",
+      "year": "2017",
+      "journal": "Physical Review X",
+      "volume": "7",
+      "pages": "031016",
+      "doi": "10.1103/PhysRevX.7.031016",
+      "eprint": "1608.06950",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1608.06950"
+    },
+    "source": "transport",
+    "origins": [
+      "information",
+      "transport"
+    ]
+  },
+  {
+    "key": "nahum2018operator",
+    "kind": "article",
+    "raw": "@article{nahum2018operator,\n  author = {Adam Nahum and Sagar Vijay and Jeongwan Haah},\n  title = {{Operator Spreading in Random Unitary Circuits}},\n  year = {2018},\n  journal = {Physical Review X},\n  volume = {8},\n  pages = {021014},\n  doi = {10.1103/PhysRevX.8.021014},\n  eprint = {1705.08975},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1705.08975},\n}",
+    "fields": {
+      "author": "Adam Nahum and Sagar Vijay and Jeongwan Haah",
+      "title": "{Operator Spreading in Random Unitary Circuits}",
+      "year": "2018",
+      "journal": "Physical Review X",
+      "volume": "8",
+      "pages": "021014",
+      "doi": "10.1103/PhysRevX.8.021014",
+      "eprint": "1705.08975",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1705.08975"
+    },
+    "source": "transport",
+    "origins": [
+      "information",
+      "transport"
+    ]
+  },
+  {
+    "key": "oganesyan2007localization",
+    "kind": "article",
+    "raw": "@article{oganesyan2007localization,\n  author = {Oganesyan, Vadim and Huse, David A.},\n  title = {Localization of interacting fermions at high temperature},\n  journal = {Physical Review B}, volume = {75}, pages = {155111}, year = {2007},\n  doi = {10.1103/PhysRevB.75.155111}, eprint = {cond-mat/0610854}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/cond-mat/0610854}\n}",
+    "fields": {
+      "author": "Oganesyan, Vadim and Huse, David A.",
+      "title": "Localization of interacting fermions at high temperature",
+      "journal": "Physical Review B",
+      "volume": "75",
+      "pages": "155111",
+      "year": "2007",
+      "doi": "10.1103/PhysRevB.75.155111",
+      "eprint": "cond-mat/0610854",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/cond-mat/0610854"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "page1993average",
+    "kind": "article",
+    "raw": "@article{page1993average,\n  title = {Average entropy of a subsystem},\n  author = {Don N. Page},\n  journal = {Physical Review Letters},\n  volume = {71},\n  number = {9},\n  pages = {1291--1294},\n  year = {1993},\n  doi = {10.1103/PhysRevLett.71.1291},\n  eprint = {gr-qc/9305007},\n  archivePrefix = {arXiv},\n  primaryClass = {gr-qc},\n  url = {https://arxiv.org/abs/gr-qc/9305007},\n}",
+    "fields": {
+      "title": "Average entropy of a subsystem",
+      "author": "Don N. Page",
+      "journal": "Physical Review Letters",
+      "volume": "71",
+      "number": "9",
+      "pages": "1291--1294",
+      "year": "1993",
+      "doi": "10.1103/PhysRevLett.71.1291",
+      "eprint": "gr-qc/9305007",
+      "archiveprefix": "arXiv",
+      "primaryclass": "gr-qc",
+      "url": "https://arxiv.org/abs/gr-qc/9305007"
+    },
+    "source": "core",
+    "origins": [
+      "core",
+      "information"
+    ]
+  },
+  {
+    "key": "pal2010transition",
+    "kind": "article",
+    "raw": "@article{pal2010transition,\n  author = {Pal, Arijeet and Huse, David A.}, title = {Many-body localization phase transition},\n  journal = {Physical Review B}, volume = {82}, pages = {174411}, year = {2010},\n  doi = {10.1103/PhysRevB.82.174411}, eprint = {1010.1992}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1010.1992}\n}",
+    "fields": {
+      "author": "Pal, Arijeet and Huse, David A.",
+      "title": "Many-body localization phase transition",
+      "journal": "Physical Review B",
+      "volume": "82",
+      "pages": "174411",
+      "year": "2010",
+      "doi": "10.1103/PhysRevB.82.174411",
+      "eprint": "1010.1992",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1010.1992"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "petrova2026orbits",
+    "kind": "misc",
+    "raw": "@misc{petrova2026orbits,\n  author = {Petrova, Elena and Serbyn, Maksym and Ljubotina, Marko},\n  title = {Periodic orbits and quantum many-body scars in integrable spin chains},\n  year = {2026}, eprint = {2607.15132}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2607.15132}, note = {Preprint; publication status checked 2026-10-22}\n}",
+    "fields": {
+      "author": "Petrova, Elena and Serbyn, Maksym and Ljubotina, Marko",
+      "title": "Periodic orbits and quantum many-body scars in integrable spin chains",
+      "year": "2026",
+      "eprint": "2607.15132",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2607.15132",
+      "note": "Preprint; publication status checked 2026-10-22"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "popescu2006foundations",
+    "kind": "article",
+    "raw": "@article{popescu2006foundations,\n  title = {Entanglement and the foundations of statistical mechanics},\n  author = {Sandu Popescu and Anthony J. Short and Andreas Winter},\n  journal = {Nature Physics},\n  volume = {2},\n  number = {11},\n  pages = {754--758},\n  year = {2006},\n  doi = {10.1038/nphys444},\n  eprint = {quant-ph/0511225},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/quant-ph/0511225},\n}",
+    "fields": {
+      "title": "Entanglement and the foundations of statistical mechanics",
+      "author": "Sandu Popescu and Anthony J. Short and Andreas Winter",
+      "journal": "Nature Physics",
+      "volume": "2",
+      "number": "11",
+      "pages": "754--758",
+      "year": "2006",
+      "doi": "10.1038/nphys444",
+      "eprint": "quant-ph/0511225",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/quant-ph/0511225"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "potter2016symmetry",
+    "kind": "article",
+    "raw": "@article{potter2016symmetry,\n  author = {Potter, Andrew C. and Vasseur, Romain}, title = {Symmetry constraints on many-body localization},\n  journal = {Physical Review B}, volume = {94}, pages = {224206}, year = {2016},\n  doi = {10.1103/PhysRevB.94.224206}, eprint = {1605.03601}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1605.03601}\n}",
+    "fields": {
+      "author": "Potter, Andrew C. and Vasseur, Romain",
+      "title": "Symmetry constraints on many-body localization",
+      "journal": "Physical Review B",
+      "volume": "94",
+      "pages": "224206",
+      "year": "2016",
+      "doi": "10.1103/PhysRevB.94.224206",
+      "eprint": "1605.03601",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1605.03601"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "prosen2011drude",
+    "kind": "article",
+    "raw": "@article{prosen2011drude,\n  author = {Tomaž Prosen},\n  title = {{Open XXZ Spin Chain: Nonequilibrium Steady State and a Strict Bound on Ballistic Transport}},\n  year = {2011},\n  journal = {Physical Review Letters},\n  volume = {106},\n  pages = {217206},\n  doi = {10.1103/PhysRevLett.106.217206},\n  eprint = {1103.1350},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1103.1350},\n}",
+    "fields": {
+      "author": "Tomaž Prosen",
+      "title": "{Open XXZ Spin Chain: Nonequilibrium Steady State and a Strict Bound on Ballistic Transport}",
+      "year": "2011",
+      "journal": "Physical Review Letters",
+      "volume": "106",
+      "pages": "217206",
+      "doi": "10.1103/PhysRevLett.106.217206",
+      "eprint": "1103.1350",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1103.1350"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "prosen2011ness",
+    "kind": "article",
+    "raw": "@article{prosen2011ness,\n  author = {Tomaž Prosen},\n  title = {{Exact Nonequilibrium Steady State of a Strongly Driven Open XXZ Chain}},\n  year = {2011},\n  journal = {Physical Review Letters},\n  volume = {107},\n  pages = {137201},\n  doi = {10.1103/PhysRevLett.107.137201},\n  url = {https://doi.org/10.1103/PhysRevLett.107.137201},\n}",
+    "fields": {
+      "author": "Tomaž Prosen",
+      "title": "{Exact Nonequilibrium Steady State of a Strongly Driven Open XXZ Chain}",
+      "year": "2011",
+      "journal": "Physical Review Letters",
+      "volume": "107",
+      "pages": "137201",
+      "doi": "10.1103/PhysRevLett.107.137201",
+      "url": "https://doi.org/10.1103/PhysRevLett.107.137201"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "prufer2018universal",
+    "kind": "article",
+    "raw": "@article{prufer2018universal,\n  author = {Maximilian Prüfer and Philipp Kunkel and Helmut Strobel and Stefan Lannig and Daniel Linnemann and Christian-Marcel Schmied and Jürgen Berges and Thomas Gasenzer and Markus K. Oberthaler},\n  title = {{Observation of universal dynamics in a spinor Bose gas far from equilibrium}},\n  year = {2018},\n  journal = {Nature},\n  volume = {563},\n  pages = {217--220},\n  doi = {10.1038/s41586-018-0659-0},\n  eprint = {1805.11881},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1805.11881},\n}",
+    "fields": {
+      "author": "Maximilian Prüfer and Philipp Kunkel and Helmut Strobel and Stefan Lannig and Daniel Linnemann and Christian-Marcel Schmied and Jürgen Berges and Thomas Gasenzer and Markus K. Oberthaler",
+      "title": "{Observation of universal dynamics in a spinor Bose gas far from equilibrium}",
+      "year": "2018",
+      "journal": "Nature",
+      "volume": "563",
+      "pages": "217--220",
+      "doi": "10.1038/s41586-018-0659-0",
+      "eprint": "1805.11881",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1805.11881"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "rakovszky2018charge",
+    "kind": "article",
+    "raw": "@article{rakovszky2018charge,\n  author = {Tibor Rakovszky and Frank Pollmann and C. W. {von Keyserlingk}},\n  title = {{Diffusive Hydrodynamics of Out-of-Time-Ordered Correlators with Charge Conservation}},\n  year = {2018},\n  journal = {Physical Review X},\n  volume = {8},\n  pages = {031058},\n  doi = {10.1103/PhysRevX.8.031058},\n  eprint = {1710.09827},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1710.09827},\n}",
+    "fields": {
+      "author": "Tibor Rakovszky and Frank Pollmann and C. W. {von Keyserlingk}",
+      "title": "{Diffusive Hydrodynamics of Out-of-Time-Ordered Correlators with Charge Conservation}",
+      "year": "2018",
+      "journal": "Physical Review X",
+      "volume": "8",
+      "pages": "031058",
+      "doi": "10.1103/PhysRevX.8.031058",
+      "eprint": "1710.09827",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1710.09827"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "rigol2008thermalization",
+    "kind": "article",
+    "raw": "@article{rigol2008thermalization,\n  author = {Rigol, Marcos and Dunjko, Vanja and Olshanii, Maxim},\n  title = {Thermalization and its mechanism for generic isolated quantum systems},\n  journal = {Nature}, volume = {452}, pages = {854--858}, year = {2008},\n  doi = {10.1038/nature06838}, eprint = {0708.1324}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/0708.1324}\n}",
+    "fields": {
+      "author": "Rigol, Marcos and Dunjko, Vanja and Olshanii, Maxim",
+      "title": "Thermalization and its mechanism for generic isolated quantum systems",
+      "journal": "Nature",
+      "volume": "452",
+      "pages": "854--858",
+      "year": "2008",
+      "doi": "10.1038/nature06838",
+      "eprint": "0708.1324",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/0708.1324"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "rosenberg2024magnetization",
+    "kind": "article",
+    "raw": "@article{rosenberg2024magnetization,\n  author = {Eliott Rosenberg and Trond I. Andersen and Rhine Samajdar and others},\n  title = {{Dynamics of magnetization at infinite temperature in a Heisenberg spin chain}},\n  year = {2024},\n  journal = {Science},\n  volume = {384},\n  pages = {48--53},\n  doi = {10.1126/science.adi7877},\n  eprint = {2306.09333},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2306.09333},\n}",
+    "fields": {
+      "author": "Eliott Rosenberg and Trond I. Andersen and Rhine Samajdar and others",
+      "title": "{Dynamics of magnetization at infinite temperature in a Heisenberg spin chain}",
+      "year": "2024",
+      "journal": "Science",
+      "volume": "384",
+      "pages": "48--53",
+      "doi": "10.1126/science.adi7877",
+      "eprint": "2306.09333",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2306.09333"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "rudner2013anomalous",
+    "kind": "article",
+    "raw": "@article{rudner2013anomalous,\n  author = {Rudner, Mark S. and Lindner, Netanel H. and Berg, Erez and Levin, Michael},\n  title = {Anomalous Edge States and the Bulk-Edge Correspondence for Periodically Driven Two-Dimensional Systems},\n  journal = {Physical Review X}, volume = {3}, pages = {031005}, year = {2013},\n  doi = {10.1103/PhysRevX.3.031005}, eprint = {1212.3324}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1212.3324}\n}",
+    "fields": {
+      "author": "Rudner, Mark S. and Lindner, Netanel H. and Berg, Erez and Levin, Michael",
+      "title": "Anomalous Edge States and the Bulk-Edge Correspondence for Periodically Driven Two-Dimensional Systems",
+      "journal": "Physical Review X",
+      "volume": "3",
+      "pages": "031005",
+      "year": "2013",
+      "doi": "10.1103/PhysRevX.3.031005",
+      "eprint": "1212.3324",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1212.3324"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "sala2020fragmentation",
+    "kind": "article",
+    "raw": "@article{sala2020fragmentation,\n  author = {Sala, Pablo and Rakovszky, Tibor and Verresen, Ruben and Knap, Michael and Pollmann, Frank},\n  title = {Ergodicity Breaking Arising from Hilbert Space Fragmentation in Dipole-Conserving Hamiltonians},\n  journal = {Physical Review X}, volume = {10}, pages = {011047}, year = {2020},\n  doi = {10.1103/PhysRevX.10.011047}, eprint = {1904.04266}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1904.04266}\n}",
+    "fields": {
+      "author": "Sala, Pablo and Rakovszky, Tibor and Verresen, Ruben and Knap, Michael and Pollmann, Frank",
+      "title": "Ergodicity Breaking Arising from Hilbert Space Fragmentation in Dipole-Conserving Hamiltonians",
+      "journal": "Physical Review X",
+      "volume": "10",
+      "pages": "011047",
+      "year": "2020",
+      "doi": "10.1103/PhysRevX.10.011047",
+      "eprint": "1904.04266",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1904.04266"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "santra2026crossover",
+    "kind": "misc",
+    "raw": "@misc{santra2026crossover,\n  author = {Saikat Santra and Maciej Łebek and Miłosz Panfil},\n  title = {{Crossover from generalized to conventional hydrodynamics in nearly integrable systems under relaxation time approximation}},\n  year = {2026},\n  eprint = {2603.02158},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2603.02158},\n  note = {Preprint; status checked 22 October 2026},\n}",
+    "fields": {
+      "author": "Saikat Santra and Maciej Łebek and Miłosz Panfil",
+      "title": "{Crossover from generalized to conventional hydrodynamics in nearly integrable systems under relaxation time approximation}",
+      "year": "2026",
+      "eprint": "2603.02158",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2603.02158",
+      "note": "Preprint; status checked 22 October 2026"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "schmied2019fixed",
+    "kind": "article",
+    "raw": "@article{schmied2019fixed,\n  author = {Christian-Marcel Schmied and Aleksandr N. Mikheev and Thomas Gasenzer},\n  title = {{Non-thermal fixed points: Universal dynamics far from equilibrium}},\n  year = {2019},\n  journal = {International Journal of Modern Physics A},\n  volume = {34},\n  pages = {1941006},\n  doi = {10.1142/S0217751X19410069},\n  eprint = {1810.08143},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1810.08143},\n}",
+    "fields": {
+      "author": "Christian-Marcel Schmied and Aleksandr N. Mikheev and Thomas Gasenzer",
+      "title": "{Non-thermal fixed points: Universal dynamics far from equilibrium}",
+      "year": "2019",
+      "journal": "International Journal of Modern Physics A",
+      "volume": "34",
+      "pages": "1941006",
+      "doi": "10.1142/S0217751X19410069",
+      "eprint": "1810.08143",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1810.08143"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "schollwock2011mps",
+    "kind": "article",
+    "raw": "@article{schollwock2011mps,\n  title = {The density-matrix renormalization group in the age of matrix product states},\n  author = {Schollwöck, Ulrich},\n  journal = {Annals of Physics},\n  volume = {326},\n  number = {1},\n  pages = {96--192},\n  year = {2011},\n  doi = {10.1016/j.aop.2010.09.012},\n  eprint = {1008.3477},\n  archivePrefix = {arXiv},\n  primaryClass = {cond-mat.str-el},\n  url = {https://arxiv.org/abs/1008.3477},\n}",
+    "fields": {
+      "title": "The density-matrix renormalization group in the age of matrix product states",
+      "author": "Schollwöck, Ulrich",
+      "journal": "Annals of Physics",
+      "volume": "326",
+      "number": "1",
+      "pages": "96--192",
+      "year": "2011",
+      "doi": "10.1016/j.aop.2010.09.012",
+      "eprint": "1008.3477",
+      "archiveprefix": "arXiv",
+      "primaryclass": "cond-mat.str-el",
+      "url": "https://arxiv.org/abs/1008.3477"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "schreiber2015localization",
+    "kind": "article",
+    "raw": "@article{schreiber2015localization,\n  author = {Schreiber, Michael and Hodgman, Sean S. and Bordia, Pranjal and Lüschen, Henrik P. and Fischer, Mark H. and Vosk, Ronen and Altman, Ehud and Schneider, Ulrich and Bloch, Immanuel},\n  title = {Observation of many-body localization of interacting fermions in a quasirandom optical lattice},\n  journal = {Science}, volume = {349}, pages = {842--845}, year = {2015},\n  doi = {10.1126/science.aaa7432}, eprint = {1501.05661}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1501.05661}\n}",
+    "fields": {
+      "author": "Schreiber, Michael and Hodgman, Sean S. and Bordia, Pranjal and Lüschen, Henrik P. and Fischer, Mark H. and Vosk, Ronen and Altman, Ehud and Schneider, Ulrich and Bloch, Immanuel",
+      "title": "Observation of many-body localization of interacting fermions in a quasirandom optical lattice",
+      "journal": "Science",
+      "volume": "349",
+      "pages": "842--845",
+      "year": "2015",
+      "doi": "10.1126/science.aaa7432",
+      "eprint": "1501.05661",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1501.05661"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "scopa2026bloch",
+    "kind": "article",
+    "raw": "@article{scopa2026bloch,\n  author = {Stefano Scopa and Philip Zechmann and Michael Knap and Jacopo {De Nardis} and Alvise Bastianello},\n  title = {{Generalized Hydrodynamics of Bloch Oscillations in the Absence of a Lattice}},\n  year = {2026},\n  journal = {Physical Review Letters},\n  volume = {137},\n  pages = {113404},\n  doi = {10.1103/yfjc-r69d},\n  eprint = {2605.18957},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2605.18957},\n}",
+    "fields": {
+      "author": "Stefano Scopa and Philip Zechmann and Michael Knap and Jacopo {De Nardis} and Alvise Bastianello",
+      "title": "{Generalized Hydrodynamics of Bloch Oscillations in the Absence of a Lattice}",
+      "year": "2026",
+      "journal": "Physical Review Letters",
+      "volume": "137",
+      "pages": "113404",
+      "doi": "10.1103/yfjc-r69d",
+      "eprint": "2605.18957",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2605.18957"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "sels2017counterdiabatic",
+    "kind": "article",
+    "raw": "@article{sels2017counterdiabatic,\n  title = {Minimizing irreversible losses in quantum systems by local counterdiabatic driving},\n  author = {Dries Sels and Anatoli Polkovnikov},\n  journal = {Proceedings of the National Academy of Sciences},\n  volume = {114},\n  number = {20},\n  pages = {E3909--E3916},\n  year = {2017},\n  doi = {10.1073/pnas.1619826114},\n  eprint = {1607.05687},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/1607.05687},\n}",
+    "fields": {
+      "title": "Minimizing irreversible losses in quantum systems by local counterdiabatic driving",
+      "author": "Dries Sels and Anatoli Polkovnikov",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "volume": "114",
+      "number": "20",
+      "pages": "E3909--E3916",
+      "year": "2017",
+      "doi": "10.1073/pnas.1619826114",
+      "eprint": "1607.05687",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/1607.05687"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "serbyn2013entanglement",
+    "kind": "article",
+    "raw": "@article{serbyn2013entanglement,\n  author = {Serbyn, Maksym and Papić, Z. and Abanin, Dmitry A.},\n  title = {Universal Slow Growth of Entanglement in Interacting Strongly Disordered Systems},\n  journal = {Physical Review Letters}, volume = {110}, pages = {260601}, year = {2013},\n  doi = {10.1103/PhysRevLett.110.260601}, eprint = {1304.4605}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1304.4605}\n}",
+    "fields": {
+      "author": "Serbyn, Maksym and Papić, Z. and Abanin, Dmitry A.",
+      "title": "Universal Slow Growth of Entanglement in Interacting Strongly Disordered Systems",
+      "journal": "Physical Review Letters",
+      "volume": "110",
+      "pages": "260601",
+      "year": "2013",
+      "doi": "10.1103/PhysRevLett.110.260601",
+      "eprint": "1304.4605",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1304.4605"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "serbyn2013liom",
+    "kind": "article",
+    "raw": "@article{serbyn2013liom,\n  author = {Serbyn, Maksym and Papić, Z. and Abanin, Dmitry A.},\n  title = {Local Conservation Laws and the Structure of the Many-Body Localized States},\n  journal = {Physical Review Letters}, volume = {111}, pages = {127201}, year = {2013},\n  doi = {10.1103/PhysRevLett.111.127201}, eprint = {1305.5554}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1305.5554}\n}",
+    "fields": {
+      "author": "Serbyn, Maksym and Papić, Z. and Abanin, Dmitry A.",
+      "title": "Local Conservation Laws and the Structure of the Many-Body Localized States",
+      "journal": "Physical Review Letters",
+      "volume": "111",
+      "pages": "127201",
+      "year": "2013",
+      "doi": "10.1103/PhysRevLett.111.127201",
+      "eprint": "1305.5554",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1305.5554"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "serbyn2026firstorder",
+    "kind": "article",
+    "raw": "@article{serbyn2026firstorder,\n  author = {Serbyn, Maksym and Avdoshkin, Alexander and Diessel, Oriana K. and Huse, David A.},\n  title = {Eigenstate thermalization in thermal first-order phase transitions},\n  journal = {Physical Review X}, volume = {16}, pages = {031042}, year = {2026},\n  doi = {10.1103/4zs8-7kf4}, eprint = {2601.08347}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/2601.08347}\n}",
+    "fields": {
+      "author": "Serbyn, Maksym and Avdoshkin, Alexander and Diessel, Oriana K. and Huse, David A.",
+      "title": "Eigenstate thermalization in thermal first-order phase transitions",
+      "journal": "Physical Review X",
+      "volume": "16",
+      "pages": "031042",
+      "year": "2026",
+      "doi": "10.1103/4zs8-7kf4",
+      "eprint": "2601.08347",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2601.08347"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "shiraishi2017counterexamples",
+    "kind": "article",
+    "raw": "@article{shiraishi2017counterexamples,\n  author = {Shiraishi, Naoto and Mori, Takashi},\n  title = {Systematic Construction of Counterexamples to the Eigenstate Thermalization Hypothesis},\n  journal = {Physical Review Letters}, volume = {119}, pages = {030601}, year = {2017},\n  doi = {10.1103/PhysRevLett.119.030601}, eprint = {1702.08227}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1702.08227}\n}",
+    "fields": {
+      "author": "Shiraishi, Naoto and Mori, Takashi",
+      "title": "Systematic Construction of Counterexamples to the Eigenstate Thermalization Hypothesis",
+      "journal": "Physical Review Letters",
+      "volume": "119",
+      "pages": "030601",
+      "year": "2017",
+      "doi": "10.1103/PhysRevLett.119.030601",
+      "eprint": "1702.08227",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1702.08227"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "sieberer2016keldysh",
+    "kind": "article",
+    "raw": "@article{sieberer2016keldysh,\n  author = {L. M. Sieberer and M. Buchhold and S. Diehl},\n  title = {{Keldysh Field Theory for Driven Open Quantum Systems}},\n  year = {2016},\n  journal = {Reports on Progress in Physics},\n  volume = {79},\n  pages = {096001},\n  doi = {10.1088/0034-4885/79/9/096001},\n  eprint = {1512.00637},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1512.00637},\n}",
+    "fields": {
+      "author": "L. M. Sieberer and M. Buchhold and S. Diehl",
+      "title": "{Keldysh Field Theory for Driven Open Quantum Systems}",
+      "year": "2016",
+      "journal": "Reports on Progress in Physics",
+      "volume": "79",
+      "pages": "096001",
+      "doi": "10.1088/0034-4885/79/9/096001",
+      "eprint": "1512.00637",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1512.00637"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "srednicki1994chaos",
+    "kind": "article",
+    "raw": "@article{srednicki1994chaos,\n  author = {Srednicki, Mark}, title = {Chaos and Quantum Thermalization},\n  journal = {Physical Review E}, volume = {50}, pages = {888--901}, year = {1994},\n  doi = {10.1103/PhysRevE.50.888}, eprint = {cond-mat/9403051}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/cond-mat/9403051}\n}",
+    "fields": {
+      "author": "Srednicki, Mark",
+      "title": "Chaos and Quantum Thermalization",
+      "journal": "Physical Review E",
+      "volume": "50",
+      "pages": "888--901",
+      "year": "1994",
+      "doi": "10.1103/PhysRevE.50.888",
+      "eprint": "cond-mat/9403051",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/cond-mat/9403051"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "takeuchi2025partial",
+    "kind": "article",
+    "raw": "@article{takeuchi2025partial,\n  author = {Kazumasa A. Takeuchi and Kazuaki Takasan and Ofer Busani and Patrik L. Ferrari and Romain Vasseur and Jacopo {De Nardis}},\n  title = {{Partial Yet Definite Emergence of the Kardar-Parisi-Zhang Class in Isotropic Spin Chains}},\n  year = {2025},\n  journal = {Physical Review Letters},\n  volume = {134},\n  pages = {097104},\n  doi = {10.1103/PhysRevLett.134.097104},\n  eprint = {2406.07150},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/2406.07150},\n}",
+    "fields": {
+      "author": "Kazumasa A. Takeuchi and Kazuaki Takasan and Ofer Busani and Patrik L. Ferrari and Romain Vasseur and Jacopo {De Nardis}",
+      "title": "{Partial Yet Definite Emergence of the Kardar-Parisi-Zhang Class in Isotropic Spin Chains}",
+      "year": "2025",
+      "journal": "Physical Review Letters",
+      "volume": "134",
+      "pages": "097104",
+      "doi": "10.1103/PhysRevLett.134.097104",
+      "eprint": "2406.07150",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/2406.07150"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "thiery2018avalanche",
+    "kind": "article",
+    "raw": "@article{thiery2018avalanche,\n  author = {Thiery, Thimothée and Huveneers, François and Müller, Markus and De Roeck, Wojciech},\n  title = {Many-Body Delocalization as a Quantum Avalanche},\n  journal = {Physical Review Letters}, volume = {121}, pages = {140601}, year = {2018},\n  doi = {10.1103/PhysRevLett.121.140601}, eprint = {1706.09338}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1706.09338}\n}",
+    "fields": {
+      "author": "Thiery, Thimothée and Huveneers, François and Müller, Markus and De Roeck, Wojciech",
+      "title": "Many-Body Delocalization as a Quantum Avalanche",
+      "journal": "Physical Review Letters",
+      "volume": "121",
+      "pages": "140601",
+      "year": "2018",
+      "doi": "10.1103/PhysRevLett.121.140601",
+      "eprint": "1706.09338",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1706.09338"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "thouless1983pump",
+    "kind": "article",
+    "raw": "@article{thouless1983pump,\n  author = {Thouless, D. J.}, title = {Quantization of particle transport},\n  journal = {Physical Review B}, volume = {27}, pages = {6083--6087}, year = {1983},\n  doi = {10.1103/PhysRevB.27.6083}, url = {https://doi.org/10.1103/PhysRevB.27.6083}\n}",
+    "fields": {
+      "author": "Thouless, D. J.",
+      "title": "Quantization of particle transport",
+      "journal": "Physical Review B",
+      "volume": "27",
+      "pages": "6083--6087",
+      "year": "1983",
+      "doi": "10.1103/PhysRevB.27.6083",
+      "url": "https://doi.org/10.1103/PhysRevB.27.6083"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "tran2020hierarchy",
+    "kind": "article",
+    "raw": "@article{tran2020hierarchy,\n  title = {Hierarchy of Linear Light Cones with Long-Range Interactions},\n  author = {Minh C. Tran and Chi-Fang Chen and Adam Ehrenberg and Andrew Y. Guo and Abhinav Deshpande and Yifan Hong and Zhe-Xuan Gong and Alexey V. Gorshkov and Andrew Lucas},\n  journal = {Physical Review X},\n  volume = {10},\n  number = {3},\n  pages = {031009},\n  year = {2020},\n  doi = {10.1103/PhysRevX.10.031009},\n  eprint = {2001.11509},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/2001.11509},\n}",
+    "fields": {
+      "title": "Hierarchy of Linear Light Cones with Long-Range Interactions",
+      "author": "Minh C. Tran and Chi-Fang Chen and Adam Ehrenberg and Andrew Y. Guo and Abhinav Deshpande and Yifan Hong and Zhe-Xuan Gong and Alexey V. Gorshkov and Andrew Lucas",
+      "journal": "Physical Review X",
+      "volume": "10",
+      "number": "3",
+      "pages": "031009",
+      "year": "2020",
+      "doi": "10.1103/PhysRevX.10.031009",
+      "eprint": "2001.11509",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/2001.11509"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "turner2018scars",
+    "kind": "article",
+    "raw": "@article{turner2018scars,\n  author = {Turner, Christopher J. and Michailidis, Alexios A. and Abanin, Dmitry A. and Serbyn, Maksym and Papić, Zlatko},\n  title = {Weak ergodicity breaking from quantum many-body scars},\n  journal = {Nature Physics}, volume = {14}, pages = {745--749}, year = {2018},\n  doi = {10.1038/s41567-018-0137-5}, eprint = {1711.03528}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1711.03528}\n}",
+    "fields": {
+      "author": "Turner, Christopher J. and Michailidis, Alexios A. and Abanin, Dmitry A. and Serbyn, Maksym and Papić, Zlatko",
+      "title": "Weak ergodicity breaking from quantum many-body scars",
+      "journal": "Nature Physics",
+      "volume": "14",
+      "pages": "745--749",
+      "year": "2018",
+      "doi": "10.1038/s41567-018-0137-5",
+      "eprint": "1711.03528",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1711.03528"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "vidal2004tebd",
+    "kind": "article",
+    "raw": "@article{vidal2004tebd,\n  title = {Efficient Simulation of One-Dimensional Quantum Many-Body Systems},\n  author = {G. Vidal},\n  journal = {Physical Review Letters},\n  volume = {93},\n  number = {4},\n  pages = {040502},\n  year = {2004},\n  doi = {10.1103/PhysRevLett.93.040502},\n  eprint = {quant-ph/0310089},\n  archivePrefix = {arXiv},\n  primaryClass = {quant-ph},\n  url = {https://arxiv.org/abs/quant-ph/0310089},\n}",
+    "fields": {
+      "title": "Efficient Simulation of One-Dimensional Quantum Many-Body Systems",
+      "author": "G. Vidal",
+      "journal": "Physical Review Letters",
+      "volume": "93",
+      "number": "4",
+      "pages": "040502",
+      "year": "2004",
+      "doi": "10.1103/PhysRevLett.93.040502",
+      "eprint": "quant-ph/0310089",
+      "archiveprefix": "arXiv",
+      "primaryclass": "quant-ph",
+      "url": "https://arxiv.org/abs/quant-ph/0310089"
+    },
+    "source": "core",
+    "origins": [
+      "core"
+    ]
+  },
+  {
+    "key": "vonkeyserlingk2018operator",
+    "kind": "article",
+    "raw": "@article{vonkeyserlingk2018operator,\n  author = {C. W. {von Keyserlingk} and Tibor Rakovszky and Frank Pollmann and S. L. Sondhi},\n  title = {{Operator Hydrodynamics, OTOCs, and Entanglement Growth in Systems without Conservation Laws}},\n  year = {2018},\n  journal = {Physical Review X},\n  volume = {8},\n  pages = {021013},\n  doi = {10.1103/PhysRevX.8.021013},\n  eprint = {1705.08910},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1705.08910},\n}",
+    "fields": {
+      "author": "C. W. {von Keyserlingk} and Tibor Rakovszky and Frank Pollmann and S. L. Sondhi",
+      "title": "{Operator Hydrodynamics, OTOCs, and Entanglement Growth in Systems without Conservation Laws}",
+      "year": "2018",
+      "journal": "Physical Review X",
+      "volume": "8",
+      "pages": "021013",
+      "doi": "10.1103/PhysRevX.8.021013",
+      "eprint": "1705.08910",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1705.08910"
+    },
+    "source": "transport",
+    "origins": [
+      "information",
+      "transport"
+    ]
+  },
+  {
+    "key": "vosk2015transition",
+    "kind": "article",
+    "raw": "@article{vosk2015transition,\n  author = {Vosk, Ronen and Huse, David A. and Altman, Ehud},\n  title = {Theory of the Many-Body Localization Transition in One-Dimensional Systems},\n  journal = {Physical Review X}, volume = {5}, pages = {031032}, year = {2015},\n  doi = {10.1103/PhysRevX.5.031032}, eprint = {1412.3117}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1412.3117}\n}",
+    "fields": {
+      "author": "Vosk, Ronen and Huse, David A. and Altman, Ehud",
+      "title": "Theory of the Many-Body Localization Transition in One-Dimensional Systems",
+      "journal": "Physical Review X",
+      "volume": "5",
+      "pages": "031032",
+      "year": "2015",
+      "doi": "10.1103/PhysRevX.5.031032",
+      "eprint": "1412.3117",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1412.3117"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "watanabe2015absence",
+    "kind": "article",
+    "raw": "@article{watanabe2015absence,\n  author = {Watanabe, Haruki and Oshikawa, Masaki}, title = {Absence of Quantum Time Crystals},\n  journal = {Physical Review Letters}, volume = {114}, pages = {251603}, year = {2015},\n  doi = {10.1103/PhysRevLett.114.251603}, eprint = {1410.2143}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1410.2143}\n}",
+    "fields": {
+      "author": "Watanabe, Haruki and Oshikawa, Masaki",
+      "title": "Absence of Quantum Time Crystals",
+      "journal": "Physical Review Letters",
+      "volume": "114",
+      "pages": "251603",
+      "year": "2015",
+      "doi": "10.1103/PhysRevLett.114.251603",
+      "eprint": "1410.2143",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1410.2143"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "yang1969thermodynamics",
+    "kind": "article",
+    "raw": "@article{yang1969thermodynamics,\n  author = {C. N. Yang and C. P. Yang},\n  title = {{Thermodynamics of a One-Dimensional System of Bosons with Repulsive Delta-Function Interaction}},\n  year = {1969},\n  journal = {Journal of Mathematical Physics},\n  volume = {10},\n  pages = {1115--1122},\n  doi = {10.1063/1.1664947},\n  url = {https://doi.org/10.1063/1.1664947},\n}",
+    "fields": {
+      "author": "C. N. Yang and C. P. Yang",
+      "title": "{Thermodynamics of a One-Dimensional System of Bosons with Repulsive Delta-Function Interaction}",
+      "year": "1969",
+      "journal": "Journal of Mathematical Physics",
+      "volume": "10",
+      "pages": "1115--1122",
+      "doi": "10.1063/1.1664947",
+      "url": "https://doi.org/10.1063/1.1664947"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  },
+  {
+    "key": "yao2017crystals",
+    "kind": "article",
+    "raw": "@article{yao2017crystals,\n  author = {Yao, Norman Y. and Potter, Andrew C. and Potirniche, Ionut-Dragos and Vishwanath, Ashvin},\n  title = {Discrete Time Crystals: Rigidity, Criticality, and Realizations},\n  journal = {Physical Review Letters}, volume = {118}, pages = {030401}, year = {2017},\n  doi = {10.1103/PhysRevLett.118.030401}, eprint = {1608.02589}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1608.02589}\n}",
+    "fields": {
+      "author": "Yao, Norman Y. and Potter, Andrew C. and Potirniche, Ionut-Dragos and Vishwanath, Ashvin",
+      "title": "Discrete Time Crystals: Rigidity, Criticality, and Realizations",
+      "journal": "Physical Review Letters",
+      "volume": "118",
+      "pages": "030401",
+      "year": "2017",
+      "doi": "10.1103/PhysRevLett.118.030401",
+      "eprint": "1608.02589",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1608.02589"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "zhang2017crystal",
+    "kind": "article",
+    "raw": "@article{zhang2017crystal,\n  author = {Zhang, J. and Hess, P. W. and Kyprianidis, A. and Becker, P. and Lee, A. and Smith, J. and Pagano, G. and Potirniche, I.-D. and Potter, A. C. and Vishwanath, A. and Yao, N. Y. and Monroe, C.},\n  title = {Observation of a discrete time crystal}, journal = {Nature}, volume = {543}, pages = {217--220}, year = {2017},\n  doi = {10.1038/nature21413}, eprint = {1609.08684}, archivePrefix = {arXiv}, url = {https://arxiv.org/abs/1609.08684}\n}",
+    "fields": {
+      "author": "Zhang, J. and Hess, P. W. and Kyprianidis, A. and Becker, P. and Lee, A. and Smith, J. and Pagano, G. and Potirniche, I.-D. and Potter, A. C. and Vishwanath, A. and Yao, N. Y. and Monroe, C.",
+      "title": "Observation of a discrete time crystal",
+      "journal": "Nature",
+      "volume": "543",
+      "pages": "217--220",
+      "year": "2017",
+      "doi": "10.1038/nature21413",
+      "eprint": "1609.08684",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1609.08684"
+    },
+    "source": "thermal",
+    "origins": [
+      "thermal"
+    ]
+  },
+  {
+    "key": "zhou2020membrane",
+    "kind": "article",
+    "raw": "@article{zhou2020membrane,\n  author = {Tianci Zhou and Adam Nahum},\n  title = {{Entanglement Membrane in Chaotic Many-Body Systems}},\n  year = {2020},\n  journal = {Physical Review X},\n  volume = {10},\n  pages = {031066},\n  doi = {10.1103/PhysRevX.10.031066},\n  eprint = {1912.12311},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1912.12311},\n}",
+    "fields": {
+      "author": "Tianci Zhou and Adam Nahum",
+      "title": "{Entanglement Membrane in Chaotic Many-Body Systems}",
+      "year": "2020",
+      "journal": "Physical Review X",
+      "volume": "10",
+      "pages": "031066",
+      "doi": "10.1103/PhysRevX.10.031066",
+      "eprint": "1912.12311",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1912.12311"
+    },
+    "source": "transport",
+    "origins": [
+      "information",
+      "transport"
+    ]
+  },
+  {
+    "key": "znidaric2011dephasing",
+    "kind": "article",
+    "raw": "@article{znidaric2011dephasing,\n  author = {Marko Žnidarič},\n  title = {{Solvable quantum nonequilibrium model exhibiting a phase transition and a matrix product representation}},\n  year = {2011},\n  journal = {Physical Review E},\n  volume = {83},\n  pages = {011108},\n  doi = {10.1103/PhysRevE.83.011108},\n  eprint = {1011.0998},\n  archivePrefix = {arXiv},\n  url = {https://arxiv.org/abs/1011.0998},\n}",
+    "fields": {
+      "author": "Marko Žnidarič",
+      "title": "{Solvable quantum nonequilibrium model exhibiting a phase transition and a matrix product representation}",
+      "year": "2011",
+      "journal": "Physical Review E",
+      "volume": "83",
+      "pages": "011108",
+      "doi": "10.1103/PhysRevE.83.011108",
+      "eprint": "1011.0998",
+      "archiveprefix": "arXiv",
+      "url": "https://arxiv.org/abs/1011.0998"
+    },
+    "source": "transport",
+    "origins": [
+      "transport"
+    ]
+  }
+]

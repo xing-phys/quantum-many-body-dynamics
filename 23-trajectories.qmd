@@ -1,0 +1,189 @@
+# Quantum trajectories: dynamics conditioned on a record {#sec-quantum-trajectories}
+
+A master equation predicts the state when environmental outcomes are ignored. An observer who detects emitted photons has more information and assigns a different, fluctuating state after each detection. A **quantum trajectory** is this state conditioned on a particular measurement record. Its randomness reflects the record, and its ensemble average recovers the unconditioned density matrix for the specified measurement scheme.
+
+This distinction is indispensable for measurement-induced entanglement, feedback, and efficient open-system numerics. Two observers monitoring the same bath in different ways can assign different trajectories while agreeing on the averaged state. Trajectory entanglement is therefore a property of dynamics together with a measurement protocol. It cannot generally be inferred from the Lindblad generator alone.
+
+We assume density matrices, the Born rule, and the equation $\dot\rho=-i[H,\rho]+\sum_\mu\mathcal D[L_\mu]\rho$, with $\mathcal D[L]\rho=L\rho L^\dagger-\{L^\dagger L,\rho\}/2$. We derive both counting and diffusive records and give concrete simulation checks. Daley's review develops the connection to many-body experiments and numerical methods [@info-daley2014].
+
+## Measurements are instruments, not just channels
+
+A measurement outcome $m$ acts as $\widetilde\rho_m=K_m\rho K_m^\dagger$, with probability $p_m=\operatorname{Tr}\widetilde\rho_m$. The normalized conditional state is $\rho_m=\widetilde\rho_m/p_m$. If the outcome is discarded, the state is $\sum_m\widetilde\rho_m$. A collection of outcome-labeled maps is called a **quantum instrument**. The channel is only its sum.
+
+For a pure state, $|\psi_m\rangle=K_m|\psi\rangle/\sqrt{p_m}$. Normalization makes the conditional update nonlinear, although the unnormalized update and the averaged channel are linear. Any calculation that averages normalized trajectories must use their physical Born probabilities.
+
+A sequence of outcomes $\mathbf m=(m_1,\ldots,m_n)$ has unnormalized state $K_{m_n}U_n\cdots K_{m_1}U_1|\psi_0\rangle$ and probability equal to its squared norm. Multiplying conditional probabilities gives the same result. This identity is useful for checking record-sampling code and for understanding why rare postselected histories can become costly.
+
+## Derivation: quantum jumps from infinitesimal outcomes
+
+During a short interval $dt$, distinguish a no-click event from clicks in channels $\mu$. Define
+
+$$
+H_{\mathrm{eff}}=H-\frac{i}{2}\sum_\mu L_\mu^\dagger L_\mu,
+\quad K_0=I-iH_{\mathrm{eff}}dt,\quad K_\mu=\sqrt{dt}\,L_\mu.
+$$ {#eq-traj-kraus}
+
+The click probability is $dp_\mu=dt\langle L_\mu^\dagger L_\mu\rangle$. Conditional on that click, the state jumps to
+
+$$
+|\psi\rangle\longmapsto
+\frac{L_\mu|\psi\rangle}{\sqrt{\langle L_\mu^\dagger L_\mu\rangle}}.
+$$ {#eq-traj-jump}
+
+Conditional on no click, evolve under $H_{\mathrm{eff}}$ and renormalize. Expanding the normalization yields
+
+$$
+\frac{d|\psi\rangle}{dt}\bigg|_{\mathrm{no\ click}}
+=\left[-iH-\frac12\sum_\mu\left(L_\mu^\dagger L_\mu
+-\langle L_\mu^\dagger L_\mu\rangle\right)\right]|\psi\rangle.
+$$ {#eq-traj-no-click}
+
+The expectation values are real scalar multiples of identity. They preserve the norm and make the conditioned equation nonlinear. A no-click result is informative whenever different components have different click probabilities: absence of a photon is itself a measurement outcome.
+
+Introduce Poisson increments $dN_\mu$ with $dN_\mu^2=dN_\mu$ and conditional mean $\mathbb E[dN_\mu|\psi]=\langle L_\mu^\dagger L_\mu\rangle dt$. Combining no-click evolution and jumps gives a stochastic differential equation. Its most important consistency check is elementary: average the unnormalized outcome maps over one step,
+
+$$
+K_0\rho K_0^\dagger+\sum_\mu K_\mu\rho K_\mu^\dagger
+=\rho+dt\left(-i[H,\rho]+\sum_\mu\mathcal D[L_\mu]\rho\right)+O(dt^2).
+$$ {#eq-traj-average}
+
+Thus the trajectory average reproduces the master equation. Averaging $|\psi\rangle$ itself does not: phases and normalization make the density-matrix average the physical object.
+
+## Worked example: spontaneous emission and waiting times
+
+Take $L=\sqrt\gamma|g\rangle\langle e|$ and initially $|e\rangle$. The unnormalized no-click state is $e^{-\gamma t/2}e^{-i\omega t}|e\rangle$, so its squared norm is the survival probability,
+
+$$
+\Pr(T>t)=e^{-\gamma t},\qquad w(t)=\gamma e^{-\gamma t}.
+$$ {#eq-traj-waiting}
+
+A click puts the spin in $|g\rangle$, where it remains without a drive. In one record the excited population is either zero or one; over records it is $e^{-\gamma t}$. The smooth exponential is an ensemble property.
+
+For an initial superposition $\alpha|g\rangle+\beta|e\rangle$, the no-click survival probability becomes $|\alpha|^2+|\beta|^2e^{-\gamma t}$. Conditional on no click, the excited amplitude shrinks relative to the ground amplitude. There is a probability $|\alpha|^2$ of never seeing a click. A naïve waiting-time sampler that assumes every trajectory must eventually jump is wrong for this state.
+
+An exact event-driven scheme draws a uniform threshold $r\in(0,1)$ and evolves the unnormalized no-click state until its norm squared reaches $r$. At the event, choose channel $\mu$ with probability proportional to $\|L_\mu\widetilde\psi\|^2$, apply it, normalize, draw a new threshold, and continue. If the norm never crosses $r$, there is no further jump. Root finding and no-click propagation accuracy determine numerical error.
+
+## Derivation: a weak record becomes diffusion
+
+Continuous weak measurement of a Hermitian observable $A$ can be represented by many noisy, weakly informative outcomes. In the diffusion limit, take a Wiener increment $dW$ satisfying $\mathbb E[dW]=0$ and $dW^2=dt$ in Itô calculus. A normalized pure-state equation is
+
+$$
+d|\psi\rangle=\left[-iHdt-\frac\kappa2(A-\langle A\rangle)^2dt
++\sqrt\kappa(A-\langle A\rangle)dW\right]|\psi\rangle.
+$$ {#eq-traj-diffusive-state}
+
+The associated record is
+
+$$
+dY=2\sqrt\kappa\langle A\rangle dt+dW.
+$$ {#eq-traj-record}
+
+The noise is not an arbitrary external potential: $dW$ is the unpredictable innovation in the observer's record after subtracting its current predicted mean.
+
+To derive the density-matrix equation, use $d\rho=d|\psi\rangle\langle\psi|+|\psi\rangle d\langle\psi|+d|\psi\rangle d\langle\psi|$. The final Itô term survives because $dW^2=dt$. Writing $a=\langle A\rangle$ gives a deterministic dissipator
+
+$$
+\kappa\left[(A-a)\rho(A-a)-\frac12\{(A-a)^2,\rho\}\right]
+=\kappa\mathcal D[A]\rho,
+$$
+
+and a stochastic term $\sqrt\kappa(A\rho+\rho A-2a\rho)dW$. Therefore
+
+$$
+d\rho_c=-i[H,\rho_c]dt+\kappa\mathcal D[A]\rho_cdt
++\sqrt\kappa\,\mathcal H[A]\rho_c\,dW,
+\quad\mathcal H[A]\rho=A\rho+\rho A-2\operatorname{Tr}(A\rho)\rho.
+$$ {#eq-traj-diffusive-density}
+
+Conditional expectation of the noise increment vanishes, recovering the dephasing master equation. Omitting the quadratic Itô term would violate this result and norm preservation. Itô increments obey algebraic rules for stochastic expansions; they are not ordinary infinitesimals that can all be discarded at second order.
+
+For $A=Z$ and no Hamiltonian, the conditioned expectation $z=\operatorname{Tr}(Z\rho_c)$ obeys $dz=2\sqrt\kappa(1-z^2)dW$. Individual records approach $z=\pm1$, while the unconditional $\langle Z\rangle$ remains unchanged. Measurement acquires information without changing the ensemble populations in this basis.
+
+## Efficiency, missed records, and mixed conditional states
+
+If only a fraction $\eta$ of the environmental signal is detected, the stochastic master equation becomes
+
+$$
+d\rho_c=\mathcal L\rho_cdt+\sqrt{\eta\kappa}\,\mathcal H[A]\rho_c\,dW,
+\qquad dY=2\sqrt{\eta\kappa}\langle A\rangle_cdt+dW,
+$$ {#eq-traj-efficiency}
+
+with the full $\kappa\mathcal D[A]$ remaining inside $\mathcal L$. Unobserved measurement backaction still dephases the system; it no longer supplies usable information to the observer. Conditional states are generally mixed when $\eta<1$, so a pure-state trajectory is no longer the observer's full state assignment without introducing additional hidden records.
+
+This is a concrete difference between decoherence and monitoring. The averaged density matrix can be identical for efficient and inefficient detection, while the observer's purification and recoverable entanglement differ. Detection efficiency must therefore be part of a measurement-induced phase diagram or its experimental interpretation.
+
+## The same generator has different unravelings
+
+Consider two spins in a Bell state, with dephasing on the first. The jump choice $L=\sqrt\kappa Z_1$ produces random local $Z_1$ flips. Its click rate is constant, independent of the state. Each pure trajectory remains a Bell state and retains entropy $\ln2$ across the cut, even though averaging random flips destroys Bell coherence.
+
+The same dephasing generator can be monitored diffusively by measuring $Z_1$. Such a record reveals which computational-basis component is present and eventually projects the Bell state onto a product state. The conditional entanglement then vanishes. Both unravelings average to $\kappa(Z_1\rho Z_1-\rho)$.
+
+The explanation is that photon counting after one bath transformation and quadrature measurement after another transformation access different environmental information. The Lindblad equation describes what remains when either record is ignored. Specifying only that equation cannot determine the trajectory entanglement phase.
+
+This example also demonstrates why $\mathbb E[S(\rho_{A,c})]$ differs from $S(\mathbb E\rho_{A,c})$. Entropy is nonlinear. For globally pure trajectories the former is an average entanglement, whereas the latter includes ignorance of the record. Neither can replace the other in a monitored-circuit calculation.
+
+## A numerical demonstration with an error budget
+
+For a short spin chain, choose $H=J\sum_jZ_jZ_{j+1}+h_x\sum_jX_j+h_z\sum_jZ_j$ and jumps $L_j=\sqrt\gamma Z_j$. A simple first-order jump algorithm uses a time step small enough that $dt\sum_j\langle L_j^\dagger L_j\rangle\ll1$. For this particular example the total rate is $L\gamma$, making the requirement explicit.
+
+```julia
+# H, psi and jumps are dense small-system arrays.
+function jump_step(rng, psi, H, jumps, dt)
+    weights = [real(dot(L*psi,L*psi)) for L in jumps]
+    total = sum(weights)
+    if rand(rng) < dt*total
+        r = rand(rng)*total
+        k = searchsortedfirst(cumsum(weights),r)
+        psi = jumps[k]*psi
+    else
+        drift = -im*(H*psi)
+        for L in jumps
+            drift -= (L'*(L*psi))/2
+        end
+        psi = psi + dt*drift
+    end
+    psi/norm(psi)
+end
+```
+
+This teaching routine neglects multiple events per step and has time-discretization error. It is not an exact event-driven integrator. Import `LinearAlgebra` and `Random`, choose a seeded generator, and verify convergence as $dt$ decreases. For observables, average their conditional expectations over independently sampled records. Estimate sampling errors from independent trajectories, not successive correlated times within one record.
+
+Compare the averaged matrix $\widehat\rho(t)=N^{-1}\sum_a|\psi_a(t)\rangle\langle\psi_a(t)|$ with direct master-equation evolution. Sampling errors decrease as $N^{-1/2}$ under finite variance; step errors do not disappear by increasing $N$. Plot both errors separately. Event-driven methods remove the simple step constraint but still require controlled propagation and event-location tolerances.
+
+## Research bridge: efficient simulation versus physical monitoring
+
+Trajectories reduce storage from density matrices of size $d^2$ to wavefunctions of size $d$, at the cost of sampling many histories. In a tensor-network representation, the entanglement of each history becomes a second computational resource. Different unravelings of the same generator can therefore have different numerical efficiency. Choosing an easy unraveling is legitimate for computing unconditional observables, provided it reproduces the generator. It changes the physical conditional ensemble, so it cannot be used to claim a monitored entanglement phase for a different detector.
+
+The frontier connection is measurement-induced purification: interactions can hide information nonlocally from a weak local record, delaying purification even though each outcome extracts some information. The distinction between conditional histories and their average is the starting point of the measurement-transition theory [@info-bao2020; @info-gullans2020pur]. An achievable reproduction compares jump and diffusive monitoring of the two-spin dephasing example, then extends to small interacting chains. The first question is whether the ensemble-average density matrices agree. Only after that check should their conditional entropy distributions be compared.
+
+## What a record tells us: likelihood and estimation
+
+The record is itself a statistical observable. For emission from an initially excited spin, the waiting-time density is $w(t|\gamma)=\gamma e^{-\gamma t}$. If several independent complete waiting times $t_a$ are measured, their likelihood is $\gamma^N\exp[-\gamma\sum_at_a]$, giving an estimate $\widehat\gamma=N/\sum_at_a$. Records with no emission before the observation ends are censored data: they contribute survival factors $e^{-\gamma T}$ and must not be discarded. Keeping only runs with a click biases inferred rates toward faster decay.
+
+The same principle applies in many-body monitoring. A detected event is state dependent, and the absence of events supplies information. Fitting a record with a fixed Poisson rate when the conditional expectation changes in time can attribute coherent dynamics to a changing dissipation strength. A model-based filter propagates the conditional state and predicts the next record distribution; its validity can be tested through innovations that should have the stated mean and variance.
+
+This viewpoint connects trajectories to parameter estimation. Unknown Hamiltonian or jump parameters determine a probability distribution over histories. Estimating them requires evaluating likelihoods or sufficient statistics, rather than treating a simulated hidden wavefunction as directly observed experimental data. Finite detection efficiency and dark counts alter the record model and must enter that likelihood.
+
+## Feedback changes the dynamical model
+
+Suppose a click in channel $\mu$ triggers a fixed unitary $F_\mu$ immediately afterward. The conditional jump becomes $F_\mu L_\mu|\psi\rangle$, and the averaged gain term becomes $F_\mu L_\mu\rho L_\mu^\dagger F_\mu^\dagger$. Since $F_\mu^\dagger F_\mu=I$, the loss operator remains $L_\mu^\dagger L_\mu$. With ideal instantaneous feedback, the generator therefore has jump operators $F_\mu L_\mu$. This is a physical modification of the channel, not merely a different unraveling of the original generator.
+
+Delayed feedback is more complicated: the future control depends on a stored past record, and a system-only state can cease to be a closed Markovian description. Enlarging the state to include the controller's memory can restore a useful formulation. This provides a concrete example of how an apparently non-Markovian reduced process can arise from a larger dynamics with explicitly tracked variables.
+
+For numerical work, distinguish three sources of randomness: genuine detector outcomes, external classical noise in the Hamiltonian, and Monte Carlo sampling used solely to estimate an average. They can coexist but carry different physical meanings. Reusing one seed or combining all three into an unnamed noise parameter can make error estimates and experimental interpretation impossible. Record each stream separately and state which information is accessible to the observer whose conditional entropy is being computed.
+
+For continuous records, time resolution is also part of the measurement model. The Wiener increment has variance $dt$, so its amplitude scales as $\sqrt{dt}$; a simulator that samples noise proportional to $dt$ suppresses the measurement fluctuations as the step shrinks and converges to the wrong process. Conversely, storing the formal current $dY/dt$ produces a noise variance diverging as $1/dt$. Compare integrated records over fixed physical windows, or their properly normalized innovations, when checking convergence.
+
+## Exercises
+
+1. **No-click information.** Starting from $\alpha|g\rangle+\beta|e\rangle$, derive the no-click state and calculate the probability of no emission ever. Contrast it with the normalized excited-state trajectory.
+2. **Itô norm.** Verify norm preservation in @eq-traj-diffusive-state using $dW^2=dt$. Show explicitly why treating $dW^2$ as zero fails.
+3. **Unraveling dependence.** Compute the mean conditional entanglement of a dephased Bell pair for random-unitary jumps. Explain qualitatively and then numerically how continuous $Z$ monitoring differs while the unconditional state agrees.
+4. **Sampling and discretization.** Reproduce amplitude damping by both a first-order step algorithm and exact waiting-time sampling. Determine separately the $dt$ and sample-number convergence.
+5. **Imperfect observation.** Starting from @eq-traj-efficiency with $H=0,A=Z$, evaluate the initial purity derivative for a pure state and $\eta<1$. Identify which initial states remain pure.
+
+::: {.callout-tip title="Worked solutions: exercises 1 and 2"}
+The unnormalized no-click state is $\alpha|g\rangle+\beta e^{-(\gamma/2+i\omega)t}|e\rangle$. Its norm squared approaches $|\alpha|^2$, so this is the probability of no click ever. For $\alpha=0$, normalization leaves the excited state unchanged until its random emission.
+
+Let $B=\sqrt\kappa(A-a)$ and $D=-iH-B^2/2$. Then $d\langle\psi|\psi\rangle=\langle D+D^\dagger+B^2\rangle dt+\langle B+B^\dagger\rangle dW=0$. The noise coefficient has zero expectation and $B^2dt$ cancels the negative deterministic norm change. That cancellation is precisely the Itô correction.
+:::

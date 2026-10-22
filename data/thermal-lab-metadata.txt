@@ -1,0 +1,8 @@
+Julia 1.12.6; seed=2026102217; BLAS threads=1
+ETH: L=8, Pauli Ising J=1,hx=1.05,hz=0.5 with left +0.173; initial bit state 0x5a; central Z; microcanonical nearest 24 levels.
+Ratios: GOE dimension160,24 independent samples,central60%; Poisson independent exponential gaps; folded min/max convention.
+Localization: open XXZ L=8,S=sigma/2,J=1,fields iid uniform[-8,8],12 matched disorder realizations per Delta=0,1; staggered initial spin state.
+PXP: open L=12,Omega=1,377 allowed configurations; staggered and empty initial states.
+Floquet: open L=5,HA=ZZ+0.5Z,HB=1.05X; first HA then HB; Frobenius unitary error/sqrt(D).
+Period doubling: one finite L=8 disorder realization; Pauli ZZ bonds iid[0.4,0.6],Z fields iid[-pi,pi],pulse theta=pi+0.12; T=1; all-up initial state.
+All calculations are small-system illustrations; none establishes an asymptotic phase or transition.

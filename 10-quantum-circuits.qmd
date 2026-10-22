@@ -1,0 +1,162 @@
+# Quantum circuits as dynamical theories {#sec-quantum-circuits}
+
+A quantum circuit is a sequence of unitary transformations supported on small sets of degrees of freedom. It can represent a digital experiment, an approximation to Hamiltonian evolution, or a deliberately simplified model of information dynamics. These uses have different assumptions. A circuit assembled from independent random gates normally has no conserved energy; a Trotter approximation to a fixed Hamiltonian retains its structure in a controlled small-step limit. The value of circuits is that locality and unitarity can be kept while other ingredients are varied one at a time.
+
+We assume matrix multiplication, tensor products, and density matrices. We introduce the probability measure for random gates, derive the two-copy calculation behind entanglement growth, explain why some extensively entangled states remain easy to simulate, and connect circuit moments to modern notions of deep thermalization. The random-circuit review [@info-fisher2023] provides a broader map; the calculations here supply an entry point to its primary references.
+
+## Brickwork and Hamiltonian limits
+
+For an open chain, one brickwork period applies gates first to $(1,2),(3,4),\ldots$ and then to $(2,3),(4,5),\ldots$. Gates within a sublayer commute because their supports are disjoint. An initially local operator can move at most one bond per sublayer, giving an exact circuit light cone.
+
+For $H=H_{\mathrm{even}}+H_{\mathrm{odd}}$, where each term is a sum of disjoint nearest-neighbor interactions,
+
+$$
+e^{-iH\delta t}=e^{-iH_{\mathrm{even}}\delta t}e^{-iH_{\mathrm{odd}}\delta t}+O(\delta t^2).
+$$ {#eq-circuit-trotter}
+
+After $t/\delta t$ steps the accumulated error is typically first order in $\delta t$ at fixed finite size and time, with bounds depending on commutators and the observable. A symmetric product improves the order. Taking $\delta t$ smaller must change the gates accordingly; simply adding more independent Haar gates does not approach a fixed Hamiltonian.
+
+A charge-conserving circuit instead chooses every gate to commute with a pair charge $Q_i+Q_{i+1}$. The gate is block diagonal in the charge eigenbasis, and each block may be randomized. Such circuits support diffusive conserved modes in many generic settings, while unrestricted Haar circuits do not. Global Haar randomness constrained only by total charge is also distinct from finite-depth local charge-conserving evolution.
+
+## Haar randomness and moments
+
+The Haar measure is the normalized probability measure on a compact unitary group invariant under left and right multiplication by fixed unitaries. If $U$ is Haar distributed, so are $VU$ and $UV$. This is a precise statement about an ensemble, not an instruction to choose matrix entries independently.
+
+A practical sampler begins with a square matrix of independent complex Gaussian entries, computes a QR decomposition, and corrects the diagonal phases of $R$ so that the convention does not bias $Q$:
+
+```julia
+using LinearAlgebra, Random
+function haar_unitary(rng, d)
+    Z = (randn(rng,d,d) + im*randn(rng,d,d))/sqrt(2)
+    F = qr(Z)
+    Q, R = Matrix(F.Q), Matrix(F.R)
+    phases = [abs(R[j,j]) > 0 ? R[j,j]/abs(R[j,j]) : 1+0im
+              for j in 1:d]
+    Q*Diagonal(phases)
+end
+```
+
+The distribution of one matrix element is not enough to characterize a gate ensemble. A **moment** averages products of matrix elements and their conjugates. A **unitary $k$-design** reproduces Haar averages involving $k$ copies of $U$ and $k$ copies of $U^\dagger$. Approximate designs reproduce them within a specified norm and error. The norm, design order, system size, and allowed error all enter a mixing-time statement.
+
+## Derivation: purity is a two-copy observable
+
+Let $\mathsf S_A$ swap subsystem $A$ between two identical copies while acting trivially on $B$. In product bases,
+
+$$
+\operatorname{Tr}[(\rho\otimes\rho)\mathsf S_A]=\sum_{a,a',b,b'}\rho_{ab,a'b}\rho_{a'b',ab'}=\operatorname{Tr}\rho_A^2.
+$$ {#eq-circuit-swap-trick}
+
+This **swap trick** converts a nonlinear function of one density matrix into a linear observable on two copies. It underlies direct two-copy entropy measurements and random-gate analytic calculations.
+
+For a Haar-random pure state $|\psi\rangle$ in dimension $D$, invariance implies its two-copy moment is proportional to the projector onto the symmetric subspace. The state $|\psi\rangle^{\otimes2}$ is symmetric and has unit norm. Since that subspace has dimension $D(D+1)/2$,
+
+$$
+\overline{(|\psi\rangle\langle\psi|)^{\otimes2}}=\frac{I+\mathsf S}{D(D+1)}.
+$$ {#eq-circuit-haar-state}
+
+For $D=mn$, the traces of $\mathsf S_A$ and $\mathsf S\mathsf S_A=\mathsf S_B$ are $mn^2$ and $m^2n$. Therefore
+
+$$
+\overline{\operatorname{Tr}\rho_A^2}=\frac{m+n}{mn+1}.
+$$ {#eq-circuit-haar-purity}
+
+The result approaches $1/m$ when the complement is much larger, but retains an appreciable correction near equal bipartitions. It is an exact second-moment identity. Recovering the average von Neumann entropy requires more information than this one purity.
+
+## Derivation: a local Haar gate moves an entropy boundary
+
+Label a cut between sites $x$ and $x+1$ by its purity $P_x$. A gate across the cut acts on two $q$-dimensional sites. In two copies, the local boundary condition is a swap on the left site, $\mathsf S_x$, and identity on the right. The Haar-averaged conjugation must commute with $U^{\otimes2}$, so it has the form $aI+b\mathsf S_{x,x+1}$, where the latter swaps the entire pair.
+
+Determine the coefficients from two traces. On the doubled pair space of dimension $q^4$, $\operatorname{Tr}\mathsf S_x=q^3$ and $\operatorname{Tr}(\mathsf S_x\mathsf S_{x,x+1})=q^3$. Taking traces against identity and full swap gives
+
+$$
+a q^4+bq^2=q^3,\qquad aq^2+bq^4=q^3.
+$$
+
+Thus $a=b=q/(q^2+1)$, and
+
+$$
+\mathbb E_U[P_x(t+1)\mid\psi(t)]
+=\frac{q}{q^2+1}[P_{x-1}(t)+P_{x+1}(t)].
+$$ {#eq-circuit-purity-recursion}
+
+This identity assumes that the gate is independent of the earlier state and Haar distributed on the whole pair Hilbert space. It is a local update on the tilted circuit lattice, not a simultaneous update rule for every physical cut after an arbitrary full period.
+
+Iterating turns the averaged purity into a sum over paths taken by the swap boundary. Each backward step shifts the boundary left or right and contributes the same weight. The boundary is therefore a **domain wall** between two local replica pairings. At higher moments the possible pairings are permutations, producing interacting domain walls and a classical statistical mechanics [@info-zhou2019].
+
+For a uniform product initial condition in an effectively infinite system, the recursion gives an annealed decay rate proportional to $\ln[(q^2+1)/(2q)]$ per update. Calling this the von Neumann entanglement velocity would be incorrect. It governs $-\ln\overline P$, while the trajectory-averaged second Rényi entropy is $\overline{-\ln P}$, and $S_1$ is a third quantity. Jensen's inequality gives $-\ln\overline P\leq\overline{-\ln P}$.
+
+## Stabilizers: extensive entanglement with an efficient description
+
+A **stabilizer state** of $L$ qubits is the simultaneous $+1$ eigenstate of $L$ independent commuting Pauli operators. The Bell state is stabilized by $X_1X_2$ and $Z_1Z_2$. A **Clifford unitary** maps every Pauli string to another Pauli string under conjugation. Hadamard, the single-qubit phase gate, and controlled-NOT generate this group.
+
+Instead of storing $2^L$ amplitudes, store the $L$ generators, each specified by $O(L)$ binary labels and a phase. Clifford evolution updates this tableau. A Pauli measurement either has a predetermined result or replaces an anticommuting generator and updates the remaining generators. This explains polynomial classical simulation without suggesting that the quantum state has little entanglement.
+
+For a region $A$, let $r_A$ be the number of independent stabilizer generators whose products are supported entirely inside $A$. The reduced state is proportional to a projector of rank $2^{|A|-r_A}$, so
+
+$$
+S_n(A)=(|A|-r_A)\ln2
+$$ {#eq-circuit-stabilizer-entropy}
+
+for every Rényi index. The flat entanglement spectrum makes stabilizer circuits ideal for large-scale measurement-transition studies, but also identifies a limitation: a generic state has a nonflat spectrum and can distinguish different Rényi entropies. Similarly, one Clifford realization maps a Pauli to a single Pauli string, so its OTOC structure differs from a continuously distributed operator superposition.
+
+## Designs, decoupling, and what randomness is needed
+
+Many information tasks use only low moments. Purity is a two-copy task; some decoupling bounds also require only second moments. Reproducing those averages does not mean that a circuit has explored all unitaries or acquired exponentially large circuit complexity. Conversely, a good one-copy thermal state says nothing about whether second or fourth moments have equilibrated.
+
+Brandão, Harrow, and Horodecki proved that local random circuits approach designs of arbitrarily high polynomial order with polynomial resources [@info-brandao2016]. The proof connects moment mixing to gaps of auxiliary local operators. Its polynomial sufficient bound is not an exact prediction for the earliest design time of a particular finite circuit. Modern sharper bounds and ensemble restrictions should be checked for the precise protocol under study.
+
+This hierarchy is useful experimentally. A device may produce reliable two-copy statistics while still failing a more demanding higher-moment test. The right question is which moment order controls the proposed inference, and how its error propagates into the physical conclusion.
+
+## Projected ensembles and deep thermalization
+
+Prepare a single pure state $|\Psi\rangle$ on $AB$, measure $B$ in basis $|b\rangle$, and retain its outcome. The conditional states on $A$ form a **projected ensemble**:
+
+$$
+p_b=\|\langle b|\Psi\rangle\|^2,\qquad
+|\psi_b\rangle=\frac{\langle b|\Psi\rangle}{\sqrt{p_b}},\qquad
+M_k=\sum_bp_b(|\psi_b\rangle\langle\psi_b|)^{\otimes k}.
+$$ {#eq-circuit-projected}
+
+The first moment is $M_1=\rho_A$. Higher moments preserve information about the distribution of conditional pure states that is absent from $\rho_A$. For example, an equal mixture of $|0\rangle,|1\rangle$ and a uniform distribution over the Bloch sphere both have $M_1=I/2$, but different $M_2$.
+
+**Deep thermalization** asks whether these higher moments approach universal ensembles. For an unrestricted Haar state ensemble in dimension $d_A$,
+
+$$
+M_k^{\mathrm{Haar}}=\frac{\Pi_{\mathrm{sym}}^{(k)}}{\binom{d_A+k-1}{k}}.
+$$ {#eq-circuit-haar-k}
+
+Cotler and collaborators developed this projected-design perspective, while a companion Rydberg experiment used emergent random ensembles for benchmarking [@info-cotler2023; @info-choi2023random]. These results go beyond ordinary local thermalization, but do not imply convergence to Haar moments under every conservation law or measurement basis.
+
+Under charge conservation, measurements can reveal charge information. The limiting ensemble may be a sum of Haar ensembles in charge sectors, or a distorted distribution whose form depends on initial charge fluctuations and the information revealed by the measurement [@info-chang2025]. A correct benchmark must respect those constraints. Measuring a computational-basis charge is not interchangeable with measuring in a charge-nonrevealing basis.
+
+The 2026 literature makes the separation especially sharp. Permutation dynamics can thermalize $\rho_A$ while failing deep thermalization, with a transition controlled by available coherence [@info-liu2026]. Mixed initial states require a different ensemble framework; simply reusing the pure-state projected-design target can fail even for small initial mixedness [@info-sherry2026]. These are model-specific analytic and numerical findings, alongside exact subclasses, rather than an established universal classification of all many-body dynamics. A September 2026 review maps the open questions [@info-mark2026].
+
+## A computational workshop
+
+A first circuit simulation should separately record the gate realization, measurement realization if present, and random seed. Apply a two-site gate by reshaping the state into site indices, permuting the two active indices together, multiplying by a $q^2\times q^2$ gate, and undoing the permutation. Verify this operation against an explicit Kronecker-product matrix for a four-site chain. State-vector storage grows as $q^L$, even though gates are local.
+
+For a projected-ensemble test with $|A|=1$ or two, enumerate every bath outcome in a small simulation. Normalize each conditional state by its own probability, then weight its tensor power by that probability. Averaging normalized states uniformly over outcome labels gives the wrong ensemble. Compare $M_2$ to @eq-circuit-haar-k in trace norm or Hilbert–Schmidt norm, stating which norm is used. Vary bath size as well as evolution time to distinguish insufficient sample support from incomplete dynamical equilibration.
+
+An accessible research extension compares unrestricted Haar gates, charge-conserving gates, and real orthogonal gates. The 2026 orthogonal/symplectic operator-spreading work shows that ensemble symmetry can leave nontrivial structure [@info-tan2026]. The experiment to reproduce is therefore a comparison of well-defined moment observables, not the assertion that every sufficiently random-looking circuit is equivalent.
+
+## Choosing a model by the question it preserves
+
+A circuit should be chosen by the physical constraints needed for the observable. If the question concerns energy diffusion in a closed Hamiltonian system, a circuit without a conserved density cannot reproduce the relevant late-time mode. If the question concerns the geometric consequences of local unitarity for an operator front, removing energy conservation can be a useful simplification. If the question concerns the cost of classical simulation, a Clifford circuit and a generic Haar circuit differ even when their entropy slopes look similar.
+
+This principle suggests a staged comparison. First fix geometry, local dimension, boundary conditions, and the definition of one time unit. Next identify exact symmetries and stationary ensembles. Finally compare the quantities that should survive coarse graining, with normalization by their equilibrium densities where appropriate. A numerical difference in raw entropy growth rates can reflect different entropy capacities rather than different propagation mechanisms.
+
+For Hamiltonian-inspired circuits, vary the Trotter step and verify convergence before interpreting a feature as physics of the original model. For ensemble models, vary the number of independent gates or realizations before interpreting a noisy tail. These checks control different errors. A circuit realization does not become more representative of a Hamiltonian merely by averaging more disorder samples, and reducing the Trotter step does not replace the need for an adequate sample when randomness is part of the model.
+
+## Exercises
+
+1. **Gate generation.** Prove that independent uniformly random matrix entries followed by column normalization do not generate Haar unitaries. Implement the QR sampler and test unitarity and invariance of second moments.
+2. **Swap calculation.** Derive @eq-circuit-haar-purity, including all trace factors. Check the cases $m=1$ and $m=n\gg1$.
+3. **A domain-wall update.** Derive @eq-circuit-purity-recursion. Explain exactly why independence of the current gate from the incoming state is required.
+4. **Beyond one-copy thermalization.** Calculate $M_2$ for the ensemble $\{|0\rangle,|1\rangle\}$ with equal weights and compare it with $(I+\mathsf S)/6$. Find an observable on two copies that distinguishes them.
+5. **Conservation law audit.** Construct a two-qubit gate conserving $Z_1+Z_2$, sample its blocks, and show that its stationary charge populations cannot reproduce unrestricted Haar statistics from a fixed-charge initial state.
+
+::: {.callout-tip title="Worked solutions: exercises 2 and 4"}
+The full swap is $\mathsf S_A\mathsf S_B$. On two copies, $\operatorname{Tr}\mathsf S_A=mn^2$, while $\operatorname{Tr}\mathsf S_B=m^2n$. Dividing their sum by $mn(mn+1)$ gives $(m+n)/(mn+1)$. It equals one for $m=1$ and approaches $2/m$ for equal large dimensions.
+
+The bit ensemble has $M_2=(|00\rangle\langle00|+|11\rangle\langle11|)/2$. Its expectation of $Z\otimes Z$ is one. The Bloch-sphere Haar ensemble has expectation $\int n_z^2d\Omega/(4\pi)=1/3$. Both first moments are $I/2$, demonstrating that local thermalization does not determine higher moments.
+:::

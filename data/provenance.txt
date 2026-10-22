@@ -1,0 +1,10 @@
+Generated: 2026-10-22T19:51:27.066 (local system clock)
+Julia 1.12.6; BLAS threads=1; seed=20261022; standard libraries only.
+Command: julia --startup-file=no numerics/run_all.jl
+Ising: open L=8, Pauli H=-sum XX-1.05 sum Z-0.2 sum X, initial all Z=+1.
+Norm drift=1.7763568394002505e-15; energy drift=2.4868995751603507e-14
+Free fermions: open L=80, hopping=1/2, odd sites occupied.
+KZ: near-critical Landau-Zener asymptotic formula, J=1, continuum midpoint quadrature.
+Loschmidt: thermodynamic Ising momentum integral, gi=1.5,gf=0.5,J=1.
+Damping: 10000 exact exponential waiting times, undriven excited atom, gamma=1.
+All @test checks passed; finite examples do not establish asymptotic phases.

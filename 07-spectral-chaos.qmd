@@ -1,0 +1,158 @@
+# Reading quantum chaos from a spectrum {#sec-chaos}
+
+::: {.callout-note}
+## Prerequisites and goals
+Assume only Hermitian matrices, unitary evolution, and elementary probability. We introduce random-matrix ensembles and their diagnostics from the beginning. You will learn to resolve symmetries before comparing levels, derive level-repulsion and gap-ratio formulas, interpret a spectral form factor, and distinguish spectral universality from thermalization and information spreading.
+:::
+
+## What replaces classical trajectory instability?
+
+For a classical chaotic system, nearby trajectories can separate exponentially. A finite quantum system behaves differently: unitary evolution preserves the Hilbert-space distance between two initial state vectors. Thus classical trajectory separation cannot simply be transplanted as a definition of quantum chaos.
+
+One useful question survives quantization: how sensitively do many interfering alternatives organize long-time dynamics? The answer leaves statistical traces in energy levels. If two states with identical symmetries approach as a parameter changes, a nonzero mixing matrix element usually produces an avoided crossing. Spectra of chaotic systems often share universal correlations with random matrices. This is a statistical description of carefully scaled fluctuations, not a claim that a physical Hamiltonian is an arbitrary dense random matrix.
+
+Different diagnostics examine different physics. Level spacings probe energy differences comparable to the mean spacing, which is exponentially small in many-body size. Operator spreading probes spatially local perturbations over much shorter times. ETH constrains matrix elements of observables. A system may approach random-matrix spectral statistics while retaining slow hydrodynamics. [Scrambling](09-scrambling.qmd) develops the spatial question separately.
+
+## Symmetry comes before statistics
+
+Suppose $[H,Q]=0$. States with different eigenvalues of $Q$ do not mix, so their energies can cross freely. Combining their spectra destroys the repulsion that exists within each block. The correct initial operation is to decompose the Hilbert space into irreducible symmetry sectors.
+
+For a periodic spin chain, relevant labels may include total magnetization, momentum, reflection at appropriate momenta, and spin inversion at suitable fields. Reflection and translation need not be simultaneously diagonalizable at generic momentum; the symmetry representation, rather than a checklist of labels, determines the blocks. Open boundaries remove translation but may retain reflection. Random longitudinal fields typically destroy reflection while preserving total $S^z$ in an XXZ chain.
+
+Within a block, an **antiunitary symmetry** is an antilinear operation $\mathcal T$ satisfying $\mathcal T H\mathcal T^{-1}=H$. Complex conjugation in a real basis is an example. Its square matters:
+
+| Block property | Common random-matrix class | Repulsion exponent $\beta$ |
+|---|---|---:|
+| Antiunitary symmetry with $\mathcal T^2=+1$ | Gaussian orthogonal ensemble, GOE | 1 |
+| No antiunitary symmetry within the block | Gaussian unitary ensemble, GUE | 2 |
+| Antiunitary symmetry with $\mathcal T^2=-1$ | Gaussian symplectic ensemble, GSE | 4 |
+
+The last case has Kramers degeneracy; remove the exact pair duplication before spacing statistics. These are common bulk classes, not the complete classification when particle-hole, chiral, or other spectral symmetries are present. A Hamiltonian of physical spins can have a real matrix and belong to GOE even when a magnetic field breaks physical spin time reversal. It is the antiunitary structure of the *chosen block* that controls this diagnostic.
+
+## Two short derivations of spacing distributions
+
+Let sorted levels be $E_1<E_2<\cdots$. The mean density varies across a many-body spectrum, so define **unfolded energies** $x_n=\overline N(E_n)$ using a smooth integrated density of states $\overline N$. Then mean unfolded spacing $s_n=x_{n+1}-x_n$ is one. Unfolding should remove the smooth density without removing the correlations under study.
+
+### Independent levels: the Poisson distribution
+
+Imagine a small interval $dx$ that contains a level with probability $dx$. Independence means the probability $P_0(s)$ of no levels in a length $s$ obeys $P_0(s+ds)=P_0(s)(1-ds)$. Thus $dP_0/ds=-P_0$ and
+$$
+P_{\mathrm{P}}(s)=-\frac{dP_0}{ds}=e^{-s},\qquad s\ge0.
+$$ {#eq-chaos-poisson}
+
+There is no suppression of nearly equal adjacent levels: $P_{\mathrm{P}}(0)=1$. Poisson-like spectra occur in many integrable or localized examples, but are not a logically sufficient diagnostic of either mechanism. Unresolved symmetries also produce weak apparent repulsion.
+
+### A two-by-two avoided crossing: the Wigner surmise
+
+Write a real symmetric matrix as
+$$
+H=\begin{pmatrix}c+x&y\\y&c-x\end{pmatrix}.
+$$
+The eigenvalue separation is $s_{\mathrm{raw}}=2\sqrt{x^2+y^2}$. If the distribution is rotationally invariant in the $(x,y)$ plane, the measure is $r\,dr\,d\theta$. A Gaussian weight therefore gives a spacing density proportional to $s e^{-a s^2}$. Normalizing its integral and mean to one yields
+$$
+P_{\mathrm{GOE}}^{(2)}(s)=\frac{\pi}{2}s\exp(-\pi s^2/4).
+$$ {#eq-chaos-wigner}
+
+The factor $s$ has a geometric origin: to make two levels nearly degenerate, both independent mixing coordinates must be small. For a complex Hermitian two-by-two matrix there is a third coordinate, the imaginary part of the off-diagonal entry. Its volume element gives $s^2$ repulsion. More generally $P(s)\sim s^\beta$ at small spacings in the three basic classes.
+
+@eq-chaos-wigner is an exact two-by-two result and an excellent approximation to the large-GOE nearest-neighbor distribution. It is called a **surmise** for this reason. Its usefulness does not turn it into the exact large-matrix formula.
+
+## Gap ratios without unfolding
+
+The adjacent gaps $\delta_n=E_{n+1}-E_n$ define
+$$
+\widetilde r_n=\frac{\min(\delta_n,\delta_{n+1})}{\max(\delta_n,\delta_{n+1})},
+\qquad 0\le\widetilde r_n\le1.
+$$ {#eq-chaos-ratio}
+
+A smoothly varying density rescales neighboring gaps almost equally, so their ratio needs no explicit unfolding. It still requires a narrow enough spectral window and symmetry resolution.
+
+For independent exponential gaps $x,y$, consider the unrestricted ratio $r=y/x$. The Jacobian is $x$, giving
+$$
+p(r)=\int_0^\infty dx\,x e^{-(1+r)x}=\frac1{(1+r)^2}.
+$$
+Folding $r$ and $1/r$ onto $[0,1]$ gives $p(\widetilde r)=2/(1+\widetilde r)^2$. Hence
+$$
+\langle\widetilde r\rangle_{\mathrm{P}}
+=\int_0^1\frac{2r}{(1+r)^2}\,dr
+=2\log2-1\simeq0.38629.
+$$ {#eq-chaos-ratiomean}
+
+For large random matrices, common numerical reference values are approximately $0.5307$ for GOE and $0.5996$ for GUE. Atas and collaborators derived accurate small-matrix surmises for the ratio distribution [@atas2013ratios]. The GOE three-by-three surmise gives $4-2\sqrt3\simeq0.53590$, slightly different from the large-GOE mean. State which reference is used; the difference matters when fitting small drifts. The unrestricted ratio has different moments and must not be reported under the same convention.
+
+Oganesyan and Huse helped establish this diagnostic in many-body localization studies [@oganesyan2007localization]. Their original paper also emphasized that finite-size drift prevented a strong conclusion from spectral statistics alone. That caution remains scientifically useful.
+
+![Folded adjacent-gap ratios from 24 independent GOE matrices of dimension 160 (central 60 percent of levels) and independent exponential-gap sequences. The Poisson curve is analytic. The finite-sample means fluctuate around their ensemble limits. Generated by `numerics/thermal_lab.jl`, with seed and conventions in `data/thermal-lab-metadata.txt`.](figs/thermal-gap-ratios.png){#fig-chaos-ratios}
+
+## The spectral form factor resolves timescales
+
+A single nearest-neighbor statistic compresses much information. To retain a time scale, define
+$$
+Z_w(t)=\sum_n w(E_n)e^{-iE_nt},\qquad
+K(t)=\frac{\mathbb E|Z_w(t)|^2}{\mathbb E\sum_n w(E_n)^2}.
+$$ {#eq-chaos-sff}
+
+$w$ is a spectral-window function; $\mathbb E$ denotes a specified ensemble, disorder, or smoothing average. Expanding the square gives
+$$
+|Z_w(t)|^2=\sum_{mn}w(E_m)w(E_n)e^{-i(E_m-E_n)t}.
+$$
+Thus $K$ is a Fourier transform of two-level correlations. The diagonal $m=n$ contribution supplies the long-time plateau, normalized to one if nondegenerate phases dephase. The **disconnected** contribution $|\mathbb E Z_w(t)|^2$ reflects the smooth density; subtracting it defines a connected form factor. The initial decay and dip can depend strongly on the window and density rather than universal level correlations.
+
+For a Floquet unitary $U$ with $D$ quasienergy eigenphases, a particularly simple convention is
+$$
+K_F(n)=D^{-1}\mathbb E|\operatorname{Tr}U^n|^2.
+$$
+For a uniformly random unitary matrix, the circular unitary ensemble (CUE), $K_F(n)=\min(n,D)/D$ for positive integer $n$. This is the **ramp** followed by the **plateau**. GOE-related time-reversal classes have different ramp shapes and slopes. Do not compare a Hamiltonian GOE curve and a Floquet CUE curve without tracking the symmetry and normalization.
+
+The **Heisenberg time** is $t_H=2\pi/\Delta$, where $\Delta$ is the mean energy spacing in the chosen shell. It is exponentially large in the many-body size at fixed energy density. In a Floquet problem with mean phase spacing $2\pi/D$, it is $D$ drive periods. The **Thouless time** $t_{\mathrm{Th}}$ is the crossover after which a specified spectral correlation agrees with its random-matrix form. Slow diffusion, weak couplings, or almost-conserved quantities can delay that crossover. A random matrix contains no such spatially organized slow modes.
+
+This distinction provides a bridge between spectral statistics and hydrodynamics. It does not identify a unique Thouless time for every observable or every definition of chaos. A large ratio $t_H/t_{\mathrm{Th}}$ is a broad universal spectral window; its finite-size behavior requires an actual model calculation.
+
+## A practical numerical experiment
+
+Use the XXZ Hamiltonian
+$$
+H=J\sum_{j=1}^{L-1}(S_j^xS_{j+1}^x+S_j^yS_{j+1}^y+\Delta S_j^zS_{j+1}^z)
++\sum_j h_j S_j^z,
+$$
+with $S^a=\sigma^a/2$. Work in a fixed total $S^z$ sector. Random independent $h_j$ remove spatial symmetry almost surely. Compare weak disorder, strong disorder, and an explicitly integrable reference, while remembering that the disorder-free open chain still has additional symmetries.
+
+The minimal reliable procedure is:
+
+1. Check Hermiticity and sector conservation before diagonalization.
+2. Sort eigenvalues, reject edges of the density of states, and detect exact degeneracies.
+3. Calculate the distribution and mean of @eq-chaos-ratio for each realization.
+4. Estimate uncertainty across independent disorder realizations, not by treating every adjacent ratio as independent.
+5. Repeat for increasing $L$ and several spectral windows. Plot crossing drift rather than hiding it in a scaling collapse.
+
+For a GOE benchmark, draw a matrix with independent Gaussian off-diagonal entries and diagonal variance twice as large. A generic symmetric matrix with unrelated entry variances does not have exact orthogonal invariance, though it can share bulk universality. For form factors, average the complex traces and their squared magnitudes separately if subtracting the disconnected piece. Do not smooth away the ramp you intend to measure.
+
+## From numerical universality to analytic mechanisms
+
+Kos, Ljubotina, and Prosen analytically related a kicked interacting spin system's form factor to random-matrix predictions [@kos2018chaos]. Their motivation was to explain ubiquitous spectral universality in many-body systems without a simple classical limit. The calculation organizes contributions to the trace expansion and controls the leading orders in a particular setting. It is an analytic mechanism for a model class, not a proof that every nonintegrable Hamiltonian has the same form factor at all times.
+
+Chan, De Luca, and Chalker studied spatially extended Floquet models and derived a nontrivial system-size and dimensional dependence of the onset of random-matrix behavior [@chan2018spectral]. The important lesson is that locality affects the approach to spectral universality even when the late-time universal form agrees. An accessible first reproduction is to calculate $K_F(n)$ for a small chain of fixed random gates repeated every period, compare it with CUE, and determine how the crossover moves with intersite coupling. Gates refreshed every period define a different ensemble and must not silently replace the Floquet model.
+
+Frontier questions include the interplay of spectral correlations with conservation laws, rare regions, finite-temperature windows, and nonthermal eigenstate subsets. The [ETH chapter](06-equilibration-eth.qmd) describes a 2026 first-order-transition example where the relation between smooth thermodynamics and eigenstate structure requires care. The discipline is the same: specify which statistic, which sector, which limit, and which physical conclusion the evidence supports.
+
+## Exercises
+
+1. **Avoided crossing.** For $H(\lambda)=\left(\begin{smallmatrix}\lambda&g\\g&-\lambda\end{smallmatrix}\right)$, find the eigenvalues and minimum gap. Add a conserved label that forces $g=0$. Explain the effect of mixing the resulting sectors.
+2. **Ratio distribution.** Derive both the unrestricted and folded Poisson ratio distributions. Why does the unrestricted mean diverge while the folded mean is finite?
+3. **Window dependence.** Suppose $w(E)$ is Gaussian and the smooth density is approximately constant. Fourier-transform the disconnected contribution. Explain why its decay is not a universal scrambling time.
+4. **Form-factor plateau.** For a nondegenerate spectrum, derive the infinite-time average of $|Z_w(t)|^2$. Extend the result to degeneracies of multiplicity $g_E$.
+5. **Evidence audit.** A gap-ratio curve approaches GOE with size, but spin transport is subdiffusive on accessible times. Is there a contradiction? Identify at least two timescales that must be compared.
+
+::: {.callout-tip collapse="true"}
+## Worked solution: the avoided crossing
+The eigenvalues are $E_\pm=\pm\sqrt{\lambda^2+g^2}$, so their separation is $2\sqrt{\lambda^2+g^2}$ with minimum $2|g|$. If two basis states have different exact conserved labels, the off-diagonal matrix element must vanish and the crossing at $\lambda=0$ survives. Combining such independent blocks introduces crossings unrelated to the dynamics within either block. This is the elementary reason for symmetry resolution.
+:::
+
+::: {.callout-tip collapse="true"}
+## Worked solution: plateau and degeneracy
+Expanding the squared trace and averaging gives
+$$
+\overline{|Z_w(t)|^2}=\sum_{m,n:E_m=E_n}w(E_m)w(E_n).
+$$
+For nondegenerate levels this is $\sum_n w(E_n)^2$. If all states of energy $E$ have the same weight $w(E)$, it becomes $\sum_E g_E^2w(E)^2$. Dividing only by $\sum_E g_Ew(E)^2$ then produces a plateau larger than one. Exact symmetries and degeneracies therefore affect both short-spacing statistics and the long-time form factor.
+:::

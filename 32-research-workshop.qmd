@@ -1,0 +1,119 @@
+# Research workshop: reproducing, challenging, and extending a result {#sec-research-workshop}
+
+Independent research begins when a claim can be translated into a calculation whose failure would matter. Reading a paper is the first step. Reproducing its operational definition, normalization, parameter regime, and uncertainty is the next. Developing a new idea requires identifying which assumption can be changed while keeping the original calculation under control.
+
+This workshop gives six research projects connecting the book's theories to primary papers. They are project specifications, not claims that the book's small demonstrations reproduce the full published results. A two-spin animation verifies a mechanism; a convincing transport exponent or information transition requires substantial size, time, and statistical analysis. Choose one project, complete its baseline, and write down its limitations before expanding it.
+
+## Turn prose into a claim-to-observable contract
+
+Start with one sentence identifying the object and regime. For example, “the central spin correlator in the infinite-temperature isotropic chain broadens with dynamic exponent $z=3/2$ in a specified asymptotic regime” is testable. “The model has KPZ physics” is too ambiguous until one specifies a correlator, scaling function, noise statistics, or higher cumulant.
+
+Record the Hamiltonian or channel, boundary conditions, symmetries, initial ensemble, observable, and order of limits. State whether the paper supplies a theorem, controlled approximation, numerical observation, experimental inference, or conjecture. A theorem reproduction means checking a proof or implementing a test within its hypotheses; numerical agreement does not prove it. A numerical reproduction should recover a documented figure or fit within stated uncertainty; it need not establish the full conjectural interpretation.
+
+Make a table before writing a large program:
+
+| Claim | Measured object | Required limit | Main confounder | Possible falsifier |
+|---|---|---|---|---|
+| Anomalous spreading | Conserved-density propagator | Large size and late bulk times | Finite-time crossover | Stable incompatible exponent or scaling function |
+| Long-lived localization | Local memory and bath response | Size, disorder, observation time | Rare resonances | Thermal region absorbs successively more spins |
+| Prethermal plateau | Effective energy and heating rate | Large frequency at fixed local scale | Micromotion and finite bandwidth | Plateau disappears under convergence checks |
+| Monitored coding phase | Conditional reference information | Growing size and record duration | Record loss or decoder failure | Environment learns the logical state |
+
+The falsifier must target the claim under its stated assumptions. Changing the model beyond those assumptions can reveal a new question, but does not refute the original result.
+
+## Two useful derivations for numerical evidence
+
+Suppose a conserved-density propagator has scaling form $C(x,t)=t^{-1/z}f(x/t^{1/z})$ and finite second moment. Changing variables $u=x/t^{1/z}$ gives
+
+$$
+M_2(t)=\frac{\int dx\,x^2C(x,t)}{\int dx\,C(x,t)}
+=t^{2/z}\frac{\int du\,u^2f(u)}{\int du\,f(u)}.
+$$ {#eq-workshop-second-moment}
+
+Thus the local logarithmic slope $\alpha(t)=d\ln M_2/d\ln t$ approaches $2/z$. Diffusion predicts one; $z=3/2$ predicts $4/3$. But this inference requires that a few ballistic tails do not dominate the second moment and that the normalization is correctly conserved. A central-peak exponent and a width exponent may disagree when a single-scale ansatz fails.
+
+For stochastic samples $X_a$ from independent realizations, the variance of their mean is $\operatorname{Var}(X)/N$. If each realization contributes many correlated times or observables, those values are not independent samples. For bootstrap errors, resample entire realizations, repeat the complete fitting procedure, and report the distribution of fitted parameters. Resampling every time point independently destroys the covariance and usually understates uncertainty.
+
+These statistical errors are distinct from finite-step, finite-bond-dimension, Krylov, and finite-size errors. Increasing the number of disorder realizations cannot repair insufficient bond dimension. A narrow confidence interval around a biased finite-size estimate remains a biased estimate.
+
+## Project 1: spin superdiffusion and the limits of a KPZ claim
+
+**Target.** Reproduce the infinite-temperature spin-propagator scaling of the isotropic Heisenberg chain associated with the numerical and kinetic-theory work on spin superdiffusion [@ljubotina2019kpz; @gopalakrishnan2019kinetic]. Use $H=J\sum_j\mathbf S_j\cdot\mathbf S_{j+1}$ with $S^a=\sigma^a/2$, and state whether the ensemble has zero total magnetization or averages over sectors.
+
+**Baseline.** At small sizes, calculate $C(x,t)=2^{-L}\operatorname{Tr}[S_x^z(t)S_0^z]$ by exact diagonalization or typicality. Check the sum rule $\sum_xC(x,t)=1/4$ in the full infinite-temperature ensemble. A fixed-charge ensemble changes finite-size correlations and must be treated consistently. Validate short-time coefficients and symmetry about the origin before extracting an exponent.
+
+**Scaling.** Increase size and reachable bulk times using a suitable matrix-product-operator or typicality method. Analyze central amplitude, quantile width, second moment, and scaled profile separately. Test whether $t^{2/3}C(x,t)$ collapses against $x/t^{2/3}$. Fit the $z=3/2$ hypothesis and nearby alternatives over several sliding time windows. A width exponent alone is insufficient to establish every statistical property of the KPZ class; the book's anomalous-transport chapter explains this distinction.
+
+**Extension and falsifier.** Add a weak integrability-breaking term while preserving the desired spin symmetry, and look for a frequency- or time-dependent crossover. Compare a symmetry-breaking perturbation separately. A persistent disagreement of normalized scaling profiles after controlled time and size extrapolation would challenge the proposed scaling description in that regime. A short-time drift only establishes a crossover. Save raw propagators so future theories can test more than the exponent you initially chose.
+
+## Project 2: a thermal inclusion and the avalanche question
+
+**Target.** Study how a thermal region coupled to a strongly disordered spin chain absorbs neighboring spins, motivated by avalanche stability arguments [@deroeck2017stability; @thiery2018avalanche; @morningstar2022avalanches]. The objective is to test a finite-bath resonance mechanism, not to settle thermodynamic MBL stability from a dozen spins.
+
+**Baseline.** Implement a disordered interacting chain with a deliberately weak-disorder segment or an explicitly specified random-matrix bath. Resolve exact global symmetries. Verify the isolated bath's level statistics and local spectral function before labeling it thermal. Compare local magnetization memory, entanglement, and spectral hybridization with the coupling to the bath turned off and on.
+
+**Controlled variation.** Change bath length, disorder strength, distance from the inclusion, and boundary coupling independently. The relevant comparison is between bath many-body level spacings and matrix elements coupling the next spin. Finite bath bandwidth can suppress absorption at large local fields; this is a physical finite-size effect, not evidence that arbitrarily large baths remain ineffective. Record distributions over disorder, including rare large responses, rather than only the mean.
+
+**Extension and falsifier.** Compare a smooth disorder profile with a sharp inclusion or replace random disorder by a quasiperiodic potential. A proposed finite-bath absorption criterion is challenged if it systematically predicts hybridization where converged dynamics and spectra show none, or vice versa. Longer-lived imbalance in a larger sample is not by itself proof of an asymptotic localized phase. A useful report distinguishes a tested local resonance model from an extrapolation about rare inclusions in an infinite chain.
+
+## Project 3: high-frequency prethermalization without confusing micromotion
+
+**Target.** Reproduce a prethermal plateau and frequency-dependent slow heating in a local driven spin model, using the effective-Hamiltonian framework of high-frequency Floquet theory [@abanin2015heating; @kuwahara2016magnus; @abanin2017effective]. Choose a simple two-step drive $U_F=e^{-iH_2T/2}e^{-iH_1T/2}$ with bounded local couplings and a nonintegrable average Hamiltonian.
+
+**Baseline.** Compute $U_F$ exactly for small systems and check it against a time-domain integrator. Derive the first terms of the Baker–Campbell–Hausdorff or Magnus expansion with the stated time origin. Compare the stroboscopic evolution of an effective energy density with within-period oscillations of the bare energy. Micromotion can be large relative to slow heating without invalidating a prethermal description.
+
+**Scaling.** Sweep drive frequency while holding the local interaction scale fixed. Determine a plateau lifetime using several thresholds and report their sensitivity. Compare optimal truncation orders rather than assuming more expansion terms always improve the result. At finite size the bounded total bandwidth and discrete resonances can artificially suppress heating; examine size dependence before interpreting an exponential frequency trend.
+
+**Extension and falsifier.** Introduce a controlled resonant impurity, an additional harmonic, or a weak bath. Ask whether the plateau lifetime is limited by intrinsic heating or the new channel. A supposed effective Hamiltonian is falsified as a useful description if it fails reproducible local observables throughout its claimed time window after numerical errors are controlled. Failure outside the high-frequency assumptions is a map of the theory's domain, not a contradiction of its theorem.
+
+## Project 4: monitored entanglement and reference survival
+
+**Target.** Reproduce qualitative area/volume entanglement regimes and a reference-qubit diagnostic in monitored Clifford circuits [@info-li2018; @info-gullans2020probe]. Start with a fully specified gate ensemble and measurement schedule. Do not borrow a critical probability from a different circuit.
+
+**Baseline.** For four to ten spins, compare a stabilizer tableau with an independent state-vector implementation on identical gates and outcomes. Check measurement probabilities, entropy, and reference reduced states. A deliberately dephased Bell pair is the negative control for confusing conditional entanglement with the entropy of an averaged state.
+
+**Scaling.** Grow sizes using the validated tableau. Track conditional $S_R$, half-chain entropy, and a tripartite-information crossing. Average over Born-distributed histories. Analyze time windows proportional to a candidate dynamic scaling and check whether longer runs change the result. Bootstrap whole circuit histories, vary the smallest included size, and report crossing drift. An apparent good collapse with all small sizes included is not a sufficient exponent estimate.
+
+**Extension and falsifier.** Add missed outcomes or a simple decoder with a known computational budget. Compare reference decoupling from the environment with actual decoder fidelity. Failure of the decoder alongside good information retention is an algorithmic limitation, not evidence that encoding disappeared. Conversely, an environment strongly correlated with the logical reference rules out perfect recovery from the remaining system. An experimentally motivated variant must count the cost of postselecting or decoding records; simulated access to the whole wavefunction does not make the protocol scalable in the laboratory.
+
+## Project 5: deep thermalization beyond the reduced density matrix
+
+**Target.** Reproduce second-moment convergence of a projected ensemble, then test how a conserved charge changes its target distribution [@info-cotler2023; @info-chang2025]. This project is small enough for exact state vectors but exposes a genuinely higher-order equilibration question.
+
+**Baseline.** Evolve one pure state on $AB$, choose a small region $A$, and enumerate all measurement outcomes on $B$. For each outcome retain its Born probability and normalized conditional state. Form $M_1$ and $M_2$ separately. Verify $M_1=\rho_A$ and compare the unrestricted $M_2$ with $(I+\mathsf S)/[d_A(d_A+1)]$. A uniform average over outcome labels is a deliberate bug to detect.
+
+**Scaling.** Vary bath size, evolution time, and number of circuit realizations independently. The projected ensemble has at most $d_B$ outcomes, so finite support limits exact high-order designs. Compare a trace norm and a simpler Hilbert–Schmidt metric without calling them interchangeable. Under fixed total charge and charge-revealing measurements, construct the correct charge-sector ensemble; an unrestricted Haar target can falsely diagnose failure to thermalize.
+
+**Extension and falsifier.** Compare a computational-basis measurement with a rotated basis, or add controlled initial mixedness. The published 2026 mixed-state framework and coherence-controlled permutation models provide concrete emerging extensions [@info-sherry2026; @info-liu2026]. A conjectured universal target is challenged by stable, size-converged moment differences consistent across microscopic models under the same constraints. Thermal $M_1$ with nonthermal $M_2$ is itself a meaningful result, not a contradiction. Keep an explicit table of which conclusions are exact, numerically supported, or speculative.
+
+## Project 6: open-chain dynamics and the price of ignoring a record
+
+**Target.** Reproduce unconditional observables using both full Liouvillian evolution and sampled quantum trajectories, then determine which conditional properties depend on the unraveling [@info-daley2014]. A quadratic boundary-driven fermion chain offers an exact larger-system benchmark [@info-prosen2008].
+
+**Baseline.** Begin with amplitude damping of one spin. Verify its exponential population, coherence decay at half the population rate, waiting-time distribution, and Liouvillian spectrum. Then use a short interacting chain with stated jumps. Compare trajectory-averaged density matrices with direct master-equation results, and verify trace, positivity, and conserved quantities or source terms.
+
+**Error separation.** At fixed trajectory number, reduce the integration step; at fixed converged step, increase sample count. Do not hide systematic integration bias inside Monte Carlo error bars. For an event-driven sampler, test survival probabilities and event-location tolerances. If a covariance-matrix method is used, derive closure rather than assuming that every simple jump preserves Gaussian states.
+
+**Extension and falsifier.** Compare random-unitary dephasing jumps with diffusive monitoring that yields the same averaged generator. The averaged density matrices should agree while conditional entanglement can differ. This is a stringent conceptual test. Then introduce finite detection efficiency or a finite environment with recurrences. Persistent disagreement of unconditional observables between validated methods falsifies an implementation or its claimed approximation. A memory-induced revival challenges a time-homogeneous Markov description, not complete positivity of the preparation-to-time channel.
+
+## From a successful reproduction to a publishable question
+
+After reproducing a baseline, change one assumption with a clear reason. A useful extension predicts an observable difference, estimates the computational resources needed to see it, and states a result that would make the idea uninteresting or false. Avoid sweeping phase diagrams before identifying the competing mechanisms. Small targeted calculations often reveal that an apparent new effect is a boundary transient, a conserved-sector artifact, or an estimator bias.
+
+Maintain a minimal reproducibility package: equations and conventions, environment and package versions, seed policy, parameter manifest, raw data, analysis script, and a short claim ledger. Save Julia numerical outputs separately from plotting. A figure should be reproducible without rerunning an expensive simulation, and its caption should specify the data range, normalization, and uncertainty. Preserve failed or negative tests when they constrain interpretation.
+
+The supplied book demonstrations are educational benchmarks. They do not replace the large-scale calculations, experimental calibration, or analytic work of the cited research. A workshop report should explicitly name which published object was reproduced, what differed, and which frontier claim remains outside its evidence. That discipline is part of learning to develop research independently.
+
+## Exercises
+
+1. **Claim decomposition.** Choose one project and write three claims of increasing strength: a finite-system observation, a scaling hypothesis, and a thermodynamic statement. Identify the extra evidence needed at each step.
+2. **A misleading exponent.** Generate synthetic data $M_2(t)=t^{4/3}(1+a t^{-1/3})$ on a limited time window. Derive its effective logarithmic slope and show how fitting one power can bias an inferred $z$.
+3. **Correlated errors.** Simulate many realizations, each with a shared random offset across times. Compare a bootstrap over time points with a bootstrap over complete realizations. Explain which respects the data-generating process.
+4. **A decisive negative control.** Design one control that would invalidate an apparently successful reproduction in each of two projects. Specify an expected numerical result, not only a qualitative warning.
+5. **A resource-aware proposal.** Write a one-page extension proposal including the observable, baseline, falsifier, largest matrix or tensor dimension, expected sampling cost, and a stopping criterion.
+
+::: {.callout-tip title="Worked solutions: exercises 2 and 3"}
+For the synthetic width, $d\ln M_2/d\ln t=4/3-[a t^{-1/3}/3]/[1+a t^{-1/3}]$. A positive correction approaches $4/3$ from below, so a short-window fit can look more diffusive than the asymptotic hypothesis. Increasing the precision of the same short-window data does not remove that bias.
+
+If one realization has a shared offset, all of its times move together. Resampling time points breaks this dependence and invents more independent information than the experiment generated. Resampling whole realizations preserves it; repeating the full fitting step then propagates the covariance into the exponent or threshold uncertainty.
+:::

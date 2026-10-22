@@ -1,0 +1,17 @@
+name: Check textbook source
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: python3 scripts/prepare_references.py
+      - run: python3 scripts/audit.py
+      - run: node scripts/check_labs.cjs

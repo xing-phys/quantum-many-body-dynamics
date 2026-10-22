@@ -1,0 +1,5 @@
+Julia 1.12.6; 3 matter sites,2 links,5 total qubits,open boundary electric fields +1; Pauli convention.
+J=0.7,h=0.8,m=0.5; gauge-breaking epsilon=0.15 times sum matter Z; penalty lambda sum_j (1-G_j)/2,lambda=0,4,12.
+Initial all-positive x state; physical sector dimension4. Exact dense eigendecomposition; t=0..20 in301 points.
+Projector idempotence, Gauss commutators, string invariance, physical rank, norm and ideal constraint preservation verified.
+Toy finite lattice only; no continuum, thermalization, or asymptotic protection claim.

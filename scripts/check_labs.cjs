@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict');
+const m=require('../demos/labs.js');
+assert(Math.abs(m.h(.5)-Math.log(2))<1e-14);
+let v=new Float64Array([Math.SQRT1_2,0,0,Math.SQRT1_2]);
+assert(Math.abs(m.purity(v,2)-.5)<1e-14);
+const r=m.rng(42);m.rotate(v,0,.371);m.cz(v,0,1);m.measure(v,0,r);
+assert(Math.abs(v.reduce((a,b)=>a+b*b,0)-1)<1e-12);
+const unmonitored=m.circuit(4,0,12,8,123), observed=m.circuit(4,1,12,8,123);
+assert(Math.abs(unmonitored.mixedEntropy)<1e-12);
+assert(observed.curve.every(x=>Math.abs(x)<1e-12));
+for(const state of observed.states) assert(Math.abs(state.reduce((a,b)=>a+b*b,0)-1)<1e-12);
+let integral=0;for(let x=-30;x<30;x+=.01) integral+=m.gaussian(x,1.2,3)*.01;
+assert(Math.abs(integral-1)<1e-10);
+console.log('Browser lab identities, normalization, measurement limits, and diffusion checks passed.');

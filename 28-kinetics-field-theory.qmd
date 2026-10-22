@@ -1,0 +1,402 @@
+# Kinetics, closed-time field theory, and nonthermal scaling {#sec-kinetics-field-theory}
+
+Hydrodynamics follows a few slow densities. Kinetic theory follows the
+occupations of many propagating modes. Nonequilibrium field theory retains
+response and fluctuations even when a quasiparticle occupation is not yet a
+controlled description. These are complementary levels of approximation, and
+understanding their relation prevents a formal calculation from silently
+assuming the relaxation it is meant to explain.
+
+We start from density-matrix evolution and elementary coherent states. We use
+$\hbar=k_B=1$ and natural logarithms. A bosonic coherent state $|a\rangle$
+is an eigenstate of an annihilation operator, $\hat a|a\rangle=a|a\rangle$.
+Inserting coherent-state resolutions of the identity turns operator evolution
+into an integral over complex fields. Fermions require Grassmann variables,
+which anticommute; the contour logic is otherwise analogous.
+
+## Why a nonequilibrium calculation has two time branches
+
+For a state $\rho_0$, an expectation value is
+$\operatorname{Tr}[U(t,0)\rho_0U(t,0)^\dagger O]$.
+The density matrix evolves forward with $U$ and backward with $U^\dagger$.
+Introduce independent sources on these two branches:
+
+$$
+Z[J_+,J_-]=\operatorname{Tr}
+\left[U_{J_+}(t_f,0)\rho_0U_{J_-}(t_f,0)^\dagger\right].
+$$ {#eq-kinetic-generating}
+
+![The closed-time contour contains forward and backward evolution, sewn by the
+trace at the final endpoint and by the initial density matrix at the initial
+endpoint. This is an original conceptual diagram, not a simulated trajectory.](figs/keldysh-contour.png){#fig-kinetic-contour width=90%}
+
+The contour travels from the initial time to $t_f$ and back. Its endpoints are
+sewn together by the trace, while the initial density matrix supplies a boundary
+condition. For equal sources, unitarity gives $Z[J,J]=1$. Functional derivatives
+with respect to unequal sources generate correlation and response functions.
+
+For a bosonic field with normal-ordered Hamiltonian function $H(a^*,a)$,
+coherent-state time slicing gives the bulk action
+
+$$
+S=\int dt\,[a_+^*i\partial_ta_+-H(a_+^*,a_+)]
+-\int dt\,[a_-^*i\partial_ta_--H(a_-^*,a_-)].
+$$ {#eq-kinetic-contour-action}
+
+The second integral has the opposite sign because the contour runs backward.
+The weight is $e^{iS}$, multiplied by initial-state and endpoint factors.
+Dropping those factors generally loses the initial occupations. A closed-time
+contour avoids assuming an equilibrium imaginary-time preparation for a state
+that was instead made by a quench.
+
+This is the Schwinger–Keldysh construction. @berges2005nonequilibrium develops
+its interacting quantum-field applications; @sieberer2016keldysh develops driven
+open systems. The name denotes a bookkeeping framework, not a particular
+weak-coupling approximation.
+
+## Classical and quantum fields mean response coordinates
+
+Define the Keldysh rotation
+
+$$
+a_{\mathrm{cl}}=\frac{a_++a_-}{\sqrt2},\qquad
+ a_{\mathrm q}=\frac{a_+-a_-}{\sqrt2}.
+$$ {#eq-kinetic-rotation}
+
+The field labeled “classical” is the branch average, and the “quantum” field is
+the branch difference. These labels do not assert that either field has been
+made classical. On identical forward and backward paths, $a_{\mathrm q}=0$
+and the action cancels, as required by normalization.
+
+For a free oscillator of frequency $\omega_0$, substitute the rotation into
+the difference of the two quadratic actions. Terms containing only
+$a_{\mathrm{cl}}$ cancel, and the result is
+
+$$
+S_0=\int dt\,
+\left[a_{\mathrm q}^*(i\partial_t-\omega_0)a_{\mathrm{cl}}
++a_{\mathrm{cl}}^*(i\partial_t-\omega_0)a_{\mathrm q}\right]
++S_{\mathrm{boundary}}.
+$$ {#eq-kinetic-free-action}
+
+Varying with respect to $a_{\mathrm q}^*$ gives the oscillator equation for
+$a_{\mathrm{cl}}$. Thus a branch-difference field acts as a response variable.
+The boundary contribution still fixes the initial fluctuation strength; the
+absence of a bulk noise term does not mean that the vacuum has no fluctuations.
+
+For a contact interaction $H_{\mathrm{int}}=g|a|^4/2$, substitution gives
+
+$$
+S_{\mathrm{int}}=-\frac g2\int dt\,
+(|a_{\mathrm{cl}}|^2+|a_{\mathrm q}|^2)
+(a_{\mathrm{cl}}^*a_{\mathrm q}+a_{\mathrm q}^*a_{\mathrm{cl}}).
+$$ {#eq-kinetic-interaction}
+
+Terms with one response field generate the nonlinear classical equation;
+terms with three response fields encode additional quantum vertices.
+Neglecting the latter is a *classical-statistical approximation*, useful for
+suitably highly occupied modes with a correctly sampled initial distribution.
+It can fail for low occupations, quantum scattering at late times, or ultraviolet
+modes. A path-integral rewriting has not justified discarding them.
+
+## Response, spectrum, and statistical fluctuations
+
+For a bosonic mode define
+
+$$
+\begin{aligned}
+G^R(t,t')&=-i\theta(t-t')\langle[\hat a(t),\hat a^\dagger(t')]\rangle,\\
+G^A(t,t')&=i\theta(t'-t)\langle[\hat a(t),\hat a^\dagger(t')]\rangle,\\
+G^K(t,t')&=-i\langle\{\hat a(t),\hat a^\dagger(t')\}\rangle.
+\end{aligned}
+$$ {#eq-kinetic-green-functions}
+
+The retarded function describes causal propagation; the advanced function is
+its adjoint counterpart; the Keldysh function records symmetrized fluctuations.
+These are conventional Green-function signs. A physical susceptibility to a
+Hamiltonian term $-fB$ has the sign derived explicitly in
+@sec-linear-response; the source coupling determines that translation.
+At equal times,
+$n(t)=[iG^K(t,t)-1]/2$. The subtracted one is the bosonic vacuum contribution.
+A *spectral function* is $A(\omega)=-2\operatorname{Im}G^R(\omega)$.
+It describes where excitations can absorb or emit spectral weight; it is not an
+occupation distribution.
+
+For an equilibrium system, detailed balance relates fluctuations to spectrum:
+$G^K(\omega)=[G^R(\omega)-G^A(\omega)]\coth(\beta\omega/2)$ for an
+uncharged bosonic mode, with chemical potentials included as appropriate.
+Out of equilibrium $G^K$ supplies independent information. Fitting a frequency
+independent “effective temperature” from one ratio does not establish a thermal
+state across all modes or frequencies.
+
+## Worked example: a damped oscillator and its noise kernel
+
+Take the explicitly Markovian master equation
+
+$$
+\dot\rho=-i[\omega_0a^\dagger a,\rho]
++2\kappa(n_B+1)\mathcal D[a]\rho
++2\kappa n_B\mathcal D[a^\dagger]\rho,
+\quad
+\mathcal D[L]\rho=L\rho L^\dagger-\tfrac12\{L^\dagger L,\rho\}.
+$$ {#eq-kinetic-damped-master}
+
+Here $\kappa>0$ is the amplitude decay rate and $n_B$ the bath's resonant
+occupation. Directly applying the adjoint generator gives
+$\partial_t\langle a\rangle=-(i\omega_0+\kappa)\langle a\rangle$ and
+$\dot n=-2\kappa(n-n_B)$.
+The population therefore relaxes twice as fast as the amplitude.
+
+In frequency space, the Gaussian Keldysh action has matrix
+
+$$
+S=\int\frac{d\omega}{2\pi}
+\begin{pmatrix}a_{\mathrm{cl}}^*&a_{\mathrm q}^*\end{pmatrix}
+\begin{pmatrix}
+0&\omega-\omega_0-i\kappa\\
+\omega-\omega_0+i\kappa&2i\kappa(2n_B+1)
+\end{pmatrix}
+\begin{pmatrix}a_{\mathrm{cl}}\\a_{\mathrm q}\end{pmatrix}.
+$$ {#eq-kinetic-damped-action}
+
+The off-diagonal blocks encode retarded/advanced propagation. The imaginary
+lower-right block makes $e^{iS}$ suppress large response-field fluctuations
+and encodes noise. Inverting the block matrix yields
+
+$$
+G^R(\omega)=\frac1{\omega-\omega_0+i\kappa},\qquad
+G^K(\omega)=\frac{-2i\kappa(2n_B+1)}
+{(\omega-\omega_0)^2+\kappa^2}.
+$$ {#eq-kinetic-damped-greens}
+
+Integrating $iG^K$ over frequency gives $2n_B+1$, reproducing the correct
+stationary occupation. A Gaussian auxiliary noise can represent the
+response-field quadratic term through a Hubbard–Stratonovich transformation:
+one introduces a random field whose Gaussian average reproduces that quadratic
+weight. This connects Keldysh response/noise structure to Langevin descriptions.
+The normalization depends on the $\sqrt2$ rotation and must be retained.
+
+The Markov model takes $n_B$ constant near resonance. Its ratio
+$G^K/(G^R-G^A)=2n_B+1$ approximates an equilibrium bath near $\omega_0$;
+it does not satisfy the full frequency-dependent quantum thermal relation at
+all frequencies. A bath approximation and exact equilibrium are distinct claims.
+
+## How a kinetic equation emerges
+
+In an interacting field theory, *self-energies* summarize corrections to free
+propagation caused by interactions. Dyson equations for $G^R$, $G^A$, and $G^K$
+can be reorganized into equations for spectral and statistical functions.
+A *Wigner transform* Fourier transforms relative coordinates while retaining
+their average:
+
+$$
+G(T,\omega)=\int d\tau\,e^{i\omega\tau}
+G(T+\tau/2,T-\tau/2).
+$$ {#eq-kinetic-wigner}
+
+If average-time and average-position variation is slow compared with relative
+correlation scales, a gradient expansion is possible. If the spectral function
+also has a narrow peak, its weight defines a quasiparticle distribution
+$f(\mathbf x,\mathbf k,t)$ with a group velocity.
+Weak interactions, controlled factorization of multiparticle correlations,
+and an appropriate Markov limit then produce
+
+$$
+\partial_tf+\mathbf v_{\mathbf k}\cdot\nabla_{\mathbf x}f
++\mathbf F\cdot\nabla_{\mathbf k}f=I[f].
+$$ {#eq-kinetic-boltzmann}
+
+The logical order matters. Narrow quasiparticle peaks, slow gradients, and
+short memory are assumptions to test, not identities following from the Wigner
+transform. A far-from-equilibrium system can violate any of them.
+
+The energy-conserving delta function in a collision integral has a simple
+origin. A second-order interaction expansion contains an integral over the
+relative duration of a collision,
+$\int_0^\infty ds\,e^{i\Delta\epsilon s}
+=\pi\delta(\Delta\epsilon)+i\,\mathcal P(1/\Delta\epsilon)$.
+Its real part gives on-shell transition rates; its principal-value part shifts
+energies. Extending the integration to infinity assumes a separation between
+collision memory and the slow evolution of occupations. Close to a resonance
+or strong-coupling regime, that separation can fail.
+
+## Deriving conservation and entropy production of binary collisions
+
+For elastic $1+2\leftrightarrow3+4$ scattering, write
+
+$$
+I_1=\int d2\,d3\,d4\,W_{12;34}
+\left[f_3f_4(1+\eta f_1)(1+\eta f_2)
+-f_1f_2(1+\eta f_3)(1+\eta f_4)\right].
+$$ {#eq-kinetic-collision}
+
+The label $i$ abbreviates momentum $\mathbf k_i$, $di=d^dk_i/(2\pi)^d$,
+and $\eta=+1$ for bosons and $-1$ for fermions. Factors $1+f$ describe Bose
+enhancement; factors $1-f$ describe Pauli blocking. The nonnegative rate kernel
+$W$ includes the squared scattering amplitude, energy/momentum delta functions,
+and symmetry factors in a consistent convention. Assume exchange symmetry
+within each pair and microscopic reversibility
+$W_{12;34}=W_{34;12}$.
+
+Call the loss product $X$ and gain product $Y$, so $I_1=\int W(Y-X)$.
+For any one-particle function $\phi$, symmetrizing over the four labels gives
+
+$$
+\int d1\,\phi_1I_1
+=\frac14\int d1\,d2\,d3\,d4\,W
+(\phi_1+\phi_2-\phi_3-\phi_4)(Y-X).
+$$ {#eq-kinetic-invariant}
+
+For $\phi=1$, $\mathbf k$, or $\epsilon_{\mathbf k}$, the first factor
+vanishes on the collision shell. Binary scattering therefore conserves particle
+number, momentum, and energy. This is also an implementation test: a numerical
+collision discretization that drifts in these invariants is not trustworthy
+merely because its occupations become smooth.
+
+The entropy per mode is
+$s_\eta(f)=\eta(1+\eta f)\ln(1+\eta f)-f\ln f$.
+Its derivative is $s_\eta'(f)=\ln[(1+\eta f)/f]$.
+Use this derivative as $\phi$ in the symmetrization above. The first factor
+becomes $\ln(Y/X)$, hence
+
+$$
+\dot S=\frac14\int d1\,d2\,d3\,d4\,W
+(Y-X)\ln\frac YX\geq0.
+$$ {#eq-kinetic-h-theorem}
+
+The inequality follows because the logarithm is increasing. It is an entropy
+production theorem for the kinetic closure, not for exact closed-system
+von Neumann entropy. Factorizing collision partners and neglecting memory have
+discarded correlations. Detailed balance $X=Y$ admits
+$f=[e^{\beta(\epsilon-\mu-\mathbf u\cdot\mathbf k)}-\eta]^{-1}$,
+with drift velocity multiplier $\mathbf u$. Additional collision invariants can
+prevent this family from being the unique stationary manifold.
+
+## A revealing failure: identical particles in one dimension
+
+For quadratic dispersion in one dimension, energy and momentum conservation
+imply
+$k_1+k_2=k_3+k_4$ and $k_1^2+k_2^2=k_3^2+k_4^2$.
+The sum and product of the two outgoing momenta equal those of the incoming
+momenta. Thus $\{k_3,k_4\}=\{k_1,k_2\}$.
+The gain and loss products cancel: this elastic binary collision integral cannot
+redistribute an arbitrary momentum distribution.
+
+Thermalization then requires other processes or ingredients, such as distinct
+species, lattice kinematics, higher-body scattering, or integrability breaking.
+This is a concrete bridge to GHD: integrable one-dimensional scattering changes
+trajectories while preserving rapidities. Inserting a generic relaxation-time
+term would add physics absent from the original integrable Hamiltonian.
+The 2026 analysis @santra2026crossover studies such terms as an explicit
+approximation for nearly integrable systems, with the preserved charge manifold
+specified rather than assumed.
+
+## Nonthermal fixed points and scaling constraints
+
+Far from equilibrium, a distribution can approach a self-similar evolving form
+rather than immediately becoming thermal:
+
+$$
+f(t,\mathbf k)=\left(\frac t{t_0}\right)^\alpha
+f_S\!\left[\left(\frac t{t_0}\right)^\beta\mathbf k\right].
+$$ {#eq-kinetic-selfsimilar}
+
+A *nonthermal fixed point* is a scaling regime in which the rescaled function
+$f_S$ becomes approximately time independent and insensitive to a range of
+initial conditions. Positive $\beta$ shifts characteristic momentum toward the
+infrared; negative $\beta$ shifts it toward the ultraviolet. This is a finite
+scaling regime, not necessarily the final $t\to\infty$ state.
+
+Change variables to $\mathbf q=t^\beta\mathbf k$. Particle number in the
+scaling region behaves as $N_S\propto t^{\alpha-d\beta}$.
+For dispersion $\epsilon\propto k^{z_{\mathrm{disp}}}$, its energy behaves as
+$E_S\propto t^{\alpha-(d+z_{\mathrm{disp}})\beta}$.
+Therefore
+
+$$
+\alpha=d\beta\quad\text{for conserved scaling-region particles},
+\qquad
+\alpha=(d+z_{\mathrm{disp}})\beta
+\quad\text{for conserved scaling-region energy}.
+$$ {#eq-kinetic-scaling-constraints}
+
+A single nontrivially moving distribution cannot satisfy both conditions with
+finite convergent integrals and $z_{\mathrm{disp}}>0$. Flux between distinct
+momentum regions, an additional scale, or a breakdown of the ansatz is required.
+This explains why *dual cascades*, simultaneous transport of particles and
+energy toward different scales, arise naturally. A cascade is a sustained flux
+through momentum scales; it need not involve a spatial current.
+
+Power counting a collision term supplies another relation, but it depends on
+the effective interaction. For nonrelativistic contact scattering with quadratic
+dispersion, constant matrix element, and highly occupied modes, a local
+four-wave collision integral scales as
+$I\sim k^{2d-2}f^3$.
+The gain/loss terms of fourth order in $f$ cancel, leaving cubic terms.
+Under @eq-kinetic-selfsimilar, matching $\partial_tf$ to $I$ gives
+$\alpha-1=3\alpha-(2d-2)\beta$.
+Combining this naive bare-collision scaling with particle conservation gives
+$\beta=-1/2$, rather than a positive infrared transport exponent. This is a
+warning about assumptions: infrared nonthermal regimes can require a
+scale-dependent effective scattering amplitude, nonperturbative resummation,
+or defect dynamics. One cannot obtain their exponents by choosing a desired
+scaling direction and applying an incompatible bare kinetic equation.
+
+## Experiments, controlled approximations, and research projects
+
+The experiments @prufer2018universal and @erne2018universal observe scaling
+windows and compare different initial preparations in spinor and one-dimensional
+Bose gases. Their strength lies in measured collapse and loss of initial-detail
+sensitivity over an accessible range. Their finite time and momentum windows
+must remain part of the claim. A faithful reproduction begins with unscaled
+correlations, fits $\alpha$ and $\beta$ jointly, varies the chosen window, and
+checks the scaling-region conserved quantity.
+
+@schmied2019fixed connects nonperturbative kinetics, low-energy effective
+fields, and topological defects. A controlled large-$N$ expansion uses the
+inverse number of field components as an organizing parameter; a two-particle
+irreducible effective action resums selected diagram classes self-consistently.
+Neither name guarantees accuracy at arbitrary $N$ or coupling. Conservation,
+cutoff dependence, and comparison with an independently controlled limit remain
+necessary checks.
+
+An emerging 2026 connection is the rare-fluctuation physics in
+[@mcculloch2026coherence]: linearized fields can miss charge voids that protect
+coherence. Its random-circuit construction and phenomenological deterministic
+extension distinguish what can be derived from a microscopic model from what
+is proposed as a broader mechanism. Combining ordinary kinetic relaxation,
+nonlinear hydrodynamic large deviations, and genuinely quantum coherence is an
+open research direction.
+
+## Exercises and selected solutions
+
+1. Perform the Keldysh rotation of a quadratic oscillator action and verify the
+   cancellation of its classical–classical bulk term.
+2. Invert @eq-kinetic-damped-action, integrate the resulting fluctuation spectrum,
+   and check the stationary oscillator occupation.
+3. Derive @eq-kinetic-invariant by explicitly exchanging the four collision labels.
+   Identify which symmetry is needed at each exchange.
+4. Derive the kinetic entropy inequality for fermions, including the domain
+   $0\leq f\leq1$, and characterize when equality can hold.
+5. Prove the one-dimensional binary-collision obstruction and explain why it
+   invalidates a generic thermalizing Boltzmann ansatz for this setting.
+6. Generate synthetic self-similar spectra with an imposed ultraviolet cutoff.
+   Fit scaling exponents while changing the fitting range. Show how an omitted
+   particle flux can mimic a violation of @eq-kinetic-scaling-constraints.
+
+::: {.callout-note title="Solution: damped-oscillator fluctuations"}
+The block inverse gives $G^K=-G^R[2i\kappa(2n_B+1)]G^A$.
+Since $\int d\omega\,2\kappa/[2\pi((\omega-\omega_0)^2+\kappa^2)]=1$,
+$iG^K(t,t)=2n_B+1$. Thus the measured occupation is
+$[iG^K(t,t)-1]/2=n_B$. Dropping the vacuum one would incorrectly assign
+half a particle to a zero-temperature oscillator.
+:::
+
+::: {.callout-note title="Solution sketch: binary kinematics"}
+Let $s=k_1+k_2=k_3+k_4$. Energy conservation implies
+$s^2-2k_1k_2=s^2-2k_3k_4$, so the products agree too.
+Both momentum pairs are roots of the same polynomial
+$z^2-sz+k_1k_2=0$; they are identical up to permutation. Therefore $X=Y$
+pointwise in the elastic collision integral for a single identical species.
+The obstruction is kinematic, not a numerical failure to reach equilibrium.
+:::

@@ -1,0 +1,194 @@
+# Information dynamics and quantum error correction {#sec-information-error-correction}
+
+Thermalization asks whether local observables forget an initial condition. Quantum error correction asks whether the initial quantum state can still be recovered using an allowed collection of degrees of freedom and a specified record. The questions are compatible: a state can be locally thermal while storing a logical qubit in nonlocal correlations. Scrambling can create this encoding dynamically, and measurements can compete with it by leaking information to an observer.
+
+This chapter develops the necessary information theory from finite-dimensional states and channels. We derive exact recovery conditions for erasure, construct a small code explicitly, calculate coherent information for the erasure channel, and connect those calculations to monitored many-body dynamics. Recovery existence, efficient decoding, and experimental verification are separate research problems.
+
+## Protect a reference, not a list of basis states
+
+An encoder is an isometry $V:\mathcal H_Q\to\mathcal H_S$, with $V^\dagger V=I_Q$. Its image is the **code space**. A noise channel $\mathcal N$ acts on $S$, followed by a recovery channel $\mathcal R$. Exact correction requires $\mathcal R\mathcal N(V\rho V^\dagger)=\rho$ for every logical state $\rho$.
+
+Testing only logical basis states is inadequate. Dephasing preserves $|0\rangle$ and $|1\rangle$ while destroying their relative phase. A complete test entangles $Q$ with an untouched reference $R$:
+
+$$
+|\Phi\rangle_{RQ}=\frac1{\sqrt{d_Q}}\sum_{a=1}^{d_Q}|a\rangle_R|a\rangle_Q.
+$$ {#eq-qec-reference}
+
+If the encoder-noise-recovery sequence preserves this maximally entangled state exactly, linearity ensures preservation of all logical operators and hence arbitrary states. For approximate correction, the **entanglement fidelity** compares the recovered joint state to $|\Phi\rangle$. This is stronger and more informative than a convenient average of a few population measurements.
+
+A channel has a unitary dilation, so noise can be viewed as distributing the encoded system into an accessible output $B$ and an inaccessible environment $E$. Since the total $RBE$ state is pure for a purified input, recovering the qubit from $B$ is closely tied to preventing $E$ from learning it.
+
+## Derivation: decoupling and exact erasure correction
+
+Suppose a known physical subsystem $E$ is erased and the rest $B$ remains. Write encoded basis states $|a_L\rangle=V|a\rangle$. The reduced reference-environment state is
+
+$$
+\rho_{RE}=\frac1{d_Q}\sum_{a,b}|a\rangle\langle b|_R
+\otimes\operatorname{Tr}_B|a_L\rangle\langle b_L|.
+$$ {#eq-qec-re-expansion}
+
+For $E$ to contain no logical information, require
+
+$$
+\operatorname{Tr}_B|a_L\rangle\langle b_L|=\delta_{ab}\sigma_E.
+$$ {#eq-qec-erasure-condition}
+
+This says more than equal diagonal marginals. Off-diagonal logical coherences must also be invisible to $E$. It gives $\rho_{RE}=I_R/d_Q\otimes\sigma_E$, called **decoupling**.
+
+Why does decoupling imply recovery? Diagonalize $\sigma_E=\sum_\mu\lambda_\mu|\mu\rangle\langle\mu|$. The erasure condition allows the code basis to be written
+
+$$
+|a_L\rangle=\sum_\mu\sqrt{\lambda_\mu}|b_{a\mu}\rangle_B|\mu\rangle_E,
+\qquad\langle b_{a\mu}|b_{b\nu}\rangle=\delta_{ab}\delta_{\mu\nu}.
+$$ {#eq-qec-schmidt-recovery}
+
+Orthogonality means there is an isometry on the occupied subspace of $B$ sending $|b_{a\mu}\rangle$ to $|a\rangle_Q|\mu\rangle_F$. It factors the state into the original logical state and an irrelevant syndrome subsystem entangled with $E$. Tracing out $F$ recovers $Q$. The recovery is independent of the unknown logical coefficients.
+
+Conversely, purify the recovery channel. Exact recovery of a pure logical state forces the joint output to factor as $|\psi\rangle_Q|\xi_\psi\rangle_{EF}$. Apply this statement to two orthogonal basis states and their superpositions. Linearity forces their environment factors to agree up to absorbable phases; otherwise a superposition would leave the logical output mixed. Thus the environment state is independent of every logical input, yielding @eq-qec-erasure-condition. This information-disturbance argument supplies necessity without assuming that the environment holds a complete second copy.
+
+For general errors $E_a$, the corresponding condition is
+
+$$
+V^\dagger E_a^\dagger E_bV=c_{ab}I_Q.
+$$ {#eq-qec-knill-laflamme}
+
+These are the Knill–Laflamme conditions [@info-knill1997]. Diagonalizing the positive matrix $c_{ab}$ produces orthogonal error-syndrome subspaces, reducing the proof to the recovery construction above. A recovery identifies the syndrome without identifying the logical state. Learning the latter would itself destroy the protected superposition.
+
+## Worked code: one qubit in four spins
+
+Define
+
+$$
+|0_L\rangle=\frac{|0000\rangle+|1111\rangle}{\sqrt2},\qquad
+|1_L\rangle=\frac{|0011\rangle+|1100\rangle}{\sqrt2}.
+$$ {#eq-qec-four-code}
+
+For any single erased site, each basis state has marginal $I/2$, and the partial trace of $|0_L\rangle\langle1_L|$ over the other three sites is zero. The latter follows because every computational string in the first state differs from each in the second on at least two sites, so at least one difference survives in the traced subsystem. Thus the code corrects any one known erasure.
+
+An explicit decoder makes the statement concrete. Erase site four, and write $|\psi_L\rangle=\alpha|0_L\rangle+\beta|1_L\rangle$ as
+
+$$
+|\psi_L\rangle=\frac1{\sqrt2}\left[
+(\alpha|000\rangle+\beta|110\rangle)|0\rangle_E
++(\alpha|111\rangle+\beta|001\rangle)|1\rangle_E\right].
+$$ {#eq-qec-code-decomposition}
+
+Map the four orthogonal remaining states according to
+
+$$
+000\mapsto 0_Q0_F0_G,\quad110\mapsto1_Q0_F0_G,\quad
+111\mapsto0_Q1_F0_G,\quad001\mapsto1_Q1_F0_G.
+$$ {#eq-qec-explicit-decoder}
+
+These four images are orthogonal states of the three remaining spins, and the map extends to a unitary by choosing its action on the unused four-dimensional subspace. The result is $(\alpha|0\rangle+\beta|1\rangle)_Q\otimes(|00\rangle+|11\rangle)_{FE}/\sqrt2\otimes|0\rangle_G$. The environment remains entangled with the syndrome but not with the logical qubit. Discarding $F,G$ completes the recovery.
+
+The code does not correct an arbitrary unknown single-site error: correcting an erasure uses knowledge of its location. Its distance is two, so it detects general weight-one errors and corrects one located erasure. Confusing error detection, erasure correction, and correction of unknown errors leads to overestimated code performance.
+
+## Derivation: coherent information of an erasure channel
+
+The $d$-dimensional erasure channel transmits the state with probability $1-p$ and outputs an orthogonal flag $|e\rangle$ with probability $p$:
+
+$$
+\mathcal E_p(\rho)=(1-p)\rho\oplus p|e\rangle\langle e|.
+$$ {#eq-qec-erasure-channel}
+
+For a maximally mixed input, its output entropy is $S(B)=h_2(p)+(1-p)\ln d$, where $h_2(p)=-p\ln p-(1-p)\ln(1-p)$. To calculate the joint reference-output entropy, apply the channel to half of a maximally entangled state. The transmitted branch is pure and the erased branch leaves a maximally mixed reference. Since the branches have orthogonal flags,
+
+$$
+S(RB)=h_2(p)+p\ln d.
+$$
+
+The **coherent information** is the negative conditional entropy,
+
+$$
+I_c(R\rangle B)\equiv S(B)-S(RB)=(1-2p)\ln d.
+$$ {#eq-qec-coherent-erasure}
+
+The calculation identifies a balance between accessible output and environmental leakage. The exact unassisted quantum capacity of this channel is $Q=\max\{0,1-2p\}\ln d$ per use in natural-log units [@info-bennett1997]. The capacity statement includes a coding theorem and converse; it does not follow solely from evaluating one entropy difference. With two-way classical communication assistance, the operational capacity question changes.
+
+For a general channel, a single coherent information is not automatically its capacity. Optimization and regularization over many uses may be required. Likewise, positive information remaining in one monitored finite-size example is not a proof of an asymptotically nonzero coding rate under arbitrary noise.
+
+## Scrambling as a random encoder
+
+Attach an unknown qubit to auxiliary spins, apply a scrambling unitary, and lose a small region. If every sufficiently small erased region is nearly decoupled from the reference, recovery from its complement is possible. Low unitary moments can establish averaged decoupling bounds, explaining why unitary designs are useful even without sampling an arbitrary exponentially complex unitary.
+
+Spatial locality imposes a time cost. Before the light cone of the input qubit has reached a distant region, that region cannot participate in encoding its information. All-to-all random encoders and local one-dimensional circuits therefore have different scrambling and encoding times. Conserved charges further restrict how information distributes; a charge difference between logical states can remain visible to local measurements even when other operator components scramble rapidly.
+
+Hayden and Preskill used random encoding and decoupling to analyze information recovery from random subsystems [@info-hayden2007]. Their quantum-information calculation is distinct from additional assumptions about black-hole dynamics. The useful many-body lesson is operational: specify which regions are accessible and how much earlier entanglement is available before claiming that a message can be recovered.
+
+## Monitored dynamics as a dynamically generated code
+
+In a monitored circuit, the measurement record itself is an accessible classical register $M$. The physical output is the joint system $BM$, not just the quantum state averaged over discarded outcomes. For a classical record,
+
+$$
+\rho_{RBM}=\sum_mp_m\rho_{RB|m}\otimes|m\rangle\langle m|.
+$$ {#eq-qec-classical-register}
+
+The entropy identity $S(XM)=h(p)+\sum_mp_mS(X|m)$ gives
+
+$$
+I_c(R\rangle BM)=\sum_mp_m[S(B|m)-S(RB|m)].
+$$ {#eq-qec-record-coherent}
+
+For perfectly monitored pure conditional states on $RB$, this becomes $\sum_mp_mS(R|m)$. The reference entropy is therefore an information-retention diagnostic when the record is available. It is not evidence that the same information survives if the record is lost.
+
+Choi, Bao, Qi, and Altman interpreted the volume-law monitored phase as protection by scrambling against measurement-induced errors [@info-choi2020]. Gullans and Huse developed the complementary purification picture and dynamically generated codes [@info-gullans2020pur]. These works identify mechanisms and rigorous statements within specified models, together with numerical evidence. A generic efficient decoder is a further requirement; an information-theoretic recovery map can be computationally prohibitive.
+
+An **encoding rate** counts logical qubits per physical qubit. A **code distance** counts the smallest physical support of an undetectable logical operation in an exact code. A **threshold** concerns asymptotic recovery under a specified error model and decoder. These terms characterize different properties. Large entanglement entropy alone determines none of them, and a single reference qubit probes a vanishing-rate encoding rather than an extensive logical rate.
+
+## Beyond entanglement: projected ensembles and resources
+
+An entangled state can have a flat or nonflat spectrum, possess different symmetries, and require different resources for preparation. Clifford circuits can encode and protect quantum information while remaining classically tractable. Their states do not supply every resource needed for universal quantum computation. One such additional resource is **nonstabilizerness**, often called magic: the part of a state that cannot be generated by stabilizer operations alone.
+
+Projected ensembles expose this distinction through higher moments. Measuring a complement gives conditional states $|\psi_m\rangle$ with probabilities $p_m$; the moments $M_k=\sum_mp_m(|\psi_m\rangle\langle\psi_m|)^{\otimes k}$ contain information absent from their average density matrix. Deep thermalization can equilibrate these moments to constrained universal distributions. The 2026 review [@info-mark2026] links this perspective to broader notions of Hilbert-space ergodicity.
+
+Feng and collaborators proposed a 2026 resource-localizability framework distinguishing smoothly varying local resource content from threshold-like behavior in projected ensembles [@info-feng2026]. It is a recent preprint with analytically tractable settings and numerical support, not a universal established phase diagram. Its connection to codes motivates an emerging question: can dynamics protect a logical resource even when ordinary entanglement diagnostics look unchanged? A useful study must define the allowed operations and resource measure before naming such a transition.
+
+## Mixed-state entanglement: a calculation beyond subsystem entropy
+
+For a bipartite mixed state, define the partial transpose by $\langle ab|\rho^{T_B}|a'b'\rangle=\langle ab'|\rho|a'b\rangle$. Its trace norm gives the negativity $\mathcal N=(\|\rho^{T_B}\|_1-1)/2$ and logarithmic negativity $E_N=\ln\|\rho^{T_B}\|_1$ [@info-vidal2002]. A negative eigenvalue certifies entanglement. In higher dimensions some entangled states have positive partial transpose, so zero negativity is not a universal separability test.
+
+Consider a dephased Bell pair,
+
+$$
+\rho(v)=\frac12\left[|00\rangle\langle00|+|11\rangle\langle11|
++v|00\rangle\langle11|+v|11\rangle\langle00|\right],\quad0\leq v\leq1.
+$$ {#eq-qec-dephased-bell}
+
+Both one-spin entropies remain $\ln2$ for every $v$. Partial transposition moves the coherence into the $|01\rangle,|10\rangle$ block, giving eigenvalues $1/2,1/2,v/2,-v/2$. Therefore $\mathcal N=v/2$ and $E_N=\ln(1+v)$. Entanglement decreases continuously to zero even though subsystem entropy does not change. This supplies a simple observable distinction between a mixed-state entanglement question and a pure-trajectory entropy question.
+
+Circuit complexity is another separate notion: it counts gates needed to prepare a state or channel relative to an allowed gate set and error tolerance. It is not fixed by entropy or negativity. Claims of complexity growth require a definition, approximation criterion, and often restricted models or bounds. Modern magic and resource transitions probe some aspects of this structure, but should not be presented as direct measurements of generic computational complexity.
+
+## Verification has a computational cost
+
+A recovery experiment can be verified through reference entanglement or teleportation fidelity. Success probability and conditional fidelity must both be reported: excellent fidelity on exponentially rare successful records may have poor overall utility. Scrambling-verification protocols explicitly separate these observables and address noise that can otherwise imitate a decayed OTOC [@info-yoshida2019].
+
+There are also limits on inferring arbitrary ensemble properties from unknown measurement-induced histories. The 2026 no-cloning-of-ensembles result establishes worst-case sampling barriers for broad classes of such properties [@info-du2026]. This does not rule out efficient certification of structured codes or observables with a known decoder. It does rule out assuming that because a quantity is easy to compute from a simulated wavefunction it is easy to measure on an unknown device.
+
+An honest resource estimate counts state preparations, record postselection, classical decoding time, and the size of the quantum system reconstructed. These are distinct resources. A protocol can be experimentally economical but depend on an exponential classical simulation, or have polynomial classical processing but demand exponentially many repeated histories.
+
+## A research workshop
+
+Begin with the four-spin code. Encode half of a Bell pair, erase each site in turn, and reconstruct $\rho_{RE}$. Verify that it factors exactly, then implement @eq-qec-explicit-decoder and calculate the recovered reference fidelity. Add a controlled unwanted phase or an unrecorded error and determine which assumption fails. Compare a known erasure with an unknown error of the same physical support.
+
+Next, replace the fixed encoder by a seeded local random circuit. Plot the reference's mutual information with contiguous lost regions versus circuit depth. Use more than one logical input or use the reference test so phase errors cannot hide. Finally add measurements and compare recovery with and without their record. The frontier question is how locality, symmetries, and limited classical processing change the gap between the existence of encoded information and its practical recovery.
+
+## Approximate recovery and finite experimental precision
+
+Exact decoupling is an ideal benchmark. In a numerical or experimental setting, use a stated distance such as $\epsilon=\tfrac12\|\rho_{RE}-\rho_R\otimes\rho_E\|_1$. Small decoupling error implies approximate recovery through continuity of purifications, with bounds depending on the chosen fidelity and distance conventions. The exact theorem should not be replaced by an unqualified equality between decoupling error and infidelity; their standard bounds involve square roots and constants.
+
+For a small code, one can avoid relying only on a bound by constructing the recovery and computing its entanglement fidelity directly. Compare that achievable fidelity with the decoupling diagnostic. If a proposed decoder performs poorly while decoupling error remains small, its algorithm or implementation is the likely limitation. If the erased environment carries substantial reference information, no decoder acting only on the remaining system can restore arbitrary logical states perfectly. This comparison makes information loss and decoding difficulty experimentally distinguishable questions.
+
+## Exercises
+
+1. **A false code.** Show that $|0_L\rangle=|000\rangle,|1_L\rangle=|111\rangle$ preserves classical bit values but does not correct one erased qubit for arbitrary superpositions. Calculate $\rho_{RE}$.
+2. **Four-spin recovery.** Verify @eq-qec-erasure-condition for every site of @eq-qec-four-code and construct a decoder when site one is erased.
+3. **Erasure information.** Derive @eq-qec-coherent-erasure from orthogonal branch flags. Explain why erasure probability one-half is special for unassisted quantum transmission.
+4. **Known record.** Prove @eq-qec-record-coherent. Give an example where discarding a classical key destroys otherwise recoverable entanglement.
+5. **Research design.** Propose a monitored-code benchmark reporting logical rate, retained reference information, decoder time, and sampling cost. Identify a result that would distinguish a bad decoder from information-theoretic failure.
+
+::: {.callout-tip title="Worked solutions: exercises 1 and 4"}
+Tracing one physical spin of the repetition encoding removes the cross term between $|000\rangle$ and $|111\rangle$. The environment's erased spin is correlated with the logical computational value, so it is not decoupled from $R$. The remaining spins retain a classical bit but lose an arbitrary relative phase.
+
+For an orthogonally flagged state, entropy equals the Shannon entropy of the flag plus the average branch entropy. Subtracting $S(RBM)$ from $S(BM)$ cancels that Shannon term. As an example, apply either $I$ or $Z$ to half of a Bell pair with equal probability and retain the choice in $M$. Knowing $M$ permits a correction and restores the Bell state; discarding it yields a separable dephased state.
+:::

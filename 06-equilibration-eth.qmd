@@ -1,0 +1,170 @@
+# Why isolated quantum systems look thermal {#sec-eth}
+
+::: {.callout-note}
+## Prerequisites and goals
+You need energy eigenstates, density matrices, partial traces, and the microcanonical and canonical ensembles. We rederive the specialized statements used here. By the end you should be able to compute a diagonal ensemble, identify the assumptions behind equilibration, use the eigenstate thermalization hypothesis (ETH), and explain why global purity is compatible with local thermodynamics. We use $\hbar=k_B=1$ and natural logarithms.
+:::
+
+## The apparent paradox
+
+An isolated quantum system evolves reversibly:
+$$
+|\psi(t)\rangle=e^{-iHt}|\psi(0)\rangle.
+$$
+Its von Neumann entropy $S(\rho)=-\operatorname{Tr}\rho\log\rho$ stays fixed. How, then, can a hot cloud equilibrate or a density pattern disappear? The answer begins with what is measured. A local observable acts on a small region $A$, so its expectation depends only on $\rho_A=\operatorname{Tr}_{\bar A}\rho$. Unitary evolution can entangle $A$ with its surroundings while leaving the full state pure.
+
+For two spins, take $|\psi(t)\rangle=\cos t\,|00\rangle-i\sin t\,|11\rangle$. The full entropy is zero, whereas the first-spin entropy is
+$$
+S_A(t)=-\cos^2t\log\cos^2t-\sin^2t\log\sin^2t.
+$$
+At $t=\pi/4$ every single-spin observable agrees with the maximally mixed state. This does not establish thermalization: the system is too small, and the entropy immediately decreases again. It does establish the mechanism by which local entropy can arise without loss of information. The information is in correlations.
+
+We distinguish **equilibration**, meaning remaining close to an approximately stationary value for most times in a specified observation window, from **thermalization**, meaning that stationary values agree with an appropriate thermal ensemble. Integrable systems can equilibrate to noncanonical values. Finite systems can recur. Neither statement contradicts local thermal behavior over a large intermediate window.
+
+## Dephasing and the diagonal ensemble
+
+Write $H|n\rangle=E_n|n\rangle$ and $|\psi(0)\rangle=\sum_n c_n|n\rangle$. For an observable $O$,
+$$
+\langle O(t)\rangle=\sum_{mn}c_m^*c_n e^{i(E_m-E_n)t}O_{mn}.
+$$ {#eq-eth-time}
+
+The time average of $e^{i\omega t}$ vanishes for $\omega\ne0$. Consequently, if the energies are nondegenerate,
+$$
+\overline{\langle O\rangle}=\sum_n p_n O_{nn}
+=\operatorname{Tr}(\rho_{\mathrm{DE}}O),\qquad
+\rho_{\mathrm{DE}}=\sum_n p_n|n\rangle\langle n|,\quad p_n=|c_n|^2.
+$$ {#eq-eth-de}
+
+This is the **diagonal ensemble**. The state has not literally become $\rho_{\mathrm{DE}}$; phase information remains recoverable by sufficiently global measurements or time reversal. The ensemble is a device for time-averaged predictions. With degeneracies, the correct expression is $\overline\rho=\sum_E P_E\rho(0)P_E$, where $P_E$ projects onto an entire degenerate eigenspace. Arbitrarily discarding coherences within that space is wrong.
+
+An average alone does not show that the system spends most times near it. Suppose nonzero energy gaps are nondegenerate: $E_m-E_n=E_p-E_q$ implies $(m,n)=(p,q)$. Subtract @eq-eth-de from @eq-eth-time, square the absolute value, and average. Only equal-frequency terms survive:
+$$
+\overline{|\langle O(t)\rangle-\overline{\langle O\rangle}|^2}
+=\sum_{m\ne n}p_mp_n|O_{mn}|^2.
+$$ {#eq-eth-variance}
+
+Define the **effective dimension** $d_{\mathrm{eff}}=1/\sum_n p_n^2$, the inverse participation ratio of the initial energy distribution. Using $p_mp_n\le(p_m^2+p_n^2)/2$ and $\sum_n|O_{mn}|^2\le\|O\|^2$ gives
+$$
+\overline{|\delta O|^2}\le \|O\|^2/d_{\mathrm{eff}}.
+$$
+Here $\|O\|$ is the largest singular value. A broad distribution over many eigenstates suppresses fluctuations under the gap assumption. The fraction of times with $|\delta O|>\epsilon$ is at most $\overline{|\delta O|^2}/\epsilon^2$. This is a statement about the measure of exceptional times, not a relaxation-time bound. Degenerate gaps, nearly conserved quantities, and exceedingly small level splittings complicate actual timescales.
+
+## Why a small subsystem has a Gibbs state
+
+Before discussing ETH, derive its thermal target. Let $H=H_A+H_B+H_{AB}$, with a weak boundary coupling, and consider a narrow microcanonical shell of total energy $E$. If $A$ has an eigenstate $|a\rangle$ of energy $\varepsilon_a$, its weight is proportional to the number of bath states at energy $E-\varepsilon_a$:
+$$
+p_a\propto \Omega_B(E-\varepsilon_a)=e^{S_B(E-\varepsilon_a)}.
+$$
+Expand the bath entropy about $E$:
+$$
+S_B(E-\varepsilon_a)=S_B(E)-\beta\varepsilon_a
+-\frac{\varepsilon_a^2}{2T^2C_B}+\cdots,
+\qquad \beta=\partial_E S_B=1/T.
+$$ {#eq-eth-bath}
+
+The second derivative follows from $d\beta/dE=-1/(T^2C_B)$, with bath heat capacity $C_B=dE/dT$. When subsystem energies are small on the bath's fluctuation scale, the quadratic term is negligible and
+$$
+\rho_A\simeq e^{-\beta H_A}/Z_A.
+$$
+
+This argument assumes a large bath and suitable weak coupling. At strong coupling, the reduced state need not equal the Gibbs state of the bare $H_A$. For an extensive subsystem fraction, the finite-bath correction can affect fluctuations and entanglement even when local observables look thermal. Additional conserved charges lead to $e^{-\beta(H-\sum_a\mu_aQ_a)}$ and require fixing compatible sectors or densities.
+
+The bath-counting derivation concerns an ensemble. ETH asks why a *single many-body eigenstate* can give the same local predictions.
+
+## The ETH ansatz and its consequences
+
+For a few-body observable in a chaotic many-body system, a conventional ETH ansatz is
+$$
+O_{mn}=\mathcal O(\bar E)\delta_{mn}
++e^{-S(\bar E)/2}f_O(\bar E,\omega)R_{mn},
+\quad \bar E=\frac{E_m+E_n}{2},\quad\omega=E_m-E_n.
+$$ {#eq-eth-ansatz}
+
+$S(E)$ is the thermodynamic entropy defined with a fixed microscopic energy-window convention. The smooth function $\mathcal O(E)$ is the microcanonical expectation. The envelope $f_O$ describes frequency-dependent matrix-element strength. The dimensionless coefficients $R_{mn}$ fluctuate with zero mean and order-one variance within small energy/frequency windows, with Hermiticity constraints. They are not literally independent Gaussian random variables at every order. Operator products, conservation laws, and higher-point correlations impose additional structure.
+
+Why the factor $e^{-S/2}$? A row of $O$ obeys $\sum_n|O_{mn}|^2=\langle m|O^2|m\rangle=O(1)$ for a bounded local observable. If it has appreciable matrix elements to order $e^S$ states, typical squared elements must be order $e^{-S}$. The envelope specifies which energy differences contribute. This normalization argument motivates a scale, not the whole ansatz.
+
+The **diagonal ETH** is smoothness of $O_{nn}$ in energy, with fluctuations vanishing with size. **Off-diagonal ETH** additionally constrains transitions. **Strong ETH** asserts thermal behavior of every eigenstate in a specified bulk energy window; **weak ETH** allows a vanishing fraction of exceptions. Such exceptions can still dominate the dynamics of specially prepared states.
+
+To derive thermalization, insert diagonal ETH into @eq-eth-de. Let $E_0=\sum_np_nE_n$ and energy variance $\Delta E^2=\sum_np_n(E_n-E_0)^2$. Taylor expansion gives
+$$
+\sum_np_n\mathcal O(E_n)=\mathcal O(E_0)
++\tfrac12\mathcal O''(E_0)\Delta E^2+\cdots.
+$$
+For an intensive smooth observable $\mathcal O(E)=o(E/L)$, $\mathcal O''=O(L^{-2})$. An ordinary product-state quench has $\Delta E^2=O(L)$ for local Hamiltonians, so the correction is $O(L^{-1})$. ETH fluctuations also vanish. Equilibration plus these facts yields local thermalization. A superposition of macroscopically different energy densities need not have a single temperature.
+
+All comparisons must respect symmetries. Combining distinct conserved-charge sectors can create multiple thermal branches or fake nonthermal fluctuations. Conversely, a nonlocal projector onto one exact eigenstate is outside the intended local-observable class and cannot serve as a meaningful counterexample to local ETH.
+
+Deutsch's random-perturbation construction and Srednicki's chaotic-eigenfunction argument established the original mechanism; neither is a proof for all local nonintegrable Hamiltonians [@deutsch1991statistical; @srednicki1994chaos]. Rigol, Dunjko, and Olshanii connected this mechanism directly to quench dynamics in microscopic numerical models [@rigol2008thermalization].
+
+## A spectral derivation of detailed balance
+
+Let $O$ be Hermitian and define the equilibrium spectrum
+$$
+\mathcal S_O(\omega)=\int_{-\infty}^{\infty}dt\,e^{i\omega t}
+\operatorname{Tr}[\rho_\beta O(t)O(0)].
+$$
+Insert energy eigenstates:
+$$
+\mathcal S_O(\omega)=\frac{2\pi}{Z}\sum_{mn}e^{-\beta E_n}|O_{mn}|^2
+\delta\bigl(\omega-(E_m-E_n)\bigr).
+$$ {#eq-eth-spectrum}
+
+Interchange $m,n$ in the negative-frequency spectrum. On the delta-function support, $e^{-\beta E_m}=e^{-\beta\omega}e^{-\beta E_n}$, so
+$$
+\mathcal S_O(-\omega)=e^{-\beta\omega}\mathcal S_O(\omega).
+$$ {#eq-eth-detailed}
+
+This exact equilibrium identity is **detailed balance**. The Fourier transform of the commutator is therefore $(1-e^{-\beta\omega})\mathcal S_O(\omega)$. With the retarded convention $\chi^R(t)=-i\theta(t)\langle[O(t),O(0)]\rangle$, one has $-2\operatorname{Im}\chi^R(\omega)=(1-e^{-\beta\omega})\mathcal S_O(\omega)$. Defining the positive dissipative spectrum as $\chi''=-\operatorname{Im}\chi^R$ avoids a sign ambiguity common across response conventions.
+
+ETH supplies a route from a single narrow-energy eigenstate to these equilibrium local spectra. It does not make detailed balance an independent dynamical assumption. At low frequencies, slow conserved modes give nontrivial envelopes and finite-size scales; a featureless random matrix misses that hydrodynamic structure. See [linear response](12-linear-response.qmd).
+
+## Laboratory: a quench with a thermal target
+
+Use an open tilted-field Ising chain,
+$$
+H=J\sum_{j=1}^{L-1}\sigma_j^z\sigma_{j+1}^z
++h_x\sum_j\sigma_j^x+h_z\sum_j\sigma_j^z,
+$$
+with generic nonzero fields. These are Pauli matrices; the interaction would be $4J S_j^zS_{j+1}^z$ in spin notation. Prepare an alternating $z$-basis state and measure a central-site $\sigma^z$ and a short bond correlator.
+
+1. Diagonalize the relevant symmetry blocks and calculate $p_n$ and $E_0$.
+2. Compute the exact time trace and diagonal-ensemble value separately.
+3. Choose a microcanonical window containing many levels but narrow in energy density. Check several window widths.
+4. Solve $\operatorname{Tr}(He^{-\beta H})/Z=E_0$ for the canonical temperature.
+5. Compare local observables, temporal fluctuations, and diagonal matrix elements as $L$ increases.
+
+Do not demand exact agreement at $L=10$. Finite-bath corrections, boundary effects, energy-window errors, and insufficient equilibration time are real. The [computational methods chapter](05-computational-toolkit.qmd) explains exact propagation and convergence. The accompanying [Julia laboratory](numerics/thermal_lab.jl) provides a small reproducible version; it demonstrates mechanisms rather than reproducing a thermodynamic extrapolation.
+
+![Exact $L=8$ tilted-field Ising quench with $J=1$, $h_x=1.05$, bulk $h_z=0.5$, and a left boundary offset $0.173$ breaking reflection. The initial bit string is hexadecimal $5a$, with bit zero representing positive $\sigma^z$. The microcanonical comparison averages the nearest 24 levels. Finite temporal fluctuations and disagreement among ensembles remain visible; the calculation does not establish a thermodynamic limit. Data and all conventions are recorded in `data/thermal-eth-metadata.csv`.](figs/thermal-eth.png){#fig-eth-quench}
+
+## Research bridges and current limits
+
+Kaufman and collaborators experimentally compared local observables and entanglement in an isolated small atomic system while testing global purity [@kaufman2016thermalization]. The motivation was precisely the entropy paradox at the start of this chapter. Their measurements support entanglement-generated local thermality. Their finite system and accessible times do not establish strong ETH for all states of an infinite Hamiltonian. An achievable reproduction is to calculate the same subsystem purities in a small Bose–Hubbard chain and compare them with the corresponding ensembles.
+
+An instructive 2026 development concerns thermal first-order transitions. Serbyn, Avdoshkin, Diessel, and Huse study all-to-all spin models with competing mean-field branches [@serbyn2026firstorder]. Semiclassical analysis and exact diagonalization identify regimes with distinct eigenstate expectation values at the same energy density, and regimes with interbranch superpositions. Their result, published in *Physical Review X*, shows that the naive single-smooth-branch formulation requires refinement in this setting. It does not imply that every short-range first-order transition violates every formulation of local ETH. A first reproduction should inspect branch-resolved eigenstate observables and test how tunneling scales with size before making an asymptotic claim.
+
+ETH remains an organizing hypothesis with extensive microscopic support and important restrictions. The next chapter asks a related but distinct question: what can the energy levels themselves reveal about chaotic dynamics?
+
+## Exercises
+
+1. **Degenerate energies.** For $H=\omega\sigma_1^z$ with a spectator second spin, find the infinite-time averaged density matrix of an arbitrary initial pure state. Which coherences remain?
+2. **Broad energy distribution.** Take an equal superposition of narrow wave packets at energies $Le_1$ and $Le_2$. Assuming ETH within each packet, derive the stationary value of a local observable. Give a reason it need not equal its canonical value at the mean energy.
+3. **Fluctuation bound.** Reproduce the effective-dimension bound from @eq-eth-variance. Identify precisely where nondegenerate gaps entered and how a gap degeneracy factor would modify it.
+4. **Finite bath.** Use @eq-eth-bath for a two-level subsystem of energies $0,\varepsilon$. Calculate the leading correction to the Gibbs population ratio.
+5. **Numerical claim audit.** A plot shows smooth $O_{nn}$ for one observable at $L=12$. List three additional checks needed before claiming strong ETH, and design one test sensitive to rare eigenstates.
+
+::: {.callout-tip collapse="true"}
+## Worked solution: broad energy distributions
+Diagonal ETH gives $O_{\mathrm{DE}}\to[ o(e_1)+o(e_2)]/2$, because interference between distinct energies disappears in the time average. The canonical prediction at mean density $(e_1+e_2)/2$ is $o((e_1+e_2)/2)$. Equality requires a special property of $o$, such as linearity over this interval. The difference stays finite as $L\to\infty$ if the energy-density separation stays finite. Thus ETH does not remove dependence on an initially broad distribution of conserved energy.
+:::
+
+::: {.callout-tip collapse="true"}
+## Worked solution: finite bath
+The population ratio is
+$$
+\frac{p_\varepsilon}{p_0}=\exp[S_B(E-\varepsilon)-S_B(E)]
+=e^{-\beta\varepsilon}\left[1-\frac{\varepsilon^2}{2T^2C_B}+\cdots\right].
+$$
+The negative correction reflects the positive heat capacity: placing energy in the subsystem cools a finite bath, making the excitation less likely than an infinite-temperature-reservoir approximation predicts at the original temperature. The expansion is controlled when $\varepsilon^2\ll T^2C_B$ and higher entropy derivatives are small.
+:::

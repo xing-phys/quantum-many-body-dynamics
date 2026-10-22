@@ -1,0 +1,160 @@
+# Disorder, interference, and local quantum memory {#sec-localization}
+
+::: {.callout-note}
+## Prerequisites and goals
+You need tight-binding Hamiltonians, tensor products, and reduced density matrices. We introduce transfer matrices, resonances, and local integrals of motion explicitly. The goal is to distinguish single-particle localization from interacting localization, derive dephasing without transport, and assess exactly what finite-size simulations and experiments establish. Units are $\hbar=1$, and $S^a=\sigma^a/2$.
+:::
+
+## Disorder can prevent a wave from spreading
+
+Scattering usually suggests diffusion: repeated random changes in direction produce a random walk. A quantum particle carries amplitudes, however, and different scattering paths interfere. Static disorder preserves the relative phase information needed for interference. In suitable circumstances the interference prevents diffusion altogether. This is **Anderson localization** [@anderson1958diffusion]. It is not trapping in an unusually deep classical potential well; it can occur when all sites have comparable energies and many classically accessible paths exist.
+
+Consider a one-dimensional chain with one orbital per site,
+$$
+H_0=J\sum_j(|j+1\rangle\langle j|+|j\rangle\langle j+1|)
++\sum_j h_j|j\rangle\langle j|.
+$$
+For $|\psi\rangle=\sum_j\psi_j|j\rangle$, the stationary Schrödinger equation gives
+$$
+\begin{pmatrix}\psi_{j+1}\\\psi_j\end{pmatrix}
+=T_j(E)\begin{pmatrix}\psi_j\\\psi_{j-1}\end{pmatrix},\qquad
+T_j(E)=\begin{pmatrix}(E-h_j)/J&-1\\1&0\end{pmatrix}.
+$$ {#eq-loc-transfer}
+
+Every transfer matrix has determinant one. Products $T_L\cdots T_1$ can acquire exponentially large and small singular values. The positive exponential rate, when it exists, defines a Lyapunov exponent $\gamma(E)$; its inverse is a localization length in this transfer-matrix convention. A normalizable eigenfunction aligns with a decaying solution away from its center. Generic independent random site energies in one dimension produce localization under standard disorder assumptions. Correlated disorder, special energies, quasiperiodic modulation, and higher dimensions require separate statements.
+
+Even a localized packet can move over a finite initial distance. Localization means that its asymptotic spatial extent does not grow indefinitely in the infinite isolated model. A finite-time plateau in the mean-square displacement is a useful diagnostic, but on its own cannot separate true localization from an extremely slow crossover.
+
+## A locator expansion and its failure at resonance
+
+Start with $J=0$, where a state on site $0$ has energy $h_0$. Perturbatively, an amplitude at a distant site contains products of hopping matrix elements and energy denominators. For a nonresonant path of length $r$, schematically,
+$$
+\psi_r\sim\prod_{j=1}^r\frac{J}{E-h_j}.
+$$ {#eq-loc-locator}
+
+If typical denominators greatly exceed $J$, logarithms of the amplitudes add and produce exponential spatial decay. A **resonance** occurs when a denominator is comparable to or smaller than the corresponding matrix element. Near such a point ordinary perturbation theory is invalid. One must diagonalize the resonant cluster before continuing. The locator expansion is valuable intuition, but multiplying typical denominators while discarding resonant tails is not a proof.
+
+Interactions magnify this issue. A chain of $L$ spins has $2^L$ basis states, with exponentially small many-body level spacing at a fixed energy density. Perturbing in the interaction and comparing only its magnitude with that global spacing would predict mixing almost everywhere. Conversely, applying the single-particle localization argument independently to each particle ignores many-body resonances. Locality determines which configurations connect directly; the competition between connectivity, matrix elements, and energy denominators must be treated together.
+
+The standard laboratory is a random-field XXZ chain,
+$$
+H=J\sum_{j=1}^{L-1}\left(S_j^xS_{j+1}^x+S_j^yS_{j+1}^y+\Delta S_j^zS_{j+1}^z\right)
++\sum_j h_jS_j^z.
+$$ {#eq-loc-xxz}
+
+$h_j$ may be independently uniform on $[-W,W]$. The $\Delta=0$ model maps to noninteracting fermions and provides an Anderson-localized reference. For $\Delta\ne0$, interacting dynamics can show long-lived local memory and logarithmic entanglement growth. Whether every observed localized regime extends to an infinite-time thermodynamic phase is a separate stability question, developed in the [next chapter](18-mbl-transition.qmd).
+
+## Effective conserved spins: the l-bit picture
+
+Suppose a quasi-local unitary transformation $U$ diagonalizes the Hamiltonian. **Quasi-local** means a transformed local operator has tails whose norm decreases rapidly with distance. Define dressed Pauli operators
+$$
+\tau_i^z=U\sigma_i^zU^\dagger,\qquad
+[H,\tau_i^z]=0,\qquad (\tau_i^z)^2=1.
+$$
+The mutually commuting $\tau_i^z$ label all eigenstates, much as occupation numbers do for noninteracting localized orbitals. They are called local integrals of motion, LIOMs, or **l-bits**. In this chapter $\tau$ has eigenvalues $\pm1$, not $\pm1/2$.
+
+Any Hamiltonian diagonal in these labels can be expanded as
+$$
+H=E_0+\sum_i\widetilde h_i\tau_i^z
++\sum_{i<j}J_{ij}\tau_i^z\tau_j^z
++\sum_{i<j<k}J_{ijk}\tau_i^z\tau_j^z\tau_k^z+\cdots.
+$$ {#eq-loc-lbit}
+
+Quasi-locality constrains the effective interactions to decrease with range, with model-dependent distributions and distinct possible decay lengths. Importantly, @eq-loc-lbit includes interactions. The l-bit values never flip, but their transverse phases depend on the state of other l-bits. This produces dephasing and entanglement even with no transport of l-bit populations.
+
+Serbyn, Papić, and Abanin constructed the LIOM description under assumptions about the local response of eigenstates, supported by numerical simulations [@serbyn2013liom]. Huse, Nandkishore, and Oganesyan developed its dynamical consequences and emphasized multiple relevant length scales [@huse2014phenomenology]. A quasi-local diagonalization is a substantive property of a localized phase, not something obtained merely by noting that every finite matrix can be diagonalized. A generic diagonalizing unitary is highly nonlocal.
+
+There is freedom in choosing LIOMs, and physical spins are not identical to them. A local observable such as $\sigma_i^z$ generally has a component along several conserved products plus components that dephase. Its persistent memory is set by those conserved overlaps. This explains why full return to the initial local value is not expected even in a localized regime.
+
+## Worked example: entanglement with no population relaxation
+
+Take two l-bits with
+$$
+H=h_1\tau_1^z+h_2\tau_2^z+J_{12}\tau_1^z\tau_2^z
+$$
+and initial state $|+\rangle_x|+\rangle_x$, where $|+\rangle_x=(|+1\rangle_z+|-1\rangle_z)/\sqrt2$. The four amplitudes acquire phases $e^{-it(h_1s_1+h_2s_2+J_{12}s_1s_2)}/2$. Tracing out spin 2 gives
+$$
+\rho_1(t)=\frac12\begin{pmatrix}
+1&e^{-2ih_1t}\cos(2J_{12}t)\\
+e^{2ih_1t}\cos(2J_{12}t)&1
+\end{pmatrix}.
+$$ {#eq-loc-twospin}
+
+The local field only rotates the coherence. The interaction changes its magnitude. The purity is
+$$
+\operatorname{Tr}\rho_1^2=\frac{1+\cos^2(2J_{12}t)}2,
+$$
+and the eigenvalues are $(1\pm\cos(2J_{12}t))/2$. At $2J_{12}t=\pi/2$, the first spin is maximally mixed, even though $\langle\tau_1^z\rangle$ and all l-bit populations have remained constant. At $J_{12}=0$, no entanglement is generated. This isolates the interaction-induced mechanism from Anderson localization.
+
+With many independently $x$-polarized environment l-bits and only pair couplings, the off-diagonal coherence generalizes to
+$$
+2\rho_i^{+-}(t)=e^{-2i\widetilde h_it}\prod_{j\ne i}\cos(2J_{ij}t).
+$$
+Many incommensurate frequencies suppress local coherence over broad time windows, even though a finite system retains recurrences. Multispin terms complicate the product, not the underlying distinction between phase dephasing and population relaxation.
+
+## Deriving logarithmic entanglement growth
+
+Suppose an effective interaction across distance $r$ has typical magnitude $J(r)\sim J_0e^{-r/\xi_J}$. It produces an order-one relative phase when $tJ(r)\sim1$, so the distance reached by interaction-induced dephasing is
+$$
+r(t)\sim\xi_J\log(J_0t).
+$$ {#eq-loc-logfront}
+
+After a product-state quench, l-bits within this distance from an entanglement cut can become entangled with the other side. In one dimension, assuming an approximately constant available entropy per affected l-bit,
+$$
+S_A(t)\sim s_{\mathrm{diag}}\,\xi_J\log(J_0t)+\text{constant}
+$$ {#eq-loc-logentropy}
+until the front reaches subsystem boundaries. Constants depend on the number of cuts, the initial state, distributions of couplings, and the definition of the decay length. $s_{\mathrm{diag}}$ represents the entropy density available in the initial distribution over LIOM configurations; it need not be the thermal entropy density. Finite initial dressing can add a short-time contribution.
+
+This reasoning gives the physical content of logarithmic entanglement growth [@serbyn2013entanglement]. It assumes the localized effective description persists over the distances and times considered. It must not be used circularly to establish that description at arbitrary scales. In higher dimensions, the geometry of the entangling layer changes, and rare thermal-region stability must be addressed separately.
+
+Eigenstates of @eq-loc-lbit are product states in the dressed basis. A quasi-local unitary can entangle them mainly near a boundary, giving an **area law**, where eigenstate entropy scales with boundary size. Quenches, however, can eventually produce a volume-law entropy of a coherent superposition, with a nonthermal coefficient. Eigenstate area laws and quench volume laws answer different questions.
+
+## What should one measure?
+
+An experimentally accessible memory diagnostic is the density-wave imbalance
+$$
+\mathcal I(t)=\frac{N_{\mathrm{even}}(t)-N_{\mathrm{odd}}(t)}{N_{\mathrm{even}}(t)+N_{\mathrm{odd}}(t)}.
+$$
+An initial pattern on even sites has $\mathcal I(0)=1$. Persistent imbalance indicates retained information about that pattern. A cleaner spin-chain equivalent is a staggered magnetization, normalized to its initial value. Its interpretation must account for conserved total density, boundaries, and the chosen state.
+
+No single quantity distinguishes all mechanisms. Anderson localization and interacting localization can both retain imbalance, while their entanglement dynamics differ. A slowly thermalizing state can retain imbalance over a limited window. A constrained clean model can do so without random disorder. A bath can eventually erase memory even when the isolated model is localized.
+
+![Matched-disorder exact calculations in open $L=8$ XXZ chains with $J=1$, fields independently uniform on $[-8,8]$, and 12 realizations per anisotropy. Both the Anderson reference $\Delta=0$ and interacting model $\Delta=1$ retain substantial staggered memory, while interactions produce additional entanglement at later times. Shading is one standard error across disorder realizations. The small sizes, broad sample fluctuations, and finite time window do not establish asymptotic localization or a logarithmic-growth law.](figs/thermal-localization.png){#fig-loc-comparison}
+
+The [Julia script](numerics/thermal_lab.jl) saves the individual realization data rather than only the averaged curves. Increasing the sample count is essential before fitting a slope; increasing $L$ is a separate requirement. Comparing only the retained imbalance would miss the interaction-induced difference visible in entropy.
+
+Conductivity adds another perspective. A localized phase need not have identically zero response at every nonzero frequency: resonant configurations can absorb energy without producing dc transport. Gopalakrishnan and collaborators developed a low-frequency power-law conductivity picture from resonant pairs and rare regions [@gopalakrishnan2015conductivity]. Its varying exponents are phenomenological predictions with numerical support under a localized-regime description. They should not be treated as exact identities independent of model or asymptotic stability.
+
+## Research bridges: observation, effective theory, theorem
+
+Schreiber and collaborators prepared a density wave of interacting fermions in a quasiperiodic optical lattice and observed a regime of retained imbalance with interaction-dependent behavior [@schreiber2015localization]. The motivation was to distinguish interacting nonergodic dynamics from ordinary relaxation. The controlled experimental object is a finite-time density evolution. A quasiperiodic potential differs from independent disorder because arbitrarily large weak-disorder regions do not occur with the same statistics. Reproducing a small-system imbalance trace is an excellent first exercise; extrapolating it to a random-disorder thermodynamic transition is not justified.
+
+There is also rigorous mathematical work. Imbrie constructed a sequence of local rotations for a particular one-dimensional disordered spin chain, conditional on a specified assumption limiting level attraction [@imbrie2016localization]. This is much stronger than a finite-size fit, but its hypotheses matter. It is not an unconditional theorem covering the random-field Heisenberg chain, arbitrary interaction range, or higher dimensions.
+
+These three levels of evidence—experimental memory, quasi-local effective dynamics, and a conditional theorem—are mutually informative without being interchangeable. The principal modern challenge is how rare resonant regions alter the infinite-scale limit. We now turn to that question.
+
+## Exercises
+
+1. **Transfer matrices.** Derive @eq-loc-transfer and verify $\det T_j=1$. In the clean chain, diagonalize the transfer matrix and recover the band $E=2J\cos k$.
+2. **Two-spin purity.** Starting from the four amplitudes, derive @eq-loc-twospin. Show explicitly that $h_2$ disappears after the partial trace and that $h_1$ cannot change the entropy.
+3. **General initial environment.** Replace the second spin by $\sqrt p|+1\rangle+\sqrt{1-p}|-1\rangle$. Find the coherence and purity. For which $p$ can the first spin become maximally mixed?
+4. **Time and length.** Assume $J(r)=J_0e^{-r/\xi_J}$ and a chain of length $L$. Estimate the entanglement saturation time for a central cut. Contrast its exponential dependence on $L$ with ballistic saturation.
+5. **Numerical control.** In @eq-loc-xxz, compare $\Delta=0$ and $\Delta=1$ at the same disorder. Design a finite-size experiment measuring both imbalance and entropy, and specify which observations would support dephasing rather than transport.
+
+::: {.callout-tip collapse="true"}
+## Worked solution: clean transfer matrices
+For $h_j=0$, the transfer eigenvalues satisfy $\lambda^2-(E/J)\lambda+1=0$. Writing $\lambda=e^{\pm ik}$ gives $E=2J\cos k$ and oscillatory, nondecaying wave functions inside the band. Outside the band, one eigenvalue has magnitude above one and the other below one. Evanescence outside a clean band is not Anderson localization of in-band states; the distinction is essential when interpreting exponential transfer solutions.
+:::
+
+::: {.callout-tip collapse="true"}
+## Worked solution: a biased environment
+The first-spin coherence is
+$$
+2\rho_1^{+-}=e^{-2ih_1t}\bigl[p e^{-2iJ_{12}t}+(1-p)e^{2iJ_{12}t}\bigr].
+$$
+Its squared magnitude is $1-4p(1-p)\sin^2(2J_{12}t)$. Therefore
+$$
+\operatorname{Tr}\rho_1^2=1-2p(1-p)\sin^2(2J_{12}t).
+$$
+The minimum purity reaches $1/2$ only for $p=1/2$. An environment l-bit in an exact $z$ eigenstate merely supplies a deterministic field and cannot entangle with the first spin in this diagonal Hamiltonian.
+:::

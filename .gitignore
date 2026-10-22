@@ -2,3 +2,13 @@
 /_site/
 
 **/*.quarto_ipynb
+
+# Quarto/LaTeX intermediates and local tooling
+/*.tex
+/*.log
+/*.aux
+/*.toc
+/*.out
+/*.synctex.gz
+/.venv/
+__pycache__/

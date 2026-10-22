@@ -1,0 +1,372 @@
+# Exactly tractable circuits and space–time duality {#sec-exact-circuits}
+
+Exact solutions are often associated with noninteracting or integrable systems.
+Dual-unitary circuits reveal another possibility: a dynamics can be strongly
+entangling and nonintegrable while selected many-body observables remain exactly
+calculable. Their special structure concerns how a tensor network can be
+contracted, rather than an extensive set of conventional conserved charges.
+
+We develop the mechanism using only finite-dimensional linear algebra, partial
+traces, and elementary entanglement. Use $\hbar=k_B=1$, natural logarithms, and
+local Hilbert-space dimension $d$. For qubits, $\sigma^a$ are Pauli matrices and
+$S^a=\sigma^a/2$. Gate rotation angles below multiply Pauli matrices explicitly;
+they should not be interpreted as the same numerical coupling multiplying $S^a$.
+
+## A gate with two interpretations
+
+A two-site unitary has matrix elements
+$U_{ab}^{cd}=\langle c,d|U|a,b\rangle$, where each index takes $d$ values.
+Ordinary unitarity is
+
+$$
+\sum_{cd}U_{ab}^{cd}(U_{a'b'}^{cd})^*
+=\delta_{aa'}\delta_{bb'}.
+$$ {#eq-dual-time-unitarity}
+
+In a circuit drawn vertically in time, this identity cancels a gate with its
+adjoint when their outgoing legs are contracted.
+Now regroup the same four indices into a different matrix:
+
+$$
+\widetilde U_{ac}^{bd}=U_{ab}^{cd}.
+$$ {#eq-dual-reshuffle}
+
+This *reshuffling* changes which pair of legs is treated as input. A gate is
+**dual unitary** when $\widetilde U$ is also unitary:
+
+$$
+\sum_{bd}U_{ab}^{cd}(U_{a'b}^{c'd})^*
+=\delta_{aa'}\delta_{cc'}.
+$$ {#eq-dual-space-unitarity}
+
+The second equation permits a cancellation in the spatial direction. It is not
+true for a generic unitary gate. Reshuffling is also not the usual partial
+transpose, despite involving a related regrouping of indices. Specify the index
+map when implementing either operation.
+
+Arrange copies of $U$ in alternating layers of nearest-neighbor gates, a
+*brickwork circuit*. Temporal unitarity preserves norm under physical time
+evolution. Dual unitarity permits certain tensor-network contractions to be
+performed sideways. Space is not literally a second physical time; a different
+linear-algebra contraction happens to be unitary.
+
+## Constructing and checking an explicit family
+
+The SWAP gate acts as $W|a,b\rangle=|b,a\rangle$ and has
+$W_{ab}^{cd}=\delta_{cb}\delta_{da}$. Its reshuffling is another permutation
+matrix, so it is dual unitary. SWAP alone is not chaotic: it merely transports
+local states.
+
+A more instructive family is
+
+$$
+U_\phi|a,b\rangle=e^{i\phi_{ab}}|b,a\rangle.
+$$ {#eq-dual-phase-swap}
+
+For each input pair there is one output pair of modulus-one amplitude, proving
+ordinary unitarity. For each reshuffled row $(a,c)$, the only allowed column is
+$(b,d)=(c,a)$, again with modulus one. This proves dual unitarity for arbitrary
+real phases $\phi_{ab}$.
+For qubits, $U=\mathrm{SWAP}\,e^{-i\gamma\sigma^z\otimes\sigma^z}$ is an
+example. It entangles generic product states, yet its diagonal spin operators
+follow simple trajectories. Entangling power and chaos are different criteria.
+
+Multiplying by arbitrary single-site unitaries on incoming and outgoing legs
+preserves both cancellation identities:
+$U'=(u_1\otimes u_2)U(v_1\otimes v_2)$.
+Suitable choices produce much richer dynamics. Some dual-unitary gates are
+mixing, some have persistent local modes, and some belong to integrable families.
+Dual unitarity alone does not select one of these behaviors.
+
+The following Julia calculation verifies the index convention explicitly rather
+than relying on an ambiguous multidimensional reshape:
+
+```julia
+#| eval: false
+using LinearAlgebra
+d = 2
+ix(a,b) = a*d+b+1  # a,b start at zero
+U = zeros(ComplexF64,d^2,d^2)
+gamma = 0.37
+for a in 0:d-1, b in 0:d-1
+    phase = exp(-im*gamma*(1-2a)*(1-2b))
+    U[ix(b,a),ix(a,b)] = phase
+end
+R = similar(U)
+for a in 0:d-1, b in 0:d-1, c in 0:d-1, e in 0:d-1
+    R[ix(a,c),ix(b,e)] = U[ix(c,e),ix(a,b)]
+end
+@assert norm(U' * U - I) < 1e-12
+@assert norm(R' * R - I) < 1e-12
+```
+
+A useful negative control is a generic two-qubit unitary: it passes the first
+assertion and almost always fails the second. This protects against a code path
+that accidentally checks ordinary unitarity twice.
+
+## Deriving the light-ray correlation channel
+
+Consider the infinite-temperature correlator of traceless local observables,
+
+$$
+C_{ab}(x,t)=d^{-L}\operatorname{Tr}
+\left[U(t)^\dagger a_0U(t)b_x\right].
+$$ {#eq-dual-correlator}
+
+The trace is a network with a forward circuit, a backward circuit, and two
+operator insertions. Outside the causal cone, ordinary unitarity cancels the
+two layers. Inside the cone, dual unitarity cancels transverse pairs. If a
+traceless insertion is left disconnected from the other insertion, the network
+vanishes because $\operatorname{tr}a=0$.
+For one-site observables in a homogeneous dual-unitary brickwork circuit, the
+remaining nonzero contributions lie on the appropriate maximal-velocity rays,
+with checkerboard parity deciding which edge is accessible for a given
+insertion. This is an exact infinite-temperature statement, not a generic
+property of thermal correlation functions.
+
+Along a right-moving ray, a single edge gate induces the map
+
+$$
+\mathcal M_R(a)=\frac1d\operatorname{tr}_1
+\left[U^\dagger(a\otimes\mathbf1)U\right].
+$$ {#eq-dual-channel}
+
+The trace removes the first site; the output is an operator on the second.
+A left-moving map is defined with the two sites interchanged. Each map is a
+completely positive, trace-preserving, unital channel: it comes from unitary
+conjugation with a maximally mixed environment. A normalized correlation after
+$n$ successive equivalent edge gates reduces to
+
+$$
+C_{ab}^{R}(n)=\frac1d\operatorname{tr}
+\left[\mathcal M_R^{\,n}(a)b\right].
+$$ {#eq-dual-channel-power}
+
+If gates alternate within a unit cell, the corresponding channel composition
+replaces the simple power. Reporting $n$ as the number of edge gates avoids
+confusing a single brickwork layer with a full two-layer Floquet period.
+The exact reduction is the central result behind @bertini2019dual.
+
+Diagonalize $\mathcal M_R$ in the $d^2$-dimensional single-site operator space.
+The identity has eigenvalue one. A traceless eigenoperator $r$ with eigenvalue
+$\lambda$ contributes $\lambda^n$ to a ray correlation. Eigenvalues inside the
+unit circle give exponential decay along that ray; unit-modulus eigenvalues
+produce persistent or oscillatory pieces. Jordan blocks can add polynomial
+prefactors. A channel gap concerns these local ray observables; it does not
+by itself prove every possible many-body notion of ergodicity.
+
+## Worked example: a nonmixing dual-unitary gate
+
+For the phased SWAP with qubit angle $\gamma$,
+$U^\dagger(\sigma^z\otimes\mathbf1)U=\mathbf1\otimes\sigma^z$.
+Thus $\mathcal M_R(\sigma^z)=\sigma^z$: magnetization travels without decay.
+For $\sigma^x$, conjugation by the controlled phase produces terms proportional
+to $\mathbf1\otimes\sigma^x$ and $\sigma^z\otimes\sigma^y$.
+The partial trace removes the second term and gives
+
+$$
+\mathcal M_R(\sigma^x)=\cos(2\gamma)\sigma^x,
+\qquad
+\mathcal M_R(\sigma^y)=\cos(2\gamma)\sigma^y.
+$$ {#eq-dual-example-channel}
+
+The $x$ and $y$ ray correlations decay geometrically for generic $\gamma$,
+while the $z$ correlation does not. The same gate can therefore be mixing in
+some observable sectors and exactly nonmixing in another. This is a concrete
+reason to examine the full traceless channel spectrum rather than infer chaos
+from one rapidly decaying correlation.
+
+Interior two-point functions can vanish even though the state is highly
+entangled. Information may reside in operators supported on many sites.
+Out-of-time-ordered correlators use four rather than two circuit replicas and
+probe a different contraction problem. Dual unitarity simplifies many of them,
+but one must establish the relevant replica identities rather than assume every
+higher moment follows from @eq-dual-channel-power.
+
+## Entanglement: the cut bound and exact saturation
+
+Represent a pure-state circuit as a tensor network with local legs of dimension
+$d$. Draw a cut through the network separating final region $A$ from its
+complement. If it crosses $r$ legs, the Schmidt rank is at most $d^r$.
+For every Rényi entropy with positive index, the entropy is bounded by the
+logarithm of rank:
+
+$$
+S_A^{(n)}\leq r\ln d.
+$$ {#eq-dual-cut-bound}
+
+Minimize over allowed cuts to obtain the strongest such bound. The logic needs
+only the factorization of the network across cut indices. It is a bound, not
+an equality for a generic circuit or initial state.
+
+For certain solvable initial product or short-range entangled states in
+self-dual kicked Ising and related dual-unitary circuits, repeated cancellations
+show that the nonzero eigenvalues of the reduced state are all equal. If the
+rank is $d^r$, then
+
+$$
+\rho_A\ \hbox{has spectrum}\ 
+\underbrace{d^{-r},\ldots,d^{-r}}_{d^r\ \mathrm{entries}},
+\qquad S_A^{(n)}=r\ln d.
+$$ {#eq-dual-flat-spectrum}
+
+Indeed, $\operatorname{tr}\rho_A^n=d^{-r(n-1)}$, which directly yields the
+same entropy for every Rényi index and the von Neumann limit. This proves
+minimal-cut saturation for those states, rather than guessing it from a large
+entanglement velocity. For a long interval and suitable circuit units the
+leading result has the familiar form
+$S_\ell(t)=\min(2t,\ell)\ln d$, with boundary/parity offsets determined by
+the precise layer and initial-state convention.
+
+@bertini2019entanglement constructs this exact solvable class. Arbitrary
+product states need not share every finite-time equality. Generic chaotic
+systems are instead described at large scales by a membrane with a nontrivial
+line tension [@zhou2020membrane]. A cut bound, exact flat spectrum, and a
+coarse-grained membrane are three related but logically different statements.
+
+## Exact spectral correlations: another notion of chaos
+
+Local relaxation does not exhaust quantum chaos diagnostics. For a Floquet
+operator $U_F$ with eigenphases $\theta_j$, define the spectral form factor
+
+$$
+K(t)=\left\langle|\operatorname{Tr}U_F^t|^2\right\rangle
+=\left\langle\sum_{jk}e^{it(\theta_j-\theta_k)}\right\rangle.
+$$ {#eq-dual-sff}
+
+The brackets specify an ensemble or smoothing procedure. Random-matrix
+predictions depend on antiunitary symmetries: the early ramp is proportional to
+$t$ for the circular unitary ensemble and approximately $2t$ for the circular
+orthogonal ensemble at times small compared with Hilbert-space dimension.
+One must resolve exact symmetries before making the comparison.
+
+For the kicked Ising chain,
+
+$$
+U_F=e^{-ib\sum_x\sigma_x^x}
+\exp\!\left[-i\left(J\sum_x\sigma_x^z\sigma_{x+1}^z+
+\sum_xh_x\sigma_x^z\right)\right],
+$$ {#eq-dual-kicked-ising}
+
+self-dual angles satisfy $|J|=|b|=\pi/4$. After a suitable longitudinal-field
+ensemble average, the folded space–time network reduces the form factor to a
+transfer problem whose dominant states can be identified. @bertini2018spectral
+establishes random-matrix form-factor behavior in the thermodynamic limit at
+fixed time for this setting. The original paper proves the odd-time result
+rigorously and presents a precise conjecture for even times. That historical
+qualification should be retained when describing what that paper established.
+
+The order of limits matters: a fixed-time, infinite-length result is not a
+uniform theorem up to the exponentially large Heisenberg time for one finite
+sample. A field ensemble average is also not identical to every individual
+realization. Exact solvability makes assumptions easier to inspect; it does
+not eliminate them.
+
+## The gate as a four-party quantum state
+
+Dual unitarity also has a direct information-theoretic meaning. Convert a gate
+into its normalized *Choi state* by attaching maximally entangled references to
+its two inputs:
+
+$$
+|U\rangle=\frac1d\sum_{abcd}U_{ab}^{cd}|a\rangle_A|b\rangle_B
+|c\rangle_C|d\rangle_D.
+$$ {#eq-dual-choi}
+
+The labels $A,B$ represent input reference indices and $C,D$ output indices.
+Ordinary unitarity ensures normalization and makes the reduced state on $AB$
+equal to $\mathbf1_{AB}/d^2$. Every unitary is therefore maximally entangled
+across the input/output partition $AB|CD$ in this state representation.
+
+Now examine the crossed partition $AC|BD$. Its coefficient matrix is
+$\widetilde U/d$, so
+
+$$
+\rho_{AC}=\frac{\widetilde U\widetilde U^\dagger}{d^2}.
+$$ {#eq-dual-choi-reduction}
+
+Dual unitarity is exactly the statement that this reduced state is also
+$\mathbf1_{AC}/d^2$. The gate has maximal operator entanglement across that
+crossed partition. The extra cancellation identity and this entropy statement
+are two ways of describing the same algebraic constraint.
+
+There is still a third two-two partition, $AD|BC$. Dual unitarity does not force
+it to be maximally entangled. For SWAP, the Choi state factorizes into maximally
+entangled pairs linking $A$ with $D$ and $B$ with $C$; it is a product across
+$AD|BC$. A four-party tensor that is maximally entangled across every balanced
+partition is a stronger object, often called a perfect tensor in this setting.
+A dual-unitary gate should not automatically be called perfect.
+
+This example separates three uses of entanglement. Operator entanglement is
+entanglement of a map represented as a state. State entanglement is generated
+when that map acts on a specified input. Scrambling concerns how local input
+information becomes encoded across many output degrees of freedom. Maximal
+operator entanglement in two partitions does not imply every input is maximally
+entangled or every observable is mixing. The phased-SWAP example already gives
+a counterexample to such an inference.
+
+![The phased-SWAP ray channel at $\gamma=0.37$. Julia matrix iteration agrees
+with the exact $X$ eigenvalue $\cos(2\gamma)$ while the $Z$ mode persists.
+This dual-unitary example intentionally retains a nonmixing sector.](figs/dual-channel.png){#fig-dual-channel width=80%}
+
+The numerical check in [numerics/transport_labs.jl](numerics/transport_labs.jl)
+constructs both the ordinary and reshuffled gate and evaluates the partial trace
+channel directly. It compares the entire known eigenmode trajectory, rather
+than fitting an exponential decay rate to a few points. This makes the example
+a useful unit test for conventions before studying a more complicated
+space–time-dual model.
+
+## How to use exact circuits as research laboratories
+
+A useful reproduction ladder is: verify the reshuffled gate numerically;
+construct its one-site channels; predict ray correlators from channel powers;
+compare to explicit small-chain evolution; then explore an initial-state class
+for entanglement or an ensemble for the form factor. Each step has an analytic
+answer and an independent implementation.
+
+Next perturb away from dual unitarity. The formerly perfect cancellations fail,
+allowing one to study how interior correlations, front broadening, and generic
+membrane behavior emerge. Small deviations need not be uniformly small at long
+time because the number of imperfect contractions grows. Establishing a
+controlled expansion and its breakdown scale is itself a research problem.
+
+The 2026 review @bertini2026duality surveys the broad space–time-duality program,
+including exactly tractable yet chaotic dynamics. It provides a route from the
+simple identities derived here to more sophisticated replica and transfer-matrix
+methods. The central conceptual lesson is operational: “solvable” refers to a
+specified observable and contraction, while “chaotic” refers to a specified
+dynamical or spectral diagnostic.
+
+## Exercises and selected solutions
+
+1. Prove dual unitarity of @eq-dual-phase-swap directly from both index identities.
+   Give an example of phases that entangle a product state.
+2. Show that local unitary dressings preserve dual unitarity. Identify the
+   corresponding unitary transformations on the reshuffled matrix's legs.
+3. Derive the three traceless eigenvalues of the phased-SWAP ray channel. Compare
+   them with exact two-qubit correlations for one gate.
+4. Prove the Schmidt-rank bound for a network cut and derive all Rényi entropies
+   of a flat reduced-state spectrum.
+5. Compute $K(t)$ for small kicked Ising chains after resolving symmetries.
+   Compare a field ensemble average with individual samples and report variance.
+6. Perturb a dual-unitary gate by a small generic two-qubit unitary. Quantify the
+   dual-unitarity defect and test how the ray-channel prediction fails with time.
+
+::: {.callout-note title="Solution: an entangling phased SWAP"}
+Apply $e^{-i\gamma\sigma^z\otimes\sigma^z}$ to $|+,+\rangle$.
+The one-qubit reduced state has eigenvalues
+$[1\pm|\cos2\gamma|]/2$. SWAP does not change them. At $\gamma=\pi/4$,
+they are both $1/2$, so the output is maximally entangled. Yet
+$\mathcal M_R(\sigma^z)=\sigma^z$ still holds. Maximal entanglement of this
+input does not imply mixing of all local observables.
+:::
+
+::: {.callout-note title="Solution sketch: a cut is a rank factorization"}
+Collect the cut indices into one label $\alpha$ with at most $d^r$ values.
+The wavefunction factorizes as
+$\psi_{ij}=\sum_\alpha L_{i\alpha}R_{\alpha j}$, so its matrix rank is at most
+$d^r$. The Schmidt rank equals that matrix rank. Among density matrices of
+rank at most $d^r$, the uniform spectrum maximizes every positive-index Rényi
+entropy. This yields @eq-dual-cut-bound and states exactly what must be shown
+to claim saturation.
+:::

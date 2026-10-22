@@ -1,0 +1,202 @@
+# Open quantum systems: reduced dynamics and Markovian limits {#sec-open-systems}
+
+A laboratory subsystem exchanges information with uncontrolled degrees of freedom even when its energy exchange is small. A bath can destroy coherence, carry away conserved quantities, or deliberately prepare an entangled state. The mathematical description must preserve probabilities even when the subsystem is entangled with an untouched reference. This requirement leads to completely positive channels and, under additional assumptions, to the Gorini–Kossakowski–Sudarshan–Lindblad equation.
+
+We assume undergraduate density matrices and time-dependent perturbation theory. The central task is to distinguish an exact reduced description from approximations that make it local in time. “Open” does not mean “Markovian,” and a local-looking master equation does not by itself guarantee physical consistency. Units are $\hbar=k_B=1$.
+
+## Derivation: tracing a bath produces a channel
+
+Let $S$ be the system and $E$ its environment. Initially take $\rho_{SE}(0)=\rho_S\otimes|0\rangle\langle0|_E$ and evolve by a joint unitary $U$. Insert an orthonormal environment basis $|\mu\rangle$ when tracing it out:
+
+$$
+\rho_S'=\sum_\mu\langle\mu|U|0\rangle\rho_S
+\langle0|U^\dagger|\mu\rangle
+=\sum_\mu K_\mu\rho_SK_\mu^\dagger.
+$$ {#eq-open-kraus}
+
+The operators $K_\mu=\langle\mu|U|0\rangle$ obey $\sum_\mu K_\mu^\dagger K_\mu=I$ by unitarity. Thus the map preserves trace. It preserves positivity even after tensoring with an identity map on any reference system, because every term $(K_\mu\otimes I_R)\rho_{SR}(K_\mu^\dagger\otimes I_R)$ is positive. This stronger property is **complete positivity**. A map with both properties is a quantum channel, or a completely positive trace-preserving map.
+
+A mixed bath can be purified by adding an auxiliary environment or treated by including its eigenstate label in $\mu$. Different Kraus representations can describe the same channel. They correspond to different choices of how environmental alternatives are resolved, which becomes important when conditioning on measurement records.
+
+Initial system-bath correlations are an important exception to this construction. A fixed correlated initial state has perfectly meaningful reduced evolution, but assigning it a universal channel acting on every possible $\rho_S$ requires an additional preparation rule. One cannot freely vary $\rho_S$ while holding unspecified correlations unchanged.
+
+Positivity alone would be insufficient. Transposition maps every isolated density matrix to a positive matrix, but partial transposition of half of a Bell state has a negative eigenvalue. A physical process acting locally on one half of an arbitrary entangled state must pass this stronger test.
+
+## Derivation: an infinitesimal channel gives the GKSL equation
+
+Suppose a homogeneous, memoryless evolution has an infinitesimal Kraus representation
+
+$$
+K_0=I-\left(iH+\frac12\sum_\mu L_\mu^\dagger L_\mu\right)dt,
+\qquad K_\mu=\sqrt{dt}\,L_\mu\quad(\mu\ne0).
+$$ {#eq-open-infinitesimal}
+
+To first order, $\sum K_\mu^\dagger K_\mu=I+O(dt^2)$. Substitute into @eq-open-kraus, expand, subtract $\rho$, and divide by $dt$:
+
+$$
+\frac{d\rho}{dt}=\mathcal L(\rho)
+=-i[H,\rho]+\sum_\mu\left(L_\mu\rho L_\mu^\dagger
+-\frac12\{L_\mu^\dagger L_\mu,\rho\}\right).
+$$ {#eq-open-gksl}
+
+Here $\{A,B\}=AB+BA$. The **Liouvillian** $\mathcal L$ is a linear operator on matrices; $L_\mu$ are **jump operators**. A rate can be included inside $L_\mu=\sqrt{\gamma_\mu}A_\mu$ or outside its dissipator, but not both.
+
+The derivation shows sufficiency. The structural results of Gorini, Kossakowski, and Sudarshan and of Lindblad establish the converse under appropriate finite-dimensional or bounded-generator semigroup assumptions [@info-gks1976; @info-lindblad1976]. A semigroup obeys $\mathcal E_{t+s}=\mathcal E_t\mathcal E_s$ for nonnegative times and has a time-independent generator. Time-dependent GKSL equations with nonnegative instantaneous rates are also common, but are not homogeneous semigroups.
+
+Trace preservation follows because the trace of the jump term equals the trace of $L_\mu^\dagger L_\mu\rho$, canceled by the anticommutator. Hermiticity is also preserved. Complete positivity is more subtle than checking a few trajectories remain positive; it follows from the channel construction or the theorem, not from the appearance of a dissipative-looking term.
+
+## A microscopic route and its hierarchy of approximations
+
+Write
+
+$$
+H_{\mathrm{tot}}=H_S+H_E+g\sum_\alpha A_\alpha\otimes B_\alpha,
+$$ {#eq-open-total-hamiltonian}
+
+Choose Hermitian coupling operators $A_\alpha$ and $B_\alpha$, which is
+always possible by resolving a Hermitian interaction into Hermitian operator
+bases. This convention fixes the bath-correlation index and positivity
+statements below. Absorb any bath mean into $H_S$. In the interaction picture, the exact equation is $\dot\rho_{SE}=-ig[V(t),\rho_{SE}]$. Integrate once and substitute it back. After tracing the bath, the second-order contribution contains
+
+$$
+\dot\rho_S(t)=-g^2\int_0^t ds\,
+\operatorname{Tr}_E[V(t),[V(s),\rho_{SE}(s)]].
+$$ {#eq-open-memory}
+
+This is not yet a closed Markovian equation. The **Born approximation** replaces $\rho_{SE}(s)$ inside the kernel by $\rho_S(s)\otimes\rho_E$, assuming a sufficiently large, weakly perturbed bath. The **Markov approximation** replaces the slowly changing $\rho_S(s)$ by its current value and extends the correlation integral when bath correlations decay on a time $\tau_E$ much shorter than the system relaxation time. A long-lived structured bath or strong coupling can invalidate it.
+
+To see the further issue, decompose the system couplings into energy differences:
+
+$$
+[H_S,A_\alpha(\omega)]=-\omega A_\alpha(\omega).
+$$ {#eq-open-bohr-components}
+
+Terms with distinct Bohr frequencies oscillate relative to one another. A **secular approximation** discards terms whose oscillation is rapid on the relaxation scale. The remaining bath spectral matrices
+
+$$
+\gamma_{\alpha\beta}(\omega)=g^2\int_{-\infty}^{\infty}dt\,
+e^{i\omega t}\langle B_\alpha(t)B_\beta(0)\rangle_E
+$$ {#eq-open-bath-spectrum}
+
+are positive semidefinite for stationary physical bath correlations. Diagonalizing them supplies nonnegative rates and jump operators. Principal-value terms generate a Lamb shift of $H_S$.
+
+The hierarchy matters in many-body systems. Level spacings become small with size; fully resolving every Bohr frequency can require long coarse-graining times. A local phenomenological master equation may therefore differ from a fully secular weak-coupling generator in the energy eigenbasis. Neither “local” nor “global” automatically establishes validity. Specify bath correlations, coupling strength, temperature, and the quantities whose errors are controlled. A nonsecular Redfield equation can be useful perturbatively, but may not preserve positivity for arbitrary states and times.
+
+For a thermal bath, the frequency rates satisfy a Kubo–Martin–Schwinger relation linking absorption and emission, schematically $\gamma(-\omega)=e^{-\beta\omega}\gamma(\omega)$ after matching index conventions. Under the appropriate weak-coupling construction this makes the Gibbs state stationary. Arbitrary dephasing or local-loss jumps do not generically thermalize an interacting Hamiltonian to its Gibbs state.
+
+## Worked model: amplitude damping of a spin
+
+Let $|e\rangle$ lie an energy $\omega$ above $|g\rangle$, $H=\omega|e\rangle\langle e|$, and $L=\sqrt\gamma|g\rangle\langle e|$. Matrix elements of @eq-open-gksl obey
+
+$$
+\dot\rho_{ee}=-\gamma\rho_{ee},\quad
+\dot\rho_{gg}=\gamma\rho_{ee},\quad
+\dot\rho_{eg}=-(\gamma/2+i\omega)\rho_{eg}.
+$$ {#eq-open-amplitude-damping}
+
+Thus populations relax at rate $\gamma$, while coherences relax at half that rate. The exact channel is
+
+$$
+K_0=|g\rangle\langle g|+e^{-(\gamma/2+i\omega)t}|e\rangle\langle e|,
+\qquad K_1=\sqrt{1-e^{-\gamma t}}|g\rangle\langle e|,
+$$ {#eq-open-amplitude-kraus}
+
+where an irrelevant phase in $K_1$ may be chosen freely. Check directly that $\sum K_a^\dagger K_a=I$. The stationary state is $|g\rangle\langle g|$.
+
+Adding $L_\uparrow=\sqrt{\gamma_\uparrow}|e\rangle\langle g|$ yields a stationary excited probability $\gamma_\uparrow/(\gamma_\uparrow+\gamma_\downarrow)$. It represents temperature $\beta^{-1}$ only if the ratio is $e^{-\beta\omega}$. Adding $L_z=\sqrt{\kappa/2}Z$ contributes $\kappa(Z\rho Z-\rho)/2$, so off-diagonal elements decay additionally at rate $\kappa$. The factors are fixed by the stated jump normalization.
+
+## Liouvillian spectra and numerical construction
+
+For a finite system, flatten $\rho$ into a vector by stacking its columns. The identity
+
+$$
+\operatorname{vec}(A\rho B)=(B^T\otimes A)\operatorname{vec}\rho
+$$ {#eq-open-vec}
+
+gives
+
+$$
+\mathbb L=-i(I\otimes H-H^T\otimes I)
++\sum_\mu\left[L_\mu^*\otimes L_\mu
+-\frac12(I\otimes L_\mu^\dagger L_\mu
++(L_\mu^\dagger L_\mu)^T\otimes I)\right].
+$$ {#eq-open-liouvillian-matrix}
+
+The transpose, complex conjugate, and adjoint have different roles. Confusing them can produce a matrix that looks plausible but fails the simplest amplitude-damping check.
+
+```julia
+using LinearAlgebra
+function liouvillian(H, jumps)
+    d = size(H,1)
+    Id = Matrix{ComplexF64}(I,d,d)
+    A = -im*(kron(Id,H)-kron(transpose(H),Id))
+    for L in jumps
+        Q = L'*L
+        A += kron(conj(L),L) -
+             (kron(Id,Q)+kron(transpose(Q),Id))/2
+    end
+    A
+end
+```
+
+This reference routine builds a $d^2\times d^2$ matrix and is useful only for small $d$. Sparse and matrix-free actions avoid some memory costs. Solve $\mathcal L\rho_{\mathrm{ss}}=0$ with a trace constraint, rather than blindly choosing the eigenvector with the smallest-magnitude eigenvalue and accepting its phase. Verify Hermiticity, unit trace, positivity within error, and the residual norm $\|\mathcal L\rho_{\mathrm{ss}}\|$.
+
+The real parts of eigenvalues are nonpositive for finite-dimensional channel semigroups. A zero eigenvalue supplies at least one stationary state; trace preservation makes identity a left zero eigenvector in the Hilbert–Schmidt inner product. In the amplitude-damping model the eigenvalues are $0,-\gamma,-\gamma/2\pm i\omega$. The slowest nonzero decay rate is therefore $\gamma/2$. Multiple stationary states, purely imaginary modes, and nondiagonalizable blocks require more care than a single-gap description.
+
+## Heisenberg evolution and conserved quantities
+
+The adjoint generator obeys $d\langle O\rangle/dt=\langle\mathcal L^\dagger(O)\rangle$, where
+
+$$
+\mathcal L^\dagger(O)=i[H,O]+\sum_\mu\left(L_\mu^\dagger O L_\mu-\frac12\{L_\mu^\dagger L_\mu,O\}\right).
+$$ {#eq-open-adjoint}
+
+Identity is conserved. Another observable $Q$ is conserved for all states when $\mathcal L^\dagger(Q)=0$. Commutation with $H$ alone is insufficient: particle loss can violate number conservation even when the Hamiltonian conserves it. Commutation with every jump and its adjoint is a sufficient condition, though not a necessary one for all possible generators.
+
+This supplies a direct audit of a proposed transport model. Derive the density continuity equation from $\mathcal L^\dagger(n_j)$, identify Hamiltonian currents, and separate jump-generated sources. Calling an observed decay a diffusion coefficient is inappropriate if the density is also locally removed.
+
+## A research bridge: solvable reservoirs and many-body limits
+
+Prosen's third-quantization method reduces quadratic fermion Hamiltonians with linear fermionic jumps to a finite single-particle spectral problem [@info-prosen2008]. Its importance is that steady-state correlations and relaxation can be solved without diagonalizing an exponentially large density matrix. The assumptions are exact and restrictive: nonlinear jumps or generic interactions remove this closure.
+
+A good first reproduction compares a short boundary-driven hopping chain using the full Liouvillian with a covariance-matrix solution. Match the steady current, density profile, and decay rates. Then add dephasing, explicitly derive whether the chosen covariance equations still close, and distinguish closure of selected two-point functions from full Gaussianity of the state. A state can have tractable two-point dynamics without remaining Gaussian.
+
+Beyond that project lie active questions about weakly open hydrodynamics, thermodynamically consistent local bath models, non-Markovian reservoirs, and relaxation in nonnormal many-body generators. The correct starting point is an error-controlled reduced model. Interesting numerical behavior in a phenomenological generator establishes behavior of that generator; its relevance to an experiment requires a separate physical derivation or calibration.
+
+## Unital noise, heating, and entropy production
+
+A channel is **unital** if it preserves identity as well as trace. A unital Markovian generator obeys $\mathcal L(I)=0$, making $I/d$ stationary. For a jump $L$, the contribution to $\mathcal L(I)$ is $LL^\dagger-L^\dagger L$, so Hermitian jumps are unital. Pure dephasing is therefore compatible with an infinite-temperature stationary state when combined with sufficiently mixing Hamiltonian dynamics. It does not follow that the stationary state is unique: pure dephasing alone leaves every density matrix diagonal in the measurement basis stationary.
+
+An amplitude-damping channel is not unital. It can reduce the system entropy as the system approaches a pure ground state; the environment carries away entropy. Thus “dissipation increases entropy” is not a valid statement about the reduced system in general. For a stationary full-rank state $\sigma$, contractivity of quantum relative entropy under channels gives $D(\mathcal E_t\rho\|\sigma)\leq D(\rho\|\sigma)$. When differentiable, its negative time derivative is nonnegative. This is a precise relaxation statement, with a specified reference state, rather than a claim of monotonically increasing subsystem entropy.
+
+If $\sigma$ is Gibbs, $D(\rho\|\sigma)=\beta[\operatorname{Tr}(H\rho)-T S(\rho)]+\ln Z$ relates this contraction to nonequilibrium free energy for a fixed Hamiltonian. For a driven stationary state, the same relative-entropy contraction does not automatically identify heat, work, or a thermodynamic temperature. Those quantities require a bath and driving model.
+
+## A finite bath shows where memory enters
+
+Take a system spin exchange-coupled to one environment spin initially in its ground state. In the one-excitation sector, coherent exchange gives $|eg\rangle\mapsto\cos(gt)|eg\rangle-i\sin(gt)|ge\rangle$. The system excited probability is $\cos^2(gt)$, so the reduced state loses excitation and later regains it. Over an early interval this may resemble damping, but a time-independent amplitude-damping semigroup cannot reproduce the revival.
+
+The initial preparation still produces a completely positive channel from time zero to every later time. What fails is the assumption that each intermediate segment can be described by the same memoryless channel independent of earlier correlations. The environment spin has retained a coherent record and returns it. This counterexample separates complete positivity of the full preparation-to-time map from a homogeneous Markovian description.
+
+In a numerical microscopic-bath study, increase bath size and vary its bandwidth before trusting a fitted decay rate. The observation time should lie after bath correlation transients but before finite-bath recurrences. If no such interval exists, the proposed Markovian limit is not supported by that simulation. Agreement with one exponentially decaying observable over a short interval is weaker evidence than simultaneous agreement of populations, coherences, and response to several initial states.
+
+## Exact dephasing and information backflow
+
+An even simpler memory model has $H_{SE}=gZ_S Z_E$, with the environment initially maximally mixed. The two environment eigenvalues produce opposite system rotations. Populations remain fixed, while the system coherence obeys $\rho_{01}(t)=f(t)\rho_{01}(0)$ with $f(t)=\cos(2gt)$. Every preparation-to-time map is a valid random-unitary channel because $|f(t)|\leq1$.
+
+Where $f(t)\ne0$, the exact time-local equation can be written $\dot\rho=\gamma(t)(Z\rho Z-\rho)$ with $\gamma(t)=-\dot f/(2f)=g\tan(2gt)$. This coefficient becomes negative over some intervals and diverges where the map loses invertibility. The singularity is in that representation, not in the physical density matrix. A time-local equation is therefore not synonymous with an instantaneous GKSL generator with nonnegative rates.
+
+For initial states $|+\rangle$ and $|-\rangle$, their trace distance is $D(t)=|f(t)|$. Its revival after a zero shows renewed distinguishability: information stored in system-environment correlations returns to the system. Trace-distance backflow provides one operational non-Markovianity diagnostic [@info-breuer2009]. Different definitions of quantum memory need not be equivalent. In general, absence of backflow for an unassisted pair of states does not establish complete-positive divisibility of every intermediate map. State the criterion being tested rather than treating the word non-Markovian as a unique numerical observable.
+
+## Exercises
+
+1. **Complete positivity.** Apply transposition to one half of $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$. Find every eigenvalue and explain why positivity of transposition on a lone qubit was insufficient.
+2. **Damping and dephasing.** Derive @eq-open-amplitude-damping, add thermal excitation and pure dephasing, and identify longitudinal and transverse relaxation times.
+3. **Numerical generator audit.** Construct $\mathbb L$ for amplitude damping. Verify its spectrum and the left trace eigenvector. Deliberately replace a transpose by an adjoint and locate a case with complex $H$ that detects the error.
+4. **A bath with memory.** A bath correlation decays as $e^{-t/\tau_E}\cos\Omega t$. State which dimensionless combinations control a Markov approximation and what occurs near a narrow resonance.
+5. **Conservation.** Evaluate $\mathcal L^\dagger(N)$ for a hopping chain with local particle loss and with local number dephasing. Derive the resulting density balance equations.
+
+::: {.callout-tip title="Worked solutions: exercises 1 and 2"}
+Partial transposition maps the Bell projector to $\mathsf S/2$. The swap has eigenvalue $+1$ on three symmetric states and $-1$ on the antisymmetric state, so the eigenvalues are $1/2,1/2,1/2,-1/2$.
+
+With downward and upward rates, $\dot\rho_{ee}=\gamma_\uparrow-(\gamma_\uparrow+\gamma_\downarrow)\rho_{ee}$. Thus $T_1^{-1}=\gamma_\uparrow+\gamma_\downarrow$. Coherences decay at $T_2^{-1}=(\gamma_\uparrow+\gamma_\downarrow)/2+\kappa$, with the dephasing normalization above. The familiar $T_2\leq2T_1$ follows here from $\kappa\geq0$, within this Markovian model.
+:::

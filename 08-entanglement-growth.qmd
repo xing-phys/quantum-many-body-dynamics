@@ -1,0 +1,194 @@
+# Entanglement growth: how local dynamics builds nonlocal information {#sec-entanglement-growth}
+
+An isolated system never acquires von Neumann entropy globally: unitary evolution preserves the eigenvalues of its density matrix. Nevertheless, an initially pure subsystem can become almost indistinguishable from a thermal state. The missing information resides in correlations with its complement. Entanglement growth is the quantitative bridge between reversible microscopic dynamics, local thermalization, and the difficulty of classical simulation.
+
+This chapter assumes tensor products and unitary evolution. We reintroduce reduced states and entropy, derive two solvable growth mechanisms, and develop the membrane description of chaotic dynamics. Throughout, logarithms are natural and lattice spacing is one. A velocity therefore has units of sites per unit time. Entanglement growth rates carry an additional entropy density; overlooking that distinction causes misleading comparisons between models.
+
+## Reduced states, spectra, and what entropy measures
+
+Divide a pure state into regions $A$ and $B$. By singular-value decomposition of its coefficient matrix,
+
+$$
+|\psi\rangle=\sum_{a=1}^{r}\sqrt{\lambda_a}\,|a\rangle_A|a\rangle_B,
+\qquad \lambda_a\geq0,\quad\sum_a\lambda_a=1.
+$$ {#eq-ent-schmidt}
+
+Tracing out $B$ gives $\rho_A=\sum_a\lambda_a|a\rangle\langle a|$. The nonzero spectra of $\rho_A$ and $\rho_B$ coincide, so their entropies agree even when their sizes differ. The von Neumann and Rényi entropies are
+
+$$
+S_1(A)=-\sum_a\lambda_a\ln\lambda_a,
+\qquad S_n(A)=\frac{\ln\sum_a\lambda_a^n}{1-n}.
+$$ {#eq-ent-entropies}
+
+The second Rényi entropy is $S_2=-\ln P_A$, where $P_A=\operatorname{Tr}\rho_A^2$ is the purity. Larger $n$ emphasizes larger eigenvalues. Consequently two states can have similar $S_1$ and very different $S_2$; a statement about one entropy is not automatically a statement about all of them.
+
+An **area law** means the leading entropy scales with the size of the boundary of a large region. A **volume law** means $S(A)\simeq s|A|$. In a one-dimensional chain a connected interval has two boundary points, so an area law is a size-independent leading contribution. These terms describe spatial scaling, not the amount of quantum coherence at an individual site.
+
+For a globally mixed state, subsystem entropy includes classical uncertainty and cannot itself quantify entanglement. A useful counterexample is a product of maximally mixed spins: every subsystem has a volume-law entropy although the state is separable. The distinction becomes essential for monitored and open systems.
+
+## Derivation: a gate produces entanglement only across a boundary
+
+Consider two spins initially in $|+\rangle|+\rangle$ and evolve with $H=JZ_1Z_2$, with $X,Y,Z$ denoting Pauli matrices. Here $J$ multiplies Pauli matrices, not spin operators $S^z=Z/2$.
+
+1. The amplitudes of $|00\rangle,|11\rangle$ acquire phase $e^{-iJt}$ and those of $|01\rangle,|10\rangle$ acquire $e^{iJt}$.
+2. Taking the partial trace gives
+
+$$
+\rho_1(t)=\frac12\begin{pmatrix}1&\cos(2Jt)\\\cos(2Jt)&1\end{pmatrix}.
+$$ {#eq-ent-two-spin-rho}
+
+3. Its eigenvalues are $(1\pm\cos2Jt)/2$. Thus $S_1(t)$ is their binary entropy and
+
+$$
+P_1(t)=\frac{1+\cos^2(2Jt)}2.
+$$ {#eq-ent-two-spin-purity}
+
+At $Jt=\pi/4$ the entropy is $\ln2$; at $Jt=\pi/2$ it returns to zero. Entanglement need not grow monotonically in a finite closed system.
+
+Now consider a many-spin bipartition. A gate supported entirely inside $A$ conjugates $\rho_A$ and leaves its spectrum unchanged. A gate inside $B$ also leaves $\rho_A$ unchanged. Only gates that cross the boundary can change the entanglement. For a two-site gate connecting two $q$-dimensional sites, the change in $S_1$ is at most $2\ln q$. One way to see this is to isolate the site $a$ in $A$ touched by the gate. The rest $A'$ has unchanged reduced state. Before and after the gate, the entropy inequalities $|S(A'a)-S(A')|\leq S(a)\leq\ln q$ apply, giving the bound by subtraction.
+
+This bound explains linear-in-time growth as a natural ceiling for local circuits. It does not force growth to saturate that ceiling, and it does not establish a microscopic entropy current moving through the system.
+
+## Derivation: quasiparticles and the factor of two
+
+A global quench changes the Hamiltonian suddenly and creates excitations throughout the sample. In appropriate integrable models, the initial state emits entangled pairs of quasiparticles with opposite momenta. After creation, the particles propagate approximately independently. A pair contributes to $S(A)$ precisely when its two members lie on opposite sides of the boundary.
+
+Take an interval $A=[0,\ell]$ and a single pair speed $v$. At time $t$, a pair created at $x$ has members at $x-vt$ and $x+vt$. The set of creation points that place exactly one member in $A$ has total length $4vt$ for $2vt<\ell$, and $2\ell$ after saturation. If the pair contribution per unit creation length is $s/2$, then
+
+$$
+S(A,t)=s\min(2|v|t,\ell).
+$$ {#eq-ent-pair-single}
+
+The saturation time is $\ell/(2|v|)$ because information arrives through both ends. Across a single cut in an infinite chain, there is only one boundary contribution, $s|v|t$. Confusing interval and half-chain geometries produces a common factor-of-two error.
+
+With several momenta or quasiparticle species, add their contributions:
+
+$$
+S(A,t)=\sum_a\int dk\,s_a(k)\min\{2|v_a(k)|t,\ell\}.
+$$ {#eq-ent-quasiparticle}
+
+The measure convention is absorbed in $s_a(k)$. For free fermions with independent occupied modes, $s(k)=[-n_k\ln n_k-(1-n_k)\ln(1-n_k)]/(2\pi)$ when integration is over the full Brillouin zone with the usual pair counting. In interacting integrable systems the appropriate velocities are dressed velocities and the entropy densities come from thermodynamic Bethe ansatz. Their calculation belongs to generalized hydrodynamics.
+
+Calabrese and Cardy established the linear-growth and saturation picture through quantum-field-theory methods and explicit Ising-chain calculations [@info-calabrese2005]. Their result is not a claim that every quench admits independent entangled pairs. Pair structure, stable excitations, and the scale separation underlying the ballistic picture must be examined in each application. Initial long-range correlations, confinement, and bound multiplets can modify it.
+
+```{mermaid}
+flowchart LR
+  Q[Local quench-generated pairs] --> P[Opposite moving partners]
+  P --> B[Pairs straddling the boundary]
+  B --> E[Subsystem entropy]
+  E --> S[Saturation when interval fills]
+```
+
+## Computing entropy in a free-fermion chain
+
+For a number-conserving Gaussian state, all correlation functions follow from $C_{ij}=\langle c_i^\dagger c_j\rangle$. Restrict $C$ to $A$, diagonalize it, and call the eigenvalues $\nu_\alpha$. A change of single-particle basis factorizes the reduced state into independent fermionic modes with probabilities $\nu_\alpha,1-\nu_\alpha$. Therefore
+
+$$
+S_1(A)=-\sum_\alpha[\nu_\alpha\ln\nu_\alpha+(1-\nu_\alpha)\ln(1-\nu_\alpha)].
+$$ {#eq-ent-gaussian}
+
+This is a second derivation of entropy from its spectrum, now requiring diagonalization of an $|A|\times|A|$ matrix rather than a $2^{|A|}\times2^{|A|}$ density matrix. Pairing states require a Majorana covariance matrix or a doubled particle-hole description.
+
+For code, it is convenient instead to define $G_{ij}=\langle c_j^\dagger c_i\rangle=C_{ji}$. If $H=\sum_{ij}c_i^\dagger h_{ij}c_j$, then $G(t)=e^{-iht}G(0)e^{iht}$. Transposing does not change the eigenvalues of the restricted matrix, so the entropy formula is unchanged.
+
+```julia
+using LinearAlgebra
+L = 160
+h = zeros(ComplexF64, L, L)
+for j in 1:L-1
+    h[j,j+1] = h[j+1,j] = -1
+end
+F = eigen(Hermitian(h))
+G0 = Diagonal(ComplexF64[isodd(j) ? 1 : 0 for j in 1:L])
+A = 61:100
+binary_entropy(x) = x <= 0 || x >= 1 ? 0.0 :
+                    -x*log(x) - (1-x)*log1p(-x)
+function entropy_at(t)
+    U = F.vectors * Diagonal(exp.(-im*t*F.values)) * F.vectors'
+    G = U*G0*U'
+    nu = eigvals(Hermitian(G[A,A]))
+    sum(binary_entropy, clamp.(nu, 0.0, 1.0))
+end
+data = [(t, entropy_at(t)) for t in 0:0.25:25]
+```
+
+The example is a Néel-state quench of an open hopping chain. Its maximal group speed is two in these units. Check system-size dependence before boundary reflections enter $A$, verify $G^2\simeq G$, and compare with a full state-vector calculation at small $L$. Clamping only removes roundoff excursions outside $[0,1]$; substantial excursions signal a bug.
+
+## Chaotic growth: a variational membrane
+
+Stable paired quasiparticles do not generally describe chaotic systems. A different description treats entropy as the cost of a surface drawn through spacetime. In one dimension that surface is a curve $x(\tau)$ ending at the observed cut. If $s_{\mathrm{eq}}$ is the equilibrium entropy per unit length and $\mathcal E(v)$ a line tension normalized by $s_{\mathrm{eq}}$ (with units of velocity), the coarse-grained proposal is
+
+$$
+S(x,t)=\min_{y,x(\tau)}\left[S(y,0)+s_{\mathrm{eq}}\int_0^t d\tau\,\mathcal E(\dot x)\right],
+\quad x(0)=y,\quad x(t)=x.
+$$ {#eq-ent-membrane}
+
+For a translation-invariant product state, the optimal half-chain curve is vertical when the tension is even and convex. Thus $S=s_{\mathrm{eq}}\mathcal E(0)t$, defining the entanglement velocity $v_E=\mathcal E(0)$. The butterfly velocity $v_B$ describes operator propagation and is a different observable. In the conventional normalized chaotic membrane theory, $\mathcal E(v_B)=v_B$ and $\mathcal E'(v_B)=1$. These constraints refer to the coarse-grained tension, not an arbitrary fitted entropy curve.
+
+The local evolution equation follows directly. Extend the final segment backward by $d t$, with slope $v$. Expand the earlier entropy around $x$:
+
+$$
+S(x-vdt,t-dt)+s_{\mathrm{eq}}\mathcal E(v)dt
+=S(x,t)+dt[-\partial_tS-v\partial_xS+s_{\mathrm{eq}}\mathcal E(v)].
+$$
+
+Optimization therefore gives
+
+$$
+\partial_tS=s_{\mathrm{eq}}\Gamma(p),\quad
+p=\frac{\partial_xS}{s_{\mathrm{eq}}},\quad
+\Gamma(p)=\min_v[\mathcal E(v)-vp].
+$$ {#eq-ent-growth-function}
+
+The gradient reduces the available growth: entropy near an already saturated side cannot grow as if its neighborhood were unentangled. This geometric description connects state entropy, operator entanglement, and information fronts [@info-jonay2018; @zhou2020membrane]. Its extension to generic chaotic Hamiltonians is a coarse-grained hypothesis supported by calculations, not an exact formula for every finite system.
+
+## Fluctuations and the meaning of universality
+
+In one-dimensional random circuits, the entropy profile behaves like a fluctuating growing interface. A continuum equation allowed by locality and height-shift symmetry is
+
+$$
+\partial_t h=v_0+\nu\partial_x^2h+\frac{\lambda}{2}(\partial_xh)^2+\eta(x,t),
+$$ {#eq-ent-kpz}
+
+where $\eta$ is short-range noise. This is the Kardar–Parisi–Zhang equation. Its one-dimensional scaling predicts fluctuations of order $t^{1/3}$ and correlation length $t^{2/3}$. Nahum and collaborators connected noisy unitary dynamics to this universality class, and replica mappings make the statistical mechanics precise in controlled circuit settings [@nahum2017growth; @info-zhou2019].
+
+Three distinctions matter. First, entropy fluctuations between circuit realizations are not the width of an operator front, which often scales as $t^{1/2}$. Second, deterministic Hamiltonian dynamics has no imposed temporal randomness, so importing every noise exponent requires argument. Third, conserved densities can produce slow tails and unusual higher-Rényi behavior. Universality means independence of many microscopic details within a specified class, not independence of all conservation laws and ensembles.
+
+At late times, a Haar-random pure state gives a useful benchmark. For subsystem dimensions $m\leq n$, the Page entropy is approximately $\ln m-m/(2n)$ for large dimensions [@page1993average]. A Hamiltonian with fixed energy or charge samples a constrained space; its equilibrium entanglement need not equal the unrestricted Haar value. Finite energy density also determines $s_{\mathrm{eq}}$, so maximal local Hilbert-space entropy is not always the correct saturation target.
+
+## A research bridge and a reproducible question
+
+The central research problem is to reconstruct information dynamics from accessible observables. A feasible first project compares three systems: free hopping fermions, a nonintegrable mixed-field Ising chain, and Haar random circuits. Use the same interval geometry, calculate $S_1,S_2$, determine their saturation densities, and compare the normalized initial slopes. Then measure an operator front separately. The prediction to test is a distinction between quasiparticle and membrane organization, not simply “linear growth occurs only in chaotic systems”; integrable systems also grow linearly.
+
+For the circuit case, compare $\overline{-\ln P}$ with $-\ln\overline P$. Jensen's inequality makes the latter smaller. This difference diagnoses whether rare realizations dominate a moment calculation. Increasing the number of realizations does not remove the difference: they are distinct quantities. A frontier extension asks when a membrane tension inferred from operator entanglement predicts interval entropies for initial states with different gradients.
+
+## Correlations, finite geometry, and what can actually be inferred
+
+Entanglement entropy is not an ordinary two-point correlation function. A pure state can have very weak correlations between any chosen pair of small regions while retaining extensive entanglement between two large halves. Information has been distributed among many degrees of freedom. This is why a few decaying spin correlators cannot determine a full Schmidt spectrum.
+
+Mutual information provides a bridge. For two disjoint regions, define $I(A:B)=S_A+S_B-S_{AB}$. It equals the relative entropy between $\rho_{AB}$ and $\rho_A\otimes\rho_B$, so it is nonnegative and vanishes exactly when those regions are uncorrelated. With natural logarithms, Pinsker's inequality gives $\|\rho_{AB}-\rho_A\otimes\rho_B\|_1^2\leq2I(A:B)$. Hence connected correlations of bounded observables satisfy
+
+$$
+|\langle O_AO_B\rangle-\langle O_A\rangle\langle O_B\rangle|
+\leq\|O_A\|\,\|O_B\|\sqrt{2I(A:B)}.
+$$ {#eq-ent-mutual-bound}
+
+The inequality is one way: small mutual information bounds every such connected correlation, while small values of a few correlations do not bound mutual information tightly. An experiment inferring entanglement from selected observables therefore needs a protocol-specific estimator or witness.
+
+Finite geometry also changes interpretation. In a periodic chain, two fronts can meet around the ring; in an open chain, reflections return from physical ends. A half-chain entropy can appear saturated because its available Hilbert space is exhausted even while local observables continue relaxing. Conversely, a slowly moving low-density quasiparticle sector can delay final saturation after most entropy has arrived. Compare complete curves with the distribution of velocities and equilibrium entropy density rather than fitting only the earliest slope.
+
+Finally, a numerical entropy error is not controlled solely by norm preservation of the evolved state. Tiny Schmidt values can contribute many terms to $S_1$, and a truncated tensor network can preserve local observables accurately while underestimating entropy. Record discarded Schmidt weight, vary bond dimension, and compare $S_1$ with $S_2$. Their different sensitivity to the spectrum can expose an otherwise hidden convergence problem.
+
+## Exercises
+
+1. **A boundary entangler.** Derive @eq-ent-two-spin-rho and compute the first nonzero small-time term of $S_2$. Explain why $S_1$ is not analytic in $t^2$ at a product state.
+2. **Counting pairs.** Derive @eq-ent-quasiparticle by measuring the symmetric difference of two shifted intervals. Repeat for a half-line and for two disjoint intervals.
+3. **Purity benchmark.** A Haar-random state on dimensions $m,n$ obeys $\overline{P_A}=(m+n)/(mn+1)$. Use the swap identity and the two-copy Haar state moment to prove this formula. Compare its annealed entropy with the Page approximation.
+4. **A numerical falsification test.** Modify the Gaussian code to use two different initial filling patterns. Determine whether one speed fitted to the initial slope also predicts the saturation time. Track the distribution of quasiparticle velocities before proposing a failure of the quasiparticle picture.
+5. **Membrane inversion.** For a hypothetical tension $\mathcal E(v)=a+bv^2$ in an allowed slope interval, find $\Gamma(p)$ and its domain of validity. Determine where the minimizer reaches an endpoint.
+
+::: {.callout-tip title="Worked solutions: exercises 1 and 5"}
+The off-diagonal entry in the two-spin reduced state is the sum of two phase products, $[e^{-2iJt}+e^{2iJt}]/4=\cos(2Jt)/2$. Thus $P=1-2J^2t^2+O(t^4)$ and $S_2=2J^2t^2+O(t^4)$. The small eigenvalue is $J^2t^2+O(t^4)$, so $S_1=J^2t^2[1-\ln(J^2t^2)]+O(t^4|\ln t|)$.
+
+For the quadratic tension, minimize $a+bv^2-vp$. The stationary slope is $v=p/(2b)$ and $\Gamma(p)=a-p^2/(4b)$ if $b>0$ and that slope is allowed. Outside this interval the minimizing slope is the nearest allowed endpoint; continuing the quadratic expression beyond its domain has no justification.
+:::

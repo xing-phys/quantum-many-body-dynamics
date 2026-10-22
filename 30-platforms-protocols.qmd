@@ -1,0 +1,227 @@
+# Experiments, measurement protocols, and inference {#sec-experiments}
+
+## A theoretical quantity is not yet a measurement
+
+An entropy, OTOC, transport exponent, or reference-qubit fidelity is a functional
+of a quantum state or process. An experiment produces counts conditioned on a
+preparation, control sequence, and detector. Connecting those two levels requires
+an estimator and assumptions. This chapter develops that connection explicitly,
+using entanglement and transport as examples.
+
+The prerequisites are the Born rule, density matrices, and elementary averages.
+We introduce the experimental language where it enters. The purpose is to read
+frontier experiments critically and to design numerical observables that match
+what a device actually measures.
+
+## Platforms as different controlled approximations
+
+| Platform | Useful physical structure | Typical control and readout | Main interpretation questions |
+|---|---|---|---|
+| Optical-lattice atoms | Hubbard dynamics, particles and local interactions | Quenches, site-resolved occupations, interference of copies | Particle loss, finite temperature, occupation cutoff, trap inhomogeneity |
+| One-dimensional quantum gases | Nearly integrable continuum dynamics | Density and momentum distributions, splitting and interference | Which charges are conserved over the observation window? |
+| Rydberg arrays | Programmable geometry, Ising interactions and blockade constraints | Local detunings, coherent rotations, excitation images | Finite blockade, atom motion, detection loss, long-range tails |
+| Trapped ions | Tunable long-range effective spins and high-fidelity local control | Spin-resolved measurements, randomized rotations, digital circuits | Interaction calibration, mode-mediated errors, finite coherence |
+| Solid-state spin ensembles | Large interacting systems, often dipolar | Global pulses, local or ensemble spin readout | Disorder, bath coupling, pulse inhomogeneity, accessible observables |
+| Superconducting processors | Programmable gates, mid-circuit measurement and feedforward | Bit strings, tomography of small regions, decoding | Gate noise, leakage, correlated errors, mitigation and sampling cost |
+
+These are capabilities used in representative experiments, not an up-to-date
+ranking of all devices. The same effective Hamiltonian may arise through very
+different eliminations and control approximations. An experiment can be an
+excellent test of a particular observable without realizing an ideal model in
+every respect.
+
+For example, the 51-atom Rydberg experiment [@bernien2017simulator] observed
+ordered preparations and persistent post-quench oscillations. It motivated the
+scar interpretation subsequently developed theoretically. The finite-time
+observation is logically distinct from an exact scar construction or a proof
+of nonthermal behavior at arbitrary size.
+
+## Measuring purity with two copies
+
+For two independently and identically prepared copies, the expectation of a
+subsystem swap is the purity:
+$\langle\mathsf{Swap}_A\rangle=\operatorname{Tr}\rho_A^2$.
+To verify it, write
+$\mathsf{Swap}|i,j\rangle=|j,i\rangle$ and contract the matrix elements of
+$\rho\otimes\rho$. The remaining indices form
+$\sum_{ij}(\rho_A)_{ij}(\rho_A)_{ji}$.
+
+An interference operation between copies followed by suitable parity detection
+can access swap symmetry. This is the central idea behind cold-atom purity
+measurements [@kaufman2016thermalization]. The measurement does not require
+reconstructing every coefficient of $\rho_A$, but it does require matched
+copies, calibrated interference, and a model of imperfect detection. If the
+copies are $\rho_A$ and $\sigma_A$, the ideal measurement yields
+$\operatorname{Tr}\rho_A\sigma_A$, so preparation drift systematically
+changes the interpretation.
+
+The measured $S_2(A)=-\ln\operatorname{Tr}\rho_A^2$ is an entanglement
+entropy only when the full state is pure. Comparing subsystem and full-system
+purities helps test that assumption. A globally noisy mixed state can have
+large subsystem entropy without the same amount of quantum entanglement.
+
+## Deriving the randomized-measurement purity estimator
+
+Apply an independently drawn single-qubit random rotation $U_j$ at each site
+of a region $A$, then measure in the computational basis. Let
+$P_U(\mathbf s)$ be the probability of bit string $\mathbf s$ for that
+rotation setting. If each rotation samples a local unitary second design,
+
+$$
+\operatorname{Tr}\rho_A^2
+=2^{|A|}\sum_{\mathbf s,\mathbf s'}
+(-2)^{-D(\mathbf s,\mathbf s')}
+\mathbb E_U[P_U(\mathbf s)P_U(\mathbf s')],
+$$ {#eq-experiment-randompurity}
+
+where $D$ is Hamming distance, the number of differing sites. A unitary second
+design reproduces Haar averages of polynomials with two copies of $U$ and
+two of $U^\dagger$; a full continuous Haar distribution is unnecessary.
+
+The kernel follows from one site. In two copies define a diagonal operator
+$K$ whose equal-bit entries are 2 and unequal-bit entries are -1. Then
+$K=(I+3Z\otimes Z)/2$. Isotropic rotation averaging sends
+$Z\otimes Z$ to $(X\otimes X+Y\otimes Y+Z\otimes Z)/3$, so
+
+$$
+\mathbb E_U[(U^\dagger\otimes U^\dagger)K(U\otimes U)]
+=\tfrac12(I+XX+YY+ZZ)=\mathsf{Swap}.
+$$ {#eq-experiment-twirl}
+
+Independent local averaging tensors this identity over the region. The product
+of kernel entries is exactly $2^{|A|}(-2)^{-D}$, proving the estimator. The
+same physical rotation must be used on the two conceptual samples entering
+$P_U(\mathbf s)P_U(\mathbf s')$; independently rotating each copy would
+erase the correlation being estimated.
+
+Brydges and collaborators applied randomized measurements to entanglement
+dynamics in a trapped-ion system [@brydges2019renyi]. The method trades direct
+two-copy interference for many randomized settings and repeated preparations.
+Its sampling cost grows rapidly with subsystem size in generic situations;
+estimating an extensive entropy with fixed absolute error is not automatically
+a scalable task.
+
+## Shot noise and the logarithm
+
+At fixed $U$, suppose $M$ shots produce counts $N_{\mathbf s}$. The naive
+product $(N_{\mathbf s}/M)(N_{\mathbf s'}/M)$ is biased because the same
+sample appears twice. An unbiased ordered-pair estimator is
+
+$$
+\widehat{P(\mathbf s)P(\mathbf s')}
+=\frac{N_{\mathbf s}(N_{\mathbf s'}-\delta_{\mathbf s\mathbf s'})}
+{M(M-1)}.
+$$ {#eq-experiment-unbiased}
+
+It counts distinct pairs of shots. Random settings introduce another sampling
+level; error analysis must retain that hierarchy. Bootstrap settings as units
+and, when necessary, resample shots within each setting. Correlated drift across
+settings is not removed by treating more shots as independent data.
+
+First average the purity estimator and then take its logarithm. Averaging logs
+instead estimates a different quantity and can fail when a noisy finite-sample
+estimate is negative. For a well-resolved positive purity $p$ with standard
+error $\delta p\ll p$, error propagation gives
+$\delta S_2\simeq\delta p/p$. Thus the same absolute purity uncertainty
+produces much larger entropy uncertainty in a highly entangled subsystem.
+Positivity-constrained fitting may be useful, but it introduces an inference
+procedure whose bias should be assessed.
+
+## A simple shadow estimator and its resource scaling
+
+For a Pauli string $P$ acting nontrivially on $k$ sites, independently choose
+each site's measurement axis uniformly from $X,Y,Z$. Return zero unless every
+chosen axis on the support matches $P$; otherwise return $3^k$ times the
+product of the measured signs. Call the random result $\widehat P$.
+The matching probability is $3^{-k}$ and the conditional sign-product mean is
+$\langle P\rangle$, so
+
+$$
+\mathbb E\widehat P=\langle P\rangle,\qquad
+\mathbb E\widehat P^2=3^k,\qquad
+\operatorname{Var}(\overline P)\leq\frac{3^k}{M}.
+$$ {#eq-experiment-shadow}
+
+This elementary example illustrates why many low-weight observables can be
+estimated from reused randomized data, while observables with growing support
+can become costly. The statistical task and observable structure matter more
+than the mere number of qubits. More elaborate shadow protocols choose
+measurement ensembles adapted to the target; no estimator removes every
+information-theoretic lower bound.
+
+## Measuring transport without confusing protocols
+
+A weak domain-wall preparation, an equilibrium current autocorrelation, a local
+density packet, and a boundary-driven steady state all probe transport, but
+they have different finite-size and nonlinear corrections. For a density packet
+with total excess charge $Q$, define
+$m_2(t)=Q^{-1}\sum_x(x-x_0)^2\delta n_x(t)$. A diffusion equation on the
+infinite line gives $m_2(t)-m_2(0)=2Dt$. A ballistic packet gives a term
+proportional to $t^2$; superdiffusive spreading can give $t^{2/z}$.
+
+Before fitting a power, subtract backgrounds, verify conservation of $Q$, avoid
+boundary reflections, and inspect the full profile. A weak leak can make a
+normalized profile broaden even while total charge decays. Long-range hopping
+can make a second moment sensitive to rare tails. In an interacting spin chain,
+two-point KPZ-like scaling does not ensure that every transferred-charge
+cumulant agrees with ordinary KPZ [@rosenberg2024magnetization;
+@takeuchi2025partial]. An experimental claim should specify which part of the
+scaling structure was tested.
+
+## Noise, reversibility, and many-body claims
+
+An OTOC protocol often compares forward and reversed dynamics. Imperfect
+reversal, pulse errors, and environmental dephasing can all suppress an echo.
+Echo decay alone is therefore insufficient evidence of scrambling.
+Teleportation-based verification separates aspects of coherent scrambling
+from decoherence under stated protocol assumptions
+[@info-yoshida2019]. Measurements of monitored phases similarly require access
+to records or an equivalent decoding/duality protocol. Averaging over records
+first can remove the trajectory quantity of interest.
+
+Error mitigation estimates an idealized observable by combining noisy data and
+a model of errors. It is not equivalent to correcting every run into an
+error-free many-body state. Statistical error can grow under mitigation weights,
+and correlated model errors can survive. Compare raw and mitigated quantities,
+use small classically verifiable instances, and test observables outside the
+fit set.
+
+## A 2026 frontier: gauge dynamics on processors
+
+Chen and collaborators report thermalization diagnostics for minimally
+truncated SU(2) gauge theory on plaquette chains using quantum processors
+[@chen2026gauge]. Small-subsystem entanglement spectra and Rényi quantities
+connect hardware dynamics to the textbook's thermalization and information
+questions. The truncation, chain geometry, tomography region, Trotterization,
+and error-mitigation scheme define the tested problem. Agreement with a
+classical benchmark on accessible instances is valuable evidence about that
+problem; it does not establish continuum non-Abelian thermalization in arbitrary
+dimensions. [Chapter 29](29-long-range-gauge.qmd) explains why gauge constraints
+also complicate subsystem definitions.
+
+## Exercises and worked solutions
+
+1. Derive the one-qubit randomized kernel and verify its result for $|0\rangle$
+   and $I/2$. Extend it to a Bell pair and a classical correlated mixture.
+2. Show explicitly that the naive frequency-square estimator is biased, and
+   derive the ordered-pair correction.
+3. A four-site purity is $p=0.08\pm0.004$. Estimate $S_2$ and its leading
+   uncertainty. Discuss what changes if the error is instead 0.04.
+4. Estimate the shots required by the Pauli-string estimator for $k=2$ and
+   $k=10$ at the same target standard error. What structure could reduce this
+   cost for a particular state family?
+5. Design a transport experiment with two competing hypotheses, diffusion and
+   a long transient with exponent $z=3/2$. Specify measured profiles, finite-size
+   controls, and an observation that would distinguish them.
+
+**Solution to 2.** For one outcome with probability $p$,
+$\mathbb E(N/M)^2=p^2+p(1-p)/M$. For two different outcomes,
+$\mathbb E NN'/M^2=(1-1/M)pp'$. Removing the identical-shot contribution
+and dividing by $M(M-1)$ yields an unbiased estimator for either case. This is
+a finite-sample correction even with perfectly calibrated detectors.
+
+**Solution to 3.** $S_2=-\ln0.08\simeq2.526$ nats and the leading error is
+$0.004/0.08=0.05$. At error 0.04 the relative uncertainty is large, the log
+distribution is strongly asymmetric, and first-order error propagation is
+unreliable. Report an interval from the underlying purity inference rather than
+a symmetric entropy error bar justified only by a linear approximation.

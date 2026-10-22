@@ -1,0 +1,133 @@
+{
+  "pages": [
+    {
+      "title": "Quantum Many-Body Dynamics and Quantum Information",
+      "math": 2,
+      "mathErrors": [],
+      "missingImages": [],
+      "mainOverflow": false,
+      "headings": [
+        "Quantum Many-Body Dynamics and Quantum Information",
+        "A reader\u2019s invitation",
+        "What this book asks of you",
+        "One problem, several descriptions",
+        "How to use the book",
+        "Evidence and scope",
+        "An expandable scientific record"
+      ],
+      "page": "index",
+      "status": 200
+    },
+    {
+      "title": "1\u00a0 States, subsystems, and information \u2013 Quantum Many-Body Dynamics and Quantum Information",
+      "math": 106,
+      "mathErrors": [],
+      "missingImages": [],
+      "mainOverflow": false,
+      "headings": [
+        "1\u00a0 States, subsystems, and information",
+        "1.1 The physical question",
+        "1.2 From vectors to density matrices",
+        "1.3 Deriving the partial trace",
+        "1.4 Schmidt decomposition, derived from singular values",
+        "1.5 Entropy: uncertainty and entanglement",
+        "1.6 A complete two-spin quench",
+        "1.7 Correlations, distinguishability, and relative entropy",
+        "1.8 Typical states and thermal states",
+        "1.9 Exercises and worked checks"
+      ],
+      "page": "01-state-information",
+      "status": 200
+    },
+    {
+      "title": "14\u00a0 Generalized hydrodynamics: an interacting fluid of quasiparticles \u2013 Quantum Many-Body Dynamics and Quantum Information",
+      "math": 105,
+      "mathErrors": [],
+      "missingImages": [],
+      "mainOverflow": false,
+      "headings": [
+        "14\u00a0 Generalized hydrodynamics: an interacting fluid of quasiparticles",
+        "14.1 The local state is a distribution",
+        "14.2 Derivation of the effective velocity",
+        "14.3 Conservation of quasiparticles and the GHD equation",
+        "14.4 Entropy at Euler order",
+        "14.5 Solving a partitioning protocol",
+        "14.6 Worked example: exact free-fermion domain-wall melting",
+        "14.7 Forces, diffusion, and breaking integrability",
+        "14.8 Correlation propagation and a numerical conservation test",
+        "14.9 Research bridges and frontier questions",
+        "14.10 Exercises and selected solutions"
+      ],
+      "page": "14-ghd",
+      "status": 200
+    },
+    {
+      "title": "25\u00a0 Measurement-induced phases of information \u2013 Quantum Many-Body Dynamics and Quantum Information",
+      "math": 83,
+      "mathErrors": [],
+      "missingImages": [],
+      "mainOverflow": false,
+      "headings": [
+        "25\u00a0 Measurement-induced phases of information",
+        "25.1 A definite monitored model",
+        "25.2 Derivation: the averaged state loses the transition\u2019s observable",
+        "25.3 Derivation: a minimum cut bounds Schmidt rank",
+        "25.4 Replica statistical mechanics and Born weighting",
+        "25.5 Purification as a complementary experiment",
+        "25.6 Finite-size scaling without assuming the answer",
+        "25.7 A transparent measurement update in Julia",
+        "25.8 Experiments, postselection, and a research bridge",
+        "25.9 The Zeno limit is a useful endpoint, not the full explanation",
+        "25.10 Exercises"
+      ],
+      "page": "25-measurement-transitions",
+      "status": 200
+    },
+    {
+      "title": "Research pathways and paper coverage \u2013 Quantum Many-Body Dynamics and Quantum Information",
+      "math": 2,
+      "mathErrors": [],
+      "missingImages": [],
+      "mainOverflow": false,
+      "headings": [
+        "Research pathways and paper coverage",
+        "What the source investigation establishes",
+        "From a pure state to local statistical mechanics",
+        "Spectral chaos, local scrambling, and accessible information",
+        "Entanglement growth, circuits, and deeper forms of randomness",
+        "From microscopic currents to integrable fluids",
+        "Anomalous transport and partial universality",
+        "Exact chaotic laboratories and their boundaries",
+        "Localization, avalanches, scars, and constrained connectivity",
+        "Driven matter and the lifetime of engineered behavior",
+        "Baths, records, and measurement-generated codes",
+        "Critical fields, gauge constraints, and the next numerical method",
+        "Complete selected-source index"
+      ],
+      "page": "research-map",
+      "status": 200
+    },
+    {
+      "title": "Appendix B \u2014 Computational laboratory \u2013 Quantum Many-Body Dynamics and Quantum Information",
+      "math": 22,
+      "mathErrors": [],
+      "missingImages": [],
+      "mainOverflow": false,
+      "headings": [
+        "Appendix B \u2014 Computational laboratory",
+        "B.1 Models you can inspect and change",
+        "B.2 Entanglement without global entropy growth",
+        "B.3 Conserved information moves slowly",
+        "B.4 Measurement records and conditional entanglement",
+        "B.5 Recreate the scientific data",
+        "B.6 Turn a demonstration into a study"
+      ],
+      "page": "computational-laboratory",
+      "status": 200
+    }
+  ],
+  "interactive_limits": "p=0 and p=1 passed; slider output changed",
+  "page_errors": [],
+  "screenshots": "/tmp/many-body-web-qa",
+  "browser": "isolated headless Google Chrome"
+}

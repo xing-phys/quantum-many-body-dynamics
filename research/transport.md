@@ -37,7 +37,7 @@ their author-posted preprints. Citation keys refer to `references/transport.bib`
 
 `A`: original abstract/metadata inspected; `T`: selected full-text sections or
 equations inspected; `M`: metadata corroborated but original full text unavailable.
-No `T` label means a complete independent verification of all proofs in a paper.
+The `T` label does not mean a complete independent verification of all proofs in a paper.
 
 | Key | Primary source and year | Use / status |
 |---|---|---|
@@ -118,3 +118,18 @@ Figures: microscopic bond current → coarse density → diffusion; quasiparticl
 collision displacements; Riemann rays; three distinct spreading speeds; tensor
 cancellations in two orientations; Keldysh contour; momentum-space flux cascade.
 All proposed figures should be original drawings or regenerated data.
+
+## Completed pedagogical computations and integration audit
+
+- `numerics/transport_labs.jl` executed successfully with Julia 1.12.6 on
+  22 October 2026. The L=240 hopping-chain domain wall passed Hermiticity,
+  occupation-bound, total-charge, rightward-current-sign, and interior Euler
+  profile checks. The phased-SWAP example passed ordinary and reshuffled
+  unitarity and the exact X/Z channel-eigenmode trajectory checks.
+- `scripts/plot_transport.py` renders those data and an original closed-time
+  contour in PNG and PDF; all three PNGs were visually inspected.
+- Integrated map cross-checks reopened original arXiv abstract/metadata records
+  for Cemin–Bukov–Solfanelli 2610.12597 (8 October 2026, preprint), Chen et al.
+  2603.23948v4 (6 September 2026, JHEP10(2026)137), Serbyn et al. 2601.08347
+  (PRX16,031042), and Mark et al. 2609.30248 (24 September 2026, review preprint).
+  These are abstract/metadata checks, not independent proof or hardware audits.

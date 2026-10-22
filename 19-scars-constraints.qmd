@@ -1,0 +1,149 @@
+# Special states, constrained motion, and weak ergodicity breaking {#sec-scars}
+
+::: {.callout-note}
+## Prerequisites and goals
+You need spin raising/lowering operators, eigenstate expansions, and entanglement entropy. We define constrained Hilbert spaces, forward-scattering approximations, spectrum-generating algebras, and fragmentation. You will derive the Rydberg-blockade model, construct an approximate collective-spin description of revivals, and distinguish exact invariant sectors from atypical states inside a largely thermal spectrum.
+:::
+
+## Thermalization can depend sharply on the initial state
+
+In an ordinary thermalizing system, many microscopically different product states with the same conserved densities relax to the same local equilibrium. Yet some interacting systems have a striking exception: a simple initial pattern produces many coherent oscillations, while another pattern at similar energy relaxes rapidly. This motivates the study of **quantum many-body scars**: atypical eigenstates or families of states that leave a visible nonthermal footprint in selected dynamics.
+
+The terminology has several operational uses, particularly as the field expands toward integrable and constrained examples. We will always specify the actual diagnostic: unusually low eigenstate entanglement, large overlaps with a simple state, approximately equally spaced towers, or recurrent trajectories. None of these alone implies a stable thermodynamic phase. Long-lived oscillations can also arise from weak coupling, a conserved quantity, or near-integrability.
+
+Four distinctions organize the chapter. Ordinary symmetry sectors follow from specified conserved operators. Integrable systems possess an extensive structure of conserved quantities. Fragmented systems split into many disconnected dynamical sectors beyond the chosen conventional charges. Scarred systems can have a largely thermal spectrum with a small set of exceptional states important for specially chosen initial conditions. These possibilities can overlap; their definitions should not be silently exchanged.
+
+## Derivation 1: the Rydberg blockade and PXP Hamiltonian
+
+An atom has a ground state $|0\rangle$ and a Rydberg state $|1\rangle$. Laser driving and interactions lead to a simplified chain Hamiltonian
+$$
+H=\frac\Omega2\sum_j\sigma_j^x-\delta\sum_jn_j
++V\sum_jn_jn_{j+1},\qquad n_j=|1\rangle_j\langle1|.
+$$
+$\Omega$ is the Rabi frequency, $\delta$ is the detuning in this convention, and $V$ is a nearest-neighbor repulsion. For $V\gg\Omega,|\delta|$, states with neighboring excitations cost large energy. At leading order in projection onto the no-adjacent-excitation subspace, a spin can flip only if both neighbors are unexcited.
+
+With $P_j=1-n_j$, the projected resonant model is
+$$
+H_{\mathrm{PXP}}=\frac\Omega2\sum_jP_{j-1}\sigma_j^xP_{j+1}.
+$$ {#eq-scars-pxp}
+
+At open ends, an absent-neighbor projector is the identity. Finite $V$ produces corrections through virtual forbidden configurations, and real Rydberg interactions extend beyond nearest neighbors. These are physical deviations to be modeled when comparing an experiment, not merely numerical errors.
+
+The allowed basis is already smaller than $2^L$. Let $d_L$ be the number of open-chain binary strings without adjacent ones. Strings ending in zero correspond to any allowed length-$L-1$ string. Strings ending in one must end in 01 and correspond to allowed length-$L-2$ strings. Hence
+$$
+d_L=d_{L-1}+d_{L-2},\qquad d_0=1,\quad d_1=2,
+\qquad d_L=F_{L+2}.
+$$ {#eq-scars-fibonacci}
+
+Here $F_1=F_2=1$. The exponential growth rate is the golden ratio rather than two. The constrained space nevertheless remains exponentially large and does not by itself guarantee nonthermal dynamics.
+
+Rydberg-array experiments observed particularly coherent revivals from a staggered pattern $|Z_2\rangle=|1010\cdots\rangle$ [@bernien2017simulator]. Turner and collaborators identified anomalous eigenstates and a restricted-dynamics description explaining why this pattern couples unusually strongly to them [@turner2018scars]. The question is why this selected initial state behaves collectively despite the many accessible configurations.
+
+## Derivation 2: an approximate collective spin
+
+Measure a basis string's Hamming distance from $|Z_2\rangle$, meaning the number of sites differing from it. Split $H=H^++H^-$, where $H^+$ contains allowed flips increasing that distance and $H^-=(H^+)^\dagger$ decreases it. For initially excited sites, $H^+$ lowers the excitation; for initially empty sites it raises it, with the same blockade projectors.
+
+Construct normalized vectors recursively:
+$$
+|0\rangle=|Z_2\rangle,\qquad
+\beta_{k+1}=\|H^+|k\rangle\|,\qquad
+|k+1\rangle=H^+|k\rangle/\beta_{k+1}.
+$$ {#eq-scars-fsa}
+
+Different $k$ have different Hamming distances and are orthogonal. Projecting onto their span gives a tridiagonal matrix,
+$$
+H_{\mathrm{FSA}}=\sum_k\beta_{k+1}(|k+1\rangle\langle k|+|k\rangle\langle k+1|).
+$$
+This is the **forward-scattering approximation** (FSA). Forward action is built into the recursion, but backward action need not satisfy $H^-|k\rangle=\beta_k|k-1\rangle$ exactly. Components orthogonal to the constructed vectors cause leakage out of the approximation.
+
+Compare with a collective spin $S=L/2$ and Hamiltonian $H_{\mathrm{coll}}=\omega S^x$. In the $S^z$ ladder basis labeled $k=0,\ldots,L$,
+$$
+\langle k+1|H_{\mathrm{coll}}|k\rangle
+=\frac\omega2\sqrt{(k+1)(L-k)}.
+$$ {#eq-scars-spinladder}
+
+If the FSA coefficients follow this form and leakage is small, the staggered state behaves approximately like a large spin rotating about the $x$ axis. The overlap with its initial extremal state is
+$$
+\mathcal F_{\mathrm{coll}}(t)=|\langle0|e^{-i\omega S^xt}|0\rangle|^2
+=\left[\cos^2(\omega t/2)\right]^L.
+$$ {#eq-scars-revival}
+
+Full fidelity revivals occur at $2\pi/\omega$. The ideal spectrum contains equally spaced energies, so the phases realign. In the actual PXP model the ladder is approximate: deviations and leakage cause imperfect revivals and their decay. The mechanism is a useful calculation, not a claim that PXP secretly possesses an exact global SU(2) symmetry.
+
+One quantitative diagnostic is
+$$
+\epsilon_k=\|(1-P_{\mathrm{FSA}})H|k\rangle\|,
+$$
+where $P_{\mathrm{FSA}}$ projects onto the FSA space. Matching ladder coefficients without checking $\epsilon_k$ is insufficient. Choi and collaborators constructed deformations that greatly improve revivals and compared them with exact scar constructions [@choi2019scars]. The distinction between nearly perfect dynamics in a deformed physical model and exactly protected dynamics in an auxiliary model matters.
+
+## Why a small exceptional set can dominate a quench
+
+For any initial state,
+$$
+\mathcal F(t)=\left|\sum_n|\langle n|\psi_0\rangle|^2e^{-iE_nt}\right|^2.
+$$
+If most weight sits in an approximately equally spaced tower, phases recur even though that tower is a vanishing fraction of all eigenstates. A generic initial state may have exponentially small total overlap with it and thermalize normally. Thus a small exceptional eigenstate set can violate strong ETH while leaving weak ETH compatible with typical-state behavior, under the stated definitions and sector conventions.
+
+The convincing numerical signature is a combination: overlap outliers, eigenstate-entanglement outliers, approximate energy spacing, state-dependent dynamical revivals, and a controlled comparison with symmetry-resolved thermal states. A bright line in a Fourier spectrum does not independently establish all these properties.
+
+![Exact PXP dynamics for an open chain of 12 atoms, $\Omega=1$, in its 377-dimensional constrained basis. The staggered state has substantially stronger return revivals and slower entanglement growth than the initially empty state. Both have zero expectation of the off-diagonal Hamiltonian initially, so energy expectation alone does not explain the contrast. This finite-chain demonstration does not establish an infinite-lifetime scar phase. The [Julia laboratory](numerics/thermal_lab.jl) saves both states' time traces.](figs/thermal-pxp.png){#fig-scars-pxp}
+
+## Exact embedded states: the algebra is simple
+
+Let local projectors $P_i$ define a target subspace $\mathcal T=\bigcap_i\ker P_i$. Consider
+$$
+H=\sum_iP_i h_iP_i+H',
+$$ {#eq-scars-embedding}
+with Hermitian local $h_i$, and require $H'$ to preserve $\mathcal T$. For $|\psi\rangle\in\mathcal T$, every projected term vanishes, so $H|\psi\rangle=H'|\psi\rangle$. Any eigenstate of $H'$ inside $\mathcal T$ is consequently an exact eigenstate of $H$.
+
+This is the core of a systematic embedding method developed by Shiraishi and Mori [@shiraishi2017counterexamples]. It allows nonthermal target states to be embedded at energies surrounded by much more complicated states. The algebra proves the target eigenstates' existence. It does not prove that the rest of the spectrum thermalizes, that the states survive arbitrary perturbations, or that every definition of ETH fails within every sector. When discussing thermalization, always identify the relevant invariant sectors and observables.
+
+A **spectrum-generating algebra** is another exact route. If an operator $Q^\dagger$ satisfies $[H,Q^\dagger]=\omega Q^\dagger$ on a specified subspace and $|\psi_0\rangle$ is an eigenstate, then nonzero states $(Q^\dagger)^n|\psi_0\rangle$ form an equally spaced eigenstate tower. The relation may hold only within the target space, not as an operator identity on the entire Hilbert space. Checking that domain prevents many false claims of an exact collective symmetry.
+
+## Fragmentation: disconnected dynamics within fixed charges
+
+Represent a Hamiltonian as a graph: basis configurations are vertices, and a nonzero off-diagonal matrix element supplies an edge. Each connected component spans an invariant subspace. A **Krylov space** generated from $|\psi\rangle$ is the span of $|\psi\rangle,H|\psi\rangle,H^2|\psi\rangle,\ldots$. For a basis-state initial condition it cannot leave the containing component, and additional structure can make the Krylov space smaller than that component.
+
+An ordinary conserved total charge already divides the graph into blocks. **Hilbert-space fragmentation** means an extensive or otherwise nontrivial further decomposition within the specified conventional symmetry sector due to restricted local motion. Merely observing more than one total-charge sector is not fragmentation in this sense.
+
+For a spin-1 chain, with local $S_j^z\in\{-1,0,1\}$, consider
+$$
+H_{\mathrm{dip}}=g\sum_j\left[S_j^-(S_{j+1}^+)^2S_{j+2}^-+\mathrm{h.c.}\right].
+$$
+The local change in $S^z$ is $(-1,+2,-1)$, so it conserves both charge $Q=\sum_jS_j^z$ and dipole moment $P=\sum_jjS_j^z$:
+$$
+\Delta Q=-1+2-1=0,\qquad
+\Delta P=-j+2(j+1)-(j+2)=0.
+$$ {#eq-scars-dipole}
+
+For example, $|+,-,0\rangle$ can move to $|0,+,-\rangle$, while many configurations have no permitted moves. Local range restrictions create disconnected components even after fixing $Q,P$. Sala and collaborators showed that changing the allowed interaction range can change strong fragmentation into weak fragmentation [@sala2020fragmentation]. In the latter case, exponentially many small sectors may coexist with a dominant sector that occupies almost all states in a charge window, allowing typical states to look thermal. Khemani, Hermele, and Nandkishore connected related graph shattering to physical implementations and approximate conservation laws [@khemani2020shattering].
+
+## Variational trajectories and the 2026 frontier
+
+Some scarred dynamics admit a complementary low-entanglement description. Choose normalized trial states $|\psi(\boldsymbol\theta)\rangle$ and minimize the instantaneous Schrödinger residual
+$$
+\mathcal R=\left\|\sum_a\dot\theta_a\partial_a|\psi\rangle+iH|\psi\rangle\right\|^2
+$$
+over tangent velocities, with a consistent phase gauge. This is the time-dependent variational principle, TDVP. In complex coordinates for a holomorphic manifold, projection gives the schematic linear system $iG_{a\bar b}\dot\theta^a=\langle\partial_{\bar b}\psi|H|\psi\rangle$, with the projected tangent-space metric $G$. Constraints, gauge directions, and real-coordinate versions require corresponding modifications.
+
+The resulting nonlinear differential equations can have periodic orbits and mixed regular/chaotic regions. A periodic variational orbit is meaningful for the quantum dynamics only when the component of $H|\psi\rangle$ outside the tangent space remains small along it. Michailidis and collaborators used this approach to locate long-lived revivals and relate them to mixed phase space [@michailidis2020mixedphase]. The approximation's residual is part of the evidence, not a disposable implementation detail.
+
+Two 2026 preprints illustrate expanding questions. Desaules and collaborators propose graph-based candidate scar trajectories on frustrated Rydberg geometries and numerically identify mechanisms involving locally entangled or partially pinned states [@desaules2026frustrated]. Petrova, Serbyn, and Ljubotina relate periodic-orbit-supporting towers in integrable XYZ/XXZ chains to Bethe-ansatz quantum numbers [@petrova2026orbits]. Their use of scar phenomenology in integrable systems makes operational definitions especially important. Neither source should be compressed into a claim of universal protection against generic perturbations. A feasible first reproduction is to compare FSA leakage and exact overlap spectra on a small open chain before extending to frustrated graphs.
+
+## Exercises
+
+1. **Constraint counting.** Derive $d_L=F_{L+2}$ for an open chain. Count the allowed strings explicitly for $L=3$ and compare with a periodic ring, where the endpoints also constrain each other.
+2. **Collective revival.** Derive @eq-scars-revival by viewing spin $S=L/2$ as the symmetric subspace of $L$ spin-$1/2$ particles. Distinguish fidelity revivals from oscillations of the collective magnetization.
+3. **Embedding.** Prove @eq-scars-embedding leaves $\mathcal T$ invariant under the stated hypothesis. Give an example where $H'$ fails to preserve $\mathcal T$, so the conclusion fails.
+4. **Fragmentation audit.** Enumerate the graph of $H_{\mathrm{dip}}$ for a short open spin-1 chain. Within one fixed $(Q,P)$ sector, compute connected components and identify frozen configurations. Compare their dimensions with the full sector.
+5. **Reproduction project.** Diagonalize PXP at increasing even $L$. Plot half-chain eigenstate entropy against energy, weighted by overlap with $|Z_2\rangle$. Compare its return fidelity with that of $|00\cdots0\rangle$, and test the effect of a small next-neighbor detuning.
+
+::: {.callout-tip collapse="true"}
+## Worked solution: three constrained atoms
+The allowed open-chain strings are $000,001,010,100,101$, giving $d_3=5=F_5$. A three-site ring also forbids simultaneous excitation at sites 1 and 3, leaving four strings. Boundary conditions therefore change the constrained basis and must be set before comparing spectra or counting scar towers.
+:::
+
+::: {.callout-tip collapse="true"}
+## Worked solution: collective revivals
+The extremal collective state is a tensor product of $L$ identical spinors. Since $e^{-i\omega t S^x}=\bigotimes_j e^{-i\omega t\sigma_j^x/2}$, its return amplitude is $[\cos(\omega t/2)]^L$. Squaring gives @eq-scars-revival. The magnetization is proportional to $\cos\omega t$, a smooth sinusoid, while the fidelity becomes sharply peaked near integer revival periods as $L$ grows. Similar magnetization oscillations therefore do not imply an equally large many-body return fidelity.
+:::

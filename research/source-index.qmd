@@ -1,0 +1,155 @@
+## Complete selected-source index
+
+The table lists the selected sources once each. Source-group labels identify
+which evidence ledger records their investigation. Citation aliases and the
+original bibliographies are preserved in the repository; identity-based
+deduplication uses DOI or arXiv identifiers, not fuzzy title matching.
+
+| Source | Year | Role / evidence ledger |
+|--------------------------------------------------------------------|--------|------------------------|
+| [Zur Theorie der Metalle. I. Eigenwerte und Eigenfunktionen der linearen Atomkette](https://doi.org/10.1007/BF01341708) [@bethe1931chain] | 1931 | transport |
+| [Statistical-Mechanical Theory of Irreversible Processes. I. General Theory and Simple Applications to Magnetic and Conduction Problems](https://doi.org/10.1143/JPSJ.12.570) [@kubo1957response] | 1957 | transport |
+| [Absence of Diffusion in Certain Random Lattices](https://doi.org/10.1103/PhysRev.109.1492) [@anderson1958diffusion] | 1958 | thermal |
+| [Non-ergodicity of phase functions in certain systems](https://doi.org/10.1016/0031-8914(69)90185-2) [@mazur1969bound] | 1969 | transport |
+| [Thermodynamics of a One-Dimensional System of Bosons with Repulsive Delta-Function Interaction](https://doi.org/10.1063/1.1664947) [@yang1969thermodynamics] | 1969 | transport |
+| [Completely positive dynamical semigroups of N-level systems](https://doi.org/10.1063/1.522979) [@info-gks1976] | 1976 | information |
+| [On the generators of quantum dynamical semigroups](https://doi.org/10.1007/BF01608499) [@info-lindblad1976] | 1976 | information |
+| [Quantization of particle transport](https://doi.org/10.1103/PhysRevB.27.6083) [@thouless1983pump] | 1983 | thermal |
+| [Quantum statistical mechanics in a closed system](https://doi.org/10.1103/PhysRevA.43.2046) [@deutsch1991statistical] | 1991 | thermal |
+| [Average entropy of a subsystem](https://arxiv.org/abs/gr-qc/9305007) [@page1993average] | 1993 | core, information |
+| [Chaos and Quantum Thermalization](https://arxiv.org/abs/cond-mat/9403051) [@srednicki1994chaos] | 1994 | thermal |
+| [Capacities of Quantum Erasure Channels](https://arxiv.org/abs/quant-ph/9701015) [@info-bennett1997] | 1997 | information |
+| [Theory of quantum error-correcting codes](https://arxiv.org/abs/quant-ph/9604034) [@info-knill1997] | 1997 | information |
+| [A computable measure of entanglement](https://arxiv.org/abs/quant-ph/0102117) [@info-vidal2002] | 2002 | information |
+| [Fault-tolerant quantum computation by anyons](https://arxiv.org/abs/quant-ph/9707021) [@kitaev2003anyons] | 2003 | thermal |
+| [Efficient Simulation of One-Dimensional Quantum Many-Body Systems](https://arxiv.org/abs/quant-ph/0310089) [@vidal2004tebd] | 2004 | core |
+| [Introduction to Nonequilibrium Quantum Field Theory](https://arxiv.org/abs/hep-ph/0409233) [@berges2005nonequilibrium] | 2005 | transport |
+| [Dynamics of a Quantum Phase Transition: Exact Solution of the Quantum Ising Model](https://arxiv.org/abs/cond-mat/0509490) [@dziarmaga2005ising] | 2005 | core |
+| [Evolution of Entanglement Entropy in One-Dimensional Systems](https://arxiv.org/abs/cond-mat/0503393) [@info-calabrese2005] | 2005 | information |
+| [Lieb-Robinson Bounds and the Generation of Correlations and Topological Quantum Order](https://arxiv.org/abs/quant-ph/0603121) [@bravyi2006locality] | 2006 | core |
+| [Entanglement and the foundations of statistical mechanics](https://arxiv.org/abs/quant-ph/0511225) [@popescu2006foundations] | 2006 | core |
+| [Black holes as mirrors: quantum information in random subsystems](https://arxiv.org/abs/0708.4025) [@info-hayden2007] | 2007 | information |
+| [Localization of interacting fermions at high temperature](https://arxiv.org/abs/cond-mat/0610854) [@oganesyan2007localization] | 2007 | thermal |
+| [Quantum States and Phases in Driven Open Quantum Systems with Cold Atoms](https://arxiv.org/abs/0803.1482) [@info-diehl2008] | 2008 | information |
+| [Third quantization: a general method to solve master equations for quadratic open Fermi systems](https://arxiv.org/abs/0801.1257) [@info-prosen2008] | 2008 | information |
+| [Thermalization and its mechanism for generic isolated quantum systems](https://arxiv.org/abs/0708.1324) [@rigol2008thermalization] | 2008 | thermal |
+| [Measure for the Degree of Non-Markovian Behavior of Quantum Processes in Open Systems](https://arxiv.org/abs/0908.0238) [@info-breuer2009] | 2009 | information |
+| [Quantum computation and quantum-state engineering driven by dissipation](https://arxiv.org/abs/0803.1447) [@info-verstraete2009] | 2009 | information |
+| [Many-body localization phase transition](https://arxiv.org/abs/1010.1992) [@pal2010transition] | 2010 | thermal |
+| [Open XXZ Spin Chain: Nonequilibrium Steady State and a Strict Bound on Ballistic Transport](https://arxiv.org/abs/1103.1350) [@prosen2011drude] | 2011 | transport |
+| [Exact Nonequilibrium Steady State of a Strongly Driven Open XXZ Chain](https://doi.org/10.1103/PhysRevLett.107.137201) [@prosen2011ness] | 2011 | transport |
+| [The density-matrix renormalization group in the age of matrix product states](https://arxiv.org/abs/1008.3477) [@schollwock2011mps] | 2011 | core |
+| [Solvable quantum nonequilibrium model exhibiting a phase transition and a matrix product representation](https://arxiv.org/abs/1011.0998) [@znidaric2011dephasing] | 2011 | transport |
+| [Light-cone-like spreading of correlations in a quantum many-body system](https://arxiv.org/abs/1111.0776) [@cheneau2012lightcone] | 2012 | core |
+| [Distribution of the Ratio of Consecutive Level Spacings in Random Matrix Ensembles](https://arxiv.org/abs/1212.5611) [@atas2013ratios] | 2013 | thermal |
+| [Dynamical Quantum Phase Transitions in the Transverse-Field Ising Model](https://arxiv.org/abs/1206.2505) [@heyl2013dqpt] | 2013 | core |
+| [Anomalous Edge States and the Bulk-Edge Correspondence for Periodically Driven Two-Dimensional Systems](https://arxiv.org/abs/1212.3324) [@rudner2013anomalous] | 2013 | thermal |
+| [Universal Slow Growth of Entanglement in Interacting Strongly Disordered Systems](https://arxiv.org/abs/1304.4605) [@serbyn2013entanglement] | 2013 | thermal |
+| [Local Conservation Laws and the Structure of the Many-Body Localized States](https://arxiv.org/abs/1305.5554) [@serbyn2013liom] | 2013 | thermal |
+| [Remarks on entanglement entropy for gauge fields](https://arxiv.org/abs/1312.1183) [@casini2014gaugeentropy] | 2014 | thermal |
+| [Entanglement entropy and nonabelian gauge symmetry](https://arxiv.org/abs/1406.7304) [@donnelly2014gaugeentropy] | 2014 | thermal |
+| [Phenomenology of fully many-body-localized systems](https://arxiv.org/abs/1408.4297) [@huse2014phenomenology] | 2014 | thermal |
+| [Quantum trajectories and open many-body quantum systems](https://arxiv.org/abs/1405.6694) [@info-daley2014] | 2014 | information |
+| [Exponentially Slow Heating in Periodically Driven Many-Body Systems](https://arxiv.org/abs/1507.01474) [@abanin2015heating] | 2015 | thermal |
+| [Universal High-Frequency Behavior of Periodically Driven Systems: From Dynamical Stabilization to Floquet Engineering](https://arxiv.org/abs/1407.4803) [@bukov2015floquet] | 2015 | thermal |
+| [Low-frequency conductivity in many-body localized systems](https://arxiv.org/abs/1502.07712) [@gopalakrishnan2015conductivity] | 2015 | thermal |
+| [Observation of many-body localization of interacting fermions in a quasirandom optical lattice](https://arxiv.org/abs/1501.05661) [@schreiber2015localization] | 2015 | thermal |
+| [Theory of the Many-Body Localization Transition in One-Dimensional Systems](https://arxiv.org/abs/1412.3117) [@vosk2015transition] | 2015 | thermal |
+| [Absence of Quantum Time Crystals](https://arxiv.org/abs/1410.2143) [@watanabe2015absence] | 2015 | thermal |
+| [Transport in Out-of-Equilibrium XXZ Chains: Exact Profiles of Charges and Currents](https://arxiv.org/abs/1605.09790) [@bertini2016ghd] | 2016 | transport |
+| [Emergent Hydrodynamics in Integrable Quantum Systems Out of Equilibrium](https://arxiv.org/abs/1605.07331) [@castro2016ghd] | 2016 | transport |
+| [Floquet Time Crystals](https://arxiv.org/abs/1603.08001) [@else2016crystals] | 2016 | thermal |
+| [Unifying time evolution and optimization with matrix product states](https://arxiv.org/abs/1408.5056) [@haegeman2016tdvp] | 2016 | core |
+| [On Many-Body Localization for Quantum Spin Chains](https://arxiv.org/abs/1403.7837) [@imbrie2016localization] | 2016 | thermal |
+| [Local random quantum circuits are approximate polynomial-designs](https://arxiv.org/abs/1208.0692) [@info-brandao2016] | 2016 | information |
+| [Remarks on the Sachdev-Ye-Kitaev model](https://arxiv.org/abs/1604.07818) [@info-maldacena2016syk] | 2016 | information |
+| [A bound on chaos](https://arxiv.org/abs/1503.01409) [@info-mss2016] | 2016 | information |
+| [Interferometric Approach to Probing Fast Scrambling](https://arxiv.org/abs/1607.01801) [@info-yao2016] | 2016 | information |
+| [Quantum thermalization through entanglement in an isolated many-body system](https://arxiv.org/abs/1603.04409) [@kaufman2016thermalization] | 2016 | core, thermal |
+| [Phase Structure of Driven Quantum Systems](https://arxiv.org/abs/1508.03344) [@khemani2016phases] | 2016 | thermal |
+| [Floquet–Magnus theory and generic transient dynamics in periodically driven many-body quantum systems](https://arxiv.org/abs/1508.05797) [@kuwahara2016magnus] | 2016 | thermal |
+| [Symmetry constraints on many-body localization](https://arxiv.org/abs/1605.03601) [@potter2016symmetry] | 2016 | thermal |
+| [Keldysh Field Theory for Driven Open Quantum Systems](https://arxiv.org/abs/1512.00637) [@sieberer2016keldysh] | 2016 | transport |
+| [Effective Hamiltonians, prethermalization, and slow energy absorption in periodically driven many-body systems](https://arxiv.org/abs/1510.03405) [@abanin2017effective] | 2017 | thermal |
+| [Entanglement and thermodynamics after a quantum quench in integrable systems](https://arxiv.org/abs/1608.00614) [@alba2017entanglement] | 2017 | transport |
+| [Nonthermal fixed points in quantum field theory beyond the weak-coupling limit](https://arxiv.org/abs/1607.02160) [@berges2017fixedpoints] | 2017 | core |
+| [Probing many-body dynamics on a 51-atom quantum simulator](https://arxiv.org/abs/1707.04344) [@bernien2017simulator] | 2017 | core, thermal |
+| [Observation of discrete time-crystalline order in a disordered dipolar many-body system](https://arxiv.org/abs/1610.08057) [@choi2017crystal] | 2017 | thermal |
+| [Stability and instability towards delocalization in MBL systems](https://arxiv.org/abs/1608.01815) [@deroeck2017stability] | 2017 | thermal |
+| [Prethermal Phases of Matter Protected by Time-Translation Symmetry](https://arxiv.org/abs/1607.05277) [@else2017prethermal] | 2017 | thermal |
+| [Spin diffusion from an inhomogeneous quench in an integrable system](https://arxiv.org/abs/1702.04210) [@ljubotina2017spin] | 2017 | transport |
+| [Quantum Entanglement Growth under Random Unitary Dynamics](https://arxiv.org/abs/1608.06950) [@nahum2017growth] | 2017 | information, transport |
+| [Minimizing irreversible losses in quantum systems by local counterdiabatic driving](https://arxiv.org/abs/1607.05687) [@sels2017counterdiabatic] | 2017 | core |
+| [Systematic Construction of Counterexamples to the Eigenstate Thermalization Hypothesis](https://arxiv.org/abs/1702.08227) [@shiraishi2017counterexamples] | 2017 | thermal |
+| [Discrete Time Crystals: Rigidity, Criticality, and Realizations](https://arxiv.org/abs/1608.02589) [@yao2017crystals] | 2017 | thermal |
+| [Observation of a discrete time crystal](https://arxiv.org/abs/1609.08684) [@zhang2017crystal] | 2017 | thermal |
+| [Exact Spectral Form Factor in a Minimal Model of Many-Body Quantum Chaos](https://arxiv.org/abs/1805.00931) [@bertini2018spectral] | 2018 | transport |
+| [Spectral Statistics in Spatially Extended Chaotic Quantum Many-Body Systems](https://arxiv.org/abs/1803.03841) [@chan2018spectral] | 2018 | thermal |
+| [Universal dynamics in an isolated one-dimensional Bose gas far from equilibrium](https://arxiv.org/abs/1805.12310) [@erne2018universal] | 2018 | transport |
+| [Dynamical quantum phase transitions: a review](https://arxiv.org/abs/1709.07461) [@heyl2018review] | 2018 | core |
+| [Coarse-grained dynamics of operator and state entanglement](https://arxiv.org/abs/1803.00089) [@info-jonay2018] | 2018 | information |
+| [Quantum Zeno Effect and the Many-body Entanglement Transition](https://arxiv.org/abs/1808.06134) [@info-li2018] | 2018 | information |
+| [Spectral theory of Liouvillians for dissipative phase transitions](https://arxiv.org/abs/1804.11293) [@info-minganti2018] | 2018 | information |
+| [Many-Body Quantum Chaos: Analytic Connection to Random Matrix Theory](https://arxiv.org/abs/1712.02665) [@kos2018chaos] | 2018 | thermal |
+| [Operator Spreading in Random Unitary Circuits](https://arxiv.org/abs/1705.08975) [@nahum2018operator] | 2018 | information, transport |
+| [Observation of universal dynamics in a spinor Bose gas far from equilibrium](https://arxiv.org/abs/1805.11881) [@prufer2018universal] | 2018 | transport |
+| [Diffusive Hydrodynamics of Out-of-Time-Ordered Correlators with Charge Conservation](https://arxiv.org/abs/1710.09827) [@rakovszky2018charge] | 2018 | transport |
+| [Many-Body Delocalization as a Quantum Avalanche](https://arxiv.org/abs/1706.09338) [@thiery2018avalanche] | 2018 | thermal |
+| [Weak ergodicity breaking from quantum many-body scars](https://arxiv.org/abs/1711.03528) [@turner2018scars] | 2018 | thermal |
+| [Operator Hydrodynamics, OTOCs, and Entanglement Growth in Systems without Conservation Laws](https://arxiv.org/abs/1705.08910) [@vonkeyserlingk2018operator] | 2018 | information, transport |
+| [Exact Correlation Functions for Dual-Unitary Lattice Models in 1+1 Dimensions](https://arxiv.org/abs/1904.02140) [@bertini2019dual] | 2019 | transport |
+| [Entanglement Spreading in a Minimal Model of Maximal Many-Body Quantum Chaos](https://arxiv.org/abs/1812.05090) [@bertini2019entanglement] | 2019 | transport |
+| [Probing Rényi entanglement entropy via randomized measurements](https://arxiv.org/abs/1806.05747) [@brydges2019renyi] | 2019 | core |
+| [Emergent SU(2) Dynamics and Perfect Quantum Many-Body Scars](https://arxiv.org/abs/1812.05561) [@choi2019scars] | 2019 | thermal |
+| [Diffusion in generalized hydrodynamics and quasiparticle scattering](https://arxiv.org/abs/1812.00767) [@denardis2019diffusion] | 2019 | transport |
+| [Kinetic Theory of Spin Diffusion and Superdiffusion in XXZ Spin Chains](https://arxiv.org/abs/1812.02701) [@gopalakrishnan2019kinetic] | 2019 | transport |
+| [Measurement-Induced Phase Transitions in the Dynamics of Entanglement](https://arxiv.org/abs/1808.05953) [@info-skinner2019] | 2019 | information |
+| [Disentangling Scrambling and Decoherence via Quantum Teleportation](https://arxiv.org/abs/1803.10772) [@info-yoshida2019] | 2019 | information |
+| [Emergent statistical mechanics of entanglement in random unitary circuits](https://arxiv.org/abs/1804.09737) [@info-zhou2019] | 2019 | information |
+| [Kardar-Parisi-Zhang Physics in the Quantum Heisenberg Magnet](https://arxiv.org/abs/1903.01329) [@ljubotina2019kpz] | 2019 | transport |
+| [Non-thermal fixed points: Universal dynamics far from equilibrium](https://arxiv.org/abs/1810.08143) [@schmied2019fixed] | 2019 | transport |
+| [Theory of the phase transition in random unitary circuits with measurements](https://arxiv.org/abs/1908.04305) [@info-bao2020] | 2020 | information |
+| [Quantum Error Correction in Scrambling Dynamics and Measurement-Induced Phase Transition](https://arxiv.org/abs/1903.05124) [@info-choi2020] | 2020 | information |
+| [Scalable probes of measurement-induced criticality](https://arxiv.org/abs/1910.00020) [@info-gullans2020probe] | 2020 | information |
+| [Dynamical Purification Phase Transition Induced by Quantum Measurements](https://arxiv.org/abs/1905.05195) [@info-gullans2020pur] | 2020 | information |
+| [Localization from Hilbert Space Shattering: From Theory to Physical Realizations](https://arxiv.org/abs/1910.01137) [@khemani2020shattering] | 2020 | thermal |
+| [Slow Quantum Thermalization and Many-Body Revivals from Mixed Phase Space](https://arxiv.org/abs/1905.08564) [@michailidis2020mixedphase] | 2020 | thermal |
+| [Ergodicity Breaking Arising from Hilbert Space Fragmentation in Dipole-Conserving Hamiltonians](https://arxiv.org/abs/1904.04266) [@sala2020fragmentation] | 2020 | thermal |
+| [Hierarchy of Linear Light Cones with Long-Range Interactions](https://arxiv.org/abs/2001.11509) [@tran2020hierarchy] | 2020 | core |
+| [Entanglement Membrane in Chaotic Many-Body Systems](https://arxiv.org/abs/1912.12311) [@zhou2020membrane] | 2020 | information, transport |
+| [Finite-temperature transport in one-dimensional quantum lattice models](https://arxiv.org/abs/2003.03334) [@bertini2021transport] | 2021 | transport |
+| [Stability of Superdiffusion in Nearly Integrable Spin Chains](https://arxiv.org/abs/2102.02219) [@denardis2021stability] | 2021 | transport |
+| [Superuniversality of Superdiffusion](https://arxiv.org/abs/2009.08425) [@ilievski2021super] | 2021 | transport |
+| [Observation of a prethermal discrete time crystal](https://arxiv.org/abs/2102.01695) [@kyprianidis2021prethermal] | 2021 | thermal |
+| [Measurement-induced quantum phases realized in a trapped-ion quantum computer](https://arxiv.org/abs/2106.05881) [@info-noel2022] | 2022 | information |
+| [Time-crystalline eigenstate order on a quantum processor](https://arxiv.org/abs/2107.13571) [@mi2022crystal] | 2022 | thermal |
+| [Avalanches and many-body resonances in many-body localized systems](https://arxiv.org/abs/2107.05642) [@morningstar2022avalanches] | 2022 | thermal |
+| [Non-linear fluctuating hydrodynamics for KPZ scaling in isotropic spin chains](https://arxiv.org/abs/2212.03696) [@denardis2023nlfh] | 2023 | transport |
+| [Preparing random states and benchmarking with many-body quantum chaos](https://arxiv.org/abs/2103.03535) [@info-choi2023random] | 2023 | information |
+| [Emergent Quantum State Designs from Individual Many-Body Wave Functions](https://arxiv.org/abs/2103.03536) [@info-cotler2023] | 2023 | information |
+| [Random Quantum Circuits](https://arxiv.org/abs/2207.14280) [@info-fisher2023] | 2023 | information |
+| [Measurement-induced entanglement and teleportation on a noisy quantum processor](https://arxiv.org/abs/2303.04792) [@info-hoke2023] | 2023 | information |
+| [Dynamics of magnetization at infinite temperature in a Heisenberg spin chain](https://arxiv.org/abs/2306.09333) [@rosenberg2024magnetization] | 2024 | transport |
+| [Generalized Hydrodynamics: A Perspective](https://arxiv.org/abs/2311.03438) [@doyon2025perspective] | 2025 | transport |
+| [Deep Thermalization under Charge-Conserving Quantum Dynamics](https://arxiv.org/abs/2408.15325) [@info-chang2025] | 2025 | information |
+| [Many-body delocalization with a two-dimensional 70-qubit superconducting quantum simulator](https://arxiv.org/abs/2507.16882) [@li2025delocalization] | 2025 | thermal |
+| [Partial Yet Definite Emergence of the Kardar-Parisi-Zhang Class in Isotropic Spin Chains](https://arxiv.org/abs/2406.07150) [@takeuchi2025partial] | 2025 | transport |
+| [Robustness of Kardar-Parisi-Zhang-like transport in long-range interacting quantum spin chains](https://arxiv.org/abs/2602.15933) [@anand2026robustness] | 2026 | transport |
+| [Exactly solvable many-body dynamics from space-time duality](https://arxiv.org/abs/2505.11489) [@bertini2026duality] | 2026 | transport |
+| [Error correction and quantum information spreading on sparse random graphs](https://arxiv.org/abs/2610.12597) [@cemin2026graphs] | 2026 | thermal |
+| [Local thermalization of SU(2) lattice gauge fields on quantum computers](https://arxiv.org/abs/2603.23948) [@chen2026gauge] | 2026 | core |
+| [Suppressing Parametric Instabilities in Driven Bosonic Lattices through Multi-tone Control](https://arxiv.org/abs/2606.31667) [@cruickshank2026multitone] | 2026 | thermal |
+| [Systematic construction of quantum many-body scars in frustrated Rydberg arrays](https://arxiv.org/abs/2605.05297) [@desaules2026frustrated] | 2026 | thermal |
+| [Protecting Quantum Simulations of Lattice Gauge Theories through Engineered Emergent Hierarchical Symmetries](https://arxiv.org/abs/2604.11085) [@fu2026hierarchical] | 2026 | thermal |
+| [A Qutrit Time Crystal Stabilized with Native Chiral Interactions](https://arxiv.org/abs/2605.14293) [@goss2026qutrit] | 2026 | thermal |
+| [No cloning of quantum ensembles](https://doi.org/10.1038/s41467-026-74924-x) [@info-du2026] | 2026 | information |
+| [Quantum resource localizability transitions in deep thermalization](https://arxiv.org/abs/2606.08756) [@info-feng2026] | 2026 | information |
+| [Coherence-Induced Deep Thermalization Transition in Random Permutation Quantum Dynamics](https://doi.org/10.1103/mjgs-y2z9) [@info-liu2026] | 2026 | information |
+| [Deep thermalization and Hilbert space ergodicity](https://arxiv.org/abs/2609.30248) [@info-mark2026] | 2026 | information |
+| [Deep thermalization for mixed states](https://doi.org/10.1103/x397-3nk5) [@info-sherry2026] | 2026 | information |
+| [Operator spreading in random unitary circuits with orthogonal/symplectic-invariant gate distributions](https://arxiv.org/abs/2606.03956) [@info-tan2026] | 2026 | information |
+| [Long-lived local quantum coherences from hydrodynamic large deviations](https://arxiv.org/abs/2604.27074) [@mcculloch2026coherence] | 2026 | transport |
+| [Periodic orbits and quantum many-body scars in integrable spin chains](https://arxiv.org/abs/2607.15132) [@petrova2026orbits] | 2026 | thermal |
+| [Crossover from generalized to conventional hydrodynamics in nearly integrable systems under relaxation time approximation](https://arxiv.org/abs/2603.02158) [@santra2026crossover] | 2026 | transport |
+| [Generalized Hydrodynamics of Bloch Oscillations in the Absence of a Lattice](https://arxiv.org/abs/2605.18957) [@scopa2026bloch] | 2026 | transport |
+| [Eigenstate thermalization in thermal first-order phase transitions](https://arxiv.org/abs/2601.08347) [@serbyn2026firstorder] | 2026 | thermal |

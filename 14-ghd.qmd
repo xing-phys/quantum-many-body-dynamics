@@ -1,0 +1,399 @@
+# Generalized hydrodynamics: an interacting fluid of quasiparticles {#sec-ghd}
+
+Join two integrable gases prepared at different temperatures or densities.
+Particles collide repeatedly, yet the ensuing profiles often expand over a
+region proportional to time rather than to its square root. Ordinary diffusion
+has discarded the stable excitations responsible for this motion. Generalized
+hydrodynamics, abbreviated GHD, retains their entire local rapidity distribution.
+
+The essential prerequisite is a thermodynamic description of quasiparticles.
+We reconstruct it below so that the dynamical derivation can be followed
+independently. Units are $\hbar=k_B=1$; lattice spin conventions elsewhere are
+$S^a=\sigma^a/2$. An *Euler-scale* limit sends distances and times to infinity
+with their ratio fixed. It keeps ballistic motion and discards gradient
+corrections that are relatively smaller in that limit.
+
+## The local state is a distribution
+
+In the repulsive Lieb–Liniger model, a particle is labeled by rapidity $k$,
+with bare momentum $p(k)=k$ and energy $e(k)=k^2$ in mass units $m=1/2$.
+Let $\rho_p(k;x,t)dk$ count occupied rapidities per physical length, and let
+$\rho_s=\rho_p+\rho_h$ count all allowed rapidity states. The filling
+$\vartheta=\rho_p/\rho_s$ lies between zero and one. Its fermionic-looking
+range describes Bethe quantum numbers, not the exchange statistics of the atoms.
+
+The local density-of-states relation is
+
+$$
+2\pi\rho_s(k)=p'(k)+\int dq\,K(k-q)\rho_p(q),
+\qquad K(q)=\frac{2c}{c^2+q^2},\quad c>0.
+$$ {#eq-ghd-state}
+
+The interaction strength is $c$. The kernel is a derivative of the two-body
+scattering phase. All quantities in @eq-ghd-state are evaluated in the same
+local cell $(x,t)$. The equation follows by differentiating Bethe quantization;
+@sec-integrability develops that construction.
+
+For each conserved charge $Q[h]$, a particle carries a bare eigenvalue $h(k)$.
+Its local density is $q[h]=\int dk\,\rho_p h$. Particle number uses $h=1$,
+momentum $h=k$, and energy $h=k^2$. Knowing only these three moments does not
+specify the function $\rho_p$. A local generalized Gibbs ensemble supplies the
+larger family of constraints.
+
+The hydrodynamic assumption is that a cell has relaxed sufficiently to such a
+stationary macrostate before its parameters change appreciably. Coherent
+microscopic oscillations, very sharp fronts, and special low-entropy preparations
+can require additional variables or quantum corrections. GHD is not a
+replacement for the exact wavefunction on every scale.
+
+## Derivation of the effective velocity
+
+A particle moving through a medium experiences scattering delays. Its
+trajectory speed differs from its isolated group velocity
+$v^{\mathrm{bare}}=e'/p'$. Since collisions preserve rapidities in an integrable
+model, these delays can be accumulated without introducing a collision term that
+changes the population of rapidities.
+
+A compact way to sum the background response is *dressing*. For any bare
+function $h(k)$, solve
+
+$$
+h^{\mathrm{dr}}(k)=h(k)+\int\frac{dq}{2\pi}
+K(k-q)\vartheta(q)h^{\mathrm{dr}}(q).
+$$ {#eq-ghd-dressing}
+
+The density equation implies $(p')^{\mathrm{dr}}=2\pi\rho_s$.
+Adding a quasiparticle shifts the momenta and energies of surrounding particles;
+the ratio of the resulting energy and momentum derivatives is
+
+$$
+v^{\mathrm{eff}}(k)=\frac{(e')^{\mathrm{dr}}(k)}{(p')^{\mathrm{dr}}(k)}.
+$$ {#eq-ghd-effective-velocity}
+
+This ratio can be turned into a kinetic equation. Multiply both sides by
+$(p')^{\mathrm{dr}}$, use dressing of $e'$, and replace
+$\vartheta(p')^{\mathrm{dr}}/(2\pi)$ by $\rho_p$. The result is
+
+$$
+v^{\mathrm{eff}}(k)=v^{\mathrm{bare}}(k)+\frac1{p'(k)}
+\int dq\,K(k-q)\rho_p(q)
+[v^{\mathrm{eff}}(q)-v^{\mathrm{eff}}(k)].
+$$ {#eq-ghd-kinetic-velocity}
+
+The relative velocity sets a collision rate; the scattering phase derivative
+sets the signed displacement per encounter. For this convention, a sufficiently
+fast Lieb–Liniger particle is slowed by encounters with slower particles. The
+formula is self-consistent because collision partners are themselves dressed.
+Replacing their velocities by bare ones is an additional approximation.
+
+This derivation also explains how interactions can affect ballistic transport
+without destroying it. Collisions change trajectories and observable currents,
+but factorization prevents generic redistribution of the rapidity labels.
+In models with several species, each density, kernel, and dressed quantity gains
+a species index and the integrals include a species sum. Spin chains require
+that extension, including their bound states.
+
+## Conservation of quasiparticles and the GHD equation
+
+A rapidity bin is conserved while its particles move with $v^{\mathrm{eff}}$.
+The leading continuity equation is therefore
+
+$$
+\partial_t\rho_p(k;x,t)+\partial_x
+\left[v^{\mathrm{eff}}(k;x,t)\rho_p(k;x,t)\right]=0.
+$$ {#eq-ghd-euler}
+
+Integrating against $h(k)$ gives conservation of every charge and its current:
+
+$$
+\partial_t q[h]+\partial_xj[h]=0,
+\qquad
+j[h]=\int dk\,\rho_p(k)v^{\mathrm{eff}}(k)h(k).
+$$ {#eq-ghd-charge-current}
+
+The physical current is nonlinear in the local state even though it looks like
+a sum of single-particle contributions: both the density of states and the
+velocities depend on the full distribution. This is the predictive closure
+missing from continuity alone. GHD was introduced independently by
+@castro2016ghd and @bertini2016ghd.
+
+An equivalent form reveals convenient state coordinates. From dressing,
+
+$$
+v^{\mathrm{eff}}\rho_s=
+\frac{e'}{2\pi}+\int\frac{dq}{2\pi}
+K(k-q)v^{\mathrm{eff}}(q)\rho_p(q).
+$$
+
+Differentiate the density-of-states equation in time and this identity in space.
+For a homogeneous Hamiltonian, $p'$ and $e'$ have no space-time dependence;
+@eq-ghd-euler then implies
+$\partial_t\rho_s+\partial_x(v^{\mathrm{eff}}\rho_s)=0$.
+Substitute $\rho_p=\vartheta\rho_s$ and cancel the latter continuity equation:
+
+$$
+\partial_t\vartheta(k;x,t)+v^{\mathrm{eff}}[\vartheta](k;x,t)
+\partial_x\vartheta(k;x,t)=0.
+$$ {#eq-ghd-filling-advection}
+
+Thus the filling is constant along a characteristic satisfying
+$dx/dt=v^{\mathrm{eff}}$. The characteristics interact through the state-dependent
+speed. This is not independent free streaming, despite its advection form.
+
+## Entropy at Euler order
+
+The local Yang–Yang entropy per rapidity is
+$s(k)=\rho_s(k)h(\vartheta(k))$, with
+$h(v)=-v\ln v-(1-v)\ln(1-v)$.
+Use filling advection and state-density continuity to obtain
+
+$$
+\partial_ts(k)+\partial_x[v^{\mathrm{eff}}(k)s(k)]=0.
+$$ {#eq-ghd-entropy}
+
+After integration, thermodynamic entropy has a current but no local production
+at Euler order. This does not forbid entanglement growth after a pure-state
+quench. The coarse local entropy can already be nonzero after local relaxation,
+and entanglement between regions changes as correlated quasiparticles cross
+their boundaries. Euler transport of thermodynamic entropy and exact global
+von Neumann entropy are distinct objects.
+
+Diffusive corrections generally produce nonnegative entropy. Their appearance
+is compatible with microscopic reversibility because coarse-graining discards
+correlations among fluctuating trajectories.
+
+## Solving a partitioning protocol
+
+Prepare two homogeneous semi-infinite states with fillings
+$\vartheta_L(k)$ and $\vartheta_R(k)$, then join them at $x=0$.
+At late Euler times the solution depends on the ray $\zeta=x/t$.
+Substituting into @eq-ghd-filling-advection gives
+
+$$
+[v^{\mathrm{eff}}(k;\zeta)-\zeta]\partial_\zeta\vartheta(k;\zeta)=0.
+$$
+
+Trace a characteristic backward: if its velocity exceeds the observation ray,
+it reaches the left initial half; otherwise it reaches the right half. Hence
+
+$$
+\vartheta(k;\zeta)=
+\begin{cases}
+\vartheta_L(k),&v^{\mathrm{eff}}[\vartheta(\zeta)](k)>\zeta,\\
+\vartheta_R(k),&v^{\mathrm{eff}}[\vartheta(\zeta)](k)<\zeta.
+\end{cases}
+$$ {#eq-ghd-partitioning}
+
+The equality set requires appropriate limiting treatment but normally has zero
+measure for smooth observables. The selection is implicit: the selected
+population changes the velocities used to select it. Iterative solution at
+each ray alternates dressing with updating the left/right assignment.
+One must check convergence rather than assuming every fixed-point iteration
+is stable.
+
+This protocol is called a *Riemann problem*: a conservation law starts from a
+step between constant states. Unlike a simple fluid's finite list of sound and
+contact modes, the integrable solution contains a continuum of characteristic
+velocities, often with several bound-state families.
+
+## Worked example: exact free-fermion domain-wall melting
+
+Take a hopping chain
+$H=-g\sum_x(c_x^\dagger c_{x+1}+c_{x+1}^\dagger c_x)$,
+with $g>0$, dispersion $\epsilon(k)=-2g\cos k$, and velocity
+$v(k)=2g\sin k$. Initially the left half is full and the right half empty.
+The kernel vanishes, so no dressing is needed. At ray $\zeta$, occupied modes
+are exactly those satisfying $2g\sin k>\zeta$.
+For $|\zeta|<2g$, direct integration gives
+
+$$
+n(\zeta)=\int_{-\pi}^{\pi}\frac{dk}{2\pi}
+\Theta(2g\sin k-\zeta)
+=\frac1\pi\arccos\frac{\zeta}{2g},
+$$ {#eq-ghd-free-density}
+
+and
+
+$$
+j(\zeta)=\int\frac{dk}{2\pi}\,2g\sin k\,
+\Theta(2g\sin k-\zeta)
+=\frac{2g}{\pi}\sqrt{1-\frac{\zeta^2}{4g^2}}.
+$$ {#eq-ghd-free-current}
+
+Outside the cone, $n=1$ on the left and $n=0$ on the right, with zero current.
+The central current is $2g/\pi$, and transferred particle number grows linearly
+in time. Differentiating the two profiles checks
+$-\zeta n'(\zeta)+j'(\zeta)=0$.
+The calculation is exact in the Euler scaling limit. Microscopic fronts retain
+lattice oscillations and narrower scaling regions not described by this formula.
+
+A short Julia quadrature reproduces the profiles without evaluating a
+many-body wavefunction:
+
+```julia
+#| eval: false
+g = 1.0
+Nk = 200000
+k = (-pi .+ (0:Nk-1) .* (2pi/Nk))
+v = 2g .* sin.(k)
+for zeta in range(-1.8g, 1.8g, length=9)
+    occ = v .> zeta
+    density = sum(occ)/Nk
+    current = sum(v .* occ)/Nk
+    @show zeta density current acos(zeta/(2g))/pi
+end
+```
+
+For a microscopic benchmark, evolve the correlation matrix
+$C(t)=e^{-iht}C(0)e^{iht}$ of the one-particle hopping matrix $h$ and compare
+$C_{xx}(t)$ at fixed $x/t$. Increase the chain length before increasing time
+until boundaries no longer affect the chosen rays.
+
+## Forces, diffusion, and breaking integrability
+
+A smooth potential $V(x)$ coupling to particle number in the Lieb–Liniger gas
+accelerates rapidities with $F=-\partial_xV$ in the stated units. Leading
+hydrodynamics becomes
+
+$$
+\partial_t\rho_p+\partial_x(v^{\mathrm{eff}}\rho_p)
++\partial_k(F\rho_p)=0.
+$$ {#eq-ghd-forced}
+
+The potential must vary slowly on microscopic lengths. It breaks exact global
+translation invariance, but a locally homogeneous scattering description may
+remain accurate. More general couplings have dressed effective accelerations;
+the simple $F$ above should not be transplanted indiscriminately.
+
+At the next gradient order, quasiparticle trajectories fluctuate because the
+number and rapidities of collision partners fluctuate. A schematic extension is
+
+$$
+\partial_t\rho_p+\partial_x(v^{\mathrm{eff}}\rho_p)
+=\partial_x\!\left[\mathfrak D[\rho_p]\partial_x\rho_p\right]
++\mathcal I[\rho_p].
+$$ {#eq-ghd-corrections}
+
+The operator $\mathfrak D$ mixes rapidities and species; its normalization is
+chosen here without an additional $1/2$. The collision integral $\mathcal I$
+represents genuine rapidity-changing integrability breaking. Diffusion exists
+even at exact integrability and must not be confused with $\mathcal I$.
+@denardis2019diffusion derives diffusive transport using quasiparticle scattering
+and form factors. At a symmetry point where the nominal diffusion coefficient
+diverges, a different scaling treatment is required.
+
+A weak perturbation often creates a long interval of GHD behavior before
+ordinary hydrodynamics emerges. Relaxation-time models simplify $\mathcal I$
+while preserving selected exact charges; @santra2026crossover explores this
+route. Its usefulness depends on whether the true hierarchy of collision rates
+is represented adequately.
+
+## Correlation propagation and a numerical conservation test
+
+Linearize GHD around a homogeneous stationary macrostate. To first order,
+$\delta\vartheta(k;x,t)$ travels with the background velocity
+$v^{\mathrm{eff}}(k)$; the perturbation of the velocity multiplies a background
+spatial derivative, which vanishes. The independent normal coordinates are thus
+small filling fluctuations labeled by rapidity.
+Thermodynamics assigns them occupation variance $\vartheta(1-\vartheta)$.
+A charge perturbation couples through its dressed charge, because the surrounding
+roots shift when a mode is added. Combining ballistic propagation with this
+thermodynamic covariance gives the Euler two-point formula
+
+$$
+C_{ij}(x,t)\simeq\int dk\,\rho_p(k)[1-\vartheta(k)]
+h_i^{\mathrm{dr}}(k)h_j^{\mathrm{dr}}(k)
+\delta[x-v^{\mathrm{eff}}(k)t].
+$$ {#eq-ghd-euler-correlations}
+
+For multiple species, add their contributions with the appropriate model's
+thermodynamic convention. The delta functions indicate ballistic rays at Euler
+resolution; diffusion broadens them at finer resolution. Integrating over $x$
+recovers the static charge covariance, providing a normalization check. Integrating
+$x^2C$ explains ballistic second moments when the relevant charge has a nonzero
+Euler projection. A particular observable can have a vanishing ballistic
+projection by symmetry; its leading visible transport then comes from a
+subleading or singular sector. Integrability does not force every charge to
+show a nonzero ballistic signal in every state.
+
+For actual computation, a conservation-form solver and a filling-advection
+solver should approach the same smooth solution. A finite-volume method stores
+cell-averaged $\rho_p$ and updates them with differences of interface fluxes.
+The flux is recomputed from dressed velocities in each local state. Fluxes at
+internal boundaries cancel exactly, so total discretized charges can be
+monitored. An advection solver may be efficient but need not conserve those
+integrals exactly on a finite grid. Neither scheme automatically preserves
+$0\leq\vartheta\leq1$ without an appropriate interpolation or limiter.
+The time step must resolve the fastest retained characteristic; rapidity
+truncation can underestimate that speed and hide a stability problem.
+
+![A Julia covariance-matrix calculation for a closed $L=240$ free-fermion chain
+with hopping $g=1$ and a full/empty domain wall. Density profiles at $t=12,24,36$
+collapse on ballistic rays; the current at $t=36$ agrees with the Euler curve.
+Microscopic front rounding remains visible.](figs/ghd-domain-wall.png){#fig-ghd-domain-wall width=95%}
+
+The reproducible calculation is in
+[numerics/transport_labs.jl](numerics/transport_labs.jl). It checks covariance
+Hermiticity, occupation bounds, total particle number, positive rightward current,
+and agreement with the interior Euler profile at the specified times. These checks test this exactly
+free benchmark. They do not validate a Bethe kernel or prove a general
+interacting GHD solver correct.
+
+## Research bridges and frontier questions
+
+A productive first reproduction of @bertini2016ghd is the partitioning profile:
+prepare the two thermal states, calculate their root densities, solve the
+ray-dependent filling equation, and compare currents as well as densities to
+TEBD. Matching one density profile can hide a normalization or missing-species
+error; an independent current is a stronger check.
+
+@alba2017entanglement supplies the related quasiparticle picture for entropy.
+For homogeneous pair-producing quenches, the interval formula has the form
+$S_\ell(t)=\sum_a\int dk\,s_a(k)\min(2|v_a^{\mathrm{eff}}(k)|t,\ell)$.
+Each pair contributes only when one member is inside the interval and the other
+outside. The factor two follows from opposite partners. Inhomogeneous states,
+more complicated initial correlations, and other entropy measures can require
+extensions; this is not a universal formula for arbitrary states.
+
+The 2026 paper @scopa2026bloch extends forced GHD to finite-density impurities
+in the Yang–Gaudin gas and predicts Bloch oscillations without a lattice, with
+bound states changing the oscillation period. The broad perspective
+@doyon2025perspective identifies a continuing challenge: combining Euler
+transport with quantum fluctuations and correlations in preparations for which
+local quasiparticle thermodynamics alone is insufficient.
+
+## Exercises and selected solutions
+
+1. Derive @eq-ghd-kinetic-velocity from dressing, keeping all factors of $2\pi$.
+2. Show that the root-density equation and particle continuity imply state-density
+   continuity, and then derive filling advection.
+3. Derive both free-domain-wall profiles and verify the continuity equation on
+   every interior ray.
+4. Replace the full/empty halves by Fermi distributions with distinct temperatures
+   and chemical potentials. Compute particle and energy currents at $\zeta=0$.
+5. Show that the forced equation conserves total particle number and the total
+   energy including $V(x)$, assuming no boundary flux.
+6. Design a numerical comparison that distinguishes an Euler error from a
+   rapidity-discretization error and a TEBD truncation error.
+
+::: {.callout-note title="Solution: conservation in a smooth static potential"}
+Integrating @eq-ghd-forced over $k$ and $x$ gives zero boundary terms, hence
+constant particle number. For total energy
+$E=\int dx\,dk\,[k^2+V(x)]\rho_p$, integration by parts gives
+$\dot E=\int dx\,[V'j_n+Fj_p]$, where
+$j_p=\int dk\,2k\rho_p$ and
+$j_n=\int dk\,v^{\mathrm{eff}}\rho_p$.
+For the Galilean Lieb–Liniger gas, $j_n=2\int dk\,k\rho_p=j_p$; the symmetry
+of the scattering kernel makes collision shifts cancel in the total particle
+current. Thus $F=-V'$ cancels the two terms. Establishing this current identity
+is part of applying the model's Galilean symmetry consistently.
+:::
+
+::: {.callout-note title="Solution sketch: the characteristic selection"}
+For free particles, backward propagation from $(x,t)$ reaches initial point
+$x_0=x-vt=t(\zeta-v)$. It is negative exactly when $v>\zeta$, producing the
+left occupation in @eq-ghd-partitioning. In interacting GHD, the trajectory
+speed depends on the local state, but the self-similar solution obeys the same
+implicit left/right condition. Replacing $v^{\mathrm{eff}}$ by $v^{\mathrm{bare}}$
+would ignore the medium and fail at finite interaction and density.
+:::

@@ -1,0 +1,144 @@
+# Rare thermal regions and the stability of localization {#sec-mbl-transition}
+
+::: {.callout-note}
+## Prerequisites and goals
+The required background is a density of states, perturbation theory, and exponential functions. We briefly reintroduce local integrals of motion and ETH scaling. You will derive a thermal-inclusion hybridization criterion, understand the origin of avalanche arguments and rare-region timescales, and learn why an apparently localized finite system does not settle the asymptotic phase diagram.
+:::
+
+## A phase must survive scales that no experiment reaches
+
+A strongly disordered spin chain can retain a density pattern for a long time. Its small-system eigenstates can have low entanglement, and its levels can look Poissonian. These are important observations. A thermodynamic **many-body-localized phase** is a stronger claim: suitable local memory survives in the isolated infinite-system dynamics rather than eventually disappearing on a very large length and time scale.
+
+The distinction is unusually consequential because the putative instability may begin in a rare region. A sample of ten sites might contain no internally thermal segment. A sample of a million sites might contain one segment large enough to act as a bath for neighboring localized degrees of freedom. If incorporating each neighbor makes the bath more effective, the initial rare event can trigger a **thermal avalanche**.
+
+The avalanche picture is a physical stability argument based on hypotheses about matrix elements and resonant absorption. It is not a theorem that every disordered interacting Hamiltonian thermalizes. Equally, observing no avalanche in an accessible finite system does not prove that none occurs in its thermodynamic limit. Keeping the conditional structure visible is essential.
+
+## Reintroducing the two ingredients
+
+In the localized effective description, there are dressed conserved Pauli variables $\tau_i^z$ whose interactions decrease with distance. They are the local integrals of motion discussed in [disorder and localization](17-disorder-localization.qmd). If these variables can be coupled resonantly to an ergodic inclusion, they may cease to remain localized eigenstate labels near that inclusion.
+
+For an ergodic grain with $N$ effective spins and entropy density $s$, the number of states in the relevant energy shell is approximately
+$$
+D(N)\sim e^{sN}.
+$$
+If that shell has bandwidth $\mathcal W$, its characteristic spacing is $\delta(N)\sim\mathcal W/D(N)$. ETH predicts that a bounded local grain operator $B$ has typical off-diagonal matrix elements of size $D^{-1/2}$, up to a frequency-dependent envelope. We need both statements. A grain's level spacing alone is not its coupling to an external spin.
+
+## Derivation 1: when does one outside spin hybridize?
+
+Let a nearby two-level degree of freedom have splitting $\varepsilon$, and couple it to the grain through
+$$
+V=g\,\tau^x B.
+$$
+This term flips the outside spin while changing the grain's state. We assume the grain has states separated by energy $\varepsilon$ and that its ETH envelope there is not anomalously small. A typical transition matrix element is then
+$$
+v\sim gD^{-1/2}.
+$$
+Perturbative mixing between near-resonant product states becomes substantial when this is comparable with their level spacing. The resulting dimensionless ratio is
+$$
+\Lambda=\frac{v}{\delta}\sim\frac{g}{\mathcal W}\sqrt D.
+$$ {#eq-mbl-hybridization}
+
+Thus increasing the bath dimension *helps* hybridization even though each individual matrix element becomes smaller. The density of levels increases faster. This is the central entropy-versus-locality competition.
+
+The same criterion follows from a decay-rate estimate. Fermi's golden rule gives, up to constants and a frequency envelope,
+$$
+\Gamma\sim |v|^2\frac{D}{\mathcal W}\sim\frac{g^2}{\mathcal W}.
+$$
+To act as an effectively continuous bath, the grain should have many levels within that linewidth: $\Gamma/\delta\sim g^2D/\mathcal W^2=\Lambda^2\gg1$. The criterion does not mean that any $g>0$ immediately produces rapid relaxation. The decay rate still decreases as $g^2$.
+
+Several assumptions are exposed by this derivation. The grain must be internally ergodic on the relevant timescale; its spectrum and matrix elements must support the energy exchange; a conserved charge may restrict available states; and a finite grain cannot be replaced by a continuum if $\Gamma\lesssim\delta$. A bath's effective bandwidth is also not automatically the disorder scale of the outside spin.
+
+## Derivation 2: growth can make absorption easier
+
+Take an initial thermal grain of length $\ell_0$. Let the effective coupling to a localized spin at distance $r$ from the original grain decrease as
+$$
+g(r)=g_0e^{-r/\xi_g}.
+$$
+Suppose a growth rule adds $b$ spins per unit increase of $r$, so the enlarged bath has $N(r)=\ell_0+br$ spins. Ignoring polynomial bandwidth factors,
+$$
+\Lambda(r)\sim\frac{g_0}{\mathcal W}
+\exp\left[\frac{s\ell_0}{2}+r\left(\frac{bs}{2}-\frac1{\xi_g}\right)\right].
+$$ {#eq-mbl-growth}
+
+If $bs/2>1/\xi_g$, each successful growth step increases the hybridization parameter, and a sufficiently large initial grain can continue growing in this toy description. If $bs/2<1/\xi_g$, attenuation eventually wins and the grain has a finite thermal collar.
+
+For one-sided growth $b=1$, this simplified criterion is $\xi_g>2/s$; for symmetric growth in one dimension $b=2$, it becomes $\xi_g>1/s$. These are not two incompatible universal transition numbers. They arise from two specified growth rules. Definitions of localization length, effective couplings, absorbed volume, entropy, and matrix-element versus squared-matrix-element decay also change quoted thresholds. A meaningful comparison between papers reconstructs these conventions rather than matching bare numerical symbols.
+
+The first step also matters. From @eq-mbl-hybridization, a rough seed requirement is
+$$
+\ell_0\gtrsim \frac{2}{s}\log(\mathcal W/g_{\mathrm{edge}}),
+$$ {#eq-mbl-seed}
+where $g_{\mathrm{edge}}$ is the coupling to the first candidate spin. This estimate is insufficient if the frequency envelope at its splitting is tiny. It nevertheless explains why a strong-disorder instability can require a large, extremely improbable seed.
+
+De Roeck and Huveneers articulated this thermal-grain stability mechanism [@deroeck2017stability]. Thiery and collaborators incorporated related ingredients into a multiscale account of delocalization [@thiery2018avalanche]. Their conclusions rely on the specified hypotheses and coarse-graining rules. The lesson is a mechanism and a stability test, not a model-independent exponent obtained by dimensional analysis alone.
+
+![The explicitly specified symmetric-growth toy model of @eq-mbl-growth with $b=2$, $s=\log2$, and initial $\log\Lambda(0)=1.2$. Below the toy threshold $\xi_g=1/\log2$, the hybridization parameter eventually drops below one; above it, successful growth becomes increasingly favorable. These curves evaluate the analytical toy criterion and are not numerical data from a quantum spin chain or a universal transition estimate.](figs/thermal-avalanche.png){#fig-mbl-avalanche}
+
+## Why dimension and interaction range matter
+
+In $d$ dimensions, an expanding grain of radius $r$ contains order $r^d$ spins. Its entropy can therefore grow as $s c_dr^d$, whereas a coupling attenuated from the initial grain contributes $-r/\xi_g$ to $\log\Lambda$. For $d>1$, the volume term eventually outgrows a linear attenuation term within this description. Strong disorder can still make the required seed and crossover scales enormous.
+
+Power-law couplings similarly decrease more slowly than an exponential. If $g(r)\sim r^{-\alpha}$, the attenuation in $\log\Lambda$ is only $-\alpha\log r$. A sufficiently large thermal region then has a strong entropic advantage in the simplest ETH-based argument. Conservation laws, resonant connectivity, long-range correlations, and the actual bath spectral function can alter the microscopic test. One must state those qualifications before converting a scaling estimate into a claim about a physical model.
+
+The predicted instability of many proposed higher-dimensional localized phases is consequently a major reason to study rare inclusions. It does not erase the practical significance of finite-time nonergodic regimes for experiments or quantum devices.
+
+## Runaway in space can remain slow in time
+
+Once the continuum approximation applies, the golden-rule estimate gives $\Gamma(r)\sim g_0^2e^{-2r/\xi_g}/\mathcal W$. If the slowest last step dominates the elapsed time,
+$$
+t(r)\sim\frac{\mathcal W}{g_0^2}e^{2r/\xi_g},\qquad
+r(t)\sim\frac{\xi_g}{2}\log\left(\frac{g_0^2t}{\mathcal W}\right).
+$$ {#eq-mbl-timefront}
+
+This is an illustrative growth-rate estimate rather than a universal avalanche law. It establishes an important logical point: a spatial instability can operate on exponentially long times. Logarithmic spreading observed over a window is therefore not by itself a proof of asymptotic stability. In a fully self-consistent calculation, the evolving grain's spectral envelope and coupling geometry must also be determined.
+
+## Rare regions generate broad distributions
+
+Suppose a locally weak-disorder region of length $\ell$ has probability proportional to $e^{-a\ell}$. If seeds must exceed $\ell_c$, their typical separation in one dimension is exponentially large, $L_{\mathrm{seed}}\sim e^{a\ell_c}$ up to prefactors. An experiment smaller than this separation usually sees no seed at all.
+
+The thermal side has a complementary rare-region effect. A strongly insulating segment of length $\ell$ can have a crossing time $\tau(\ell)=\tau_0e^{b\ell}$. Combining exponential rarity and exponential time gives
+$$
+\Pr(\tau>x)\sim (x/\tau_0)^{-a/b}.
+$$ {#eq-mbl-raretime}
+
+Thus innocuous exponential statistics of spatial regions can produce heavy-tailed relaxation times. Such **Griffiths effects** are associated with rare regions locally resembling the neighboring phase. Converting this tail into a transport exponent requires a dynamical network model and conservation constraints; one should not identify $a/b$ with a universal diffusion exponent automatically.
+
+Vosk, Huse, and Altman developed a phenomenological real-space renormalization-group theory using coarse thermal and insulating blocks [@vosk2015transition]. Here **renormalization** means successively replacing local blocks by effective larger blocks while updating their relaxation and entanglement properties. Their work explained anomalously slow thermal dynamics and provided a concrete early critical picture. Later avalanche-based analyses sharpened the role of rare thermal seeds. Historical scaling predictions should therefore be taught as specific model constructions, not as a settled list of universal critical exponents.
+
+## What finite-size studies can and cannot decide
+
+Pal and Huse's exact-diagonalization study established influential diagnostics for a random spin chain [@pal2010transition]. Accessible sizes show a crossover from thermal-looking states to strongly nonthermal states. To infer an asymptotic transition, however, one must control several obstacles:
+
+- **Moving crossings:** the disorder where curves for two sizes cross can drift systematically as larger sizes are added.
+- **Different diagnostics:** typical entanglement, rare resonances, minimum gaps, transport, and bath-induced relaxation can reveal different crossover landmarks.
+- **Rare-tail undersampling:** a disorder average converged for typical values may entirely miss the rare seeds controlling stability.
+- **Changing limits:** a boundary-coupled infinite bath is a probe of susceptibility to thermalization, whereas an isolated finite inclusion has finite heat capacity and a dynamical spectrum.
+- **Biased scaling fits:** an impressive collapse over a narrow range can result from adjustable parameters even when the proposed single-scale description fails.
+
+Disorder realizations, rather than every eigenstate from the same realization, should be the independent units for many uncertainty estimates. Report medians or quantiles alongside means when distributions are broad. Plot uncollapsed data and crossing trajectories. A precise uncertainty bar on a biased asymptotic fit does not establish physical accuracy.
+
+## Research bridges and the current evidence boundary
+
+Morningstar and collaborators compared avalanche susceptibility with many-body resonances using bath-coupled chains and spectral diagnostics [@morningstar2022avalanches]. Their central distinction is between a finite-size/time MBL regime and an asymptotic phase. Different landmarks can occur deep within a regime that looks localized by more common diagnostics. Their extrapolated stability estimates are informative but should remain separate from directly calculated finite-size rates.
+
+A 2025 experimental preprint reports a two-dimensional superconducting simulator at 21, 42, and 70 qubits [@li2025delocalization]. Faster imbalance decay with increasing size at substantial disorder is consistent with delocalization and avalanche-based expectations. The observed size and coherence windows remain finite. The result neither proves an unrestricted no-localization theorem in two dimensions nor justifies ignoring finite-size trends because each individual sample initially looks slow.
+
+A useful first research project is to couple a short disordered chain to a boundary Lindblad bath, compute its slowest relaxation rate, and then repeat with a finite isolated thermal block. Comparing the two exposes which conclusions depend on an ideal reservoir. The [open-systems chapter](22-open-systems.qmd) supplies the needed generator. A frontier extension is to quantify how conserved charges and frequency-dependent grain spectra modify @eq-mbl-hybridization before attempting a transition estimate.
+
+## Exercises
+
+1. **Entropy versus matrix elements.** Reproduce @eq-mbl-hybridization from both a direct mixing estimate and Fermi's golden rule. Explain why comparing $g$ directly with $\delta$ misses a factor of $\sqrt D$.
+2. **Finite collar.** In @eq-mbl-growth let $1/\xi_g>bs/2$ and $\Lambda(0)>1$. Find the maximum radius at which the hybridization criterion remains satisfied.
+3. **Rare seed.** If each site independently meets a weak-disorder criterion with probability $p$, estimate the number of samples of length $L$ needed to see a run of $\ell_c$ such sites with order-one probability, in the dilute-seed limit.
+4. **Dimensions.** Compare $\log\Lambda(r)=A-r/\xi_g+cr^d$ for $d=1$ and $d=2$. Identify the minimum for $d=2$ and explain why a large seed may be required even though the eventual large-$r$ trend is positive.
+5. **A falsifiable numerical study.** Design a size/time scaling test that distinguishes a permanent memory plateau from a slowly moving thermalization front. Specify one result that would rule out your favored interpretation within the measured window.
+
+::: {.callout-tip collapse="true"}
+## Worked solution: finite collar
+Write $\log\Lambda(r)=A-\kappa r$ with $A=\log(g_0/\mathcal W)+s\ell_0/2$ and $\kappa=1/\xi_g-bs/2>0$. The crossover occurs at $r_*=A/\kappa$ when $A>0$. The integer number of absorbed shells is approximately its floor, subject to the microscopic validity of each preceding step. As $\kappa\to0^+$, a localized side can have a very large thermal collar without an unbounded avalanche in this model.
+:::
+
+::: {.callout-tip collapse="true"}
+## Worked solution: sampling rare seeds
+A particular starting position has probability $p^{\ell_c}$ of initiating the run. For $Lp^{\ell_c}\ll1$, a sample has probability approximately $Lp^{\ell_c}$ of containing a seed; overlaps change prefactors, not the leading exponential. With $M$ independent samples, the probability of at least one seed is approximately $1-\exp[-MLp^{\ell_c}]$. Therefore $M\sim1/(Lp^{\ell_c})$ is required for an order-one chance. Strong convergence of ordinary averages at much smaller $M$ says little about this rare tail.
+:::

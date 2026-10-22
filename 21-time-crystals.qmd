@@ -1,0 +1,174 @@
+# Time crystals and collective temporal order {#sec-time-crystals}
+
+::: {.callout-note}
+## Prerequisites and goals
+Assume unitary time evolution and the idea of a ferromagnetic order parameter. We reintroduce Floquet eigenphases and explain spontaneous symmetry breaking before applying it to time translation. You will derive ideal period doubling, distinguish a fine-tuned echo from a phase, compare localized and prethermal stabilization, and understand how qutrit clock variables support period tripling.
+:::
+
+## Oscillation is common; spontaneous temporal order is specific
+
+A pendulum oscillates, a driven spin undergoes Rabi rotations, and a perfect spin flip repeats after two pulses. None of those facts alone establishes a time-crystalline phase. A phase requires a robust collective pattern and a precise symmetry whose breaking is being diagnosed.
+
+A periodic drive $H(t+T)=H(t)$ has discrete time-translation symmetry: shifting the protocol by one full period leaves it unchanged. A **discrete time crystal** has an ordered response that distinguishes successive drive periods and repeats only after $qT$, for integer $q>1$. The choice among the $q$ possible temporal origins is analogous to choosing one of several ferromagnetic orientations. The frequency is locked to a rational subharmonic of the drive over an open range of parameters, with the appropriate long-time and thermodynamic qualifications.
+
+The words *spontaneous* and *robust* do work here. If the applied waveform itself alternates between two different periods, the physical drive period is already $2T$. If only an exactly tuned isolated spin doubles its period, infinitesimal pulse errors can continuously shift its frequency. Neither supplies the many-body symmetry-breaking phenomenon of interest.
+
+## Equilibrium, stationarity, and limits
+
+For a finite system in a Gibbs state $\rho_\beta=e^{-\beta H}/Z$, $[\rho_\beta,H]=0$, and
+$$
+\frac{d}{dt}\langle O(t)\rangle
+=i\operatorname{Tr}([\rho_\beta,H]O(t))=0.
+$$
+This elementary stationarity argument excludes a time-dependent one-point expectation in that ensemble. A stronger discussion of spontaneous order uses correlation functions and the thermodynamic limit, just as a finite symmetric Gibbs state has zero ferromagnetic magnetization despite possible long-range order. Watanabe and Oshikawa proved an equilibrium no-go theorem for their time-crystal definition in ground and canonical states under suitable interaction-range assumptions [@watanabe2015absence]. Periodically driven nonequilibrium systems evade the equilibrium premises; they do not invalidate the theorem.
+
+In a finite Ising ferromagnet, exact eigenstates can be even and odd superpositions of opposite orientations, with exponentially small tunneling splittings. Persistent symmetry breaking requires an order of limits or a symmetry-breaking selection procedure. Similarly, a finite driven system can display quasiperiodic recurrences or a long but finite lifetime. One must state whether the claim concerns infinite-time eigenstate order, an exponentially long prethermal regime, or finite-time experimental signatures.
+
+## Derivation 1: a perfect pulse and its nonrobust imitation
+
+For one spin, apply a rotation $U_x(\theta)=e^{-i\theta\sigma^x/2}$ each period and start in $|\uparrow\rangle_z$. Then
+$$
+\langle\sigma^z(nT)\rangle=\cos(n\theta).
+$$
+At $\theta=\pi$, the signal is $(-1)^n$. But for $\theta=\pi+\epsilon$,
+$$
+(-1)^n\langle\sigma^z(nT)\rangle=\cos(n\epsilon).
+$$ {#eq-dtc-single}
+
+The demodulated signal beats and changes sign after order $1/|\epsilon|$ periods. Its frequency moves continuously with the pulse angle. The exact point is a useful control experiment, not a robust phase.
+
+Now consider an interacting Ising evolution $D=\sum_{ij}J_{ij}\sigma_i^z\sigma_j^z$ and a global flip $X=\prod_i\sigma_i^x$. Since $X^2=1$ and $[D,X]=0$, define
+$$
+U_F=Xe^{-iDT}.
+$$ {#eq-dtc-ideal}
+
+For the local order parameter $Z_i=\sigma_i^z$, $X Z_i X=-Z_i$ and $[D,Z_i]=0$, giving
+$$
+U_F^\dagger Z_iU_F=-Z_i,\qquad Z_i(nT)=(-1)^nZ_i.
+$$ {#eq-dtc-flip}
+
+The ideal point has exact period doubling for every initial state with a nonzero $Z_i$ expectation. The hard question is whether a *neighborhood* of that point retains collective temporal order. Interactions, localization, or a prethermal emergent symmetry can stabilize a dressed version of this structure. Exact algebra at one point does not prove its stability.
+
+## Derivation 2: quasienergy pairing
+
+Suppose $D$ has an ordered pair of configurations $|a\rangle$ and $|\bar a\rangle=X|a\rangle$, both with energy $E_a$. Their symmetry-adapted combinations are
+$$
+|a,\pm\rangle=(|a\rangle\pm|\bar a\rangle)/\sqrt2.
+$$
+Equation @eq-dtc-ideal acts as
+$$
+U_F|a,\pm\rangle=\pm e^{-iE_aT}|a,\pm\rangle.
+$$
+The eigenphases differ by $\pi$, so their quasienergies differ by $\pi/T$ modulo $2\pi/T$. A symmetry-broken initial orientation superposes the two partners. Their relative phase changes by minus one every period, producing the alternating order parameter.
+
+This explains **quasienergy pairing** and connects a spectral property to a time-domain signal. In a stable localized construction the ordered variables and flip can be dressed by quasi-local transformations. In finite size, pairing can be approximate and decoherence can obscure it. An isolated $\pi$ separation between two accidental levels is not enough; the pairing must organize the relevant ordered spectrum and local observables.
+
+Khemani and collaborators classified distinct dynamical ordered phases in localized Floquet spin chains [@khemani2016phases]. Else, Bauer, and Nayak formulated time-translation symmetry breaking and gave analytical/numerical localized constructions [@else2016crystals]. Yao and collaborators emphasized rigidity, critical behavior in a concrete model, and accessible experimental protocols [@yao2017crystals]. These are complementary elements of the phase concept.
+
+## Two stabilization mechanisms
+
+### Localized eigenstate order
+
+A many-body-localized Floquet model can avoid ordinary heating and support ordered correlations in individual eigenstates throughout a relevant spectrum. Appropriate temporal order can then be present for generic initial states with nonzero local overlaps rather than only below a thermal critical energy. Its existence relies on the underlying localization and its stability to perturbations.
+
+This makes the [avalanche problem](18-mbl-transition.qmd) directly relevant. A proposed thermodynamic time crystal built on unstable localization does not gain a separate infinite lifetime merely from period doubling. Experimental long-lived eigenstate-order signatures remain meaningful, but the extrapolation inherits the localization assumptions.
+
+### Prethermal order
+
+High-frequency driving can instead produce a long-lived effective description
+$$
+U_F\simeq\mathcal V^\dagger X e^{-iDT}\mathcal V,
+\qquad X^q=1,\quad[D,X]=0,
+$$ {#eq-dtc-prethermal}
+with a quasi-local dressing $\mathcal V$ and small corrections. $D$ is approximately conserved and has an emergent discrete symmetry generated by $X$. If the initial effective energy density lies in an ordered phase of $D$, the order parameter rotates among $q$ symmetry-related values each drive period. This creates a **prethermal time crystal** over the interval before appreciable heating [@else2017prethermal].
+
+The required ordering is a real thermodynamic constraint. A one-dimensional short-range Ising model has no finite-temperature ferromagnetic long-range order, so a generic finite-temperature prethermal ordered phase cannot simply be assumed there. Higher dimensions, suitable long-range interactions, or special limiting states change the possibilities. Disorder is not required for prethermal stabilization. The lifetime grows strongly with drive frequency, but remains finite in a generic closed driven system.
+
+The two mechanisms therefore suggest different controls. Initial-energy dependence is expected for prethermal order based on a thermal transition of $D$. Generic-state eigenstate-order protocols probe a different structure. Frequency-dependent lifetime is evidence for prethermal suppression of heating, whereas a coherence-limited experimental lifetime can mask that dependence.
+
+## Order parameters and diagnostics
+
+For an initially selected orientation, a useful signal is
+$$
+m(n)=\frac1L\sum_i\langle Z_i(nT)\rangle,
+\qquad \widetilde m(n)=(-1)^n m(n)
+$$
+for period doubling. A symmetric ensemble may have $m(n)=0$ despite order, so use correlations such as
+$$
+C(n)=\frac1L\sum_i\langle Z_i(nT)Z_i(0)\rangle
+$$ {#eq-dtc-correlation}
+with a precisely stated initial-state or ensemble average. Spatial long-range correlations and their temporal transformation diagnose collective ordering more directly than a single local Fourier peak.
+
+No one finite experiment establishes every asymptotic property. A useful evidence package asks whether:
+
+- the subharmonic frequency stays locked over a finite interval of pulse errors;
+- interactions stabilize the response relative to the single-spin control;
+- spatial correlations and multiple initial states behave as the proposed mechanism predicts;
+- observed lifetime scales with size, frequency, and external noise in distinguishable ways;
+- the response survives a protocol with a true period $T$, without secretly imposing $qT$;
+- intrinsic heating can be separated from decoherence and readout bias.
+
+Fourier resolution also matters: a short time trace cannot distinguish a locked line from two nearby beating frequencies. The pulse-error control @eq-dtc-single should always accompany a numerical or experimental claim based mainly on a subharmonic spectrum.
+
+![One exact finite-chain demonstration and its single-spin control, with pulse angle $\pi+0.12$, initially positive $z$ magnetization, and $T=1$. The interacting $L=8$ realization has Pauli Ising bond angles uniform in $[0.4,0.6]$ and longitudinal field angles uniform in $[-\pi,\pi]$. The right panel removes the alternating sign, exposing the control's beating and the interacting chain's persistent response in this window. One size, one realization, and 160 periods cannot establish a thermodynamic phase. Complete data and random seed are saved by [the Julia laboratory](numerics/thermal_lab.jl).](figs/thermal-period-doubling.png){#fig-dtc-control}
+
+
+The single-spin beating curve in the numerical comparison omits both the chain
+interactions and its longitudinal fields. It illustrates a simple pulse-error
+mechanism; it is not a matched-disorder control isolating interaction effects.
+A stronger ablation retains identical fields and pulses while setting only the
+interaction bonds to zero.
+
+## Experiments: what was actually inferred?
+
+Trapped-ion experiments observed interaction-stabilized subharmonic response under a disordered Floquet protocol [@zhang2017crystal]. Dipolar spins in diamond showed long-lived temporal order and rigidity in a large disordered interacting ensemble [@choi2017crystal]. The latter is not automatically an example of rigorously stable one-dimensional MBL: it has long-range interactions, a different geometry, and experimentally relevant slow thermalization. Similar signals can have different stabilization mechanisms, so the theory must match the platform.
+
+Kyprianidis and collaborators deliberately explored a disorder-free prethermal route in trapped ions [@kyprianidis2021prethermal]. Frequency-dependent persistence and initial-energy dependence connect the experiment to an effective ordered Hamiltonian and finite heating time. A small numerical reproduction should compare initial states above and below the effective ordering regime, not merely show one oscillating trace.
+
+Mi and collaborators used a superconducting processor to investigate eigenstate-order signatures with generic initial states, time-reversal controls, and finite-size analysis [@mi2022crystal]. The motivation was to distinguish a broadly organized dynamical phase from behavior of a few selected states. External decoherence and accessible circuit depths still set limits; reversing the intended unitary helps diagnose how much signal loss is due to control noise rather than intrinsic thermalization.
+
+## From period doubling to qutrit period tripling
+
+A qutrit has basis $|m\rangle$, $m=0,1,2$. Define clock and shift operators
+$$
+Z|m\rangle=\zeta^m|m\rangle,\qquad
+X|m\rangle=|m+1\!\!\!\pmod3\rangle,\qquad \zeta=e^{2\pi i/3}.
+$$
+Acting on a basis vector shows $ZX=\zeta XZ$, with $X^3=Z^3=1$. Hence $X^\dagger ZX=\zeta Z$. For a chain let $X_{\mathrm{g}}=\prod_jX_j$ and choose
+$$
+D_\chi=-J\sum_j\left(e^{i\chi}Z_j^\dagger Z_{j+1}+\mathrm{h.c.}\right).
+$$ {#eq-dtc-clock}
+
+$D_\chi$ commutes with $X_{\mathrm{g}}$. For $U_F=X_{\mathrm{g}}e^{-iD_\chi T}$ at this ideal diagonal point,
+$$
+U_F^\dagger Z_jU_F=\zeta Z_j,\qquad
+Z_j(nT)=\zeta^nZ_j,
+$$
+so the complex order parameter cycles every three periods. A Hermitian component, such as $(Z+Z^\dagger)/2$, shows the corresponding real period-three pattern.
+
+The **chiral angle** $\chi$ changes domain-wall energies. A bond with clock difference $q$ has energy $-2J\cos(\chi+2\pi q/3)$. At $\chi=0$, opposite walls $q=\pm1$ are degenerate; generic chirality splits their energies and alters resonant wall motion. This supplies a microscopic reason why higher-state time crystals need more than replacing a qubit pulse by a three-cycle.
+
+Goss and collaborators' verified 2026 preprint implements a chiral clock Floquet protocol on 15 superconducting qutrits and reports robust period tripling, including comparisons of chiral and nonchiral settings [@goss2026qutrit]. Its evidence is finite-size and finite-time experimental data supported by the model. It opens a route to testing domain-wall physics and higher discrete symmetry; it does not establish an unrestricted thermodynamic theorem for all qutrit drives.
+
+## Exercises
+
+1. **Single-spin control.** Derive @eq-dtc-single and determine the observation time needed to resolve a pulse error $\epsilon$ from exact period doubling.
+2. **Pairing.** Reproduce the $\pi/T$ quasienergy splitting for @eq-dtc-ideal. What local operator connects the even and odd states, and why does a single Floquet eigenstate have a stationary stroboscopic one-point expectation?
+3. **No finite-temperature order in short-range 1D.** For a nearest-neighbor classical Ising chain, estimate the finite density of domain walls at any nonzero temperature. Explain why a finite system smaller than the thermal correlation length may nevertheless look ordered.
+4. **Qutrit chirality.** Verify $ZX=\zeta XZ$, derive the three domain-wall energies of @eq-dtc-clock, and find the splitting between $q=1$ and $q=-1$.
+5. **Lifetime inference.** A subharmonic signal decays at a frequency-independent rate in an experiment. Explain why this neither proves nor disproves a frequency-dependent intrinsic prethermal lifetime. Design an additional control.
+
+::: {.callout-tip collapse="true"}
+## Worked solution: qutrit walls
+For a bond difference $q$, $Z_j^\dagger Z_{j+1}=\zeta^q$, giving $E_q=-2J\cos(\chi+2\pi q/3)$. Thus
+$$
+E_{+1}-E_{-1}=2\sqrt3J\sin\chi.
+$$
+The two walls are degenerate at $\chi=0$ but split linearly for small chirality. This calculation establishes an energetic change; stability against all wall-mediated resonances still requires the interacting dynamical analysis.
+:::
+
+::: {.callout-tip collapse="true"}
+## Worked solution: coherence-limited lifetime
+If intrinsic heating and external dephasing independently reduce the signal, a simple approximate envelope is $e^{-t/t_{\mathrm{heat}}(\omega)}e^{-t/t_{\mathrm{noise}}}$. The measured inverse lifetime is their sum. When $t_{\mathrm{noise}}\ll t_{\mathrm{heat}}$, changing the intrinsic heating time has little effect on the observed decay. A reversal or echo protocol, or an independently calibrated noise variation, can estimate the external contribution. The factorized-envelope model itself must be checked if noise and heating interact.
+:::
+

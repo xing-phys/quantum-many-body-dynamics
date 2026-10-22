@@ -1,0 +1,81 @@
+# Learning map and detailed syllabus {.unnumbered}
+
+## The dependency structure
+
+A chapter is self-contained in the sense that it defines its technical language
+and reconstructs the tools used in its main argument. Self-contained does not
+mean that every chapter reproves all of linear algebra. The first five chapters
+establish reusable habits; later chapters briefly reintroduce the relevant
+ingredients and link to fuller explanations.
+
+| Stage | Questions | Mathematical tools developed | Evidence you should be able to produce |
+|---|---|---|---|
+| States and dynamics, chapters 1–5 | What is local information? What is actually evolving? | Partial trace, Schmidt decomposition, fermions, spectral sums, locality, exact computation | Compute a reduced state and a controlled finite-system quench |
+| Thermalization and information, chapters 6–10 | Why do local observables relax? How is information hidden? | ETH, random matrices, entanglement quasiparticles, OTOCs, Haar moments, stabilizers | Separate spectral chaos, local equilibration, and scrambling |
+| Conserved quantities, chapters 11–16 | What survives relaxation and controls late times? | Kubo formula, hydrodynamics, Bethe ansatz, thermodynamic dressing, GHD, dual unitarity | Derive and test a transport scaling law |
+| Obstructions and driving, chapters 17–21 | How can memory persist or be stabilized? | Localization, resonances, avalanches, restricted spaces, Floquet expansions | Diagnose memory without mistaking a long transient for a phase |
+| Baths and observation, chapters 22–26 | How does access to a measurement record change dynamics? | Channels, GKSL, trajectories, Liouvillian spectra, replicas, codes | Distinguish conditioned information from ensemble-averaged observables |
+| Methods and frontiers, chapters 27–32 | Which assumptions remain valid in modern experiments and theories? | Critical scaling, kinetic and contour methods, constraints, estimators, MPS, research design | Reproduce a paper's central observable with quantified errors |
+
+## Three suggested routes
+
+**A first graduate course, 14 teaching weeks.** Spend weeks 1–3 on states,
+models, quenches, and computation; weeks 4–5 on ETH, spectral chaos and
+entanglement; weeks 6–7 on hydrodynamics and integrability; week 8 on localization
+and its stability; week 9 on Floquet physics; weeks 10–11 on open and monitored
+systems; week 12 on information and error correction; week 13 on tensor networks
+and experiments; week 14 on student reproductions. Select exercises deeply
+rather than trying to discuss every paper.
+
+**Information dynamics route.** Read chapters 1, 3–5, 8–10, 22–26, 30–32.
+Return to hydrodynamics when conservation produces slow purification or
+nontrivial operator tails. A suitable first project compares trajectory entropy
+with the entropy of the average state in the same finite circuit.
+
+**Transport and ergodicity route.** Read chapters 1–7, 11–21, 28, 30–32.
+Study entanglement before choosing a numerical method. A suitable first project
+compares a conserved packet's second moment with the current autocorrelation,
+then deliberately breaks integrability.
+
+## Recurring models
+
+The transverse-field Ising chain makes particles, criticality, quenches, and
+Floquet resonances explicit. The XXZ chain connects symmetry, integrability,
+transport, and anomalous dynamics. Random and exactly tractable circuits isolate
+information spreading. Disordered spin chains expose resonances and finite-size
+limitations. A damped two-level system introduces the distinction between a
+density matrix and a trajectory. Rydberg-blockaded chains connect constraints to
+experiments. Definitions and normalization conventions appear at each use.
+
+## Competency checkpoints
+
+1. Given a bipartite wavefunction, derive its reduced state, Schmidt values,
+   entropy and mutual information. Explain why global purity permits local
+   thermality.
+2. Given a Hamiltonian, identify every symmetry used in a spectral calculation,
+   distinguish degeneracies from accidental near crossings, and state the
+   ordering of limits in a relaxation claim.
+3. Starting from a microscopic continuity equation, derive a long-wavelength
+   transport prediction and identify a measurement that can falsify it.
+4. Explain when a generalized ensemble is needed, derive a simple dressing or
+   free-particle transport equation, and distinguish ballistic quasiparticles
+   from a diffusion correction.
+5. Explain why a finite system with long memory does not prove stable MBL;
+   estimate a resonance or heating scale and propose a competing explanation.
+6. Derive both conditional and unconditional measurement evolution. Construct a
+   reference-qubit diagnostic and explain its sampling cost.
+7. Reproduce one observable, establish numerical convergence, locate an
+   assumption in the original paper, and design an extension that tests it.
+
+## What counts as completing an exercise?
+
+A formula should come with its domain of validity, dimensions, and a limiting
+check. A numerical answer should come with a model definition, convention,
+system size, boundary condition, state or ensemble, timestep or truncation,
+random seed, and at least one error check. An experimental interpretation should
+specify which measured probability distribution supports the inferred quantity.
+A research proposal should state what outcome would change your mind.
+
+The full editorial architecture and per-chapter calculation targets are kept in
+[research/OUTLINE.md](research/OUTLINE.md). The [research-paper map](research-map.qmd)
+is the bridge from this syllabus to the original literature.

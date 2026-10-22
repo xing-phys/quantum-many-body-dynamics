@@ -1,0 +1,280 @@
+{
+  "checked_on": "2026-10-22",
+  "purpose": "Published metadata overrides applied after arXiv BibTeX refresh; preserve eprint and URL fields.",
+  "records": {
+    "page1993average": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Average entropy of a subsystem",
+        "journal": "Physical Review Letters",
+        "volume": "71",
+        "number": "9",
+        "pages": "1291--1294",
+        "year": "1993"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1103/PhysRevLett.71.1291",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "popescu2006foundations": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Entanglement and the foundations of statistical mechanics",
+        "journal": "Nature Physics",
+        "volume": "2",
+        "number": "11",
+        "pages": "754--758",
+        "year": "2006"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1038/nphys444",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "bravyi2006locality": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Lieb-Robinson Bounds and the Generation of Correlations and Topological Quantum Order",
+        "journal": "Physical Review Letters",
+        "volume": "97",
+        "number": "5",
+        "pages": "050401",
+        "year": "2006"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1103/PhysRevLett.97.050401",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "vidal2004tebd": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Efficient Simulation of One-Dimensional Quantum Many-Body Systems",
+        "journal": "Physical Review Letters",
+        "volume": "93",
+        "number": "4",
+        "pages": "040502",
+        "year": "2004"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1103/PhysRevLett.93.040502",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "schollwock2011mps": {
+      "entry_type": "article",
+      "fields": {
+        "title": "The density-matrix renormalization group in the age of matrix product states",
+        "journal": "Annals of Physics",
+        "volume": "326",
+        "number": "1",
+        "pages": "96--192",
+        "year": "2011",
+        "author": "Schollwöck, Ulrich"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1016/j.aop.2010.09.012",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "haegeman2016tdvp": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Unifying time evolution and optimization with matrix product states",
+        "journal": "Physical Review B",
+        "volume": "94",
+        "number": "16",
+        "pages": "165116",
+        "year": "2016"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1103/PhysRevB.94.165116",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "dziarmaga2005ising": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Dynamics of a Quantum Phase Transition: Exact Solution of the Quantum Ising Model",
+        "journal": "Physical Review Letters",
+        "volume": "95",
+        "number": "24",
+        "pages": "245701",
+        "year": "2005"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1103/PhysRevLett.95.245701",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "heyl2013dqpt": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Dynamical Quantum Phase Transitions in the Transverse-Field Ising Model",
+        "journal": "Physical Review Letters",
+        "volume": "110",
+        "number": "13",
+        "pages": "135704",
+        "year": "2013"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1103/PhysRevLett.110.135704",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "heyl2018review": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Dynamical quantum phase transitions: a review",
+        "journal": "Reports on Progress in Physics",
+        "volume": "81",
+        "number": "5",
+        "pages": "054001",
+        "year": "2018"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1088/1361-6633/aaaf9a",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "tran2020hierarchy": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Hierarchy of Linear Light Cones with Long-Range Interactions",
+        "journal": "Physical Review X",
+        "volume": "10",
+        "number": "3",
+        "pages": "031009",
+        "year": "2020"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1103/PhysRevX.10.031009",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "kaufman2016thermalization": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Quantum thermalization through entanglement in an isolated many-body system",
+        "journal": "Science",
+        "volume": "353",
+        "number": "6301",
+        "pages": "794--800",
+        "year": "2016"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1126/science.aaf6725",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "cheneau2012lightcone": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Light-cone-like spreading of correlations in a quantum many-body system",
+        "journal": "Nature",
+        "volume": "481",
+        "number": "7382",
+        "pages": "484--487",
+        "year": "2012"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1038/nature10748",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "bernien2017simulator": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Probing many-body dynamics on a 51-atom quantum simulator",
+        "journal": "Nature",
+        "volume": "551",
+        "number": "7682",
+        "pages": "579--584",
+        "year": "2017"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1038/nature24622",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "brydges2019renyi": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Probing Rényi entanglement entropy via randomized measurements",
+        "journal": "Science",
+        "volume": "364",
+        "number": "6437",
+        "pages": "260--263",
+        "year": "2019"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1126/science.aau4963",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "chen2026gauge": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Local thermalization of {SU(2)} lattice gauge fields on quantum computers",
+        "journal": "Journal of High Energy Physics",
+        "volume": "2026",
+        "number": "10",
+        "pages": "137",
+        "year": "2026"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1007/JHEP10(2026)137",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "berges2017fixedpoints": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Nonthermal fixed points in quantum field theory beyond the weak-coupling limit",
+        "journal": "Physical Review D",
+        "volume": "95",
+        "number": "3",
+        "pages": "036016",
+        "year": "2017"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1103/PhysRevD.95.036016",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible"
+      }
+    },
+    "sels2017counterdiabatic": {
+      "entry_type": "article",
+      "fields": {
+        "title": "Minimizing irreversible losses in quantum systems by local counterdiabatic driving",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "volume": "114",
+        "number": "20",
+        "pages": "E3909--E3916",
+        "year": "2017"
+      },
+      "verification": {
+        "doi": "https://doi.org/10.1073/pnas.1619826114",
+        "checked_on": "2026-10-22",
+        "source": "Crossref DOI registration metadata; publisher HTML citation metadata where accessible",
+        "pagination_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5441767/"
+      }
+    }
+  }
+}

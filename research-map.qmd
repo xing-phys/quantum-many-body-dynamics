@@ -1,0 +1,362 @@
+# Research pathways and paper coverage {#sec-research-map .unnumbered}
+
+This map turns the bibliography into a sequence of research questions. Its
+literature cutoff is **22 October 2026**. The selection emphasizes results that
+introduce a method, connect previously separate subjects, or expose an assumption
+that a new researcher must learn to test. It is not an exhaustive index of every
+paper published or posted during 2026. A recent submission is included as a
+preprint when no verified publication is recorded.
+
+A productive reading sequence has three passes: reproduce a sharply defined
+object in a tractable limit; understand how the paper controls its approximation
+or inference; then identify an extension for which that control can survive.
+The [research workshop](32-research-workshop.qmd) develops this process in
+complete project plans. The [computational laboratory](computational-laboratory.qmd)
+provides smaller verified calculations that establish conventions before a
+full-scale reproduction.
+
+## What the source investigation establishes
+
+The source-level records are the [thermalization and driven-matter
+ledger](research/thermal.md), [transport and integrability
+ledger](research/transport.md), and [information-dynamics
+ledger](research/information.md). They record primary links and evidence
+qualifications. An abstract check establishes authorship, title, version,
+publication status where available, and the authors' stated claims. Inspecting
+selected full-text equations or arguments is stronger but still does not amount
+to independently validating every proof, simulation, or experimental uncertainty.
+The transport ledger labels these levels explicitly; other entries should be
+read with their stated audit limitations.
+
+The textbook's elementary derivations are calculations developed for teaching.
+Their presence is not a claim to have rederived every technical result of a
+cited frontier paper. Distinguish a theorem under hypotheses, a controlled
+approximation, a model-specific exact result, numerical convergence, finite-time
+experimental evidence, and a proposed mechanism. Publication is valuable
+scrutiny but does not erase a result's hypotheses. Conversely, a preprint can
+supply a precise reproducible result while its broader interpretation remains
+open.
+
+## From a pure state to local statistical mechanics
+
+Begin with [states and information](01-state-information.qmd), [models and
+symmetries](02-models-symmetries.qmd), and [unitary quenches](03-unitary-dynamics.qmd).
+The first landmark path is geometrical: Schmidt decomposition explains local
+mixedness; the Haar two-copy identity gives a directly reproducible average
+purity; Page's entropy benchmark and canonical typicality explain why small
+subsystems of typical constrained states can look thermal
+[@page1993average; @popescu2006foundations]. The object to reproduce is a
+reduced density matrix or its moments, with the ensemble measure stated.
+Typicality alone supplies neither a dynamical route nor a relaxation time.
+
+The dynamical path runs from Deutsch and Srednicki to the explicit
+thermalization studies of Rigol, Dunjko, and Olshanii
+[@deutsch1991statistical; @srednicki1994chaos; @rigol2008thermalization].
+In [ETH](06-equilibration-eth.qmd), calculate an observable's diagonal matrix
+elements versus energy, its off-diagonal variance versus frequency, and the
+post-quench diagonal-ensemble value in a resolved symmetry sector. The central
+question is whether one smooth thermodynamic function describes the relevant
+eigenstates, not whether one time trace looks flat. Narrow energy support,
+observable locality, sector resolution, and system-size growth all matter.
+
+A 2026 continuation is @serbyn2026firstorder: semiclassics and exact
+diagonalization in all-to-all models motivate a generalized eigenstate structure
+near thermal first-order coexistence. Reproduce the branch-resolved observable
+distribution, rather than extrapolating the claim immediately to every
+short-range Hamiltonian. An achievable extension asks which coexistence signatures
+persist under controlled changes of interaction range or symmetry. The open
+problem is how spatial nucleation, thermodynamic limits, and branch mixing alter
+that eigenstate picture.
+
+## Spectral chaos, local scrambling, and accessible information
+
+The [spectral-chaos chapter](07-spectral-chaos.qmd) begins with elementary spacing
+laws and gap ratios, then moves to the spectral form factor. Oganesyan and Huse
+made symmetry-resolved ratio statistics a practical many-body diagnostic;
+Atas and collaborators supplied useful distribution surmises
+[@oganesyan2007localization; @atas2013ratios]. A first reproduction should compare
+resolved and deliberately mixed sectors of the same Hamiltonian. This exposes
+why unresolved symmetry can imitate Poisson statistics.
+
+Analytic circuit and kicked-model studies connect spatial dynamics to spectral
+universality [@kos2018chaos; @chan2018spectral; @bertini2018spectral]. Reproduce
+$\langle|\operatorname{Tr}U^t|^2\rangle$, specifying averaging, disconnected
+contributions, and the order of length and time limits. A fixed-time
+thermodynamic result is not a uniform finite-system theorem at exponentially
+long times. The original dual-kicked-Ising form-factor paper also distinguishes
+its odd-time proof from its even-time conjecture.
+
+The [scrambling chapter](09-scrambling.qmd) follows a different observable:
+operator weight or an out-of-time-ordered correlator. The exact random-circuit
+fronts of @nahum2018operator and @vonkeyserlingk2018operator provide a
+reproducible baseline. The thermal chaos bound [@info-mss2016] applies under
+analyticity and factorization assumptions; it does not bound every exponential
+fit to a finite-qubit OTOC. Teleportation-based proposals distinguish scrambling
+from decoherence under stated protocol assumptions [@info-yoshida2019].
+A useful research question is which experimentally affordable combination of
+observables rules out a noise mechanism that would otherwise mimic information
+loss.
+
+## Entanglement growth, circuits, and deeper forms of randomness
+
+The route through [entanglement](08-entanglement-growth.qmd) and
+[circuits](10-quantum-circuits.qmd) connects three descriptions. Calabrese and
+Cardy relate quench entanglement to propagating correlated excitations;
+Alba and Calabrese incorporate interacting Bethe quasiparticles and their
+thermodynamic entropy [@info-calabrese2005; @alba2017entanglement]. Reproduce an
+interval entropy and its initial growth rate, checking initial-state pairing
+structure and which entropy is being calculated.
+
+Noisy circuits provide controlled statistical-mechanics mappings
+[@nahum2017growth; @info-zhou2019]. Membrane theories organize coarse-grained
+entropy in more general chaotic dynamics [@info-jonay2018; @zhou2020membrane].
+The object is an entropy or purity with a specified average: the logarithm of an
+averaged purity and the average of its logarithm are different. Comparing them
+is an instructive first calculation. The open question is how conservation,
+finite local dimension, and deterministic microscopic structure modify the
+coarse-grained membrane and its fluctuations.
+
+Unitary designs ask for agreement with Haar randomness through specified
+moments, a stronger question than one reduced density matrix being thermal
+[@info-brandao2016]. Projected ensembles, formed by measuring the complement
+of a subsystem, expose higher moments of individual many-body wavefunctions
+[@info-cotler2023; @info-choi2023random]. Preserve outcome probabilities in any
+reproduction; uniform weighting changes the ensemble. Charge-conserving deep
+thermalization [@info-chang2025] adds a nontrivial constraint to the target
+ensemble.
+
+In 2026, random-permutation models exhibit coherence-controlled deep
+thermalization [@info-liu2026], and mixed-state extensions combine exact solvable
+subclasses with generic-model numerical evidence [@info-sherry2026]. The
+September review preprint @info-mark2026 synthesizes this developing field;
+it is a guide to distinctions, not a new universal proof. A useful next problem
+is whether a chosen higher moment equilibrates under a realistic conservation
+law and measurement basis, and how many samples its certification actually
+requires. Worst-case limits such as @info-du2026 should be compared with the
+structure of the proposed protocol rather than treated as forbidding all
+efficient special cases.
+
+## From microscopic currents to integrable fluids
+
+The [hydrodynamics](11-hydrodynamics.qmd) and
+[response](12-linear-response.qmd) route begins with a bond-current commutator,
+then derives susceptibility, fluctuation–dissipation, conductivity, and projection
+bounds [@kubo1957response; @mazur1969bound]. Reproduce the same coefficient
+from density spreading and a current integral whenever both descriptions apply.
+A vanishing Drude weight does not select diffusion; a finite-size current plateau
+does not establish an infinite-time ballistic component.
+
+[Integrability](13-integrability.qmd) progresses from two-magnon scattering to
+Bethe quantization, root/hole counting, Yang–Yang entropy, TBA, and dressing
+[@bethe1931chain; @yang1969thermodynamics]. The discovery of current-overlapping
+quasilocal charges [@prosen2011drude] explains why familiar short-range charges
+can miss transport protection. Reproduce a thermodynamic integral equation and
+verify a susceptibility in two independent ways before solving a dynamical
+problem. Charge completeness and the intended observable class are part of
+the scientific question.
+
+The independent 2016 GHD papers [@castro2016ghd; @bertini2016ghd] combine local
+stationary ensembles with self-consistent quasiparticle velocities. In
+[GHD](14-ghd.qmd), solve a partitioning protocol, calculate both density and
+current profiles, and compare to a microscopic benchmark. The free-domain-wall
+laboratory supplies a fully checked first stage. The interacting extension must
+retain the correct species and scattering kernel. Diffusive GHD
+[@denardis2019diffusion] shows how fluctuations of collision histories broaden
+trajectories even without integrability breaking. The reviews
+[@bertini2021transport; @doyon2025perspective] orient the next calculation:
+forces, fluctuations, weak collisions, or experimentally realized gases.
+
+## Anomalous transport and partial universality
+
+The [anomalous-transport chapter](15-anomalous-transport.qmd) follows the sequence
+from the 2017 weak-domain-wall superdiffusive exponent to the 2019 Heisenberg
+scaling-function evidence [@ljubotina2017spin; @ljubotina2019kpz]. Kinetic theory
+and giant quasiparticles explain the divergent diffusion estimate
+[@gopalakrishnan2019kinetic; @ilievski2021super]. Reproduce the normalized
+structure factor, a width, a local amplitude, and a current integral; a single
+power-law fit leaves too many alternatives.
+
+The next link is a caution with positive scientific content. A single Burgers
+field cannot reproduce the exact spin-reversal symmetry of equilibrium
+transferred magnetization. Coupled-mode proposals, processor measurements of
+higher moments, and additional two-point tests establish a more nuanced picture
+[@denardis2023nlfh; @rosenberg2024magnetization; @takeuchi2025partial].
+KPZ-compatible two-point scaling and non-KPZ higher statistics can coexist.
+Determining the full dynamical distribution remains more demanding than finding
+$z=3/2$.
+
+Near integrability, calculate decay rates of large bound states rather than
+assuming one scattering time [@denardis2021stability]. The 2026 preprint
+@anand2026robustness reports long-lived KPZ-like spreading in long-range chains;
+its suggested proximity-to-integrability mechanism is conjectural, and finite-time
+agreement does not prove asymptotic nonintegrable KPZ. The relaxation-time
+crossover in @santra2026crossover is an explicit collision approximation. Forced
+GHD in @scopa2026bloch predicts finite-density impurity oscillations without a
+lattice. These provide three distinct extensions: a numerical robustness
+question, a model kinetic crossover, and a quantitative integrable-gas prediction.
+
+## Exact chaotic laboratories and their boundaries
+
+[Dual-unitary circuits](16-exact-circuits.qmd) replace an uncontrolled many-body
+contraction by unitary cancellations in two orientations. @bertini2019dual
+reduces local infinite-temperature correlators to channels on light rays;
+@bertini2019entanglement constructs entanglement dynamics for solvable initial
+states. Reproduce a gate's reshuffled unitarity, its channel eigenvalues, and
+then explicit small-chain correlators. A phased-SWAP gate is a necessary
+counterexample: dual unitarity can coexist with persistent nonmixing modes.
+
+The 2026 review @bertini2026duality places these methods in a broader
+space–time-duality program. A controlled extension perturbs the gate away from
+dual unitarity and measures the first appearance of interior correlations or
+front broadening. The limitation is nonuniformity in time: a small defect per
+gate can accumulate over an increasing space–time region. An exact result for
+one observable or initial-state class does not establish tractability of all
+higher moments.
+
+## Localization, avalanches, scars, and constrained connectivity
+
+[Disorder](17-disorder-localization.qmd) begins with Anderson orbitals and then
+asks what interaction does to local memory and entanglement
+[@anderson1958diffusion; @serbyn2013entanglement; @serbyn2013liom;
+@huse2014phenomenology]. Reproduce the two-l-bit dephasing calculation before
+interpreting logarithmic entropy as evidence in a large microscopic model.
+Imbrie's construction [@imbrie2016localization] has a specified one-dimensional
+model and level-statistics assumption; its scope should not be silently enlarged
+to every random spin chain.
+
+The [avalanche route](18-mbl-transition.qmd) couples localization to ETH:
+a thermal inclusion has an exponentially small level spacing and correspondingly
+small bath matrix elements, but their ratio can favor resonant growth
+[@deroeck2017stability; @thiery2018avalanche]. Bath-coupled calculations
+[@morningstar2022avalanches] test related relaxation scales; they are not
+identical to an isolated infinite system. A first project compares fixed-bath and
+growing-bath estimates with one consistent localization-length convention.
+The finite-size delocalization observations of @li2025delocalization add
+experimental constraints without proving instability of every conceivable
+localized model in two dimensions.
+
+[Scars and constraints](19-scars-constraints.qmd) ask different questions.
+State-dependent Rydberg revivals motivate scar eigenstates and approximate
+ladders [@bernien2017simulator; @turner2018scars; @choi2019scars]. Exact embedded
+states and fragmented connectivity expose other mechanisms
+[@shiraishi2017counterexamples; @sala2020fragmentation; @khemani2020shattering].
+Reproduce a restricted graph, its connected components, and the leakage of an
+approximate revival subspace. The 2026 preprints @desaules2026frustrated and
+@petrova2026orbits extend these questions to frustrated arrays and integrable
+spin-chain orbit structures. Their operational definitions matter: “scar” need
+not mean that the entire surrounding Hamiltonian is nonintegrable.
+
+## Driven matter and the lifetime of engineered behavior
+
+The [Floquet chapter](20-floquet.qmd) connects exact period evolution to
+micromotion and controlled high-frequency expansions. The methodological review
+@bukov2015floquet and heating/effective-Hamiltonian results
+[@abanin2015heating; @kuwahara2016magnus; @abanin2017effective] show why optimal
+truncation can be useful even when a full thermodynamic Magnus series does not
+converge. Reproduce a two-step BCH sign, then compare heating and local
+observables against successively improved effective descriptions.
+
+[Time crystals](21-time-crystals.qmd) connect emergent symmetry to many-body
+order [@khemani2016phases; @else2016crystals; @yao2017crystals;
+@else2017prethermal]. An isolated perfect pulse producing period doubling is a
+control experiment, not a phase demonstration. A reproduction must test pulse
+error, spatial correlations, initial conditions, and lifetime scaling.
+Experiments [@kyprianidis2021prethermal; @mi2022crystal] exemplify complementary
+prethermal and eigenstate-order diagnostics.
+
+In 2026, multitone control of a driven bosonic lattice
+[@cruickshank2026multitone] and period-tripling qutrit experiments
+[@goss2026qutrit] extend the available tools. The former does not inherit every
+bounded-spin heating theorem; the latter remains a finite 15-qutrit preprint
+observation. An achievable extension separates intrinsic heating from control
+noise and tests whether a proposed lifetime law survives equal-resource
+comparison of the complete protocols.
+
+## Baths, records, and measurement-generated codes
+
+The foundational generators of Gorini–Kossakowski–Sudarshan and Lindblad
+[@info-gks1976; @info-lindblad1976] organize the
+[open-system chapter](22-open-systems.qmd). Reproduce amplitude damping from
+Kraus maps, then compare a direct Liouvillian with the
+[trajectory](23-trajectories.qmd) average for the same generator
+[@info-daley2014]. A chosen environmental measurement defines the unraveling;
+conditional entropy need not equal entropy of the unconditional density matrix.
+Markov, weak-coupling, and secular assumptions belong in a microscopic derivation.
+
+[Dissipative phases](24-dissipative-phases.qmd) connect engineered reservoirs,
+exact solvability, and Liouvillian spectra
+[@info-diehl2008; @info-verstraete2009; @info-prosen2008;
+@info-minganti2018]. Reproduce a dark state and test uniqueness and mixing time
+separately. Boundary-driven XX/XXZ solutions
+[@znidaric2011dephasing; @prosen2011ness] supply concrete transport laboratories,
+with strong bias distinguished from equilibrium linear response.
+
+The [measurement-transition](25-measurement-transitions.qmd) path begins with
+Clifford numerics and restricted percolation mappings
+[@info-li2018; @info-skinner2019], then Born-weighted replica theories
+[@info-bao2020]. Reproduce conditional entropies and purification with outcome
+probabilities retained. Percolation results for a zeroth Rényi entropy or a
+special limit should not be assigned automatically to generic von Neumann
+criticality.
+
+The [error-correction chapter](26-information-error-correction.qmd) connects
+this dynamics to references, decoupling, and recoverability
+[@info-knill1997; @info-hayden2007; @info-choi2020;
+@info-gullans2020pur; @info-gullans2020probe]. Reproduce a small explicit
+recovery map rather than declaring that an encoded state supplies an efficient
+decoder. Experiments [@info-noel2022; @info-hoke2023] add finite-device evidence
+with protocol-specific decoding and mitigation. The October 2026 preprint
+@cemin2026graphs asks how sparse graph geometry organizes Clifford information
+spreading and code distance. Testing spectral dimension against other geometric
+invariants is an accessible continuation; its studied circuit architectures do
+not establish a theorem for every sparse hardware graph.
+
+## Critical fields, gauge constraints, and the next numerical method
+
+[Critical dynamics](27-critical-dynamics.qmd) makes universal scaling concrete
+through mode-resolved Ising Landau–Zener passage [@dziarmaga2005ising], return-rate
+singularities [@heyl2013dqpt], and variational control [@sels2017counterdiabatic].
+Reproduce finite-endpoint ramps before invoking infinite-passage formulas.
+Differentiate a thermodynamic cusp from an isolated finite-size zero and from a
+transition in a local observable.
+
+[Kinetics and field theory](28-kinetics-field-theory.qmd) connects the closed-time
+contour, response/noise, collision invariants, and self-similar occupation spectra
+[@berges2005nonequilibrium; @sieberer2016keldysh; @schmied2019fixed].
+The experiments [@prufer2018universal; @erne2018universal] motivate testing
+initial-condition independence over an observed scaling window. Reproduce a
+conserving collision integral and distinguish particle flux through a momentum
+window from a violated global conservation law. The 2026 coherence–void proposal
+[@mcculloch2026coherence] shows how rare fluctuations can challenge a linearized
+field description; its zero-entropy-sector assumptions and conditional
+deterministic extension remain part of the claim.
+
+[Long-range, gauge, and topological dynamics](29-long-range-gauge.qmd) ask which
+foundational assumptions change. Long-range bounds depend on the observable and
+error norm [@tran2020hierarchy]. Gauge constraints change the physical Hilbert
+space and the subsystem algebra, affecting entropy definitions
+[@casini2014gaugeentropy; @donnelly2014gaugeentropy]. Driven edge topology can
+require full micromotion rather than a static band invariant
+[@rudner2013anomalous]. Reproduce one restricted gauge sector or a pump before
+claiming a general topological many-body dynamical classification.
+
+The 2026 SU(2) gauge-field study @chen2026gauge measures local entanglement-spectrum
+and Rényi diagnostics in a minimally truncated plaquette-chain model on quantum
+hardware. Its size and mitigation-assisted agreement are evidence about that
+model and those local observables, not the full continuum gauge theory.
+The engineered hierarchical-symmetry proposal @fu2026hierarchical addresses
+protection against gauge-breaking errors through effective theory and numerical
+quantum-link models. An immediate research problem separates truncation error,
+gauge leakage, Trotter error, and measurement uncertainty in the same protocol.
+
+Finally, [experiments](30-platforms-protocols.qmd) and
+[tensor networks](31-tensor-networks.qmd) connect every path to what can actually
+be measured and simulated [@cheneau2012lightcone; @brydges2019renyi;
+@vidal2004tebd; @haegeman2016tdvp]. A tensor method should converge the target
+observable in timestep, rank, and size; norm or energy conservation alone does
+not certify accuracy. A randomized estimator needs its sampling and calibration
+assumptions as explicitly as a Bethe equation needs its kernel. Keeping those
+standards while changing one scientific ingredient is the practical step from
+reading a frontier paper to developing a new result.
+
+{{< include research/source-index.qmd >}}

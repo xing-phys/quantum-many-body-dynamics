@@ -1,0 +1,384 @@
+# Hydrodynamics: why conserved quantities relax slowly {#sec-hydrodynamics}
+
+A spin chain can scramble a local quantum state while retaining a broad, slowly
+fading magnetization profile. The two observations are compatible. Scrambling
+redistributes information among complicated observables; a conservation law
+prevents the total magnetization from disappearing. Hydrodynamics describes the
+spatial redistribution of these protected quantities after microscopic details
+have largely become irrelevant.
+
+The inputs required here are expectation values, commutators, Fourier transforms,
+and equilibrium fluctuations. We use lattice spacing one, $\hbar=k_B=1$, natural
+logarithms, and $S^a=\sigma^a/2$. A *density* is a local contribution to an
+extensive quantity. A *current* measures the rate at which that quantity crosses
+a boundary. The central question is how microscopic currents become constitutive
+relations such as Fick's law.
+
+## From a spin commutator to a continuity equation
+
+Consider the nearest-neighbor XXZ Hamiltonian
+
+$$
+H=J\sum_x\left(S_x^xS_{x+1}^x+S_x^yS_{x+1}^y+
+\Delta S_x^zS_{x+1}^z\right).
+$$ {#eq-hydro-xxz}
+
+The total magnetization $Q=\sum_xS_x^z$ is conserved. This statement is stronger
+than saying its expectation is constant for a particular initial state:
+$[H,Q]=0$ is an operator identity. The Heisenberg equation gives
+$\dot S_x^z=i[H,S_x^z]$. Terms on bonds not touching $x$ commute with $S_x^z$.
+On the right bond, use $[S^x,S^z]=-iS^y$ and $[S^y,S^z]=iS^x$:
+
+$$
+i[H_{x,x+1},S_x^z]
+=J(S_x^yS_{x+1}^x-S_x^xS_{x+1}^y)=-j_x,
+\qquad
+j_x=J(S_x^xS_{x+1}^y-S_x^yS_{x+1}^x).
+$$
+
+The left bond contributes $j_{x-1}$. Consequently
+
+$$
+\dot S_x^z+j_x-j_{x-1}=0.
+$$ {#eq-hydro-continuity}
+
+Summing over $x=a,\ldots,b$ leaves only $j_{a-1}-j_b$. This telescoping
+identity is the precise meaning of local conservation. It also fixes the sign
+of the current: positive $j_b$ removes positive magnetization from the interval.
+There is some freedom to redefine microscopic densities by discrete derivatives;
+consistent hydrodynamic observables and transport coefficients must respect
+that freedom.
+
+To pass to a continuum description, average $S_x^z$ over a cell containing many
+sites but small compared with the profile's variation length. Denote the
+resulting density by $n(x,t)$. Discrete differences become derivatives, yielding
+
+$$
+\partial_t n+\partial_x j=0.
+$$ {#eq-hydro-continuum}
+
+Continuity alone does not predict transport. Both a ballistic wave and an
+immobile pattern conserve their total weight. A relation between $j$ and the
+local state is still needed.
+
+## Local equilibrium and the gradient expansion
+
+A *local equilibrium assumption* says that, within a large cell, simple
+observables are approximately those of an equilibrium ensemble whose parameters
+vary slowly between cells. For one conserved charge,
+
+$$
+\rho_{\mathrm{loc}}\propto
+\exp\!\left[-\beta H+\int dx\,\lambda(x)q(x)\right].
+$$
+
+Here $\lambda=\beta\mu$ is a dimensionless chemical potential. A temperature
+profile requires a spatially varying multiplier of the energy density too.
+This expression is a description of local reduced states; it does not assert
+that the globally evolving density operator is literally this exponential.
+
+The approximation needs a hierarchy: microscopic relaxation time
+$\tau_{\mathrm{micro}}$ much smaller than the profile evolution time, and a
+coarse-graining length between microscopic and hydrodynamic lengths. In an
+integrable chain, ordinary Gibbs equilibrium has too few parameters; a local
+generalized Gibbs ensemble replaces it, as developed in
+@sec-integrability and @sec-ghd. Near a critical point, in a localized phase,
+or in a long-lived prethermal regime, the relevant slow-variable list changes.
+
+For a homogeneous system with no background current and inversion symmetry,
+the leading dissipative constitutive law is
+
+$$
+j=-D(n)\partial_x n+O(\partial_x^2).
+$$ {#eq-hydro-fick}
+
+A positive $D$ smooths gradients. Linearize around $n_0$, write
+$u=n-n_0$, and set $D=D(n_0)$. Equations
+@eq-hydro-continuum and @eq-hydro-fick give
+
+$$
+\partial_tu=D\partial_x^2u.
+$$ {#eq-hydro-diffusion}
+
+Diffusion is a prediction conditional on the slow-variable content and allowed
+constitutive coefficients. It is not a theorem following from unitarity.
+Momentum-conserving fluids support sound; integrable systems have many ballistic
+modes; multipole conservation can forbid the first-gradient current. Symmetries
+constrain a hydrodynamic theory before any coefficients are calculated.
+
+## Deriving the diffusion kernel and its observable consequences
+
+Define $u_k(t)=\int dx\,e^{-ikx}u(x,t)$. Integration by parts in
+@eq-hydro-diffusion gives $\dot u_k=-Dk^2u_k$, hence
+$u_k(t)=e^{-Dk^2t}u_k(0)$. The relaxation time of a wavelength $2\pi/k$ is
+$\tau_k=(Dk^2)^{-1}$ and diverges at small $k$. For a unit initial pulse,
+Fourier inversion gives
+
+$$
+G(x,t)=\int\frac{dk}{2\pi}e^{ikx-Dk^2t}
+=\frac{e^{-x^2/(4Dt)}}{\sqrt{4\pi Dt}},\qquad t>0.
+$$ {#eq-hydro-kernel}
+
+Completing the square evaluates the Gaussian integral. Its normalization is
+one, and $\int dx\,x^2G=2Dt$. These checks express charge conservation and
+diffusive spreading. A finite propagation bound on a microscopic Hamiltonian
+does not conflict with the Gaussian's arbitrarily distant tails: hydrodynamics
+is an asymptotic approximation inside its range of validity, not an exact
+short-time propagator.
+
+For an equilibrium connected correlator
+$C(x,t)=\langle\delta q(x,t)\delta q(0,0)\rangle$, let
+$\chi_\lambda=\partial n/\partial\lambda=
+\int dx\,C(x,0)$. At hydrodynamic scales,
+
+$$
+C(x,t)\simeq\chi_\lambda G(x,t),\qquad
+C(k,t)\simeq\chi_\lambda e^{-Dk^2|t|}.
+$$ {#eq-hydro-correlator}
+
+The local autocorrelation decays as $t^{-1/2}$ in one dimension and $t^{-d/2}$
+in $d$ dimensions. A system can therefore have excellent local thermalization
+and a slow algebraic final approach to equilibrium. Conservation, rather than
+a failure of thermalization, produces this tail.
+
+A particularly accessible preparation is a weak domain wall:
+$u(x,0)=u_0$ for $x<0$ and $-u_0$ for $x>0$. Convolution with
+@eq-hydro-kernel yields
+
+$$
+u(x,t)=-u_0\operatorname{erf}\!\left(\frac{x}{\sqrt{4Dt}}\right),
+\qquad
+j(0,t)=u_0\sqrt{\frac{D}{\pi t}}.
+$$ {#eq-hydro-wall}
+
+Integrating the central current gives transferred charge
+$M(t)=2u_0\sqrt{Dt/\pi}$. This calculation explains why experiments and
+simulations can extract diffusion from profiles, central currents, or integrated
+transfer. Agreement among these diagnostics is a useful consistency check.
+
+## Why a deterministic diffusion equation needs noise
+
+An equilibrium system still fluctuates. The deterministic equation erases every
+fluctuation and would eventually produce an exactly uniform density. To retain
+equilibrium fluctuations, add a random current $\xi$:
+
+$$
+j=-D\partial_xu+\xi,
+\quad
+\langle\xi(x,t)\xi(x',t')\rangle
+=2D\chi_\lambda\delta(x-x')\delta(t-t').
+$$ {#eq-hydro-noise}
+
+Noise here represents unresolved microscopic degrees of freedom. The closed
+quantum system remains unitary. A stochastic equation describes a coarse
+observable and its statistics, not a stochastic fundamental wavefunction.
+
+The noise normalization follows rather than being arbitrary. In Fourier space,
+$\dot u_k=-Dk^2u_k-ik\xi_k$. If the white-current noise strength is $2A$,
+the variance obeys
+
+$$
+\frac{d}{dt}\langle u_ku_{-k}\rangle
+=-2Dk^2\langle u_ku_{-k}\rangle+2Ak^2.
+$$
+
+Its stationary value is $A/D$. Matching the thermodynamic fluctuation
+$\chi_\lambda$ requires $A=D\chi_\lambda$. This is a classical low-frequency
+fluctuation-dissipation relation. At frequencies comparable with temperature,
+quantum detailed balance replaces white-noise approximations.
+
+The $k=0$ mode receives no noise because noise enters as a derivative.
+Conservation survives every realization. In a fixed-charge ensemble its variance
+is zero; in a grand-canonical ensemble it is an initial, conserved random
+variable. This distinction matters when comparing finite-system correlators.
+
+## Multiple modes, nonlinearities, and tails
+
+For conserved densities $u_a$, a linear theory is
+
+$$
+\partial_tu_a+A_{ab}\partial_xu_b
+=D_{ab}\partial_x^2u_b-\partial_x\xi_a.
+$$ {#eq-hydro-multimode}
+
+Repeated indices are summed. The matrix $A$ is the derivative of equilibrium
+currents with respect to densities. Its eigenvalues are propagation velocities;
+$D$ controls broadening. A sound mode has nonzero velocity, while a diffusive
+mode can have zero Euler current. The susceptibility matrix provides the
+thermodynamic metric for normalizing these modes. Positivity of dissipative
+entropy production constrains $D$ in that metric.
+
+Nonlinear fluctuating hydrodynamics retains terms quadratic in $u$ in the
+current. For a single allowed self-coupling,
+$j=vu+gu^2/2-D\partial_xu+\xi$, the comoving density obeys stochastic Burgers
+dynamics. Its relation to the Kardar–Parisi–Zhang equation is discussed in
+@sec-anomalous-transport. One must check whether symmetry permits $g$ before
+using this equation for a particular spin density.
+
+Even observables without a linear density overlap can inherit slow tails.
+Suppose a local observable has its equilibrium expansion
+$O-\langle O\rangle=a u+b[u^2-\langle u^2\rangle]+\cdots$.
+If symmetry forces $a=0$, approximate the long-wavelength density as Gaussian.
+Wick contraction gives a local contribution
+
+$$
+\langle O(x,t)O(0,0)\rangle_c
+\simeq 2b^2C(x,t)^2.
+$$ {#eq-hydro-composite}
+
+At fixed $x=0$, this scales as $t^{-d}$ rather than $t^{-d/2}$. For the spatially
+integrated correlator, $\int d^dx\,C(x,t)^2\propto t^{-d/2}$. Local and
+zero-momentum tails are thus different quantities. This elementary example
+illustrates a general strategy: identify thermodynamic overlaps before fitting
+a decay exponent.
+
+## A computational demonstration with a known answer
+
+A numerical diffusion solver is worth learning because its stability and
+conservation checks transfer to more sophisticated GHD calculations. Forward
+Euler in time and centered differences in space give
+
+$$
+u_x^{m+1}=u_x^m+r(u_{x+1}^m-2u_x^m+u_{x-1}^m),
+\qquad r=D\,\delta t/(\delta x)^2.
+$$
+
+A Fourier mode is multiplied by $1-4r\sin^2(k\delta x/2)$ each step.
+Requiring its modulus at most one gives $0\leq r\leq1/2$.
+The following Julia code checks the variance against the analytic prediction.
+It uses periodic boundaries, so stop before the packet reaches the edges.
+
+```julia
+#| eval: false
+D, dx, dt = 0.7, 1.0, 0.2
+x = collect(-200:200) .* dx
+u = exp.(-x.^2 ./ 8.0)
+u ./= sum(u) * dx
+initial_variance = sum(x.^2 .* u) * dx
+for step in 1:500
+    u = u + D*dt/dx^2 * (circshift(u,1)-2u+circshift(u,-1))
+end
+t = 500dt
+@assert abs(sum(u)*dx - 1) < 1e-10
+@show sum(x.^2 .* u)*dx initial_variance + 2D*t
+```
+
+This demonstration verifies a continuum model. It does not establish that XXZ
+transport is diffusive. A microscopic test must additionally derive the current,
+resolve the appropriate state, and show convergence in system size, time step,
+and representation accuracy.
+
+## Separating modes in an experiment or simulation
+
+Suppose energy and magnetization are both conserved. Measuring a spin profile
+does not automatically isolate a single spin diffusion constant. The local
+thermodynamic state has two fluctuating coordinates, and gradients of one can
+drive the current of the other. Near a state with spin-reversal symmetry,
+energy is even and magnetization odd, so linear cross-susceptibilities and the
+corresponding symmetry-forbidden couplings vanish. At finite magnetization those
+simplifications need not survive.
+
+For a simple two-component illustration, take a positive symmetric diffusion
+matrix
+
+$$
+D=\begin{pmatrix}D_0&g\\g&D_0\end{pmatrix},\qquad |g|<D_0.
+$$ {#eq-hydro-two-diffusions}
+
+With susceptibility proportional to the identity, its normal coordinates are
+$u_\pm=(u_1\pm u_2)/\sqrt2$, with diffusion constants $D_\pm=D_0\pm g$.
+An initial unit pulse entirely in $u_1$ therefore gives
+$u_1(x,t)=[G_{D_+}(x,t)+G_{D_-}(x,t)]/2$ and
+$u_2(x,t)=[G_{D_+}(x,t)-G_{D_-}(x,t)]/2$.
+The first profile is a sum of Gaussians with different widths. Its variance is
+$2D_0t$, but its shape is not the Gaussian with that variance unless $g=0$.
+A variance measurement alone would miss the second slow mode. The induced
+$u_2$ profile has zero total weight and opposite-sign regions, consistent with
+conservation of its initially zero charge.
+
+In practice, identify the equilibrium susceptibility matrix, transform to
+thermodynamically normalized modes, and compare several correlators. For noisy
+data, diagonalizing a fitted evolution matrix without uncertainty estimates can
+create spurious mode splittings. For microscopic quantum simulations, one must
+also distinguish a conserved density's diffusion from operator-space entanglement,
+which controls the computational representation rather than the physical charge
+current.
+
+![Diffusive pulse profiles and their collapse after rescaling distance by
+$\sqrt t$ and density by $1/\sqrt t$. These are solutions of the continuum
+diffusion model generated in Julia, not a microscopic demonstration of diffusion
+in a quantum chain.](figs/diffusion.png){#fig-hydro-diffusion width=95%}
+
+The collapse in @fig-hydro-diffusion illustrates the same distinction. It checks
+self-similarity of a diffusion solution. A microscopic model must earn that
+description by converging to it after local relaxation. A power-law plot and a
+collapse are most persuasive when their coefficient also agrees with an
+independent Green–Kubo calculation. If that comparison fails, possibilities
+include unresolved transient modes, a normalization mismatch, a boundary effect,
+or a wrong hydrodynamic ansatz. The task is to identify which assumption fails,
+not to improve the appearance of the collapse.
+
+## Research bridges
+
+The spin-chain program collected in @bertini2021transport shows how equilibrium
+correlations, weak inhomogeneous preparations, and driven steady states become
+complementary transport probes. The weak domain-wall strategy of
+@ljubotina2017spin is especially instructive: a nearly infinite-temperature mixed
+state can be easier to evolve as a matrix product operator than a generic pure
+state. Its observations distinguish easy-axis diffusion from isotropic anomalous
+spreading; @ljubotina2019kpz strengthens the latter to scaling-function evidence.
+A first reproduction should compare the error-function profile above against a
+small-$\Delta>1$ XXZ calculation and state clearly which time window is resolved.
+
+Random-circuit work supplies a second bridge. @nahum2018operator and
+@vonkeyserlingk2018operator derive information-front dynamics without conserved
+physical densities. With a conserved charge, @rakovszky2018charge finds slow
+relaxation behind a ballistic information front. The word “hydrodynamics” can
+therefore refer either to thermodynamic conservation or to an emergent
+probability description of operator weights; the underlying variables must
+always be specified.
+
+As of the investigation date, rare fluctuations remain a productive frontier.
+The 2026 preprint @mcculloch2026coherence proposes that rare polarized voids can
+protect local charge-changing coherences. Its random-circuit analysis and
+numerical checks go beyond linearized density fluctuations; extension to
+arbitrary deterministic models is more conditional. The open question is when
+such rare events dominate a measurable correlator instead of its usual
+hydrodynamic expansion.
+
+## Exercises and selected solutions
+
+1. Derive the continuity equation for the XXZ chain including $J$ and an
+   inhomogeneous longitudinal field. Does that field contribute to the spin
+   current? What changes for energy current?
+2. Derive @eq-hydro-wall by convolution. Check conservation using the charge
+   gained on the right half-line.
+3. On a periodic interval of length $L$, derive the slowest nonzero diffusion
+   relaxation time. Explain why taking $t\to\infty$ first erases the infinite-line
+   power law.
+4. Derive the noise amplitude for two coupled conserved densities with a
+   nontrivial susceptibility matrix. State the required equilibrium symmetry of
+   the dissipative matrix.
+5. Suppose $O$ is odd under $u\mapsto-u$ but its linear thermodynamic overlap
+   vanishes accidentally. Identify the next allowed composite contribution and
+   estimate its Gaussian local decay.
+6. Implement the demonstration, deliberately choose $r>1/2$, and diagnose the
+   instability in Fourier space. Distinguish discretization instability from
+   physical growth.
+
+::: {.callout-note title="Solution sketch: finite-volume diffusion"}
+Periodic Fourier wave numbers are $k_m=2\pi m/L$. The zero mode is conserved;
+the slowest decaying pair is $m=\pm1$, so
+$\tau_L=L^2/(4\pi^2D)$. For $t\ll\tau_L$, many modes contribute and reproduce
+the infinite-line kernel. For $t\gg\tau_L$, the nonzero modes are exponentially
+small. An algebraic tail and a finite-volume exponential are two regimes of the
+same theory.
+:::
+
+::: {.callout-note title="Solution sketch: the field and current"}
+For $H_h=\sum_xh_xS_x^z$, $[H_h,S_x^z]=0$ site by site. The spin continuity
+calculation therefore remains unchanged. A local energy density includes field
+terms, however, and its commutators involve neighboring exchange terms; energy
+currents are modified. Conservation of one charge does not fix currents of a
+different charge.
+:::

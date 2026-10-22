@@ -1,0 +1,189 @@
+# Operators, scrambling, and quantum chaos {#sec-scrambling}
+
+Imagine hiding one qubit in an interacting spin chain. Unitary evolution never destroys it, but a local observer can lose the ability to retrieve it. The information has spread into correlations among many spins. **Scrambling** describes this redistribution into degrees of freedom that are inaccessible to restricted measurements. It is related to thermalization, entanglement growth, and chaos, but these concepts ask different questions. A system can transport an operator ballistically without exhibiting random-matrix spectra, and a state can become strongly entangled under a classically tractable Clifford circuit.
+
+We will use finite spin systems, the normalized infinite-temperature expectation $\langle O\rangle_\infty=\operatorname{Tr}O/d$, and the Heisenberg convention $W(t)=e^{iHt}We^{-iHt}$. Here $d=2^L$. Thermal expectations will be introduced separately. The aim is to derive the relation between operator spreading and experimentally useful correlation functions, then identify the assumptions needed to interpret them.
+
+## Operators as vectors
+
+Expand an operator in Pauli strings $P=\bigotimes_jP_j$, where $P_j\in\{I,X,Y,Z\}$:
+
+$$
+W(t)=\sum_P a_P(t)P,\qquad
+a_P(t)=d^{-1}\operatorname{Tr}[P W(t)].
+$$ {#eq-scram-pauli}
+
+Orthogonality, $d^{-1}\operatorname{Tr}(PP')=\delta_{PP'}$, makes operator space an ordinary Hilbert space with the Hilbert–Schmidt inner product. If $W$ is a Hermitian unitary, $\sum_P|a_P|^2=1$. The coefficients can therefore be interpreted as normalized weights for some calculations. They remain amplitudes, however; a single realization evolves coherently and generally cannot be replaced by a classical stochastic process.
+
+The **support** of a string is the set of its nonidentity sites. Its **weight** is the number of such sites. The right endpoint is the last occupied site, and
+
+$$
+\rho_R(x,t)=\sum_{P:\,r(P)=x}|a_P(t)|^2
+$$ {#eq-scram-endpoint}
+
+is its endpoint distribution. A local Hamiltonian changes the string through commutators. For example, if $H$ contains $JZ_0Z_1$ and initially $W=X_0$, then $i[H,W]=-2JY_0Z_1$. The new operator acts at site one. Iterated commutators generate strings reaching increasingly distant sites; locality bounds their early growth outside a light cone.
+
+An operator can spread while remaining simple in another basis. In a free-fermion model, $c_j(t)=\sum_kU_{jk}(t)c_k$ remains linear although its support grows. Thus spatial support alone is not a complete measure of complexity or scrambling.
+
+## Derivation: squared commutators and out-of-time-order correlators
+
+Let $W,V$ be Hermitian unitaries, such as Pauli matrices at distinct sites initially. Define
+
+$$
+C_{WV}(t)=\frac12\langle[W(t),V]^\dagger[W(t),V]\rangle_\infty.
+$$ {#eq-scram-commutator}
+
+The normalization gives $C=0$ for commuting Pauli operators and $C=2$ for anticommuting ones. Expanding the product explicitly,
+
+$$
+[W,V]^\dagger[W,V]=2I-VWVW-WVWV.
+$$
+
+Since the last two traces are complex conjugates, we obtain
+
+$$
+C_{WV}(t)=1-\operatorname{Re}F_{WV}(t),\qquad
+F_{WV}(t)=\langle W(t)VW(t)V\rangle_\infty.
+$$ {#eq-scram-otoc}
+
+The four operators are not chronologically ordered, hence **out-of-time-order correlator**, or OTOC. Other conventions omit the factor one-half; one must state the convention before comparing plotted saturation values.
+
+There is a second useful derivation. Take $V=Z_x$ and insert the Pauli expansion. Every string either commutes or anticommutes with $Z_x$, and multiplication by $V$ preserves orthogonality. Cross terms disappear under the trace, leaving
+
+$$
+C_{W,Z_x}(t)=2\sum_{P:\,P_x=X\text{ or }Y}|a_P(t)|^2.
+$$ {#eq-scram-weight-otoc}
+
+The OTOC detects weight that has become sensitive to a perturbation at $x$. If nonidentity Pauli orientations are equally distributed behind the front, then two thirds of occupied strings anticommute with $Z_x$. Deep in a fully scrambled region, the probability of nonidentity is approximately three quarters, giving $C\simeq1$, rather than the maximum possible value two. This saturation value is an ensemble statement and need not hold for a special operator in an integrable or Clifford realization.
+
+The same commutator controls a response to a small perturbation. Acting with $e^{-i\epsilon V}$ changes $W(t)$ by $i\epsilon[V,W(t)]+O(\epsilon^2)$. Its mean squared change is proportional to $\epsilon^2C$. The OTOC is therefore a sensitivity diagnostic, although it is not ordinary linear response of a one-time expectation value.
+
+## Derivation: the biased random walk of a front
+
+Two-site Haar-random gates provide a controlled model of spreading. A gate acts on sites of local dimension $q$. Under its ensemble average, any traceless operator on the pair distributes its squared weight uniformly among $q^4-1$ traceless basis operators. Suppose the right endpoint sits on the left site of a gate. The number of output basis operators nontrivial on the right site is $q^2(q^2-1)$; the number confined to the left site is $q^2-1$. Thus the probability of advancing across that bond is
+
+$$
+p=\frac{q^2}{q^2+1},\qquad 1-p=\frac1{q^2+1}.
+$$ {#eq-scram-bias}
+
+On the tilted spacetime lattice of the brickwork circuit, the endpoint can be represented as a walk with increments $\pm1$ in the corresponding coordinates. For independent increments,
+
+$$
+\langle x\rangle=(2p-1)t,\qquad
+\operatorname{Var}x=4p(1-p)t.
+$$ {#eq-scram-walk-moments}
+
+In these coordinates $v_B=(q^2-1)/(q^2+1)$ and $D=2p(1-p)$. Layer, full-period, and spatial coordinate conventions can change numerical prefactors, so conversion is necessary before comparison with simulations. The large-scale probability density obeys
+
+$$
+\partial_t\rho_R=-v_B\partial_x\rho_R+D\partial_x^2\rho_R.
+$$ {#eq-scram-drift-diffusion}
+
+For a sharp initial endpoint it becomes a Gaussian centered at $v_Bt$. The integrated weight behind this endpoint produces an error-function OTOC front with width proportional to $\sqrt t$. Exact circuit identities support this description [@nahum2018operator; @vonkeyserlingk2018operator]. **Operator hydrodynamics** here means coarse-grained evolution of operator weight. It does not imply that the circuit conserves energy or particle number.
+
+At a ray $x=vt$ ahead of the front, a random-walk large-deviation function controls exponentially small weight. This is not the same as an OTOC growing with a single spatially independent Lyapunov exponent over a parametrically long interval. Finite-dimensional random circuits provide a clear example of chaotic information spreading without the familiar semiclassical exponential window.
+
+## Several distinct velocities and times
+
+The Lieb–Robinson velocity bounds possible propagation of local influence. It is generally not sharp. The butterfly velocity characterizes a chosen operator front inside that bound. The entanglement velocity describes entropy production per equilibrium entropy density across a cut. A transport coefficient describes relaxation of a conserved density. These quantities need not coincide.
+
+In a diffusive spin chain, conserved magnetization travels a typical distance $\sqrt{D_st}$ while generic operators occupy a region of size $v_Bt$. Their coexistence is physically natural: a local disturbance leaves a slowly relaxing component parallel to a conserved density and a rapidly spreading component orthogonal to it. Extracting an OTOC front without accounting for such tails can bias estimates of both width and speed.
+
+The **scrambling time** also depends on the question. For a local one-dimensional system, hiding information across a chain requires a time at least of order its length. For all-to-all systems with sufficiently mixing dynamics, a logarithmic dependence on the number of degrees of freedom can occur. One must specify whether scrambling means local OTOC saturation, decoupling of a reference from small regions, or approximate formation of a design.
+
+## Thermal chaos and the bound on a Lyapunov exponent
+
+At temperature $T=1/\beta$, a frequently used regulated correlator is
+
+$$
+F_\beta(t)=\operatorname{Tr}[yVyW(t)yVyW(t)],\qquad
+y=\rho_\beta^{1/4},\quad \rho_\beta=Z^{-1}e^{-\beta H}.
+$$ {#eq-scram-regulated}
+
+The insertions of $y$ matter: cyclicity does not make all finite-temperature regularizations identical. In a regime with a small factorization error and a separation between dissipation and scrambling times, one may find $F_d-\operatorname{Re}F_\beta(t)\propto\epsilon e^{\lambda_Lt}$. Analyticity in a thermal complex-time strip, boundedness, and factorization lead to
+
+$$
+\lambda_L\leq \frac{2\pi}{\beta}.
+$$ {#eq-scram-mss}
+
+The Maldacena–Shenker–Stanford argument establishes this bound under physical and analytic assumptions [@info-mss2016]. It is not a theorem that every quantity called an OTOC has an exponential window or that every numerical exponential fit is bounded by $2\pi T$. The bound is particularly informative in large-number-of-degrees-of-freedom settings, including Sachdev–Ye–Kitaev-type systems, where factorization and a growing but small correction coexist. A small spin chain with no separation of scales requires a different analysis.
+
+To test a putative exponent, vary the fit interval, operator choice, system size, and thermal regularization. Verify that the window lies after local relaxation and before saturation. A good fit to five points is evidence for that curve over those points, not proof of a Lyapunov regime.
+
+## A controlled strongly interacting example: the SYK model
+
+A Majorana fermion is a Hermitian fermionic operator. We choose $\chi_i^\dagger=\chi_i$ and $\{\chi_i,\chi_j\}=\delta_{ij}$, so $\chi_i^2=1/2$. Two Majoranas combine into an ordinary fermion, $c=(\chi_1+i\chi_2)/\sqrt2$. For even $N$, $N$ Majoranas therefore act on a space of dimension $2^{N/2}$ before parity restrictions.
+
+The quartic Sachdev–Ye–Kitaev model has random all-to-all interactions $H=\sum_{i<j<k<l}J_{ijkl}\chi_i\chi_j\chi_k\chi_l$, with zero mean and variance $\overline{J_{ijkl}^2}=3!J^2/N^3$. A global sign convention for the quartic term is immaterial for the symmetric coupling distribution. The $N^{-3}$ variance keeps the large-$N$ interaction scale finite. Unlike a one-dimensional local chain, this model has no spatial butterfly cone.
+
+Define the imaginary-time Green function without an overall minus sign, $G(\tau)=N^{-1}\sum_i\overline{\langle\mathcal T_\tau\chi_i(\tau)\chi_i(0)\rangle}$, and Fourier transform it with $e^{i\omega_n\tau}$, where $\omega_n=(2n+1)\pi/\beta$ are fermionic Matsubara frequencies. Its large-$N$ disorder average is controlled by a closed pair of equations,
+
+$$
+G(i\omega_n)^{-1}=-i\omega_n-\Sigma(i\omega_n),\qquad
+\Sigma(\tau)=J^2G(\tau)^3,
+$$ {#eq-scram-syk-saddle}
+
+Here $\Sigma$ is the self-energy, the interaction correction to the inverse propagator. At $J=0$ the convention gives $G(i\omega_n)=-1/(i\omega_n)$, checking the sign. The closure arises because a specific class of index-dominant diagrams survives at leading order in $1/N$; omitted diagrams have fewer freely summed indices. Thus strong interactions can remain analytically controlled by large $N$, rather than by small $J$.
+
+In the low-temperature regime $\beta J\gg1$, the four-point function is obtained by summing ladder diagrams around this saddle. A soft time-reparametrization mode produces a growing regulated OTOC correction with maximal exponent $2\pi/\beta$ at leading strong-coupling order [@info-maldacena2016syk]. Finite coupling, finite $N$, and the eventual scrambling-time saturation limit this result. Large $N$ gives a parametrically small initial correction and a time window in which it can grow while remaining small, precisely the separation absent in an arbitrary few-spin OTOC fit. This is why SYK is a useful bridge to the thermal chaos bound, rather than a universal microscopic model of every chaotic material.
+
+## Computing an OTOC without constructing all Pauli strings
+
+For small chains, direct matrices give a transparent reference implementation:
+
+```julia
+using LinearAlgebra
+function otoc(H, W, V, t)
+    F = eigen(Hermitian(H))
+    U = F.vectors * Diagonal(exp.(-im*t*F.values)) * F.vectors'
+    Wt = U' * W * U
+    comm = Wt*V - V*Wt
+    real(tr(comm'*comm)) / (2size(H,1))
+end
+```
+
+The function expects explicit matrices and returns @eq-scram-commutator. Its exponential memory cost restricts $L$. For larger systems, estimate the normalized trace with random vectors and use Krylov time evolution to apply $U$ and $U^\dagger$ sequentially. Trace estimation adds sampling uncertainty; Krylov propagation adds controllable numerical error. Compare both with the exact routine before interpreting a physical front.
+
+A useful validation suite checks $C(0)=0$ for separated operators, $0\leq C\leq2$, and equality between the commutator and four-point formulas. If a pure-state expectation is used instead of a trace, label it explicitly: state dependence can substantially alter the result.
+
+## Measurement and a research bridge
+
+The unusual time ordering makes OTOCs difficult to access. Echo protocols reverse a Hamiltonian, while two-copy interference can avoid reverse evolution at the cost of additional preparations and control. Yao and collaborators proposed a concrete interferometric approach tied to Rényi measurements [@info-yao2016]. These are protocol proposals, not evidence that a measured decay necessarily represents scrambling.
+
+Noise is the central ambiguity: decoherence can also reduce an echo or four-point signal. Yoshida and Yao developed teleportation-based verification that separates recoverable scrambling from noise-induced decay under specified protocol assumptions [@info-yoshida2019]. The conceptual advance is to measure recovery fidelity together with success probability. A decayed correlation accompanied by successful quantum recovery has a different interpretation from a decayed correlation caused by information leaking irreversibly into an uncontrolled environment.
+
+Recent work tests which circuit-ensemble details survive coarse graining. Tan and Brouwer studied orthogonal- and symplectic-invariant gate distributions and found extra operator-weight structure and modified front properties [@info-tan2026]. The published 2026 result cautions against treating Haar-unitary circuits as every possible random-circuit universality class. A feasible reproduction begins with two-qubit gates from distinct orthogonal-group components and compares normalized endpoint distributions. Establish the ensemble and gate convention before assigning a universal speed.
+
+An independent project can compare $C(x,t)$, entanglement entropy, and mutual information between a reference and small subsystems in the same circuit. Agreement in onset times is interesting; equality of the diagnostics is not guaranteed. The research question is which restrictions on access make information operationally hidden, and which correlators faithfully diagnose that restriction.
+
+## Channel states and a complementary information diagnostic
+
+An evolution operator can itself be regarded as a state by introducing an input reference. For a unitary $U$ on dimension $d$, define
+
+$$
+|U\rangle=\frac1{\sqrt d}\sum_a|a\rangle_{\mathrm{in}}\otimes U|a\rangle_{\mathrm{out}}.
+$$ {#eq-scram-channel-state}
+
+The input labels are not a second evolving physical sample; they are a reference used to represent the channel. Their full reduced state is $I/d$, as is the full output reduced state. Interesting information lies in correlations between selected input and output regions. The identity channel perfectly pairs each input site with its corresponding output site. A scrambling unitary distributes those pairings among many outputs.
+
+For any matrices $A,B$, direct expansion gives $\langle U|A^T\otimes B|U\rangle=d^{-1}\operatorname{Tr}(A U^\dagger BU)$. The transpose appears because of the chosen maximally entangled basis. This identity connects channel-state correlations to operator evolution. Higher purities of its reduced states can be related to averaged OTOCs, provided the operator bases and normalization are specified. It also explains why averaged OTOCs can diagnose a distribution of information more reliably than one specially chosen pair of operators.
+
+One can now ask whether a small input reference is decoupled from a small output region. If it is, that region alone cannot reveal the input quantum state. If the reference is nevertheless strongly entangled with the complete output, the information is retained globally. This is an operational sense of scrambling that makes the observer's access explicit.
+
+There are two useful caveats. First, an OTOC is usually a selected fourth-order correlator, while exact decoupling is a statement about every observable on a subsystem. Converting a collection of correlators into a trace-distance bound requires completeness and appropriate dimension factors. Second, the operator entanglement of $U$ across an input-output grouping depends on that grouping. A large value for one cut does not establish a good code against every erasure pattern.
+
+For a reproduction project, construct $|U(t)\rangle$ for a four- or six-spin chain, compute reference-output mutual information, and compare it with the spatial OTOC front. The channel state doubles the number of tensor factors and is expensive, but at small sizes it provides a direct check of what the OTOC is actually indicating. Include an integrable propagator, a SWAP circuit, and a chaotic circuit. A SWAP transports a message perfectly without hiding it, giving a particularly clear negative control.
+
+## Exercises
+
+1. **Normalization.** Starting from the squared commutator, derive @eq-scram-otoc. Evaluate it for $W=X,V=Z$ and for $W=Z,V=Z$. Repeat with a convention without the factor one-half.
+2. **Pauli tomography.** Prove @eq-scram-weight-otoc for a general Hermitian $W$. Show how averaging over $V=X_x,Y_x,Z_x$ determines the total nonidentity weight on site $x$.
+3. **Front scaling.** Derive @eq-scram-walk-moments and its continuum equation. Obtain the error-function front and explain which quantile velocities approach $v_B$ at long times.
+4. **A non-scrambling propagator.** Evolve a single fermionic annihilation operator in a hopping chain. Compare its spatial support with the number of independent coefficients needed to specify it. Explain why ballistic support alone is insufficient evidence of many-body scrambling.
+5. **A convincing exponent.** Design a numerical protocol that could disprove your own claim of exponential thermal OTOC growth. Include symmetry sectors, regularization, time windows, finite sizes, and uncertainty.
+
+::: {.callout-tip title="Worked solutions: exercises 2 and 3"}
+Each nonidentity Pauli anticommutes with exactly two of $X,Y,Z$. Thus $\sum_{\alpha=X,Y,Z}C_{W,\alpha_x}=4w_x$, where $w_x=\sum_{P:P_x\ne I}|a_P|^2$; the orientation-averaged squared commutator is $4w_x/3$. This formula requires no assumption of isotropic orientations.
+
+For independent increments $\xi=\pm1$, $\mathbb E\xi=2p-1$ and $\operatorname{Var}\xi=1-(2p-1)^2$. Variances add, yielding @eq-scram-walk-moments. A fixed Gaussian quantile lies at $x=v_Bt+c\sqrt{2Dt}$, so its inferred speed differs from $v_B$ by $O(t^{-1/2})$. Persistent short-time differences between threshold speeds need not indicate several butterfly velocities.
+:::

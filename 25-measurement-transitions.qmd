@@ -1,0 +1,169 @@
+# Measurement-induced phases of information {#sec-measurement-transitions}
+
+Measurements extract information, but interacting dynamics can hide that information in nonlocal correlations faster than local observations reveal it. Their competition can produce a transition between conditional states with extensive entanglement and conditional states whose entanglement is confined near boundaries. This is a transition in the distribution of monitored histories. It need not appear as a singularity in the averaged density matrix.
+
+We assume tensor-product states, projective measurement, and entropy. We construct a hybrid circuit, derive the distinction between conditional and unconditioned states, explain a solvable geometric limit, and develop finite-size diagnostics. The central restraint is that different entropies, record weightings, and monitoring schemes define different mathematical problems. Their transitions cannot be identified merely because their pictures look alike.
+
+## A definite monitored model
+
+Take $L$ qubits initially in a product state. Alternate nearest-neighbor unitary gates in brickwork layers. After each layer, measure $Z_j$ independently at each site with probability $p$. The position pattern is externally randomized; the measurement outcome follows the Born rule. For outcome $m=\pm1$ at site $j$,
+
+$$
+P_{j,m}=\frac{I+mZ_j}{2},\qquad
+|\psi\rangle\longmapsto\frac{P_{j,m}|\psi\rangle}{\sqrt{\langle P_{j,m}\rangle}}.
+$$ {#eq-mipt-projector}
+
+For a complete history $\mathbf m$, including its prescribed measurement positions, write the product of gates and projectors as $K_{\mathbf m}$. Its Born probability is $p_{\mathbf m}=\|K_{\mathbf m}|\psi_0\rangle\|^2$. The state remains pure for perfect recorded projective measurements. Its subsystem entropy $S_A(\mathbf m)$ can be averaged over gates, measurement positions, and Born-distributed outcomes.
+
+At $p=0$, generic unitary dynamics produces a volume law at late times. At $p=1$, the state just after each measurement layer is a computational-basis product state. The latter observation depends on when in the period entropy is sampled: immediately before the measurement, a finite-depth gate layer may create an area-law amount. Specify the sampling convention before comparing constants.
+
+The surprising fact is the stability of a volume-law phase at nonzero $p$. A local measurement does not necessarily remove one independent unit of the globally encoded information. Scrambling produces redundancy, and measurements can partly reveal information already known from earlier records.
+
+## Derivation: the averaged state loses the transition's observable
+
+For one $Z$ measurement with discarded outcome,
+
+$$
+\sum_{m=\pm1}P_m\rho P_m=\frac{\rho+Z\rho Z}{2}.
+$$ {#eq-mipt-dephasing}
+
+With measurement probability $p$, the local averaged channel is
+
+$$
+\mathcal M_p(\rho)=(1-p/2)\rho+(p/2)Z\rho Z.
+$$ {#eq-mipt-average-channel}
+
+This channel erases coherence gradually; it does not retain the outcomes. The monitored entropy is
+
+$$
+\overline S_A=\sum_{\mathbf m}p_{\mathbf m}S\!\left(
+\frac{\operatorname{Tr}_{\bar A}K_{\mathbf m}\rho_0K_{\mathbf m}^\dagger}{p_{\mathbf m}}
+\right).
+$$ {#eq-mipt-conditional-entropy}
+
+It differs from $S(\operatorname{Tr}_{\bar A}\sum_{\mathbf m}K_{\mathbf m}\rho_0K_{\mathbf m}^\dagger)$. The logarithm and normalization prevent commuting entropy with the average.
+
+The difference already appears in a measured Bell pair. Before measurement each half has entropy $\ln2$. Measuring one half in $Z$ produces $|00\rangle$ or $|11\rangle$; every conditional trajectory has zero entanglement. Ignoring the outcome produces $(|00\rangle\langle00|+|11\rangle\langle11|)/2$, whose one-spin entropy is still $\ln2$. That entropy is classical ignorance of the record, not surviving Bell entanglement.
+
+This calculation explains why solving the averaged Lindblad or dephasing dynamics cannot reveal the generic trajectory-entanglement transition. It also explains why adding unobserved noise can alter the information phase even when it appears weak in single-copy observables.
+
+## Derivation: a minimum cut bounds Schmidt rank
+
+Draw the circuit as a tensor network in spacetime. Each internal bond has dimension $q$. A curve separating the final region $A$ from its complement cuts some internal bonds. Expand the network in the indices on those bonds. This expresses the final wavefunction as a sum of at most $q^{N_{\mathrm{cut}}}$ product terms across $A|\bar A$, so its Schmidt rank satisfies
+
+$$
+\operatorname{rank}\rho_A\leq q^{N_{\mathrm{cut}}},\qquad
+S_0(A)\equiv\ln\operatorname{rank}\rho_A\leq N_{\mathrm{cut}}\ln q.
+$$ {#eq-mipt-cut-bound}
+
+Minimize over cuts to sharpen the bound. A projective rank-one measurement replaces an outgoing local quantum leg with a fixed state conditioned on its outcome, allowing a cut to pass through the corresponding location with zero bond cost. The geometry is thus a random network of costly and free crossings.
+
+In suitable generic large-dimension or zeroth-Rényi constructions, the bound is saturated and the problem reduces to a classical minimum cut through randomly removed bonds. At a percolation threshold, a zero-cost path can span the spacetime sample. The geometric transition separates growing extensive cuts from finite-cost cuts [@info-skinner2019].
+
+This derivation proves the rank bound generally. It does not prove generic saturation for every tensor network, nor does it make $S_1$ equal to $S_0$. Rank can stay large while almost all eigenvalues become tiny. Indeed $S_0\geq S_1\geq S_2$; a transition of the support dimension is not automatically the transition of the physically weighted spectrum. The original work explicitly distinguishes its percolation toy problem from generic quantum critical behavior.
+
+For bond percolation on a self-dual square geometry with the appropriate equal-probability construction, the threshold is one-half. Different circuit geometries, gate ensembles, measurement types, and entropy indices have different thresholds. Quoting $p_c=1/2$ without the model is not a prediction for generic monitored qubits.
+
+## Replica statistical mechanics and Born weighting
+
+Rényi moments are calculated by introducing several copies, called **replicas**, of the circuit. A trace of $\rho_A^n$ cyclically glues the copies on $A$, while the complement is glued without that cyclic permutation. Haar gate averages produce local interactions among permutation-valued variables. An entropy insertion becomes a domain-wall boundary condition in an effective classical model.
+
+There is an additional subtlety compared with an unmonitored circuit. Let $\widetilde\rho_{\mathbf m}$ have trace $p_{\mathbf m}$ and normalized state $\rho_{\mathbf m}$. Then
+
+$$
+\sum_{\mathbf m}p_{\mathbf m}\operatorname{Tr}\rho_{A,\mathbf m}^n
+=\sum_{\mathbf m}p_{\mathbf m}^{1-n}
+\operatorname{Tr}\widetilde\rho_{A,\mathbf m}^{\,n}.
+$$ {#eq-mipt-born-normalization}
+
+The inverse probability powers cannot be dropped. A uniform average over outcome labels describes a different ensemble. Logarithmic averages introduce a further replica limit. Integer-replica statistical mechanics may be exact for certain moments, while analytically continuing replica number and taking local dimension large require separately stated assumptions and an order of limits.
+
+Bao, Choi, and Altman constructed such a theory, connecting information extraction, purification, and permutation-spin models [@info-bao2020]. Their controlled large-$q$ percolation limit is a powerful organizing principle; it is not an exact solution of finite-$q$ von Neumann criticality. The replica framework explains why unitary dynamics and measurements can produce a collective transition even though each local operation is simple.
+
+Clifford circuits provide another controlled route computationally. Their stabilizer representation allows hundreds of spins or more to be evolved efficiently, and was central to the numerical discovery of the transition [@info-li2018]. All stabilizer Rényi entropies coincide, which simplifies the calculation but also restricts its entanglement spectra. Agreement between Haar and Clifford scaling requires evidence rather than an assumption of identical microscopic ensembles.
+
+## Purification as a complementary experiment
+
+Start the system in a maximally mixed state, or equivalently entangle it with a reference. Perfectly recorded outcomes progressively reduce uncertainty. In a rapidly purifying phase, this happens on a short size-independent local scale; purifying the full system to $O(1)$ total entropy can still require a time
+growing as $\log L$ even when each local region purifies rapidly. In an
+information-protecting phase, a substantial encoded subspace can survive for times growing strongly, often exponentially, with size in the models studied [@info-gullans2020pur].
+
+For a single initially entangled reference qubit $R$, the average conditional entropy $\overline S_R$ asks whether its quantum information remains hidden from the record. If the total conditional state of system and reference is pure, $S_R$ measures their entanglement. It is not the entropy of the reference averaged over discarded records. Reference diagnostics can access critical properties with fewer degrees of freedom to reconstruct [@info-gullans2020probe].
+
+The equivalence between pure-state entanglement transitions and purification transitions is established in important local circuit settings with specified assumptions. It should not be used as a definition that forces every monitored model into the same class. Long-range dynamics, free fermions, symmetries, absorbing states, and feedback can introduce additional phases or separate transitions.
+
+## Finite-size scaling without assuming the answer
+
+An apparent crossover is not yet a thermodynamic transition. For one-dimensional intervals, candidate signatures include $S_A\propto|A|$ at low $p$, $S_A=O(1)$ at high $p$, and logarithmic scaling at criticality. Finite times can imitate saturation, especially when purification is slow. Use a sequence of lengths and a time window that grows with length.
+
+The mutual information is $I(A:B)=S_A+S_B-S_{AB}$. A useful dimensionless crossing quantity is the tripartite information
+
+$$
+I_3(A:B:C)=S_A+S_B+S_C-S_{AB}-S_{AC}-S_{BC}+S_{ABC}.
+$$ {#eq-mipt-i3}
+
+For appropriately scaled adjacent regions, a candidate continuous transition can be tested with
+
+$$
+\overline I_3(p,L)=f((p-p_c)L^{1/\nu})+L^{-\omega}g((p-p_c)L^{1/\nu})+\cdots.
+$$ {#eq-mipt-scaling}
+
+Here $\nu$ is the correlation-length exponent and $\omega>0$ a correction exponent if this expansion applies. The collapse is a hypothesis test. Freely adjusting $p_c,\nu$, and an arbitrary smooth curve can make small datasets look persuasive. Inspect crossing drift, remove the smallest sizes, vary time cutoffs, and bootstrap independent circuit realizations. Treat entropies from the same history as correlated observations.
+
+Measure several diagnostics. An entropy density, reference survival probability, and mutual information probe different structures. Consistent critical estimates strengthen the case; disagreements can signal finite-size effects, incorrect record weighting, or genuinely distinct transitions.
+
+## A transparent measurement update in Julia
+
+The following routine measures one computational-basis bit of a state vector. Basis indices use zero-based bit labels internally, so site `j` corresponds to bit `j-1`. The surrounding gate convention must match.
+
+```julia
+using LinearAlgebra, Random
+function measure_z!(rng, psi, j)
+    mask = 1 << (j-1)
+    p1 = sum(abs2(psi[s+1]) for s in 0:length(psi)-1
+             if (s & mask) != 0)
+    bit = rand(rng) < p1 ? 1 : 0
+    prob = bit == 1 ? p1 : 1-p1
+    for s in 0:length(psi)-1
+        if (((s & mask) != 0) ? 1 : 0) != bit
+            psi[s+1] = 0
+        end
+    end
+    psi ./= sqrt(prob)
+    bit, prob
+end
+```
+
+Check the update on product states, Bell pairs, and randomly generated vectors. Exactly zero-probability outcomes must never be selected; numerical clipping of a probability should only repair roundoff. Save outcomes and conditional probabilities if histories will be reweighted or postselected later.
+
+At small $L$, calculate both conditional entropies and the averaged density matrix. The Bell-pair counterexample should be reproduced before studying a crossing. At larger $L$, stabilizer methods permit systematic scaling for Clifford models, while generic state-vector simulations become exponentially costly. Tensor-network efficiency itself changes across the entanglement regimes and must be monitored through truncation errors.
+
+## Experiments, postselection, and a research bridge
+
+Directly measuring entropy of a specific history requires repeated preparation of that history. If a record contains $N_m$ roughly unbiased independent bits, its probability is of order $2^{-N_m}$ and naïve repetition costs grow exponentially. Correlations can change the estimate but do not remove the need to count resources. A numerical average over many known trajectories is not automatically an experimentally efficient estimator.
+
+Several experimental strategies use structure. Reference qubits, classically decodable stabilizer circuits, spacetime duality, and cross-correlations with classical simulations can access particular signatures. A trapped-ion experiment observed finite-system pure and coding regimes [@info-noel2022]. Superconducting-processor work used duality and decoding to observe measurement-induced entanglement and teleportation signatures on larger systems [@info-hoke2023]. These achievements are protocol-specific experimental evidence, not direct measurement of arbitrary large-system trajectory entropies or proof of asymptotic critical exponents.
+
+An ambitious first reproduction should have two levels. First, verify the measurement update and recover the qualitative area/volume distinction in a small Haar circuit. Second, implement or use a validated stabilizer tableau, reproduce a reference-qubit or $I_3$ diagnostic across sizes, and quantify drift rather than reporting a single collapse. A frontier extension introduces finite detection efficiency or a conserved charge and asks which diagnostic remains operationally accessible. This ties the statistical mechanics directly to the ability to preserve and recover quantum information.
+
+## The Zeno limit is a useful endpoint, not the full explanation
+
+Repeated measurements can suppress transitions between measured sectors. If a state starts in a projector subspace $P$ and evolves for a short interval $\delta t$, the probability to leave it is $\delta t^2\langle H(I-P)H\rangle+O(\delta t^3)$. Repeating projections onto $P$ at fixed total time $t=N\delta t$ makes the accumulated short-time leakage scale as $t\delta t$, which vanishes in the ideal limit. The surviving coherent evolution is generated by $PHP$ inside that sector, subject to the assumptions of the limiting procedure.
+
+This elementary quantum Zeno argument explains a strongly measured endpoint. It does not by itself establish a finite-rate many-body transition. The latter depends on how entangling dynamics organizes information across many sites and times. Weak measurements can leave an extensive encoded subspace even though every local degree of freedom is repeatedly observed. The phase boundary is therefore a collective information question, not simply the point where a single-site measurement rate exceeds a local coupling.
+
+Continuous monitoring, discrete projective measurements, and forced postselected outcomes can share some coarse-grained features while differing in their record probabilities and symmetries. Before comparing critical data, identify the measurement operators and observer access. A successful collapse across two protocols is a result to establish, not a replacement for specifying what those protocols actually measure.
+
+## Exercises
+
+1. **Discarded outcomes.** Derive @eq-mipt-average-channel. Evolve a Bell pair through one measurement and calculate conditional entanglement, unconditional subsystem entropy, and mutual information.
+2. **Rank versus weight.** Construct a pure bipartite state with Schmidt rank $r$ but von Neumann entropy arbitrarily small. Explain why a minimum-cut rank calculation cannot alone determine $S_1$.
+3. **Born weights.** Derive @eq-mipt-born-normalization and give an explicit two-outcome example where uniform outcome averaging changes the result.
+4. **Scaling audit.** Simulate or analyze synthetic $I_3$ data with a known correction-to-scaling term. Compare exponents inferred with and without small sizes and propose honest uncertainty estimates.
+5. **Experimental cost.** Estimate the repetition cost of preparing one record with 100 approximately fair outcomes. Design a reference-based alternative and identify what classical knowledge its decoder requires.
+
+::: {.callout-tip title="Worked solutions: exercises 1 and 2"}
+For a Bell pair, the conditional outcomes are product states with zero entanglement. The unconditional state has one-spin entropies $\ln2$ and joint entropy $\ln2$, hence mutual information $\ln2$. Before measurement its mutual information was $2\ln2$. Classical correlations survive after its quantum entanglement is removed.
+
+Choose Schmidt probabilities $1-\epsilon$ and $\epsilon/(r-1)$ repeated $r-1$ times. Then $S_0=\ln r$ but $S_1=h_2(\epsilon)+\epsilon\ln(r-1)$, which tends to zero at fixed $r$ as $\epsilon\to0$. Rank retains tiny spectral weights that von Neumann entropy suppresses.
+:::

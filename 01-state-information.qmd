@@ -1,0 +1,254 @@
+# States, subsystems, and information {#sec-state-information}
+
+## The physical question
+
+An isolated system evolves by a unitary transformation. Its density matrix has
+unchanged eigenvalues, so its von Neumann entropy cannot increase. Yet a small
+part of the system can approach a thermal state with positive entropy. The
+resolution is a distinction between information in the entire state and
+information accessible to local measurements. We will make that distinction
+quantitative, starting from undergraduate state vectors.
+
+After this chapter you should be able to take partial traces, find Schmidt
+coefficients, distinguish several meanings of entropy, and interpret distances
+between quantum states. The only prerequisites are tensor products, eigenvalues,
+and the Born rule.
+
+## From vectors to density matrices
+
+An ensemble prepares normalized vectors $|\psi_a\rangle$ with classical
+probabilities $p_a$. The expectation of an observable $O$ is
+
+$$
+\sum_a p_a\langle\psi_a|O|\psi_a\rangle
+=\operatorname{Tr}(\rho O),\qquad
+\rho=\sum_a p_a|\psi_a\rangle\langle\psi_a|.
+$$ {#eq-state-density}
+
+The density matrix is positive, Hermitian, and has unit trace. Positivity means
+$\langle v|\rho|v\rangle\geq0$ for every vector; consequently its eigenvalues
+are probabilities. Conversely every matrix with these properties can be
+prepared by sampling its eigenvectors. Different preparation ensembles can give
+the same density matrix and are indistinguishable by measurements on that system
+alone. The decomposition into an ensemble is therefore not a unique physical
+property of the state.
+
+A pure state satisfies $\rho^2=\rho$ and $\operatorname{Tr}\rho^2=1$.
+A mixed state has purity below one. Under $\rho(t)=U\rho(0)U^\dagger$, all
+$\operatorname{Tr}\rho^n$ remain constant. This statement concerns the complete
+closed system; it says nothing yet about a part of it.
+
+## Deriving the partial trace
+
+Let $\mathcal H=\mathcal H_A\otimes\mathcal H_B$, with orthonormal bases
+$|i\rangle_A$ and $|\mu\rangle_B$. An observer in $A$ can measure
+$O_A\otimes I_B$. Expanding the full trace gives
+
+$$
+\langle O_A\rangle
+=\sum_{ij\mu}\rho_{i\mu,j\mu}(O_A)_{ji}
+=\operatorname{Tr}_A(\rho_A O_A),\qquad
+(\rho_A)_{ij}=\sum_\mu\rho_{i\mu,j\mu}.
+$$ {#eq-state-partial-trace}
+
+This equation defines $\rho_A=\operatorname{Tr}_B\rho$: it is the unique
+operator reproducing every measurement confined to $A$. It is not an
+approximation, and it does not mean that $B$ was physically measured or
+destroyed. It is a restriction of the question we ask.
+
+For the Bell state $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$,
+$\rho_A=I/2$. The product mixture
+$\rho_{\mathrm{cl}}=(|00\rangle\langle00|+|11\rangle\langle11|)/2$
+has the same reduced states. The two global states differ: for the Bell state,
+$\langle X_A X_B\rangle=1$, whereas for the mixture it vanishes. Information
+absent from single-site measurements can reside in correlations.
+
+## Schmidt decomposition, derived from singular values
+
+Write a normalized pure state as
+$|\psi\rangle=\sum_{i\mu}M_{i\mu}|i\mu\rangle$.
+The singular value decomposition is $M=U\Lambda V^\dagger$, with
+$\Lambda_{aa}=s_a\geq0$. Defining orthonormal basis vectors from $U$ and
+$V^*$ gives
+
+$$
+|\psi\rangle=\sum_{a=1}^r s_a|a\rangle_A|\widetilde a\rangle_B,
+\qquad \sum_a s_a^2=1.
+$$ {#eq-state-schmidt}
+
+Tracing either factor leaves eigenvalues $\lambda_a=s_a^2$. Thus the nonzero
+spectra of $\rho_A$ and $\rho_B$ agree, even when their dimensions differ.
+The Schmidt rank $r$ is one precisely for a product state. It is bounded by
+$\min(d_A,d_B)$, not by the full dimension $d_A d_B$. This elementary result
+is the foundation of matrix product states and the source of their limitation
+under entangling evolution.
+
+An explicit useful calculation is
+$\rho_A=MM^\dagger$. Reshaping a state vector into $M$ is therefore enough to
+compute all bipartite entropies. One must specify how tensor indices are ordered;
+an unnoticed reshape convention can produce the entropy of the wrong partition.
+
+## Entropy: uncertainty and entanglement
+
+The von Neumann entropy and Rényi entropies are
+
+$$
+S(\rho)=-\operatorname{Tr}\rho\ln\rho,
+\qquad S_n(\rho)=\frac{1}{1-n}\ln\operatorname{Tr}\rho^n,
+\quad n>0,\ n\neq1.
+$$ {#eq-state-entropies}
+
+The convention $0\ln0=0$ follows by continuity. Taking $n\to1$ recovers
+$S$. For $d$ dimensions, $0\leq S\leq\ln d$. Diagonalization reduces the
+claim to the classical entropy of its eigenvalues; the maximum is the uniform
+distribution. For a pure bipartite state, $S(\rho_A)$ is the entanglement
+entropy, equal to $S(\rho_B)$. For a mixed global state, subsystem entropy
+contains both quantum and classical uncertainty and is not by itself an
+entanglement measure. The Bell state and the classical mixture above provide an
+immediate counterexample to confusing these uses.
+
+The second Rényi entropy $S_2=-\ln\operatorname{Tr}\rho^2$ is experimentally
+valuable because purity is a two-copy observable. If $\mathsf{Swap}_A$
+exchanges the $A$ systems of two identical copies, direct index contraction
+gives
+
+$$
+\operatorname{Tr}[(\rho\otimes\rho)\mathsf{Swap}_A]
+=\operatorname{Tr}\rho_A^2.
+$$ {#eq-state-swap}
+
+The copy assumption matters: drift or mismatched preparation measures an overlap
+rather than the purity of one fixed state. Chapter [30](30-platforms-protocols.qmd)
+derives measurement estimators and their errors.
+
+## A complete two-spin quench
+
+Take $H=JX_A X_B$ and initialize $|00\rangle$. Since $(X_A X_B)^2=I$,
+
+$$
+|\psi(t)\rangle=\cos(Jt)|00\rangle-i\sin(Jt)|11\rangle,
+\quad
+\rho_A(t)=\begin{pmatrix}\cos^2(Jt)&0\\0&\sin^2(Jt)\end{pmatrix}.
+$$ {#eq-state-twoqubit}
+
+The global entropy is zero at every time. Local entropy is the binary function
+$h(p)=-p\ln p-(1-p)\ln(1-p)$ with $p=\sin^2(Jt)$. It reaches $\ln2$
+at $Jt=\pi/4$, then decreases. Local entropy need not increase monotonically in
+a finite unitary system. At $Jt=\pi/2$ the state is again a product. A thermal
+interpretation requires a much larger environment, appropriate observables, and
+a timescale before recurrences; entanglement creation alone does not prove
+thermalization.
+
+![Exact two-qubit quench: subsystem entropy grows and recurs although the complete state stays pure. Natural logarithms are used.](figs/two-qubit.png){#fig-state-quench}
+
+Explore this exact model in the [interactive laboratory](computational-laboratory.qmd#sec-lab-entanglement).
+
+## Correlations, distinguishability, and relative entropy
+
+Mutual information measures all correlations between two regions:
+
+$$
+I(A:B)=S(\rho_A)+S(\rho_B)-S(\rho_{AB}).
+$$ {#eq-state-mutual}
+
+It equals $2S(\rho_A)$ for a bipartite pure state. Its nonnegativity is
+subadditivity of entropy. A useful representation is
+$I(A:B)=D(\rho_{AB}\Vert\rho_A\otimes\rho_B)$, where
+
+$$
+D(\rho\Vert\sigma)=\operatorname{Tr}\rho(\ln\rho-\ln\sigma).
+$$ {#eq-state-relative}
+
+The relative entropy is finite only when the support of $\rho$ lies in that
+of $\sigma$. It is nonnegative and zero only for equal states; it is neither
+symmetric nor a metric. These are finite-dimensional matrix inequalities, not
+assumptions of thermal physics. Relative entropy contracts when a quantum
+channel is applied. Tracing out degrees of freedom is one such channel:
+discarding access cannot improve distinguishability. This data-processing fact
+underlies both hydrodynamic coarse graining and quantum error correction.
+
+For an operational metric use trace distance
+$T(\rho,\sigma)=\tfrac12\|\rho-\sigma\|_1$, where the trace norm is the
+sum of singular values. For equally probable hypotheses the best single-shot
+discrimination success probability is $(1+T)/2$. To see why, write the Hermitian
+difference as its positive and negative spectral parts; the optimal two-outcome
+measurement projects onto its positive eigenspace. For any observable,
+
+$$
+|\operatorname{Tr}[O(\rho-\sigma)]|
+\leq2\|O\|\,T(\rho,\sigma).
+$$ {#eq-state-distance}
+
+Consequently a reduced state close in trace distance to a Gibbs reduction
+reproduces every bounded local measurement. Agreement of one observable is a
+weaker claim. Quantum Pinsker's inequality, with natural logs, gives
+$D(\rho\Vert\sigma)\geq2T^2$; a small relative entropy is sufficient for
+small trace distance, while a large one need not identify which simple observable
+detects the difference.
+
+## Typical states and thermal states
+
+A random vector is a geometric benchmark, not a model of all laboratory
+preparations. Let the full space have dimension $D=mn$ and draw a Haar-uniform
+pure state, meaning a distribution invariant under every unitary. The two-copy
+average must be proportional to the projector on the symmetric subspace:
+
+$$
+\mathbb E(|\psi\rangle\langle\psi|^{\otimes2})
+=\frac{I+\mathsf{Swap}}{D(D+1)}.
+$$ {#eq-state-haarmoment}
+
+The coefficient follows from unit trace and the symmetric subspace dimension
+$D(D+1)/2$. Contracting with $\mathsf{Swap}_A$ yields
+$\mathbb E\operatorname{Tr}\rho_A^2=(m+n)/(mn+1)$. For $n\gg m$, the
+small subsystem is close to maximally mixed in a suitable average sense. The
+Page entropy quantifies the small deficit from maximal entropy
+[@page1993average]. For an energy-constrained subspace, the analogous geometry
+produces canonical typicality: the typical reduced state is near the reduction
+of the microcanonical projector [@popescu2006foundations]. Approximating that
+reduction by a Gibbs state further requires a large bath, weak enough boundary
+coupling on the relevant scale, and thermodynamic smoothness.
+
+Typicality establishes a property of most vectors under a specified measure.
+It does not prove that a particular product state reaches them dynamically, or
+give its relaxation time. ETH and dynamical equilibration address those separate
+questions in [chapter 6](06-equilibration-eth.qmd).
+
+## Exercises and worked checks
+
+1. **A phase invisible locally.** For
+   $|\psi\rangle=(|00\rangle+e^{i\phi}|11\rangle)/\sqrt2$, compute
+   $\rho_A$, $\langle X_A X_B\rangle$, and $\langle X_A Y_B\rangle$.
+   Which measurements reconstruct $\phi$?
+2. **Purity bounds.** Prove $1/d\leq\operatorname{Tr}\rho^2\leq1$ and
+   show when equality occurs. Derive $S_2\leq S$ using Jensen's inequality.
+3. **Two-copy contraction.** Derive the Haar purity formula above by explicitly
+   evaluating both swap traces. How does the result change if $m=n$ becomes
+   large?
+4. **Thermal distinguishability.** Compare
+   $\rho=\operatorname{diag}(p,1-p)$ with $I/2$. Find trace distance,
+   relative entropy, and the best measurement. Check Pinsker at small
+   $p-1/2$.
+5. **A numerical pitfall.** Generate a normalized random state on eight qubits.
+   Compute the entropy of the left four sites using both SVD and explicit
+   partial trace. Deliberately permute tensor indices; determine which partition
+   you have then computed.
+
+**Solution to 1.** The partial trace removes the cross terms, so $\rho_A=I/2$.
+Acting with $XX$ interchanges $00$ and $11$, giving $\cos\phi$. Since
+$Y|0\rangle=i|1\rangle$ and $Y|1\rangle=-i|0\rangle$, the $XY$
+expectation is $\sin\phi$. Their ordered pair fixes the phase modulo $2\pi$.
+
+**Solution to 3.** In
+$\operatorname{Tr}[(I+\mathsf{Swap}_A\mathsf{Swap}_B)\mathsf{Swap}_A]$,
+the first term has trace $m n^2$ and the second $m^2 n$. Dividing by
+$mn(mn+1)$ gives $(m+n)/(mn+1)$. For equal large dimensions the mean purity
+is $2/m$, rather than $1/m$: balanced bipartitions retain a finite entropy
+deficit even though their entropy is extensive.
+
+**Solution to 4.** $T=|p-1/2|$ and
+$D=p\ln(2p)+(1-p)\ln[2(1-p)]$. Measuring $Z$ is optimal. With
+$p=1/2+\epsilon$, $D=2\epsilon^2+O(\epsilon^4)$, so Pinsker is saturated
+to leading order. The result also illustrates why a small entropy deficit can
+bound all measurements in this example, while one expectation value generally
+cannot.
