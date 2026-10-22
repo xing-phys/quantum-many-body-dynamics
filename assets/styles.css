@@ -1,0 +1,27 @@
+/* Shared reader typography and accessible, responsive scientific content. */
+:root { --book-teal: #087f8c; }
+body { line-height: 1.7; }
+main p { text-wrap: pretty; }
+h1,h2,h3 { line-height: 1.25; letter-spacing: -.015em; }
+h2 { margin-top: 2.3rem; }
+.book-intro { border-left: 4px solid var(--book-teal); padding: .4rem 1.2rem; margin: 1.5rem 0 2rem; font-size: 1.12rem; }
+.math.display { overflow-x: auto; overflow-y: hidden; padding: .5rem 0; }
+.math.inline { white-space: normal; }
+figure img { background: white; border-radius: 4px; }
+figure figcaption { font-size: .88rem; line-height: 1.5; }
+div.callout { border-radius: 5px; }
+.sidebar-title { font-size: 1.03rem; line-height: 1.35; font-weight: 650; }
+.sidebar-item-text { line-height: 1.35; }
+.sidebar-navigation .sidebar-section .sidebar-item { margin-bottom: .16rem; }
+.table { font-size: .9rem; line-height: 1.5; }
+.table td { vertical-align: top; }
+.quarto-dark { --book-teal: #72c5c6; }
+.quarto-dark a { color: #82cdd4; }
+.book-lab { border: 1px solid #8caeb6; border-radius: 8px; padding: 1.1rem; margin: 1.5rem 0; }
+.book-lab label { display: inline-block; margin: .35rem 1rem .35rem 0; }
+.book-lab input[type=range] { width: 160px; vertical-align: middle; }
+.book-lab canvas { display: block; width: 100%; height: auto; max-height: 420px; background: #fff; border-radius: 4px; margin: .8rem 0; }
+.book-lab button { border: 0; border-radius: 4px; background: #087f8c; color: white; padding: .45rem .9rem; }
+.book-lab output { display: block; font-variant-numeric: tabular-nums; margin-top: .5rem; }
+.lab-note { font-size: .88em; opacity: .9; }
+@media(max-width: 700px) { body { font-size: 1rem; } .table { font-size: .82rem; } .book-lab { padding: .7rem; } }
