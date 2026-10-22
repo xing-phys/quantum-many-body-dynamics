@@ -205,7 +205,7 @@ show that the nonzero eigenvalues of the reduced state are all equal. If the
 rank is $d^r$, then
 
 $$
-\rho_A\ \hbox{has spectrum}\ 
+\rho_A\;\text{has spectrum}\;
 \underbrace{d^{-r},\ldots,d^{-r}}_{d^r\ \mathrm{entries}},
 \qquad S_A^{(n)}=r\ln d.
 $$ {#eq-dual-flat-spectrum}

@@ -5,6 +5,9 @@ from urllib.parse import urlsplit, unquote
 import collections, json, re, sys
 ROOT=Path(__file__).resolve().parents[1];errors=[]
 qmds=list(ROOT.glob('*.qmd'))
+configured=set(re.findall(r'^\s+- ([\w-]+\.qmd)\s*$',(ROOT/'_quarto.yml').read_text(),re.M))
+actual={p.name for p in qmds}
+if configured!=actual:errors.append(f'Book/source chapter mismatch: missing sources={sorted(configured-actual)}, unlisted sources={sorted(actual-configured)}')
 bib=(ROOT/'references/all.bib').read_text()
 keys=set(re.findall(r'@\w+\{\s*([^,]+)',bib))
 labels=collections.defaultdict(list);words=0;equations=0;citations=set()
@@ -42,6 +45,8 @@ class Page(HTMLParser):
         if tag=='mjx-merror':self.matherrors.append(a)
 if '--rendered'in sys.argv:
     site=ROOT/'_site';pages={}
+    for source in qmds:
+        if not (site/(source.stem+'.html')).exists():errors.append('Missing rendered chapter '+source.stem+'.html')
     for p in site.rglob('*.html'):
         parsed=Page();parsed.feed(p.read_text());pages[p.resolve()]=parsed
         if parsed.matherrors:errors.append(f'{p}: MathJax error')
@@ -63,6 +68,7 @@ if '--rendered'in sys.argv:
                 if not u.fragment.startswith(':~:'):errors.append(f'{p.relative_to(site)}: missing anchor {url}')
     pdf=site/'quantum-many-body-dynamics.pdf'
     if not pdf.exists():errors.append('Combined PDF missing')
+    elif not pdf.read_bytes().startswith(b'%PDF'):errors.append('Combined PDF is not a PDF document')
     expected=len(qmds)
     print(f'Rendered: {len(pages)} HTML pages, {sum(x.math for x in pages.values())} math spans; PDF exists={pdf.exists()}.')
 print(f'Sources: {len(qmds)} root QMD files, {words:,} whitespace words including equations/code, {equations} labeled equations, {len(keys)} selected sources, {len(citations)} directly cited keys.')

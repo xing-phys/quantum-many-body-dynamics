@@ -33,7 +33,7 @@ and the parameter records in `data/`.
 
 `make figures` completed successfully using the three pinned Python plotting
 scripts. Julia performs quantum evolution; Python plots saved data and original
-conceptual diagrams. The project includes 21 CSV files and 23 PNG/vector-PDF
+conceptual diagrams. The project includes 21 CSV files and 24 PNG/vector-PDF
 figure pairs. The dense MPS construction is explicitly an educational reference,
 not a scalable time-evolution library.
 
@@ -59,12 +59,14 @@ LuaLaTeX compiled the complete book. Representative pages were rasterized and
 inspected for equations, headings, figures, captions, exercises, tables, and
 references. Scientific figures use their vector originals through a Pandoc
 filter. An all-page text-bounds check found no text extending to the paper edge.
-The final edition has 208 A4 pages. Contents spacing and source-table column
+The final edition has 209 A4 pages. Contents spacing and source-table column
 widths were corrected and rechecked after the last render.
 
 ## Publication
 
 The GitHub repository is public and GitHub Pages is configured for a workflow
 build. The publication workflow renders both editions from the committed sources,
-audits the output, then deploys it. The final deployment result and public HTTP
-checks will be added once completed.
+audits the output, then deploys it. The first cloud build exposed a browser-dependent Mermaid conversion stall in
+chapter 8. The diagram was replaced by a reproducible PNG/vector-PDF figure,
+eliminating build-time browser conversion. The final deployment result and public
+HTTP checks will be added once completed.

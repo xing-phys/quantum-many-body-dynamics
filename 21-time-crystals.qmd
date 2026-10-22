@@ -171,4 +171,3 @@ The two walls are degenerate at $\chi=0$ but split linearly for small chirality.
 ## Worked solution: coherence-limited lifetime
 If intrinsic heating and external dephasing independently reduce the signal, a simple approximate envelope is $e^{-t/t_{\mathrm{heat}}(\omega)}e^{-t/t_{\mathrm{noise}}}$. The measured inverse lifetime is their sum. When $t_{\mathrm{noise}}\ll t_{\mathrm{heat}}$, changing the intrinsic heating time has little effect on the observed decay. A reversal or echo protocol, or an independently calibrated noise variation, can estimate the external contribution. The factorized-envelope model itself must be checked if noise and heating interact.
 :::
-

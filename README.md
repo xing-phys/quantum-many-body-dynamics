@@ -6,7 +6,7 @@ in [research/OUTLINE.md](research/OUTLINE.md); source checks are in `research/`.
 
 Published book: <https://xing-phys.github.io/quantum-many-body-dynamics/>
 
-This edition has 32 scientific chapters, 146 selected sources, 23 original
+This edition has 32 scientific chapters, 146 selected sources, 24 original
 figure/diagram pairs, 21 numerical datasets, and three browser laboratories.
 The literature cutoff is 22 October 2026.
 
@@ -25,6 +25,7 @@ quarto preview --no-browser --port 4242
 
 HTML: `_site/index.html`. PDF: `_site/quantum-many-body-dynamics.pdf`. The preview
 prints its URL. Figures retain PDF vector originals and PNG counterparts.
+Diagrams are pre-rendered, so PDF builds do not require browser conversion.
 Browser labs require no account or server computation.
 
 ## Organization and updating

@@ -39,6 +39,20 @@ for p in np.unique(a['p']):
     b=a[a['p']==p];ax.plot(b['layer'],b['mean_renyi2'],label=f'p={p:g}')
 ax.set(xlabel='Circuit layer',ylabel='Mean conditioned S₂ (nats)',title='Real Rᵧ/CZ circuit, L=6, 64 Born-sampled records');ax.legend();save('monitored-circuit',fig)
 a=load('mps-compression');fig,axs=plt.subplots(1,2,figsize=(8,3.3));axs[0].semilogx(a['chi'],a['normalized_fidelity'],'o-',base=2);axs[0].set(xlabel='Maximum bond dimension',ylabel='Normalized fidelity');axs[1].semilogy(a['chi'],np.maximum(a['state_error'],1e-16),'o-');axs[1].set(xlabel='Maximum bond dimension',ylabel='Dense-state error');save('mps-compression',fig)
+# Ballistic-pair counting cartoon and its one-speed entropy formula.
+fig,axs=plt.subplots(1,2,figsize=(9,3.8))
+ax=axs[0];ax.axvspan(-1.3,1.3,color='#087f8c',alpha=.08)
+for bound in (-1.3,1.3):ax.axvline(bound,color='#7b9199',ls='--',lw=1)
+for x0,c in [(-1.8,'#087f8c'),(0,'#839097'),(1.8,'#087f8c')]:
+    ax.scatter([x0],[0],s=24,color=c)
+    for sign in (-1,1):
+        ax.annotate('',xy=(x0+sign,2),xytext=(x0,0),arrowprops=dict(arrowstyle='->',lw=2,color=c))
+        ax.scatter([x0+sign],[2],s=28,color=c)
+ax.plot([-3.4,3.4],[2,2],color='#bd6e41',lw=1,alpha=.6)
+ax.text(0,2.22,'Observed interval A',ha='center',color='#087f8c')
+ax.set(xlim=(-3.5,3.5),ylim=(-.2,2.55),xlabel='Position x',ylabel='Time',yticks=[0,2]);ax.grid(False)
+t=np.linspace(0,4,201);axs[1].plot(t,np.minimum(t,2.6),lw=2,label=r'$s\,\min(2vt,\ell)$')
+axs[1].axvline(2.6,color='#839097',ls='--',lw=1);axs[1].set(xlabel='Time',ylabel='Interval entropy',title=r'One speed: $v=0.5,\ \ell=2.6,\ s=1$');axs[1].legend(loc='lower right');fig.tight_layout();save('quasiparticle-pairs',fig)
 # A conceptual diagram, explicitly not simulated data.
 fig,ax=plt.subplots(figsize=(10,5));ax.set(xlim=(0,10),ylim=(0,5));ax.axis('off')
 boxes=[(0.3,2.1,2.1,1.0,'Local unitary\ndynamics',colors[0]),(3.1,3.5,2.5,.8,'States & entanglement',colors[1]),(3.1,2.1,2.5,.8,'Operators & scrambling',colors[3]),(3.1,.7,2.5,.8,'Charges & transport',colors[2]),(6.6,2.1,2.9,1.0,'What information\nremains accessible?',colors[0])]
@@ -57,4 +71,4 @@ for layer in range(13):
     for j in range(layer%2,9,2):
         ax.add_patch(FancyBboxPatch((x,1.02+j*.28),.22,.46,boxstyle='round,pad=.015',facecolor=colors[(layer+j)%4],edgecolor='none',alpha=.92))
 ax.text(.55,8.3,'QUANTUM',fontsize=32,color='white',weight='bold');ax.text(.55,7.65,'MANY-BODY',fontsize=32,color='white',weight='bold');ax.text(.55,7.0,'DYNAMICS',fontsize=32,color='white',weight='bold');ax.text(.57,6.4,'AND QUANTUM INFORMATION',fontsize=16,color='#a4d9d8');ax.text(.57,5.5,'From local quantum mechanics\nto the research frontier',fontsize=16,color='#d8e6eb',linespacing=1.6);ax.text(.57,.45,'RESEARCH EDITION  •  OCTOBER 2026',fontsize=10,color='#b8d4da');save('cover',fig)
-print('Rendered 12 original scientific figures/diagrams, PNG + vector PDF.')
+print('Rendered 13 original scientific figures/diagrams, PNG + vector PDF.')

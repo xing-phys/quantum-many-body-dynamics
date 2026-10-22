@@ -30,6 +30,7 @@ jobs:
           python3 scripts/audit.py
           node scripts/check_labs.cjs
       - name: Render both editions
+        timeout-minutes: 12
         run: quarto render
       - name: Check rendered navigation and references
         run: python3 scripts/audit.py --rendered

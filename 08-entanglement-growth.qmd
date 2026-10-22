@@ -71,13 +71,7 @@ The measure convention is absorbed in $s_a(k)$. For free fermions with independe
 
 Calabrese and Cardy established the linear-growth and saturation picture through quantum-field-theory methods and explicit Ising-chain calculations [@info-calabrese2005]. Their result is not a claim that every quench admits independent entangled pairs. Pair structure, stable excitations, and the scale separation underlying the ballistic picture must be examined in each application. Initial long-range correlations, confinement, and bound multiplets can modify it.
 
-```{mermaid}
-flowchart LR
-  Q[Local quench-generated pairs] --> P[Opposite moving partners]
-  P --> B[Pairs straddling the boundary]
-  B --> E[Subsystem entropy]
-  E --> S[Saturation when interval fills]
-```
+![Ballistic-pair counting: pairs whose partners lie on opposite sides of the interval boundary contribute to its entropy. Pairs wholly inside or outside do not. The right panel evaluates the stated single-speed counting formula; this is a schematic illustration, not microscopic quench data.](figs/quasiparticle-pairs.png){#fig-ent-pair-cartoon}
 
 ## Computing entropy in a free-fermion chain
 
