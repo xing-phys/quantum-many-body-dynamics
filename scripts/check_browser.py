@@ -7,10 +7,11 @@
 Run against a served _site directory: uv run --script scripts/check_browser.py
 """
 from pathlib import Path
-import json
+import json, os
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 OUT=Path('/tmp/many-body-web-qa');OUT.mkdir(exist_ok=True)
+BASE=os.environ.get('BOOK_BASE_URL','http://127.0.0.1:4242').rstrip('/')
 results=[]
 with sync_playwright() as pw:
     browser=pw.chromium.launch(executable_path='/usr/bin/google-chrome',headless=True,args=['--no-sandbox'])
@@ -18,7 +19,7 @@ with sync_playwright() as pw:
     errors=[]
     page.on('pageerror',lambda e:errors.append(str(e)))
     for name in ['index','01-state-information','14-ghd','25-measurement-transitions','research-map','computational-laboratory']:
-        resp=page.goto(f'http://127.0.0.1:4242/{name}.html',wait_until='networkidle')
+        resp=page.goto(f'{BASE}/{name}.html',wait_until='networkidle')
         page.wait_for_timeout(800)
         if name!='index':page.wait_for_selector('mjx-container',timeout=30000)
         data=page.evaluate('''() => ({title:document.title, math:document.querySelectorAll('mjx-container').length,
@@ -48,7 +49,7 @@ with sync_playwright() as pw:
     page.wait_for_function("document.querySelector('[data-lab=circuit] output').textContent.includes('p=0.00')")
     assert 'empirical average full state=0.000' in page.locator('[data-lab="circuit"] output').inner_text()
     # Check light/dark and a narrow screen without persistent user settings.
-    page.goto('http://127.0.0.1:4242/01-state-information.html',wait_until='networkidle')
+    page.goto(f'{BASE}/01-state-information.html',wait_until='networkidle')
     page.locator('.quarto-color-scheme-toggle').click()
     page.wait_for_function("document.body.classList.contains('quarto-dark')")
     page.wait_for_timeout(400)
@@ -61,7 +62,7 @@ with sync_playwright() as pw:
     assert page.evaluate('document.documentElement.scrollWidth<=window.innerWidth+3'),'mobile page overflow'
     assert not errors,errors
     browser.close()
-record={'pages':results,'interactive_limits':'p=0 and p=1 passed; slider output changed',
+record={'base_url':BASE,'pages':results,'interactive_limits':'p=0 and p=1 passed; slider output changed',
         'page_errors':errors,'screenshots':str(OUT),'browser':'isolated headless Google Chrome'}
 (ROOT/'research/browser-check.json').write_text(json.dumps(record,indent=2)+'\n')
 print('Six served pages, MathJax, image loading, interactive limits, dark/mobile screenshots passed.')

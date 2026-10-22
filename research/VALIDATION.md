@@ -68,5 +68,19 @@ The GitHub repository is public and GitHub Pages is configured for a workflow
 build. The publication workflow renders both editions from the committed sources,
 audits the output, then deploys it. The first cloud build exposed a browser-dependent Mermaid conversion stall in
 chapter 8. The diagram was replaced by a reproducible PNG/vector-PDF figure,
-eliminating build-time browser conversion. The final deployment result and public
-HTTP checks will be added once completed.
+eliminating build-time browser conversion. The corrected build and deployment
+both passed in workflow run
+[39777339717](https://github.com/xing-phys/quantum-many-body-dynamics/actions/runs/39777339717),
+for scientific-release commit `5846f06`.
+
+The public book is <https://xing-phys.github.io/quantum-many-body-dynamics/>.
+Public checks returned HTTP 200 for all 38 pages and five representative
+downloads/assets (43 endpoints total), including a valid 209-page PDF. The same
+six-page browser checks passed against the public URL, including MathJax, image
+loading, light/dark and narrow-screen layouts, and interactive limits. Search
+returned the GHD chapter, selecting the result navigated there, and the PDF
+download returned a PDF document. See `publication-check.json`,
+`browser-check.json`, and `acceptance-checks.json`.
+
+This documentation update preserves the verification of that scientific release;
+subsequent builds also deploy the record itself.
